@@ -9,18 +9,956 @@
       "airport": "SBCT",
       "runway": "15",
       "procedureType": "RNAV 1 / RNP 1",
-      "source": { "document": "Cartas/sbct star.pdf", "chart": "SBCT_STAR_03O", "page": 1, "airac": "AMDT 2604A0, 16 APR 2026" },
+      "source": {
+        "document": "Cartas/sbct star.pdf",
+        "chart": "SBCT_STAR_03O",
+        "page": 1,
+        "airac": "AMDT 2604A0, 16 APR 2026"
+      },
       "transitions": [
-        { "id": "DALIG", "name": "DALIG 1A", "sequence": ["DALIG", "CT138", "CT139", "SIBUM"], "pointLabels": { "CT138": "9000'", "CT139": "9000'", "SIBUM": "7500' (IAF)" } },
-        { "id": "RAXIT", "name": "RAXIT 1A", "sequence": ["RAXIT", "EKAPU", "CT131", "CT132", "CT133", "CT134", "SOVTA"], "pointLabels": { "EKAPU": "FL220 / FL200", "CT131": "FL180", "CT133": "FL110", "SOVTA": "7500' (IAF)" } },
-        { "id": "UMGUL", "name": "UMGUL 1A", "sequence": ["UMGUL", "CT136", "CT137", "CT138", "CT139", "SIBUM"], "pointLabels": { "CT138": "9000'", "CT139": "9000'", "SIBUM": "7500' (IAF)" } },
-        { "id": "GEGOB", "name": "Transição GEGOB", "sequence": ["GEGOB", "DALIG", "CT138", "CT139", "SIBUM"], "pointLabels": { "CT138": "9000'", "CT139": "9000'", "SIBUM": "7500' (IAF)" } },
-        { "id": "PAPIP", "name": "Transição PAPIP", "sequence": ["PAPIP", "DALIG", "CT138", "CT139", "SIBUM"], "pointLabels": { "CT138": "9000'", "CT139": "9000'", "SIBUM": "7500' (IAF)" } }
+        {
+          "id": "DALIG",
+          "name": "DALIG 1A",
+          "sequence": [
+            "DALIG",
+            "CT139",
+            "SIBUM"
+          ],
+          "pointLabels": {
+            "CT139": "+9000'",
+            "SIBUM": "+7000' (IAF)"
+          },
+          "segments": [
+            {
+              "from": "DALIG",
+              "to": "CT139",
+              "courseMag": 162.12,
+              "distanceNm": 14.49
+            },
+            {
+              "from": "CT139",
+              "to": "SIBUM",
+              "courseMag": 162.07,
+              "distanceNm": 7.72
+            }
+          ]
+        },
+        {
+          "id": "RAXIT",
+          "name": "RAXIT 1A",
+          "sequence": [
+            "RAXIT",
+            "EKAPU",
+            "CT131",
+            "CT132",
+            "CT133",
+            "CT134",
+            "SOVTA"
+          ],
+          "pointLabels": {
+            "EKAPU": "BETWEEN FL200 AND FL220",
+            "CT131": "AT OR BELOW FL180",
+            "CT133": "AT OR BELOW FL110",
+            "SOVTA": "AT OR ABOVE 7500' (IAF)"
+          },
+          "segments": [
+            {
+              "from": "RAXIT",
+              "to": "EKAPU",
+              "courseMag": 244.19,
+              "distanceNm": 45.82
+            },
+            {
+              "from": "EKAPU",
+              "to": "CT131",
+              "courseMag": 264.62,
+              "distanceNm": 10.76
+            },
+            {
+              "from": "CT131",
+              "to": "CT132",
+              "courseMag": 264.54,
+              "distanceNm": 13.02
+            },
+            {
+              "from": "CT132",
+              "to": "CT133",
+              "courseMag": 264.67,
+              "distanceNm": 8.18
+            },
+            {
+              "from": "CT133",
+              "to": "CT134",
+              "courseMag": 286.81,
+              "distanceNm": 10.41
+            },
+            {
+              "from": "CT134",
+              "to": "SOVTA",
+              "courseMag": 265.75,
+              "distanceNm": 15.25
+            }
+          ]
+        },
+        {
+          "id": "UMGUL",
+          "name": "UMGUL 1A",
+          "sequence": [
+            "UMGUL",
+            "CT136",
+            "CT137",
+            "CT138",
+            "SIBUM"
+          ],
+          "pointLabels": {
+            "CT138": "AT OR ABOVE 9000'",
+            "SIBUM": "AT OR ABOVE 7000' (IAF)"
+          },
+          "segments": [
+            {
+              "from": "UMGUL",
+              "to": "CT136",
+              "courseMag": 195.87,
+              "distanceNm": 64.73
+            },
+            {
+              "from": "CT136",
+              "to": "CT137",
+              "courseMag": 195.61,
+              "distanceNm": 10.27
+            },
+            {
+              "from": "CT137",
+              "to": "CT138",
+              "courseMag": 195.57,
+              "distanceNm": 12.68
+            },
+            {
+              "from": "CT138",
+              "to": "SIBUM",
+              "courseMag": 195.51,
+              "distanceNm": 7.77
+            }
+          ]
+        },
+        {
+          "id": "GEGOB",
+          "name": "Transição GEGOB",
+          "sequence": [
+            "GEGOB",
+            "DALIG",
+            "CT139",
+            "SIBUM"
+          ],
+          "pointLabels": {
+            "CT139": "+9000'",
+            "SIBUM": "+7000' (IAF)"
+          }
+        },
+        {
+          "id": "PAPIP",
+          "name": "Transição PAPIP",
+          "sequence": [
+            "PAPIP",
+            "DALIG",
+            "CT139",
+            "SIBUM"
+          ],
+          "pointLabels": {
+            "CT139": "+9000'",
+            "SIBUM": "+7000' (IAF)"
+          }
+        }
       ],
       "connections": [
-        { "fromTransition": "RAXIT", "waypoint": "SOVTA", "toProcedure": null, "connectionStatus": "not-confirmed" },
-        { "fromTransition": "DALIG", "waypoint": "SIBUM", "toProcedure": null, "connectionStatus": "not-confirmed" }
+        {
+          "fromTransition": "RAXIT",
+          "waypoint": "SOVTA",
+          "toProcedure": null,
+          "connectionStatus": "not-confirmed"
+        },
+        {
+          "fromTransition": "DALIG",
+          "waypoint": "SIBUM",
+          "toProcedure": null,
+          "connectionStatus": "not-confirmed"
+        },
+        {
+          "fromTransition": "UMGUL",
+          "waypoint": "SIBUM",
+          "toProcedure": null,
+          "connectionStatus": "not-confirmed"
+        }
       ]
+    },
+    {
+      "id": "SBCT-STAR-RNAV-DODRA-1B-RWY33",
+      "name": "RNAV DODRA 1B",
+      "type": "STAR",
+      "airport": "SBCT",
+      "runway": "33",
+      "procedureType": "RNP 1 / RNAV 1",
+      "source": {
+        "document": "Cartas/sbct star.pdf",
+        "chart": "SBCT_STAR_03N",
+        "page": 2,
+        "airac": "AMDT 2606A1, 11 JUN 2026"
+      },
+      "transitions": [
+        {
+          "id": "UMGUL",
+          "name": "Transição UMGUL",
+          "sequence": [
+            "UMGUL",
+            "CT136",
+            "CT138",
+            "DODRA"
+          ],
+          "pointLabels": {
+            "DODRA": "AT OR BELOW FL130"
+          },
+          "segments": [
+            {
+              "from": "UMGUL",
+              "to": "CT136",
+              "courseMag": 195.87,
+              "distanceNm": 64.73
+            },
+            {
+              "from": "CT136",
+              "to": "CT138",
+              "courseMag": 195.61,
+              "distanceNm": 22.95
+            },
+            {
+              "from": "CT138",
+              "to": "DODRA",
+              "courseMag": 197.77,
+              "distanceNm": 16.26
+            }
+          ]
+        },
+        {
+          "id": "GEGOB",
+          "name": "Transição GEGOB",
+          "sequence": [
+            "GEGOB",
+            "CT168",
+            "CT138",
+            "DODRA"
+          ],
+          "pointLabels": {
+            "DODRA": "AT OR BELOW FL130"
+          },
+          "segments": [
+            {
+              "from": "GEGOB",
+              "to": "CT168",
+              "courseMag": 159.31,
+              "distanceNm": 65.41
+            },
+            {
+              "from": "CT168",
+              "to": "CT138",
+              "courseMag": 159.13,
+              "distanceNm": 16.5
+            },
+            {
+              "from": "CT138",
+              "to": "DODRA",
+              "courseMag": 197.77,
+              "distanceNm": 16.26
+            }
+          ]
+        },
+        {
+          "id": "PAPIP",
+          "name": "Transição PAPIP",
+          "sequence": [
+            "PAPIP",
+            "CT167",
+            "CT166",
+            "DODRA"
+          ],
+          "pointLabels": {
+            "CT166": "AT OR ABOVE FL150",
+            "DODRA": "AT OR BELOW FL130"
+          },
+          "segments": [
+            {
+              "from": "PAPIP",
+              "to": "CT167",
+              "courseMag": 146.76,
+              "distanceNm": 60.84
+            },
+            {
+              "from": "CT167",
+              "to": "CT166",
+              "courseMag": 146.65,
+              "distanceNm": 15.42
+            },
+            {
+              "from": "CT166",
+              "to": "DODRA",
+              "courseMag": 146.61,
+              "distanceNm": 11.77
+            }
+          ]
+        },
+        {
+          "id": "RWY",
+          "name": "Procedimento principal / RWY",
+          "sequence": [
+            "DODRA",
+            "CT164",
+            "ALGUD"
+          ],
+          "pointLabels": {
+            "DODRA": "AT OR ABOVE FL130",
+            "CT164": "AT OR ABOVE 9000'",
+            "ALGUD": "AT OR ABOVE 7000' (IAF)"
+          },
+          "segments": [
+            {
+              "from": "DODRA",
+              "to": "CT164",
+              "courseMag": 154.82,
+              "distanceNm": 13.24
+            },
+            {
+              "from": "CT164",
+              "to": "ALGUD",
+              "courseMag": 154.78,
+              "distanceNm": 7.99
+            }
+          ]
+        }
+      ],
+      "connections": []
+    },
+    {
+      "id": "SBCT-STAR-RNAV-MUBOM-RAXIT-1B-2B-RWY33",
+      "name": "RNAV MUBOM 1B - RAXIT 2B",
+      "type": "STAR",
+      "airport": "SBCT",
+      "runway": "33",
+      "procedureType": "RNAV 1 / RNP 1",
+      "source": {
+        "document": "Cartas/sbct star.pdf",
+        "chart": "SBCT_STAR_03P",
+        "page": 3,
+        "airac": "AMDT 2606A1, 11 JUN 2026; coding table 05 SEP 2024"
+      },
+      "transitions": [
+        {
+          "id": "PUNTO",
+          "name": "Transição PUNTO",
+          "sequence": [
+            "PUNTO",
+            "CT163",
+            "CT162",
+            "MUBOM"
+          ],
+          "pointLabels": {
+            "CT162": "AT OR ABOVE FL160",
+            "MUBOM": "AT OR BELOW FL110 (IAF)"
+          },
+          "segments": [
+            {
+              "from": "PUNTO",
+              "to": "CT163",
+              "courseMag": 143.68,
+              "distanceNm": 4.4
+            },
+            {
+              "from": "CT163",
+              "to": "CT162",
+              "courseMag": 143.94,
+              "distanceNm": 20.21
+            },
+            {
+              "from": "CT162",
+              "to": "MUBOM",
+              "courseMag": 143.9,
+              "distanceNm": 18.89
+            }
+          ]
+        },
+        {
+          "id": "VUGUP",
+          "name": "Transição VUGUP",
+          "sequence": [
+            "VUGUP",
+            "CT161",
+            "MUBOM"
+          ],
+          "pointLabels": {
+            "MUBOM": "AT OR BELOW FL110 (IAF)"
+          },
+          "segments": [
+            {
+              "from": "VUGUP",
+              "to": "CT161",
+              "courseMag": 65.74,
+              "distanceNm": 11.88
+            },
+            {
+              "from": "CT161",
+              "to": "MUBOM",
+              "courseMag": 65.78,
+              "distanceNm": 19.65
+            }
+          ]
+        },
+        {
+          "id": "RAXIT",
+          "name": "RAXIT 2B",
+          "sequence": [
+            "RAXIT",
+            "EKAPU",
+            "LIVEG",
+            "LOKEP",
+            "VUKUN",
+            "GATUV",
+            "EDSUR"
+          ],
+          "pointLabels": {
+            "EKAPU": "BETWEEN FL200 AND FL220",
+            "LIVEG": "AT OR BELOW FL180",
+            "LOKEP": "AT OR BELOW FL150",
+            "GATUV": "AT OR ABOVE 8000'",
+            "EDSUR": "AT OR ABOVE 7000' (IAF)",
+            "VUKUN": "AT OR ABOVE 9000'"
+          },
+          "segments": [
+            {
+              "from": "RAXIT",
+              "to": "EKAPU",
+              "courseMag": 244.19,
+              "distanceNm": 45.82
+            },
+            {
+              "from": "EKAPU",
+              "to": "LIVEG",
+              "courseMag": 244.06,
+              "distanceNm": 11.99
+            },
+            {
+              "from": "LIVEG",
+              "to": "LOKEP",
+              "courseMag": 247.92,
+              "distanceNm": 10.45
+            },
+            {
+              "from": "LOKEP",
+              "to": "VUKUN",
+              "courseMag": 247.89,
+              "distanceNm": 18.06
+            },
+            {
+              "from": "VUKUN",
+              "to": "GATUV",
+              "courseMag": 247.84,
+              "distanceNm": 6.31
+            },
+            {
+              "from": "GATUV",
+              "to": "EDSUR",
+              "courseMag": 247.82,
+              "distanceNm": 5.36
+            }
+          ]
+        }
+      ],
+      "connections": [
+        {
+          "fromTransition": "PUNTO",
+          "waypoint": "MUBOM",
+          "toProcedure": null,
+          "connectionStatus": "not-confirmed"
+        },
+        {
+          "fromTransition": "VUGUP",
+          "waypoint": "MUBOM",
+          "toProcedure": null,
+          "connectionStatus": "not-confirmed"
+        },
+        {
+          "fromTransition": "RAXIT",
+          "waypoint": "EDSUR",
+          "toProcedure": null,
+          "connectionStatus": "not-confirmed"
+        }
+      ]
+    },
+    {
+      "id": "SBCT-STAR-RNAV-DODLU-1A-RWY15",
+      "name": "RNAV DODLU 1A",
+      "type": "STAR",
+      "airport": "SBCT",
+      "runway": "15",
+      "procedureType": "RNP 1 / RNAV 1",
+      "source": {
+        "document": "Cartas/sbct star.pdf",
+        "chart": "SBCT_STAR_03M",
+        "page": 4,
+        "airac": "AIRAC AMDT 2311A1, 02 NOV 2023"
+      },
+      "transitions": [
+        {
+          "id": "VUGUP",
+          "name": "Transição VUGUP",
+          "sequence": [
+            "VUGUP",
+            "CT143",
+            "CT144",
+            "DODLU"
+          ],
+          "pointLabels": {
+            "DODLU": "AT OR BELOW 8000'"
+          },
+          "segments": [
+            {
+              "from": "VUGUP",
+              "to": "CT143",
+              "courseMag": 39.51,
+              "distanceNm": 15.28
+            },
+            {
+              "from": "CT143",
+              "to": "CT144",
+              "courseMag": 39.6,
+              "distanceNm": 13.22
+            },
+            {
+              "from": "CT144",
+              "to": "DODLU",
+              "courseMag": 39.66,
+              "distanceNm": 19.03
+            }
+          ]
+        },
+        {
+          "id": "PUNTO",
+          "name": "Transição PUNTO",
+          "sequence": [
+            "PUNTO",
+            "CT142",
+            "DODLU"
+          ],
+          "pointLabels": {
+            "CT142": "AT OR ABOVE 9000'",
+            "DODLU": "AT OR BELOW 8000'"
+          },
+          "segments": [
+            {
+              "from": "PUNTO",
+              "to": "CT142",
+              "courseMag": 113.15,
+              "distanceNm": 22.08
+            },
+            {
+              "from": "CT142",
+              "to": "DODLU",
+              "courseMag": 112.1,
+              "distanceNm": 7.44
+            }
+          ]
+        },
+        {
+          "id": "RWY",
+          "name": "Procedimento principal / RWY",
+          "sequence": [
+            "DODLU",
+            "DODRA"
+          ],
+          "pointLabels": {
+            "DODLU": "AT OR BELOW 8000'",
+            "DODRA": "AT OR ABOVE 7500' (IAF)"
+          },
+          "segments": [
+            {
+              "from": "DODLU",
+              "to": "DODRA",
+              "courseMag": 64.6,
+              "distanceNm": 9.63
+            }
+          ]
+        }
+      ],
+      "connections": []
+    },
+    {
+      "id": "SBCT-IAC-ILS-X-CAT-I-II-RWY15",
+      "name": "ILS X CAT I & II RWY 15",
+      "type": "IAC",
+      "airport": "SBCT",
+      "runway": "15",
+      "procedureType": "ILS / LOC",
+      "source": {
+        "document": "AISWEB / AIP BRASIL",
+        "chart": "SBCT_IAC_00Q",
+        "page": 1,
+        "airac": "AMDT 2606A1, 11 JUN 2026"
+      },
+      "transitions": [
+        {
+          "id": "SOVTA",
+          "name": "IAF SOVTA",
+          "sequence": [
+            "SOVTA",
+            "TEDUG",
+            "PULAR",
+            "CT112"
+          ],
+          "pointLabels": {
+            "SOVTA": "AT OR ABOVE 7500'",
+            "TEDUG": "AT OR ABOVE 6000'",
+            "PULAR": "AT 4620'",
+            "CT112": "AT OR BELOW 3759'"
+          },
+          "segments": [
+            {
+              "from": "SOVTA",
+              "to": "TEDUG",
+              "courseMag": 244.55,
+              "distanceNm": 6.01
+            },
+            {
+              "from": "TEDUG",
+              "to": "PULAR",
+              "courseMag": 154.95,
+              "distanceNm": 5
+            },
+            {
+              "from": "PULAR",
+              "to": "CT112",
+              "courseMag": 154.95,
+              "distanceNm": 2.7
+            }
+          ]
+        },
+        {
+          "id": "DODRA",
+          "name": "IAF DODRA",
+          "sequence": [
+            "DODRA",
+            "TEDUG",
+            "PULAR",
+            "CT112"
+          ],
+          "pointLabels": {
+            "DODRA": "AT OR ABOVE 7500'",
+            "TEDUG": "AT OR ABOVE 6000'",
+            "PULAR": "AT 4620'",
+            "CT112": "AT OR BELOW 3759'"
+          },
+          "segments": [
+            {
+              "from": "DODRA",
+              "to": "TEDUG",
+              "courseMag": 64.78,
+              "distanceNm": 6
+            },
+            {
+              "from": "TEDUG",
+              "to": "PULAR",
+              "courseMag": 154.95,
+              "distanceNm": 5
+            },
+            {
+              "from": "PULAR",
+              "to": "CT112",
+              "courseMag": 154.95,
+              "distanceNm": 2.7
+            }
+          ]
+        },
+        {
+          "id": "SIBUM",
+          "name": "IAF SIBUM",
+          "sequence": [
+            "SIBUM",
+            "TEDUG",
+            "PULAR",
+            "CT112"
+          ],
+          "pointLabels": {
+            "SIBUM": "AT OR ABOVE 7500'",
+            "TEDUG": "AT OR ABOVE 6000'",
+            "PULAR": "AT 4620'",
+            "CT112": "AT OR BELOW 3759'"
+          },
+          "segments": [
+            {
+              "from": "SIBUM",
+              "to": "TEDUG",
+              "courseMag": 155.05,
+              "distanceNm": 6
+            },
+            {
+              "from": "TEDUG",
+              "to": "PULAR",
+              "courseMag": 154.95,
+              "distanceNm": 5
+            },
+            {
+              "from": "PULAR",
+              "to": "CT112",
+              "courseMag": 154.95,
+              "distanceNm": 2.7
+            }
+          ]
+        },
+        {
+          "id": "MISSED",
+          "name": "Aproximação perdida",
+          "sequence": [
+            "CT171"
+          ],
+          "pointLabels": {
+            "CT171": "6000–8000'"
+          },
+          "segments": []
+        }
+      ],
+      "connections": []
+    },
+    {
+      "id": "SBCT-IAC-ILS-Z-LOC-Z-CAT-I-II-RWY15",
+      "name": "ILS Z OR LOC Z CAT I & II RWY 15",
+      "type": "IAC",
+      "airport": "SBCT",
+      "runway": "15",
+      "procedureType": "ILS / LOC",
+      "source": {
+        "document": "AISWEB / AIP BRASIL",
+        "chart": "SBCT_IAC_03Y",
+        "page": 1,
+        "airac": "AMDT 2606A1, 11 JUN 2026"
+      },
+      "transitions": [
+        {
+          "id": "DODRA",
+          "name": "IAF DODRA",
+          "sequence": [
+            "DODRA",
+            "TEDUG",
+            "PULAR",
+            "CT112"
+          ],
+          "pointLabels": {
+            "DODRA": "AT OR ABOVE 7500'",
+            "TEDUG": "AT OR ABOVE 6000'",
+            "PULAR": "AT OR ABOVE 4620'",
+            "CT112": "AT OR BELOW 3759'"
+          },
+          "segments": [
+            {
+              "from": "DODRA",
+              "to": "TEDUG",
+              "courseMag": 154.93,
+              "distanceNm": 1.59
+            },
+            {
+              "from": "TEDUG",
+              "to": "PULAR",
+              "courseMag": 154.95,
+              "distanceNm": 5
+            },
+            {
+              "from": "PULAR",
+              "to": "CT112",
+              "courseMag": 154.95,
+              "distanceNm": 2.7
+            }
+          ]
+        },
+        {
+          "id": "SOVTA",
+          "name": "IAF SOVTA",
+          "sequence": [
+            "SOVTA",
+            "TEDUG",
+            "PULAR",
+            "CT112"
+          ],
+          "pointLabels": {
+            "SOVTA": "AT OR ABOVE 7500'",
+            "TEDUG": "AT OR ABOVE 6000'",
+            "PULAR": "AT OR ABOVE 4620'",
+            "CT112": "AT OR BELOW 3759'"
+          },
+          "segments": [
+            {
+              "from": "SOVTA",
+              "to": "TEDUG",
+              "courseMag": 154.93,
+              "distanceNm": 1.5
+            },
+            {
+              "from": "TEDUG",
+              "to": "PULAR",
+              "courseMag": 154.95,
+              "distanceNm": 5
+            },
+            {
+              "from": "PULAR",
+              "to": "CT112",
+              "courseMag": 154.95,
+              "distanceNm": 2.7
+            }
+          ]
+        },
+        {
+          "id": "MISSED",
+          "name": "Aproximação perdida",
+          "sequence": [
+            "ANGOG"
+          ],
+          "pointLabels": {
+            "ANGOG": "6000–8000'"
+          },
+          "segments": []
+        }
+      ],
+      "connections": []
+    },
+    {
+      "id": "SBCT-IAC-RNP-Z-RWY15",
+      "name": "RNP Z RWY 15",
+      "type": "IAC",
+      "airport": "SBCT",
+      "runway": "15",
+      "procedureType": "RNP APCH",
+      "source": {
+        "document": "AISWEB / AIP BRASIL",
+        "chart": "SBCT_IAC_01E",
+        "page": 1,
+        "airac": "AMDT 2606A1, 11 JUN 2026"
+      },
+      "transitions": [
+        {
+          "id": "SOVTA",
+          "name": "IAF SOVTA",
+          "sequence": [
+            "SOVTA",
+            "TEDUG",
+            "PULAR",
+            "CT005"
+          ],
+          "pointLabels": {
+            "SOVTA": "AT OR ABOVE 7500'",
+            "TEDUG": "AT OR ABOVE 6000'",
+            "PULAR": "AT OR ABOVE 4670'",
+            "CT005": "AT OR BELOW 3779'"
+          },
+          "segments": [
+            {
+              "from": "SOVTA",
+              "to": "TEDUG",
+              "courseMag": 244.55,
+              "distanceNm": 6.01
+            },
+            {
+              "from": "TEDUG",
+              "to": "PULAR",
+              "courseMag": 154.93,
+              "distanceNm": 5
+            },
+            {
+              "from": "PULAR",
+              "to": "CT005",
+              "courseMag": 154.96,
+              "distanceNm": 2.7
+            }
+          ]
+        },
+        {
+          "id": "DODRA",
+          "name": "IAF DODRA",
+          "sequence": [
+            "DODRA",
+            "TEDUG",
+            "PULAR",
+            "CT005"
+          ],
+          "pointLabels": {
+            "DODRA": "AT OR ABOVE 7500'",
+            "TEDUG": "AT OR ABOVE 6000'",
+            "PULAR": "AT OR ABOVE 4670'",
+            "CT005": "AT OR BELOW 3779'"
+          },
+          "segments": [
+            {
+              "from": "DODRA",
+              "to": "TEDUG",
+              "courseMag": 64.78,
+              "distanceNm": 6
+            },
+            {
+              "from": "TEDUG",
+              "to": "PULAR",
+              "courseMag": 154.93,
+              "distanceNm": 5
+            },
+            {
+              "from": "PULAR",
+              "to": "CT005",
+              "courseMag": 154.96,
+              "distanceNm": 2.7
+            }
+          ]
+        },
+        {
+          "id": "SIBUM",
+          "name": "IAF SIBUM",
+          "sequence": [
+            "SIBUM",
+            "TEDUG",
+            "PULAR",
+            "CT005"
+          ],
+          "pointLabels": {
+            "SIBUM": "AT OR ABOVE 7500'",
+            "TEDUG": "AT OR ABOVE 6000'",
+            "PULAR": "AT OR ABOVE 4670'",
+            "CT005": "AT OR BELOW 3779'"
+          },
+          "segments": [
+            {
+              "from": "SIBUM",
+              "to": "TEDUG",
+              "courseMag": 155.05,
+              "distanceNm": 6
+            },
+            {
+              "from": "TEDUG",
+              "to": "PULAR",
+              "courseMag": 154.93,
+              "distanceNm": 5
+            },
+            {
+              "from": "PULAR",
+              "to": "CT005",
+              "courseMag": 154.96,
+              "distanceNm": 2.7
+            }
+          ]
+        },
+        {
+          "id": "MISSED",
+          "name": "Aproximação perdida",
+          "sequence": [
+            "CT171"
+          ],
+          "pointLabels": {
+            "CT171": "6000–8000'"
+          },
+          "segments": []
+        }
+      ],
+      "connections": []
     },
     {
       "id": "SBCT-IAC-VOR-Z-RWY15",
@@ -28,12 +966,121 @@
       "type": "IAC",
       "airport": "SBCT",
       "runway": "15",
-      "procedureType": "VOR/DME",
-      "source": { "document": "Cartas/sbct iac.pdf", "chart": "SBCT_IAC_01A", "page": 12, "airac": "AIRAC AMDT 2606A1, 11 JUN 2026" },
+      "procedureType": "VOR",
+      "source": {
+        "document": "AISWEB / AIP BRASIL",
+        "chart": "SBCT_IAC_01A",
+        "page": 1,
+        "airac": "AMDT 2606A1, 11 JUN 2026"
+      },
       "transitions": [
-        { "id": "primary", "name": "Sequência publicada", "sequence": ["DODRA", "ANLIV", "KUDOT"], "pointLabels": { "DODRA": "7500' (IAF)", "ANLIV": "5500' (IF)", "KUDOT": "4670' (FAF)" }, "terminal": { "type": "MAPT", "label": "RWY 15", "coordinateReference": "not-in-waypoints" } }
+        {
+          "id": "SOVTA",
+          "name": "IAF SOVTA",
+          "sequence": [
+            "SOVTA",
+            "ANLIV",
+            "KUDOT",
+            "CTB12",
+            "CTB16"
+          ],
+          "pointLabels": {
+            "SOVTA": "AT OR ABOVE 7500'",
+            "ANLIV": "AT OR ABOVE 5500'",
+            "KUDOT": "AT 4670'",
+            "CTB12": "AT 3779'",
+            "CTB16": "AT 3022'"
+          },
+          "segments": [
+            {
+              "from": "SOVTA",
+              "to": "ANLIV",
+              "courseMag": 152.5,
+              "distanceNm": 1.5
+            },
+            {
+              "from": "ANLIV",
+              "to": "KUDOT",
+              "courseMag": 152.5,
+              "distanceNm": 5
+            },
+            {
+              "from": "KUDOT",
+              "to": "CTB12",
+              "courseMag": 152.5,
+              "distanceNm": 2.7
+            },
+            {
+              "from": "CTB12",
+              "to": "CTB16",
+              "courseMag": 152.5,
+              "distanceNm": 2.3
+            }
+          ]
+        },
+        {
+          "id": "DODRA",
+          "name": "IAF DODRA",
+          "sequence": [
+            "DODRA",
+            "ANLIV",
+            "KUDOT",
+            "CTB12",
+            "CTB16"
+          ],
+          "pointLabels": {
+            "DODRA": "AT OR ABOVE 7500'",
+            "ANLIV": "AT OR ABOVE 5500'",
+            "KUDOT": "AT 4670'",
+            "CTB12": "AT 3779'",
+            "CTB16": "AT 3022'"
+          },
+          "segments": [
+            {
+              "from": "DODRA",
+              "to": "ANLIV",
+              "courseMag": 152.5,
+              "distanceNm": 1.59
+            },
+            {
+              "from": "ANLIV",
+              "to": "KUDOT",
+              "courseMag": 152.5,
+              "distanceNm": 5
+            },
+            {
+              "from": "KUDOT",
+              "to": "CTB12",
+              "courseMag": 152.5,
+              "distanceNm": 2.7
+            },
+            {
+              "from": "CTB12",
+              "to": "CTB16",
+              "courseMag": 152.5,
+              "distanceNm": 2.3
+            }
+          ]
+        },
+        {
+          "id": "MISSED",
+          "name": "Aproximação perdida",
+          "sequence": [
+            "CTB16",
+            "ANGOG"
+          ],
+          "pointLabels": {
+            "ANGOG": "6000–8000'"
+          },
+          "segments": [
+            {
+              "from": "CTB16",
+              "to": "ANGOG",
+              "courseMag": 305
+            }
+          ]
+        }
       ],
-      "missedApproach": { "publishedText": "Subir para 6000'. Manter rumo 153 até 3600'. Após, curvar à DIREITA proa 305 para interceptar RDL 244 do VOR CTB até ANGOG para espera.", "sequence": ["ANGOG"], "status": "partially-represented", "note": "A posição VOR CTB e o MAPT não são waypoints da base; não foram inventadas coordenadas para desenhar esses trechos." },
       "connections": []
     }
   ]

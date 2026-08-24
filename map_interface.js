@@ -5,12 +5,154 @@ const aerodromesGroup = L.layerGroup().addTo(map), navaidsGroup = L.layerGroup()
 const activeMarkers = {}, selectedWaypointMarkers = new Map();
 let aeronauticalData = { aerodromes: [], navaids: [], fixes: [], tmas: [] }, waypointFeatures = [], searchEntries = [], procedures = [], tmaBoundaries = [];
 const activeProcedures = new Map();
+const MAX_MEASUREMENTS = 16;
+let measurements = [];
+let selectedMeasurementId = null;
+let lastMouseLatLng = null;
+let nextMeasurementId = 1;
+let showProcedureAltitudes = true;
 const esc = value => String(value ?? '').replace(/[&<>'"]/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[char]));
 const icon = (id, selected = false) => L.divIcon({ className: 'custom-icon fix-icon', html: selected ? `<div class="selected-waypoint-dot"></div><span class="icon-label">${esc(id)}</span>` : `<div class="icon-shape diamond"></div><span class="icon-label-small">${esc(id)}</span>`, iconSize: [28, 28], iconAnchor: [14, 14] });
+
+const measurementIcon = (label) => L.divIcon({
+    className: 'measure-endpoint-icon',
+    html: `<div class="measure-endpoint-dot"></div><span>${label}</span>`,
+    iconSize: [24, 20],
+    iconAnchor: [6, 10]
+});
+
+function initialBearing(a, b) {
+    const lat1 = a.lat * Math.PI / 180, lat2 = b.lat * Math.PI / 180;
+    const dLon = (b.lng - a.lng) * Math.PI / 180;
+    const y = Math.sin(dLon) * Math.cos(lat2);
+    const x = Math.cos(lat1) * Math.sin(lat2) - Math.sin(lat1) * Math.cos(lat2) * Math.cos(dLon);
+    return (Math.atan2(y, x) * 180 / Math.PI + 360) % 360;
+}
+
+function formatCoord(latlng) { return `${latlng.lat.toFixed(5)}, ${latlng.lng.toFixed(5)}`; }
+
+function measurementDistance(m) {
+    const meters = map.distance(m.origin, m.destination);
+    return { meters, km: meters / 1000, nm: meters / 1852, bearing: initialBearing(m.origin, m.destination) };
+}
+
+function measurementLabel(m) {
+    const d = measurementDistance(m);
+    return `${d.nm.toFixed(2)} NM · ${d.km.toFixed(2)} km · Rumo ${d.bearing.toFixed(1)}°T`;
+}
+
+function selectMeasurement(id) {
+    if (!measurements.some(m => m.id === id)) return;
+    selectedMeasurementId = id;
+    measurements.forEach(m => {
+        if (m.line) m.line.setStyle({ weight: m.id === id ? 4 : 3, opacity: m.id === id ? 1 : .82 });
+    });
+    renderMeasurementStatus();
+}
+
+function createMeasurement(origin, destination) {
+    if (measurements.length >= MAX_MEASUREMENTS) {
+        renderMeasurementStatus('Limite de 16 réguas atingido. Apague uma régua para criar outra.');
+        return;
+    }
+    const id = nextMeasurementId++;
+    const measurement = { id, origin: L.latLng(origin), destination: L.latLng(destination), line: null, originMarker: null, destinationMarker: null, label: null };
+    measurement.line = L.polyline([measurement.origin, measurement.destination], {
+        color: '#ff3b3b', weight: 4, opacity: 1, dashArray: '8, 8', lineCap: 'round', interactive: true
+    }).on('click', () => selectMeasurement(id)).addTo(map);
+    measurement.originMarker = L.marker(measurement.origin, { icon: measurementIcon('O'), interactive: false, zIndexOffset: 2500 }).addTo(map);
+    measurement.destinationMarker = L.marker(measurement.destination, { icon: measurementIcon('F'), interactive: false, zIndexOffset: 2500 }).addTo(map);
+    measurement.label = L.marker(measurement.destination, {
+        icon: L.divIcon({ className: 'measure-label', html: `<div>${measurementLabel(measurement)}</div>`, iconSize: [0, 0], iconAnchor: [0, 28] }),
+        interactive: false, zIndexOffset: 2400
+    }).addTo(map);
+    measurements.push(measurement);
+    selectMeasurement(id);
+}
+
+function removeMeasurement(id) {
+    const index = measurements.findIndex(m => m.id === id);
+    if (index < 0) return;
+    const m = measurements[index];
+    [m.line, m.originMarker, m.destinationMarker, m.label].forEach(layer => layer && map.removeLayer(layer));
+    measurements.splice(index, 1);
+    selectedMeasurementId = measurements.length ? measurements[measurements.length - 1].id : null;
+    if (selectedMeasurementId !== null) selectMeasurement(selectedMeasurementId);
+    else renderMeasurementStatus();
+}
+
+function clearMeasurements() {
+    [...measurements].forEach(m => [m.line, m.originMarker, m.destinationMarker, m.label].forEach(layer => layer && map.removeLayer(layer)));
+    measurements = [];
+    selectedMeasurementId = null;
+    renderMeasurementStatus();
+}
+
+function renderMeasurementStatus(message = '') {
+    const status = document.getElementById('measurement-status');
+    if (!status) return;
+    if (message) {
+        status.innerHTML = `<div class="measure-warning">${esc(message)}</div>`;
+        return;
+    }
+    if (!measurements.length) {
+        status.innerHTML = '<div>Nenhuma régua ativa.</div><div class="measure-hint">O = origem · F = fim · clique em uma régua para selecioná-la · Z = apagar selecionada · X = apagar todas</div>';
+        return;
+    }
+    const selected = measurements.find(m => m.id === selectedMeasurementId) || measurements[measurements.length - 1];
+    const d = measurementDistance(selected);
+    status.innerHTML = `<div><strong>${measurements.length}/16 réguas</strong> · selecionada: <strong>Régua ${selected.id}</strong></div><div class="measure-distance">${d.nm.toFixed(2)} NM · ${d.km.toFixed(2)} km · Rumo ${d.bearing.toFixed(1)}°T</div><div class="measure-coords">O: ${formatCoord(selected.origin)} · F: ${formatCoord(selected.destination)}</div>`;
+}
+
+function setupMeasurementTool() {
+    const clearButton = document.getElementById('clear-measurement');
+    const deleteSelectedButton = document.getElementById('delete-selected-measurement');
+    const status = document.getElementById('measurement-status');
+    map.on('mousemove', event => { lastMouseLatLng = event.latlng; });
+    document.addEventListener('keydown', event => {
+        const tag = event.target?.tagName;
+        if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || event.target?.isContentEditable) return;
+        const key = event.key.toLowerCase();
+        if (key === 'o' && lastMouseLatLng) {
+            if (measurements.length >= MAX_MEASUREMENTS) { renderMeasurementStatus('Limite de 16 réguas atingido. Use Z ou X para apagar.'); event.preventDefault(); return; }
+            window.__measurementOrigin = L.latLng(lastMouseLatLng);
+            status && (status.innerHTML = `<div>Origem definida: <strong>${formatCoord(window.__measurementOrigin)}</strong></div><div>Agora mova o mouse e pressione <strong>F</strong>.</div><div class="measure-hint">Régua ${measurements.length + 1}/16</div>`);
+            event.preventDefault();
+        } else if (key === 'f' && lastMouseLatLng && window.__measurementOrigin) {
+            createMeasurement(window.__measurementOrigin, lastMouseLatLng);
+            window.__measurementOrigin = null;
+            event.preventDefault();
+        } else if (key === 'z') {
+            if (selectedMeasurementId !== null) removeMeasurement(selectedMeasurementId);
+            event.preventDefault();
+        } else if (key === 'x') {
+            clearMeasurements();
+            event.preventDefault();
+        }
+    });
+    clearButton?.addEventListener('click', clearMeasurements);
+    deleteSelectedButton?.addEventListener('click', () => { if (selectedMeasurementId !== null) removeMeasurement(selectedMeasurementId); });
+    renderMeasurementStatus();
+}
+
+function setProcedureAltitudeVisibility(visible) {
+    showProcedureAltitudes = visible;
+    activeProcedures.forEach(item => {
+        item.group.eachLayer(layer => {
+            if (layer._procedureTooltip) {
+                if (visible) layer.bindTooltip(layer._procedureTooltip.text, layer._procedureTooltip.options);
+                else layer.unbindTooltip();
+            }
+        });
+    });
+}
+
 
 Promise.all([fetch('aeronautical_data.json').then(r => r.ok ? r.json() : Promise.reject(Error('aeronautical_data.json indisponível'))), fetch('data/waypoints.json').then(r => r.ok ? r.json() : Promise.reject(Error('data/waypoints.json indisponível — execute scripts/import-waypoints.py'))), fetch('data/procedures.json').then(r => r.ok ? r.json() : Promise.reject(Error('data/procedures.json indisponível'))), fetch('all_tmas_boundaries.json').then(r => r.ok ? r.json() : Promise.reject(Error('all_tmas_boundaries.json indisponível')))])
     .then(([base, waypoints, procedureData, tmaData]) => { aeronauticalData = base; waypointFeatures = waypoints.features || []; procedures = procedureData.procedures || []; tmaBoundaries = tmaData.features || []; renderBaseData(); buildSearchIndex(); setupSearch(); setupProcedureControls(); console.info(`Base de waypoints carregada: ${waypointFeatures.length} registros.`); })
     .catch(error => { console.error(error); document.getElementById('details-content').innerHTML = `<div class="panel-placeholder"><p>Não foi possível carregar a base: ${esc(error.message)}</p></div>`; });
+setupMeasurementTool();
+document.getElementById('toggle-altitudes')?.addEventListener('change', event => setProcedureAltitudeVisibility(event.target.checked));
 
 function renderBaseData() {
     [['aerodromes', 'aerodrome', aerodromesGroup], ['navaids', 'navaid', navaidsGroup]].forEach(([collection, category, group]) => aeronauticalData[collection].forEach(item => {
@@ -58,7 +200,10 @@ function addProcedure(procedure, transition) {
     L.polyline(coords, { color, weight: 4, opacity: .9 }).addTo(group);
     points.forEach((point, index) => {
         const ident = point.properties.ident, restriction = transition.pointLabels?.[ident] || 'Sem restrição adicional transcrita';
-        L.marker([point.properties.latitude, point.properties.longitude], { icon: icon(ident, true), zIndexOffset: 1200 }).bindTooltip(`${ident} — ${restriction}`, { permanent: true, direction: 'top', offset: [0, -10] }).on('click', () => showProcedurePoint(point, procedure, transition, restriction)).addTo(group);
+        const marker = L.marker([point.properties.latitude, point.properties.longitude], { icon: icon(ident, true), zIndexOffset: 1200 });
+        marker._procedureTooltip = { text: `${ident} — ${restriction}`, options: { permanent: true, direction: 'top', offset: [0, -10] } };
+        if (showProcedureAltitudes) marker.bindTooltip(marker._procedureTooltip.text, marker._procedureTooltip.options);
+        marker.on('click', () => showProcedurePoint(point, procedure, transition, restriction)).addTo(group);
     });
     group.addTo(proceduresGroup); activeProcedures.set(key, { group, procedure, transition }); renderActiveProcedures(); focusProcedure(key);
 }

@@ -3,15 +3,132 @@
   "authoritativeReference": "AIP BRASIL.pdf, SBCT AD 2.24: cartas relacionadas devem ser consultadas na AISWEB; as cópias em Cartas/ foram usadas para extrair as sequências e os identificadores de carta.",
   "availableCharts": {
     "SBCT": {
-      "SID": ["OMNI RWY 11/29/15/33", "RNAV EDVEB 1A - GRADE 1A RWY 15", "RNAV EDVEB 1D - GRADE 1D RWY 11", "RNAV EVMUK 1A RWY 15", "RNAV EVMUK 1C RWY 15", "RNAV GILNO 1B RWY 33", "RNAV GILNO 1E - KIGAT 1E RWY 29", "RNAV ISPEP 1B RWY 33", "RNAV ISPEP 1E RWY 29", "RNAV KIGAT 1B RWY 33", "RNAV PONLU 1A - SAVLU 1A RWY 15"],
-      "STAR": ["RNAV DALIG 1A - RAXIT 1A - UMGUL 1A RWY 15", "RNAV DODRA 1B RWY 33", "RNAV MUBOM 1B - RAXIT 2B RWY 33", "RNAV DODLU 1A RWY 15"],
-      "IAC": ["ILS W RWY 33", "ILS Y/LOC Y RWY 33", "ILS Z/LOC Z CAT I & II RWY 15", "RNP RWY 11", "RNP RWY 29", "RNP Y RWY 33", "RNP Z RWY 15", "VOR RWY 11", "VOR RWY 29", "VOR Y RWY 33", "VOR Z RWY 15"]
+      "SID": [
+        "OMNI RWY 11/29/15/33",
+        "RNAV EDVEB 1A - GRADE 1A RWY 15",
+        "RNAV EDVEB 1D - GRADE 1D RWY 11",
+        "RNAV EVMUK 1A RWY 15",
+        "RNAV EVMUK 1C RWY 15",
+        "RNAV GILNO 1B RWY 33",
+        "RNAV GILNO 1E - KIGAT 1E RWY 29",
+        "RNAV ISPEP 1B RWY 33",
+        "RNAV ISPEP 1E RWY 29",
+        "RNAV KIGAT 1B RWY 33",
+        "RNAV PONLU 1A - SAVLU 1A RWY 15"
+      ],
+      "STAR": [
+        "RNAV DALIG 1A - RAXIT 1A - UMGUL 1A RWY 15",
+        "RNAV DODRA 1B RWY 33",
+        "RNAV MUBOM 1B - RAXIT 2B RWY 33",
+        "RNAV DODLU 1A RWY 15"
+      ],
+      "IAC": [
+        "ILS W RWY 33",
+        "ILS Y/LOC Y RWY 33",
+        "ILS Z/LOC Z CAT I & II RWY 15",
+        "RNP RWY 11",
+        "RNP RWY 29",
+        "RNP Y RWY 33",
+        "RNP Z RWY 15",
+        "VOR RWY 11",
+        "VOR RWY 29",
+        "VOR Y RWY 33",
+        "VOR Z RWY 15"
+      ]
     },
-    "SBBI": { "SID": ["OMNI RWY 18/36", "RNAV MUBIP 1B - OGNUK 1B RWY 36", "RNAV NIRNI 1A RWY 18", "RNAV NIRNI 1B RWY 36", "RNAV OPSET 1A RWY 18"], "STAR": ["RNAV EKAPU 1A - 1B RWY 18/36"], "IAC": ["RNP C RWY 36", "RNP Y RWY 36", "RNP Z RWY 18", "RNP Z RWY 36", "VOR Y RWY 18", "VOR Z RWY 36"] },
-    "SBJV": { "SID": ["cartas disponíveis em Cartas/sbjv sid.pdf"], "STAR": ["RNAV RAXIT 1C RWY 15/33"], "IAC": ["cartas disponíveis em Cartas/sbjv iac.pdf"] }
+    "SBBI": {
+      "SID": [
+        "OMNI RWY 18/36",
+        "RNAV MUBIP 1B - OGNUK 1B RWY 36",
+        "RNAV NIRNI 1A RWY 18",
+        "RNAV NIRNI 1B RWY 36",
+        "RNAV OPSET 1A RWY 18"
+      ],
+      "STAR": [
+        "RNAV EKAPU 1A - 1B RWY 18/36"
+      ],
+      "IAC": [
+        "RNP C RWY 36",
+        "RNP Y RWY 36",
+        "RNP Z RWY 18",
+        "RNP Z RWY 36",
+        "VOR Y RWY 18",
+        "VOR Z RWY 36"
+      ]
+    },
+    "SBJV": {
+      "SID": [
+        "cartas disponíveis em Cartas/sbjv sid.pdf"
+      ],
+      "STAR": [
+        "RNAV RAXIT 1C RWY 15/33"
+      ],
+      "IAC": [
+        "cartas disponíveis em Cartas/sbjv iac.pdf"
+      ]
+    }
   },
-  "implemented": ["SBCT STAR RNAV DALIG 1A - RAXIT 1A - UMGUL 1A RWY 15", "SBCT IAC VOR Z RWY 15"],
-  "waypointValidation": { "allReferencedWaypointsFound": true, "missing": [] },
-  "tmaAudit": { "coordinatesFile": "all_tmas_coordinates.json", "boundariesFile": "all_tmas_boundaries.json", "recordsInEach": 40, "sameNames": true, "sameVertices": true, "mapCanonicalFile": "all_tmas_boundaries.json", "reason": "É um FeatureCollection GeoJSON com anéis fechados em ordem longitude/latitude; o arquivo de coordenadas permanece apenas como fonte tabular de auditoria e não é carregado pela interface.", "Curitiba": ["TMA Curitiba SECT 01", "TMA Curitiba SECT 02", "TMA Curitiba SECT 03", "TMA Curitiba 2"], "aipReference": "Os metadados de origem apontam para AIP BRASIL ENR 2.1 61/62; o AIP BRASIL fornecido identifica SBCT e informa, em AD 2.24, que as cartas devem ser consultadas na AISWEB." },
-  "notConfirmed": ["Sequências completas das demais cartas, até que cada segmento seja transcrito e revisado diretamente na respectiva carta.", "Coordenadas para MAPT, cabeceiras e VOR CTB: esses objetos não são waypoints em data/waypoints.json; não foram criadas coordenadas substitutas."]
+  "implemented": [
+    "SBCT STAR RNAV DALIG 1A - RAXIT 1A - UMGUL 1A RWY 15",
+    "SBCT STAR RNAV DODRA 1B RWY 33",
+    "SBCT STAR RNAV MUBOM 1B - RAXIT 2B RWY 33",
+    "SBCT STAR RNAV DODLU 1A RWY 15",
+    "SBCT IAC VOR Z RWY 15"
+  ],
+  "waypointValidation": {
+    "allReferencedWaypointsFound": true,
+    "missing": []
+  },
+  "tmaAudit": {
+    "coordinatesFile": "all_tmas_coordinates.json",
+    "boundariesFile": "all_tmas_boundaries.json",
+    "recordsInEach": 40,
+    "sameNames": true,
+    "sameVertices": true,
+    "mapCanonicalFile": "all_tmas_boundaries.json",
+    "reason": "É um FeatureCollection GeoJSON com anéis fechados em ordem longitude/latitude; o arquivo de coordenadas permanece apenas como fonte tabular de auditoria e não é carregado pela interface.",
+    "Curitiba": [
+      "TMA Curitiba SECT 01",
+      "TMA Curitiba SECT 02",
+      "TMA Curitiba SECT 03",
+      "TMA Curitiba 2"
+    ],
+    "aipReference": "Os metadados de origem apontam para AIP BRASIL ENR 2.1 61/62; o AIP BRASIL fornecido identifica SBCT e informa, em AD 2.24, que as cartas devem ser consultadas na AISWEB."
+  },
+  "notConfirmed": [
+    "Conexões STAR → IAC ainda não foram vinculadas automaticamente; devem ser confirmadas nas IAC correspondentes.",
+    "Coordenadas para MAPT, cabeceiras e VOR CTB: esses objetos não são waypoints em data/waypoints.json; não foram criadas coordenadas substitutas."
+  ],
+  "starAudit": {
+    "SBCT": {
+      "totalProcedures": 4,
+      "implemented": 4,
+      "charts": [
+        {
+          "chart": "SBCT_STAR_03O",
+          "name": "RNAV DALIG 1A - RAXIT 1A - UMGUL 1A",
+          "airac": "2604A0",
+          "status": "implemented"
+        },
+        {
+          "chart": "SBCT_STAR_03N",
+          "name": "RNAV DODRA 1B",
+          "airac": "2606A1",
+          "status": "implemented"
+        },
+        {
+          "chart": "SBCT_STAR_03P",
+          "name": "RNAV MUBOM 1B - RAXIT 2B",
+          "airac": "2606A1 listing; coding source 2409A1",
+          "status": "implemented"
+        },
+        {
+          "chart": "SBCT_STAR_03M",
+          "name": "RNAV DODLU 1A",
+          "airac": "2311A1",
+          "status": "implemented"
+        }
+      ]
+    }
+  }
 }

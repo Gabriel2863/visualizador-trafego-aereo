@@ -467,3 +467,25 @@ body, html {
     transform: rotate(45deg);
     border: 1px solid white;
 }
+
+/* Régua de medição */
+.measurement-section .measure-help { font-size: .82rem; line-height: 1.35; color: #b9c2cc; margin-bottom: 8px; }
+.measurement-status { display: grid; gap: 5px; font-size: .9rem; }
+.measurement-status .measure-distance { font-size: 1.05rem; font-weight: 700; color: #ff4d4d; }
+.measurement-status .measure-coords { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .75rem; color: #9da7b1; }
+.measurement-btn { margin-top: 8px; }
+.measure-endpoint-icon { background: transparent !important; border: 0 !important; position: relative; }
+
+
+/* Controles da régua e visibilidade das restrições */
+.measurement-options { margin: 8px 0 10px; }
+.toggle-row { display: flex; align-items: center; gap: 8px; font-size: .84rem; color: #d6dce2; cursor: pointer; }
+.toggle-row input { accent-color: #00e5ff; width: 16px; height: 16px; }
+.measurement-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.measurement-btn.secondary { opacity: .9; }
+.measure-hint { font-size: .78rem; line-height: 1.35; color: #9da7b1; }
+.measure-warning { color: #ff8a80; font-weight: 700; }
+.measure-endpoint-icon .measure-endpoint-dot { width: 12px; height: 12px; border: 2px solid #ff3b3b; background: #1b1b1b; border-radius: 50%; box-shadow: 0 0 0 2px rgba(255,59,59,.25); }
+.measure-endpoint-icon span { position: absolute; left: 9px; top: -5px; color: #ff4d4d; font-weight: 800; font-size: 12px; text-shadow: 0 1px 2px #000; }
+.measure-label { background: transparent !important; border: 0 !important; }
+.measure-label div { white-space: nowrap; padding: 3px 6px; border: 1px solid rgba(255,59,59,.8); border-radius: 4px; background: rgba(20,10,10,.88); color: #ff6b6b; font-size: 11px; font-weight: 800; text-shadow: 0 1px 2px #000; box-shadow: 0 1px 4px rgba(0,0,0,.4); }
