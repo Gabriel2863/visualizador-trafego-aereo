@@ -11,6 +11,7 @@ Site web interativo para estudo e visualização de dados aeronáuticos.
 - `data/tmas/manifest.json` — lista dos módulos de TMA carregados pelo site
 - `data/tmas/tma-sp.json` — procedimentos IFR vigentes da TMA São Paulo
 - `data/tmas/tma-sp-airports.json` — aeroportos da TMA São Paulo com coordenadas, elevação e fonte AISWEB
+- `data/tmas/tma-sp-sectors.json` — 15 setores oficiais da TMA São Paulo, com limites, classes e frequências
 - `data/tmas/tma-sp-audit.json` — auditoria de cobertura, fontes e divergências da TMA São Paulo
 - `data/procedures.json` — base legada, preservada, mas não carregada pela interface atual
 - `all_tmas_boundaries.json` — geometrias das TMA
@@ -67,6 +68,12 @@ O módulo `tma-sp.json` contém aeroportos, procedimentos SID/STAR/IAC, transiç
 aproximações perdidas, ligações STAR→IAC e pontos terminais publicados que não
 existem — ou divergem — da base geral de waypoints.
 
+O arquivo `tma-sp-sectors.json` substitui, somente para São Paulo, o contorno
+nacional incompleto. Ele contém os setores 01, 02, 02F, 03, 03F, 04 a 13 da
+publicação ENR 2.1 vigente em 06/08/2026. Na interface, o setor com maior área
+visível é identificado automaticamente na aba esquerda; 02F e 03F são desenhados
+com contorno tracejado.
+
 Para reconstruir o módulo a partir das tabelas de codificação oficiais previamente
 baixadas:
 
@@ -96,3 +103,14 @@ milhas náuticas ou quilômetros:
 
 Os atalhos ficam suspensos enquanto o cursor está em um campo de texto ou seleção,
 evitando interferência na pesquisa e nos filtros de procedimentos.
+
+## Layout operacional da TMA São Paulo
+
+Ao aproximar o mapa de São Paulo, a aba esquerda identifica automaticamente o
+setor com maior presença na tela e permite selecionar as pistas de SBSP, SBGR e
+SBKP nas oito combinações usadas como referência nas imagens SAG.
+
+A malha pode ser filtrada separadamente por SID, STAR, ILS/LOC e RNP. Os FIX com
+restrição publicada recebem destaque e mostram altitude/nível e velocidade na
+etiqueta e no painel de detalhes. Restrições são sempre associadas às cartas e
+pistas ativas; valores ausentes não são inferidos.

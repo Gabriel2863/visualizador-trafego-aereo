@@ -13,6 +13,62 @@
         <!-- Área Esquerda: Mapa Interativo -->
         <div id="map-wrapper">
             <div id="map"></div>
+            <aside id="tma-focus-panel" class="tma-focus-panel" aria-live="polite">
+                <button id="tma-focus-toggle" class="tma-focus-toggle" type="button" aria-expanded="true" aria-controls="tma-focus-content" title="Recolher informações da TMA">◀</button>
+                <div id="tma-focus-content" class="tma-focus-content">
+                    <div class="focus-eyebrow"><span class="focus-live-dot"></span> ESPAÇO AÉREO EM FOCO</div>
+                    <h2 id="tma-focus-name">Aproxime o mapa</h2>
+                    <p id="tma-focus-subtitle" class="focus-subtitle">A TMA com maior presença na tela aparecerá aqui.</p>
+
+                    <div class="focus-metrics">
+                        <div><span>Limites</span><strong id="tma-focus-limits">—</strong></div>
+                        <div><span>Classe</span><strong id="tma-focus-class">—</strong></div>
+                        <div><span>Presença</span><strong id="tma-focus-presence">—</strong></div>
+                    </div>
+
+                    <div class="focus-block">
+                        <h3>Informações gerais</h3>
+                        <div id="tma-focus-details" class="focus-detail-list"><p>A identificação começa a partir do zoom 5.</p></div>
+                    </div>
+
+                    <section id="sp-layout-controls" class="sp-layout-controls" hidden>
+                        <div class="focus-block-title">
+                            <div>
+                                <span class="focus-kicker">LAYOUT OPERACIONAL</span>
+                                <h3>TMA São Paulo</h3>
+                            </div>
+                            <strong id="sp-layout-code" class="layout-code">17–28–33</strong>
+                        </div>
+
+                        <div class="runway-grid">
+                            <label>Congonhas <small>SBSP</small><select id="sp-runway-sbsp" class="focus-select"><option value="17">17L/R</option><option value="35">35L/R</option></select></label>
+                            <label>Guarulhos <small>SBGR</small><select id="sp-runway-sbgr" class="focus-select"><option value="10">10L/R</option><option value="28" selected>28L/R</option></select></label>
+                            <label>Viracopos <small>SBKP</small><select id="sp-runway-sbkp" class="focus-select"><option value="15">15</option><option value="33" selected>33</option></select></label>
+                        </div>
+
+                        <div class="layout-type-row" aria-label="Tipos de rota do layout">
+                            <label><input class="layout-type-filter" type="checkbox" value="SID" checked><span class="legend-line sid"></span> SID</label>
+                            <label><input class="layout-type-filter" type="checkbox" value="STAR" checked><span class="legend-line star"></span> STAR</label>
+                            <label><input class="layout-type-filter" type="checkbox" value="ILS" checked><span class="legend-line ils"></span> ILS</label>
+                            <label><input class="layout-type-filter" type="checkbox" value="RNP"><span class="legend-line rnp"></span> RNP</label>
+                        </div>
+
+                        <label class="layout-master-toggle"><input id="sp-layout-enabled" type="checkbox"> Exibir malha IFR desta configuração</label>
+                        <div class="layout-actions">
+                            <button id="sp-layout-fit" class="focus-button" type="button">Enquadrar layout</button>
+                            <button id="sp-layout-clear" class="focus-button secondary" type="button">Limpar</button>
+                        </div>
+
+                        <details class="layout-presets">
+                            <summary>Oito combinações das imagens SAG</summary>
+                            <div id="sp-layout-presets" class="preset-grid"></div>
+                        </details>
+
+                        <p id="sp-layout-status" class="layout-status">Selecione as pistas e ative a malha IFR.</p>
+                        <p class="layout-source-note">Traçados calculados pelas coordenadas dos FIX e tabelas de codificação das cartas. As imagens SAG foram usadas como referência visual, não como camada georreferenciada.</p>
+                    </section>
+                </div>
+            </aside>
         </div>
         
         <!-- Área Direita: Painel de Controle e Pesquisa -->
@@ -82,6 +138,10 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div id="cafe-easter-egg" class="cafe-easter-egg" role="status" aria-label="Café dos Crias" hidden>
+        <img src="assets/cafe-dos-crias.jpg" alt="Emblema Café dos Crias desenvolvimentos" />
     </div>
 
     <!-- Bibliotecas e Scripts da Aplicação -->
