@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "coordinateSource": "data/waypoints.json",
+  "procedures": [
+    {
+      "id": "SBCT-STAR-RNAV-DALIG-RAXIT-UMGUL-1A-RWY15",
+      "name": "RNAV DALIG 1A - RAXIT 1A - UMGUL 1A",
+      "type": "STAR",
+      "airport": "SBCT",
+      "runway": "15",
+      "procedureType": "RNAV 1 / RNP 1",
+      "source": { "document": "Cartas/sbct star.pdf", "chart": "SBCT_STAR_03O", "page": 1, "airac": "AMDT 2604A0, 16 APR 2026" },
+      "transitions": [
+        { "id": "DALIG", "name": "DALIG 1A", "sequence": ["DALIG", "CT138", "CT139", "SIBUM"], "pointLabels": { "CT138": "9000'", "CT139": "9000'", "SIBUM": "7500' (IAF)" } },
+        { "id": "RAXIT", "name": "RAXIT 1A", "sequence": ["RAXIT", "EKAPU", "CT131", "CT132", "CT133", "CT134", "SOVTA"], "pointLabels": { "EKAPU": "FL220 / FL200", "CT131": "FL180", "CT133": "FL110", "SOVTA": "7500' (IAF)" } },
+        { "id": "UMGUL", "name": "UMGUL 1A", "sequence": ["UMGUL", "CT136", "CT137", "CT138", "CT139", "SIBUM"], "pointLabels": { "CT138": "9000'", "CT139": "9000'", "SIBUM": "7500' (IAF)" } },
+        { "id": "GEGOB", "name": "Transição GEGOB", "sequence": ["GEGOB", "DALIG", "CT138", "CT139", "SIBUM"], "pointLabels": { "CT138": "9000'", "CT139": "9000'", "SIBUM": "7500' (IAF)" } },
+        { "id": "PAPIP", "name": "Transição PAPIP", "sequence": ["PAPIP", "DALIG", "CT138", "CT139", "SIBUM"], "pointLabels": { "CT138": "9000'", "CT139": "9000'", "SIBUM": "7500' (IAF)" } }
+      ],
+      "connections": [
+        { "fromTransition": "RAXIT", "waypoint": "SOVTA", "toProcedure": null, "connectionStatus": "not-confirmed" },
+        { "fromTransition": "DALIG", "waypoint": "SIBUM", "toProcedure": null, "connectionStatus": "not-confirmed" }
+      ]
+    },
+    {
+      "id": "SBCT-IAC-VOR-Z-RWY15",
+      "name": "VOR Z RWY 15",
+      "type": "IAC",
+      "airport": "SBCT",
+      "runway": "15",
+      "procedureType": "VOR/DME",
+      "source": { "document": "Cartas/sbct iac.pdf", "chart": "SBCT_IAC_01A", "page": 12, "airac": "AIRAC AMDT 2606A1, 11 JUN 2026" },
+      "transitions": [
+        { "id": "primary", "name": "Sequência publicada", "sequence": ["DODRA", "ANLIV", "KUDOT"], "pointLabels": { "DODRA": "7500' (IAF)", "ANLIV": "5500' (IF)", "KUDOT": "4670' (FAF)" }, "terminal": { "type": "MAPT", "label": "RWY 15", "coordinateReference": "not-in-waypoints" } }
+      ],
+      "missedApproach": { "publishedText": "Subir para 6000'. Manter rumo 153 até 3600'. Após, curvar à DIREITA proa 305 para interceptar RDL 244 do VOR CTB até ANGOG para espera.", "sequence": ["ANGOG"], "status": "partially-represented", "note": "A posição VOR CTB e o MAPT não são waypoints da base; não foram inventadas coordenadas para desenhar esses trechos." },
+      "connections": []
+    }
+  ]
+}

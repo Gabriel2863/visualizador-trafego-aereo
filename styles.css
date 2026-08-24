@@ -1,0 +1,469 @@
+/*
+ * Aeronautical Traffic Study and Visualization - Styles (v1)
+ * Folha de estilos para o layout interativo do mapa, painéis laterais e componentes de pesquisa.
+ */
+
+:root {
+    --bg-dark: #121212;
+    --bg-panel: #1e1e1e;
+    --bg-input: #2d2d2d;
+    --text-primary: #e0e0e0;
+    --text-secondary: #aaaaaa;
+    --accent-blue: #2196f3;
+    --accent-green: #4caf50;
+    --accent-pink: #e91e63;
+    --accent-purple: #9c27b0;
+    --accent-cyan: #00e5ff;
+    --border-color: #333333;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    overflow: hidden;
+}
+
+/* Estrutura Principal do Aplicativo */
+#app-layout {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Área do Mapa (Esquerda) */
+#map-wrapper {
+    position: relative;
+    flex-grow: 1;
+    height: 100%;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Painel de Controle e Detalhes (Direita) */
+#sidebar {
+    width: 380px;
+    height: 100%;
+    background-color: var(--bg-panel);
+    border-left: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+}
+
+/* Sessão Superior do Painel: Pesquisas e Operações */
+.sidebar-section {
+    padding: 16px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-section h2 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-cyan);
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+/* Caixa de Pesquisa de Elementos */
+.search-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.search-input-field {
+    width: 100%;
+    padding: 10px 14px;
+    background-color: var(--bg-input);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-primary);
+    font-size: 13px;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.search-input-field:focus {
+    border-color: var(--accent-blue);
+}
+
+/* Caixa de Auto-sugestões */
+#suggestions-box {
+    position: absolute;
+    top: 42px;
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    max-height: 250px;
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    display: none;
+}
+
+.suggestion-item {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border-color);
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.15s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background: transparent;
+    color: var(--text-primary);
+    text-align: left;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+}
+
+.suggestion-item:hover {
+    background-color: var(--bg-input);
+}
+
+.suggestion-item:last-child {
+    border-bottom: none;
+}
+
+/* Tag de Coordenadas na busca */
+.coord-tag {
+    font-family: monospace;
+    font-size: 10px;
+    color: var(--accent-cyan);
+    background-color: rgba(0, 229, 255, 0.1);
+    padding: 2px 6px;
+    border-radius: 2px;
+    margin-left: 8px;
+}
+
+/* Sessão de Múltiplos Pontos */
+.input-row {
+    display: flex;
+    gap: 8px;
+}
+
+.action-btn {
+    background-color: var(--accent-blue);
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+}
+
+.action-btn:hover {
+    background-color: #1565c0;
+}
+
+.action-btn-secondary {
+    background-color: transparent;
+    border: 1px solid var(--accent-pink);
+    color: var(--accent-pink);
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 12px;
+    width: 100%;
+    transition: background 0.2s;
+}
+
+.action-btn-secondary:hover {
+    background-color: rgba(233, 30, 99, 0.1);
+}
+
+/* Sessão Inferior do Painel: Informações Detalhadas (Role) */
+#details-panel {
+    flex-grow: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#details-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.panel-placeholder {
+    padding: 40px 20px;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.panel-placeholder-icon {
+    font-size: 36px;
+    color: #444;
+    margin-bottom: 12px;
+}
+
+/* Estilos dos cabeçalhos por categoria no Painel */
+.panel-header {
+    padding: 16px;
+    color: white;
+}
+
+.panel-header h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.panel-header .subtitle {
+    margin: 4px 0 0 0;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    opacity: 0.8;
+}
+
+/* Cores de Cabeçalhos */
+.aerodrome-header { background-color: var(--accent-blue); }
+.navaid-header { background-color: var(--accent-green); }
+.fix-header { background-color: #3f51b5; }
+.tma-header { background-color: var(--accent-purple); }
+.route-header { background-color: #0097a7; }
+
+/* Corpo do Painel de Informações */
+.panel-body {
+    padding: 16px;
+}
+
+.info-row {
+    margin-bottom: 12px;
+    display: flex;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding-bottom: 8px;
+    font-size: 13px;
+}
+
+.info-label {
+    width: 120px;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.info-val {
+    flex-grow: 1;
+    color: var(--text-primary);
+}
+
+/* Caixa de Coordenadas Formatadas */
+.coords-box {
+    background-color: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    padding: 12px;
+    border-radius: 4px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 12px;
+}
+
+.coords-box strong {
+    color: var(--accent-cyan);
+    display: inline-block;
+    margin-bottom: 4px;
+}
+
+.mono {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    color: white;
+}
+
+.mono-small {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+
+/* Etiqueta de Fonte */
+.source-tag {
+    font-size: 11px;
+    color: var(--text-secondary);
+    background-color: rgba(255,255,255,0.02);
+    padding: 8px 12px;
+    border-left: 2px solid #555;
+    border-radius: 0 4px 4px 0;
+    line-height: 1.4;
+}
+
+.source-tag strong {
+    color: var(--text-primary);
+}
+
+.compliance {
+    color: var(--accent-green);
+    font-weight: 500;
+}
+
+/* Elementos para Lista de Múltiplos Pontos */
+.multi-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.multi-p-item {
+    background-color: var(--bg-input);
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.multi-p-item:hover {
+    border-color: var(--accent-cyan);
+}
+
+.num-badge {
+    background-color: var(--accent-cyan);
+    color: black;
+    font-weight: bold;
+    font-size: 10px;
+    padding: 1px 6px;
+    border-radius: 10px;
+    margin-right: 6px;
+}
+
+.type-badge {
+    font-size: 9px;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 1px 4px;
+    border-radius: 2px;
+    margin-left: 6px;
+}
+
+.type-badge.aerodrome { background-color: rgba(33, 150, 243, 0.2); color: var(--accent-blue); }
+.type-badge.navaid { background-color: rgba(76, 175, 80, 0.2); color: var(--accent-green); }
+.type-badge.fix { background-color: rgba(63, 81, 181, 0.2); color: #8c9eff; }
+
+.selected-section { max-height: 180px; overflow-y: auto; }
+.selected-points { display: flex; flex-direction: column; gap: 6px; }
+.empty-selection { color: var(--text-secondary); font-size: 12px; }
+.selected-point-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 7px; background: var(--bg-input); border-radius: 4px; font-size: 12px; }
+.selected-point-row > span { cursor: pointer; }
+.selected-point-row button { background: transparent; border: 1px solid var(--accent-pink); border-radius: 3px; color: var(--accent-pink); cursor: pointer; font-size: 10px; padding: 4px 6px; }
+.selected-waypoint-dot { width: 14px; height: 14px; border-radius: 50%; background: #ffeb3b; border: 3px solid #fff; box-shadow: 0 0 12px #ffeb3b; }
+.procedure-controls { display: flex; flex-direction: column; gap: 7px; }
+.procedure-controls .action-btn { align-self: flex-start; }
+.procedure-procedure-line { text-align: left; padding: 7px; border-radius: 4px; border: 1px solid #00e5ff; background: rgba(0,229,255,.06); color: var(--text-primary); cursor: pointer; font-size: 11px; }
+
+/* ── ESTILOS DE COMPONENTES LEAFLET ──────────────────────────────────── */
+
+/* Caixa de controle do Leaflet escura */
+.leaflet-control-layers {
+    background-color: var(--bg-panel) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 6px !important;
+    font-size: 12px !important;
+    padding: 10px !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5) !important;
+}
+
+.leaflet-control-layers-overlays label {
+    margin-bottom: 4px;
+    display: block;
+}
+
+.leaflet-bar a {
+    background-color: var(--bg-panel) !important;
+    color: var(--text-primary) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+}
+
+.leaflet-bar a:hover {
+    background-color: var(--bg-input) !important;
+}
+
+/* Ícone de Ponto Personalizado (Marcadores) */
+.custom-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* REMOVIDO: position: relative; para evitar sobrescrever o position: absolute do Leaflet */
+}
+
+/* Rótulo de identificação de marcadores no mapa */
+.icon-label {
+    position: absolute;
+    bottom: -15px;
+    background-color: rgba(18, 18, 18, 0.85);
+    border: 1px solid #444;
+    color: white;
+    font-size: 9px;
+    font-weight: bold;
+    padding: 1px 4px;
+    border-radius: 2px;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.icon-label-small {
+    position: absolute;
+    bottom: -12px;
+    color: var(--text-secondary);
+    font-size: 8px;
+    font-weight: bold;
+    white-space: nowrap;
+    pointer-events: none;
+    text-shadow: 1px 1px 2px black;
+}
+
+/* Formatos de Marcadores */
+.icon-pulse {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--accent-blue);
+    border: 2px solid white;
+    box-shadow: 0 0 8px rgba(33, 150, 243, 0.8);
+}
+
+.icon-shape.triangle {
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 12px solid var(--accent-green);
+    filter: drop-shadow(0px 0px 4px rgba(76, 175, 80, 0.8));
+}
+
+.navaid-icon.orange .icon-shape.triangle {
+    border-bottom-color: #ff9800;
+}
+
+.icon-shape.diamond {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-cyan);
+    transform: rotate(45deg);
+    border: 1px solid white;
+}

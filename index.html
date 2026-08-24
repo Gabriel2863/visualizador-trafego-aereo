@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudo e Visualização de Tráfego Aéreo - AIP Brasil</title>
+    <!-- Carregamento do CSS do Leaflet para Mapas -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div id="app-layout">
+        <!-- Área Esquerda: Mapa Interativo -->
+        <div id="map-wrapper">
+            <div id="map"></div>
+        </div>
+        
+        <!-- Área Direita: Painel de Controle e Pesquisa -->
+        <div id="sidebar">
+            <div class="sidebar-section">
+                <h2>Pesquisa de Pontos</h2>
+                <div class="search-container">
+                    <input type="text" id="search-input" class="search-input-field" 
+                           placeholder="Buscar waypoint, aeródromo, auxílio ou fixo..." />
+                    <div id="suggestions-box"></div>
+                </div>
+            </div>
+
+            <div class="sidebar-section selected-section">
+                <h2>Pontos selecionados</h2>
+                <div id="selected-points" class="selected-points"><span class="empty-selection">Nenhum waypoint selecionado.</span></div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h2>Estudo de Rotas (Multi-Pontos)</h2>
+                <div class="input-row">
+                    <input type="text" id="multiple-input" class="search-input-field" 
+                           placeholder="Ex: SBBE, BEL, VUMPI, TIPTO, MNS" />
+                    <button class="action-btn" onclick="addMultiplePoints()">Plotar Rota</button>
+                </div>
+            </div>
+
+            <div class="sidebar-section procedure-section">
+                <h2>Procedimentos IFR</h2>
+                <div class="procedure-controls">
+                    <select id="procedure-airport" class="search-input-field" aria-label="Aeródromo"><option value="SBCT">SBCT — Afonso Pena</option></select>
+                    <select id="procedure-type" class="search-input-field" aria-label="Tipo de procedimento"><option value="STAR">STAR</option><option value="IAC">IAC</option><option value="SID">SID</option></select>
+                    <select id="procedure-select" class="search-input-field" aria-label="Procedimento"></select>
+                    <select id="procedure-transition" class="search-input-field" aria-label="Transição"></select>
+                    <button id="add-procedure" class="action-btn" type="button">Adicionar procedimento</button>
+                </div>
+                <div id="active-procedures" class="selected-points"><span class="empty-selection">Nenhum procedimento ativo.</span></div>
+            </div>
+            
+            <!-- Painel Dinâmico de Detalhes -->
+            <div id="details-panel">
+                <div id="details-content">
+                    <div class="panel-placeholder">
+                        <div class="panel-placeholder-icon">✈</div>
+                        <p>Selecione um elemento ou faça uma pesquisa para ver os detalhes oficiais.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bibliotecas e Scripts da Aplicação -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="map_interface.js"></script>
+</body>
+</html>
