@@ -158,6 +158,69 @@ body, html {
     gap: 8px;
 }
 
+.vector-section {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.vector-controls {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+.vector-controls .search-input-field {
+    padding: 7px 10px;
+}
+
+.shortcut-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 12px;
+    margin-top: 10px;
+    color: var(--text-secondary);
+    font-size: 11px;
+}
+
+kbd {
+    display: inline-block;
+    min-width: 18px;
+    padding: 2px 4px;
+    border: 1px solid #555;
+    border-bottom-width: 2px;
+    border-radius: 3px;
+    background: var(--bg-input);
+    color: var(--accent-cyan);
+    font: 700 11px/1 monospace;
+    text-align: center;
+}
+
+.vector-status {
+    margin: 9px 0 0;
+    color: var(--text-secondary);
+    font-size: 11px;
+    line-height: 1.35;
+}
+
+.vector-status.is-drawing {
+    color: #ffd54f;
+}
+
+.vector-distance-label {
+    border: 1px solid #ffd54f;
+    background: rgba(18, 18, 18, 0.92);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+    font-weight: 700;
+}
+
+.vector-distance-label::before {
+    border-top-color: #ffd54f;
+}
+
 .action-btn {
     background-color: var(--accent-blue);
     border: none;
@@ -173,6 +236,11 @@ body, html {
 
 .action-btn:hover {
     background-color: #1565c0;
+}
+
+.action-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.45;
 }
 
 .action-btn-secondary {
@@ -373,6 +441,11 @@ body, html {
 .selected-waypoint-dot { width: 14px; height: 14px; border-radius: 50%; background: #ffeb3b; border: 3px solid #fff; box-shadow: 0 0 12px #ffeb3b; }
 .procedure-controls { display: flex; flex-direction: column; gap: 7px; }
 .procedure-controls .action-btn { align-self: flex-start; }
+.procedure-option { display: flex; align-items: center; gap: 8px; color: var(--text-secondary); font-size: 12px; line-height: 1.35; }
+.procedure-option[hidden] { display: none; }
+.procedure-option input { accent-color: var(--accent-primary); }
+.procedure-text { max-height: 260px; overflow: auto; white-space: pre-wrap; color: var(--text-secondary); background: rgba(0, 0, 0, .22); border: 1px solid var(--border-color); border-radius: 4px; padding: 9px; font-size: 10px; line-height: 1.45; }
+.warning-tag { border-color: rgba(255, 152, 0, .65); color: #ffcc80; }
 .procedure-procedure-line { text-align: left; padding: 7px; border-radius: 4px; border: 1px solid #00e5ff; background: rgba(0,229,255,.06); color: var(--text-primary); cursor: pointer; font-size: 11px; }
 
 /* ── ESTILOS DE COMPONENTES LEAFLET ──────────────────────────────────── */
@@ -468,24 +541,25 @@ body, html {
     border: 1px solid white;
 }
 
-/* Régua de medição */
-.measurement-section .measure-help { font-size: .82rem; line-height: 1.35; color: #b9c2cc; margin-bottom: 8px; }
-.measurement-status { display: grid; gap: 5px; font-size: .9rem; }
-.measurement-status .measure-distance { font-size: 1.05rem; font-weight: 700; color: #ff4d4d; }
-.measurement-status .measure-coords { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .75rem; color: #9da7b1; }
-.measurement-btn { margin-top: 8px; }
-.measure-endpoint-icon { background: transparent !important; border: 0 !important; position: relative; }
+.aerodrome-symbol {
+    width: 19px;
+    height: 19px;
+    display: grid;
+    place-items: center;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    background: #ff9800;
+    color: #111;
+    font-size: 11px;
+    line-height: 1;
+    box-shadow: 0 0 9px rgba(255, 152, 0, 0.9);
+}
 
+.aerodrome-symbol span {
+    transform: rotate(-35deg);
+}
 
-/* Controles da régua e visibilidade das restrições */
-.measurement-options { margin: 8px 0 10px; }
-.toggle-row { display: flex; align-items: center; gap: 8px; font-size: .84rem; color: #d6dce2; cursor: pointer; }
-.toggle-row input { accent-color: #00e5ff; width: 16px; height: 16px; }
-.measurement-actions { display: flex; gap: 8px; flex-wrap: wrap; }
-.measurement-btn.secondary { opacity: .9; }
-.measure-hint { font-size: .78rem; line-height: 1.35; color: #9da7b1; }
-.measure-warning { color: #ff8a80; font-weight: 700; }
-.measure-endpoint-icon .measure-endpoint-dot { width: 12px; height: 12px; border: 2px solid #ff3b3b; background: #1b1b1b; border-radius: 50%; box-shadow: 0 0 0 2px rgba(255,59,59,.25); }
-.measure-endpoint-icon span { position: absolute; left: 9px; top: -5px; color: #ff4d4d; font-weight: 800; font-size: 12px; text-shadow: 0 1px 2px #000; }
-.measure-label { background: transparent !important; border: 0 !important; }
-.measure-label div { white-space: nowrap; padding: 3px 6px; border: 1px solid rgba(255,59,59,.8); border-radius: 4px; background: rgba(20,10,10,.88); color: #ff6b6b; font-size: 11px; font-weight: 800; text-shadow: 0 1px 2px #000; box-shadow: 0 1px 4px rgba(0,0,0,.4); }
+.aerodrome-label {
+    bottom: -16px;
+    border-color: #ff9800;
+}

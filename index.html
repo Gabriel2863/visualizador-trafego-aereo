@@ -26,21 +26,6 @@
                 </div>
             </div>
 
-            <div class="sidebar-section measurement-section">
-                <h2>Régua de distância</h2>
-                <div class="measure-help">Mova o mouse até o ponto desejado e pressione <strong>O</strong> para marcar a origem. Depois mova o mouse para outro ponto e pressione <strong>F</strong> para marcar o fim.</div>
-                <div class="measurement-options">
-                    <label class="toggle-row"><input type="checkbox" id="toggle-altitudes" checked><span>Mostrar altitudes/restrições no mapa</span></label>
-                </div>
-                <div id="measurement-status" class="measurement-status">
-                    <div>Nenhuma régua ativa.</div>
-                </div>
-                <div class="measurement-actions">
-                    <button id="delete-selected-measurement" class="action-btn measurement-btn secondary" type="button">Apagar selecionada (Z)</button>
-                    <button id="clear-measurement" class="action-btn measurement-btn" type="button">Apagar todas (X)</button>
-                </div>
-            </div>
-
             <div class="sidebar-section selected-section">
                 <h2>Pontos selecionados</h2>
                 <div id="selected-points" class="selected-points"><span class="empty-selection">Nenhum waypoint selecionado.</span></div>
@@ -55,13 +40,33 @@
                 </div>
             </div>
 
+            <div class="sidebar-section vector-section">
+                <h2>Vetores de medição</h2>
+                <div class="vector-controls">
+                    <label for="vector-unit">Unidade</label>
+                    <select id="vector-unit" class="search-input-field" aria-label="Unidade dos vetores">
+                        <option value="NM">Milhas náuticas (NM)</option>
+                        <option value="KM">Quilômetros (KM)</option>
+                    </select>
+                </div>
+                <div class="shortcut-grid" aria-label="Atalhos dos vetores">
+                    <span><kbd>O</kbd> iniciar</span>
+                    <span><kbd>F</kbd> fixar</span>
+                    <span><kbd>X</kbd> apagar selecionado</span>
+                    <span><kbd>Z</kbd> apagar todos</span>
+                </div>
+                <p id="vector-status" class="vector-status">Mova o mouse sobre o mapa e pressione O para iniciar.</p>
+            </div>
+
             <div class="sidebar-section procedure-section">
                 <h2>Procedimentos IFR</h2>
                 <div class="procedure-controls">
-                    <select id="procedure-airport" class="search-input-field" aria-label="Aeródromo"><option value="SBCT">SBCT — Afonso Pena</option></select>
+                    <select id="procedure-tma" class="search-input-field" aria-label="TMA"></select>
+                    <select id="procedure-airport" class="search-input-field" aria-label="Aeródromo"></select>
                     <select id="procedure-type" class="search-input-field" aria-label="Tipo de procedimento"><option value="STAR">STAR</option><option value="IAC">IAC</option><option value="SID">SID</option></select>
                     <select id="procedure-select" class="search-input-field" aria-label="Procedimento"></select>
                     <select id="procedure-transition" class="search-input-field" aria-label="Transição"></select>
+                    <label class="procedure-option"><input id="include-missed-approach" type="checkbox" checked /> Exibir aproximação perdida separadamente</label>
                     <button id="add-procedure" class="action-btn" type="button">Adicionar procedimento</button>
                 </div>
                 <div id="active-procedures" class="selected-points"><span class="empty-selection">Nenhum procedimento ativo.</span></div>

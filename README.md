@@ -8,10 +8,15 @@ Site web interativo para estudo e visualização de dados aeronáuticos.
 - `map_interface.js` — lógica do mapa e da interface
 - `styles.css` — estilos
 - `data/waypoints.json` — base de 7.938 waypoints
-- `data/procedures.json` — procedimentos IFR atualmente cadastrados
+- `data/tmas/manifest.json` — lista dos módulos de TMA carregados pelo site
+- `data/tmas/tma-sp.json` — procedimentos IFR vigentes da TMA São Paulo
+- `data/tmas/tma-sp-airports.json` — aeroportos da TMA São Paulo com coordenadas, elevação e fonte AISWEB
+- `data/tmas/tma-sp-audit.json` — auditoria de cobertura, fontes e divergências da TMA São Paulo
+- `data/procedures.json` — base legada, preservada, mas não carregada pela interface atual
 - `all_tmas_boundaries.json` — geometrias das TMA
 - `all_tmas_coordinates.json` — dados tabulares das TMA
 - `aeronautical_data.json` — dados aeronáuticos complementares
+- `data/areas-ensaio.json` — limites laterais e verticais das áreas de ensaio em voo
 - `scripts/import-waypoints.py` — conversor do Excel de waypoints para JSON
 
 ## Execução local
@@ -50,3 +55,44 @@ O arquivo Excel deve conter as colunas obrigatórias:
 - `latitude`
 - `longitude`
 - `tipo`
+
+## Módulos de procedimentos IFR
+
+Cada TMA fica em um JSON independente dentro de `data/tmas/`. O arquivo
+`data/tmas/manifest.json` determina quais módulos o site carrega. Assim, uma nova
+terminal (por exemplo, Curitiba) pode ser adicionada criando seu próprio arquivo e
+incluindo uma entrada no manifesto, sem alterar a lógica principal do mapa.
+
+O módulo `tma-sp.json` contém aeroportos, procedimentos SID/STAR/IAC, transições,
+aproximações perdidas, ligações STAR→IAC e pontos terminais publicados que não
+existem — ou divergem — da base geral de waypoints.
+
+Para reconstruir o módulo a partir das tabelas de codificação oficiais previamente
+baixadas:
+
+```bash
+python scripts/build-tma-sp.py
+```
+
+O gerador não inventa ligações por proximidade. Pernas sem ponto terminal publicado
+e cartas textuais sem tabela de codificação permanecem identificadas na auditoria.
+
+> Este projeto é destinado a estudo e visualização. Não deve ser usado para
+> navegação operacional; sempre consulte a publicação aeronáutica oficial vigente.
+
+## Vetores e camadas nacionais
+
+O controle de camadas do mapa permite exibir todos os fixos disponíveis na base,
+todos os aeródromos e as áreas de ensaio em voo. Essas opções funcionam em toda a
+extensão do mapa do Brasil e são independentes do módulo de procedimentos da TMA SP.
+
+Os vetores de medição não possuem limite de quantidade e podem ser apresentados em
+milhas náuticas ou quilômetros:
+
+- `O` — inicia um vetor na posição atual do mouse;
+- `F` — fixa o final do vetor;
+- `X` — apaga o vetor selecionado (clique na linha para selecionar);
+- `Z` — apaga todos os vetores da tela.
+
+Os atalhos ficam suspensos enquanto o cursor está em um campo de texto ou seleção,
+evitando interferência na pesquisa e nos filtros de procedimentos.
