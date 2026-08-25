@@ -961,3 +961,360 @@ kbd {
 .cafe-easter-egg.is-visible img {
     transform: scale(1) rotate(0);
 }
+
+/* ── RESPONSIVIDADE ─────────────────────────────────────────────────── */
+@supports (height: 100dvh) {
+    body,
+    html,
+    #app-layout {
+        height: 100dvh;
+    }
+}
+
+@media (max-width: 900px) {
+    body,
+    html {
+        min-width: 0;
+        overscroll-behavior: none;
+    }
+
+    #app-layout {
+        width: 100%;
+        height: 100vh;
+        height: 100dvh;
+        flex-direction: column;
+    }
+
+    #map-wrapper {
+        flex: 0 0 54%;
+        width: 100%;
+        height: 54%;
+        min-width: 0;
+        min-height: 0;
+    }
+
+    #sidebar {
+        flex: 1 1 46%;
+        width: 100%;
+        height: 46%;
+        min-height: 0;
+        display: block;
+        overflow-x: hidden;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        border-top: 1px solid var(--border-color);
+        border-left: 0;
+        box-shadow: 0 -6px 20px rgba(0, 0, 0, .52);
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .tma-focus-panel {
+        top: max(10px, env(safe-area-inset-top));
+        left: max(10px, env(safe-area-inset-left));
+        width: min(330px, calc(100% - 58px - env(safe-area-inset-right)));
+        max-height: calc(100% - 20px - env(safe-area-inset-top));
+    }
+
+    .tma-focus-content {
+        max-height: calc(54dvh - 20px - env(safe-area-inset-top));
+        padding: 13px;
+    }
+
+    .tma-focus-toggle {
+        top: 8px;
+        width: 44px;
+        height: 44px;
+        font-size: 16px;
+        touch-action: manipulation;
+    }
+
+    .focus-metrics {
+        grid-template-columns: 1.2fr .8fr .8fr;
+    }
+
+    .runway-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .layout-type-row {
+        flex-wrap: wrap;
+        gap: 7px 13px;
+    }
+
+    .layout-type-row label,
+    .layout-master-toggle {
+        min-height: 32px;
+    }
+
+    .layout-type-row input,
+    .layout-master-toggle input,
+    .procedure-option input {
+        width: 18px;
+        height: 18px;
+        margin: 0;
+    }
+
+    .focus-select,
+    .focus-button,
+    .preset-grid button {
+        min-height: 40px;
+    }
+
+    .layout-actions .focus-button {
+        flex: 1;
+    }
+
+    .preset-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 7px;
+    }
+
+    .sidebar-section {
+        padding: 13px max(13px, env(safe-area-inset-right)) 13px max(13px, env(safe-area-inset-left));
+    }
+
+    .sidebar-section h2 {
+        margin-bottom: 10px;
+        font-size: 13px;
+    }
+
+    .search-container {
+        margin-bottom: 0;
+    }
+
+    .search-input-field,
+    .action-btn,
+    .action-btn-secondary,
+    .selected-point-row button {
+        min-height: 44px;
+        font-size: 16px;
+        touch-action: manipulation;
+    }
+
+    .action-btn,
+    .action-btn-secondary {
+        padding: 10px 14px;
+    }
+
+    #suggestions-box {
+        top: 48px;
+        max-height: min(45dvh, 320px);
+    }
+
+    .suggestion-item {
+        min-height: 48px;
+        padding: 11px 12px;
+        gap: 8px;
+    }
+
+    .coord-tag {
+        flex: 0 0 auto;
+        max-width: 44%;
+        overflow-wrap: anywhere;
+        text-align: right;
+    }
+
+    .input-row {
+        align-items: stretch;
+    }
+
+    .shortcut-grid {
+        gap: 8px 14px;
+    }
+
+    .shortcut-grid span {
+        min-height: 30px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .selected-section {
+        max-height: none;
+    }
+
+    .selected-point-row {
+        min-height: 44px;
+        padding: 8px 10px;
+    }
+
+    .selected-point-row button {
+        min-width: 76px;
+        padding: 7px 10px;
+        font-size: 12px;
+    }
+
+    .procedure-controls {
+        gap: 9px;
+    }
+
+    .procedure-controls .action-btn {
+        width: 100%;
+    }
+
+    #details-panel,
+    #details-content {
+        display: block;
+        overflow: visible;
+    }
+
+    .panel-header,
+    .panel-body {
+        padding: 14px;
+    }
+
+    .info-row {
+        gap: 12px;
+    }
+
+    .info-label {
+        flex: 0 0 108px;
+        width: auto;
+    }
+
+    .info-val,
+    .source-tag,
+    .mono,
+    .mono-small {
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    .leaflet-control-layers {
+        max-width: calc(100vw - 72px) !important;
+        max-height: calc(54dvh - 70px) !important;
+        overflow-y: auto !important;
+        padding: 8px !important;
+    }
+
+    .leaflet-top.leaflet-left {
+        top: auto;
+        bottom: 8px;
+    }
+
+    .leaflet-control-layers label {
+        min-height: 30px;
+        display: flex !important;
+        align-items: center;
+    }
+
+    .leaflet-control-layers-selector {
+        width: 18px;
+        height: 18px;
+        margin-right: 6px;
+    }
+
+    .leaflet-touch .leaflet-control-layers-toggle,
+    .leaflet-touch .leaflet-bar a {
+        width: 44px;
+        height: 44px;
+        line-height: 44px;
+    }
+
+    .cafe-easter-egg {
+        padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+    }
+
+    .cafe-easter-egg img {
+        width: min(88vw, 480px);
+        max-height: 72dvh;
+        border-radius: 18px;
+    }
+}
+
+@media (max-width: 520px) {
+    #map-wrapper {
+        flex-basis: 56%;
+        height: 56%;
+    }
+
+    #sidebar {
+        flex-basis: 44%;
+        height: 44%;
+    }
+
+    .tma-focus-panel {
+        width: calc(100% - 62px - env(safe-area-inset-right));
+    }
+
+    .tma-focus-content {
+        max-height: calc(56dvh - 20px - env(safe-area-inset-top));
+    }
+
+    .tma-focus-content > h2 {
+        font-size: 17px;
+    }
+
+    .focus-metrics {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .focus-metrics > div:first-child {
+        grid-column: 1 / -1;
+    }
+
+    .runway-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .focus-select {
+        font-size: 16px;
+    }
+
+    .input-row {
+        flex-direction: column;
+    }
+
+    .input-row .action-btn {
+        width: 100%;
+    }
+
+    .vector-controls {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    .shortcut-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .info-row {
+        display: grid;
+        gap: 4px;
+    }
+
+    .info-label {
+        width: 100%;
+    }
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+    #app-layout {
+        flex-direction: row;
+    }
+
+    #map-wrapper {
+        flex: 1 1 auto;
+        width: auto;
+        height: 100%;
+    }
+
+    #sidebar {
+        flex: 0 0 min(390px, 43vw);
+        width: min(390px, 43vw);
+        height: 100%;
+        border-top: 0;
+        border-left: 1px solid var(--border-color);
+        box-shadow: -6px 0 20px rgba(0, 0, 0, .52);
+    }
+
+    .tma-focus-content {
+        max-height: calc(100dvh - 20px - env(safe-area-inset-top));
+    }
+
+    .leaflet-control-layers {
+        max-width: calc(57vw - 72px) !important;
+        max-height: calc(100dvh - 70px) !important;
+    }
+}

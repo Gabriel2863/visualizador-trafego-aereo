@@ -1,4 +1,5 @@
 const map = L.map('map', { center: [-14.2, -51.9], zoom: 4, minZoom: 3, maxZoom: 15 });
+const compactViewport = window.matchMedia('(max-width: 900px)');
 const darkMatter = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { attribution: '&copy; OpenStreetMap &copy; CARTO', subdomains: 'abcd', maxZoom: 20 }).addTo(map);
 const openStreetMap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap contributors' });
 const aerodromesGroup = L.layerGroup().addTo(map), navaidsGroup = L.layerGroup().addTo(map), allFixesGroup = L.layerGroup(), testAreasGroup = L.layerGroup(), measurementVectorsGroup = L.layerGroup().addTo(map), waypointSelectionsGroup = L.layerGroup().addTo(map), proceduresGroup = L.layerGroup().addTo(map), operationalLayoutGroup = L.featureGroup().addTo(map), tmaGroup = L.layerGroup().addTo(map), routesGroup = L.layerGroup().addTo(map);
@@ -384,11 +385,14 @@ function setupTmaFocusPanel() {
     spOperationalFocusBounds = spAerodromeCoordinates.length ? L.latLngBounds(spAerodromeCoordinates).pad(.55) : null;
     L.DomEvent.disableClickPropagation(panel);
     L.DomEvent.disableScrollPropagation(panel);
-    toggle.onclick = () => {
-        const collapsed = panel.classList.toggle('is-collapsed');
+    const setCollapsed = collapsed => {
+        panel.classList.toggle('is-collapsed', collapsed);
         toggle.setAttribute('aria-expanded', String(!collapsed));
         toggle.title = collapsed ? 'Abrir informações da TMA' : 'Recolher informações da TMA';
     };
+    toggle.onclick = () => setCollapsed(!panel.classList.contains('is-collapsed'));
+    if (compactViewport.matches) setCollapsed(true);
+    compactViewport.addEventListener('change', event => { if (event.matches) setCollapsed(true); });
     setupOperationalLayoutControls();
     map.on('moveend zoomend', updateDominantTma);
     updateDominantTma();
@@ -652,4 +656,12 @@ function showSegmentDetails(segment, procedure, transition) { const arc = segmen
 function focusProcedure(key) { const item = activeProcedures.get(key); if (item && item.group.getBounds().isValid()) map.fitBounds(item.group.getBounds(), { padding: [45, 45], maxZoom: 10 }); }
 function removeProcedure(key) { const item = activeProcedures.get(key); if (item) proceduresGroup.removeLayer(item.group); activeProcedures.delete(key); renderActiveProcedures(); }
 function renderActiveProcedures() { const target = document.getElementById('active-procedures'); target.replaceChildren(); if (!activeProcedures.size) { target.innerHTML = '<span class="empty-selection">Nenhum procedimento ativo.</span>'; return; } activeProcedures.forEach((item, key) => { const row = document.createElement('div'); row.className = 'selected-point-row'; row.innerHTML = `<span><strong>${esc(item.procedure.type)} — ${esc(item.procedure.name)}</strong><br><span class="mono-small">${esc(item.transition.name)} · ${esc(item.procedure.source.chartCode || 'OMNI')} · ${esc(item.procedure.source.effectiveDate)}${item.includeMissedApproach && item.procedure.type === 'IAC' ? ' · APCH perdida' : ''}</span></span><button type="button">Remover</button>`; row.querySelector('span').onclick = () => focusProcedure(key); row.querySelector('button').onclick = () => removeProcedure(key); target.appendChild(row); }); }
-L.control.layers({ 'Cartografia Escura': darkMatter, 'Mapa Padrão (OSM)': openStreetMap }, { 'Todos os aeródromos (Brasil)': aerodromesGroup, 'Todos os fixos (Brasil)': allFixesGroup, 'Áreas de ensaio em voo': testAreasGroup, 'Vetores de medição': measurementVectorsGroup, 'Auxílios Rádio': navaidsGroup, 'Waypoints selecionados': waypointSelectionsGroup, 'Procedimentos IFR': proceduresGroup, 'Layout operacional TMA SP': operationalLayoutGroup, 'Áreas TMA': tmaGroup, 'Simulações de Rota': routesGroup }, { collapsed: false, position: 'topright' }).addTo(map);
+L.control.layers({ 'Cartografia Escura': darkMatter, 'Mapa Padrão (OSM)': openStreetMap }, { 'Todos os aeródromos (Brasil)': aerodromesGroup, 'Todos os fixos (Brasil)': allFixesGroup, 'Áreas de ensaio em voo': testAreasGroup, 'Vetores de medição': measurementVectorsGroup, 'Auxílios Rádio': navaidsGroup, 'Waypoints selecionados': waypointSelectionsGroup, 'Procedimentos IFR': proceduresGroup, 'Layout operacional TMA SP': operationalLayoutGroup, 'Áreas TMA': tmaGroup, 'Simulações de Rota': routesGroup }, { collapsed: compactViewport.matches, position: 'topright' }).addTo(map);
+
+let mapResizeTimer = null;
+function scheduleMapResize() {
+    clearTimeout(mapResizeTimer);
+    mapResizeTimer = setTimeout(() => map.invalidateSize({ pan: false }), 120);
+}
+window.addEventListener('resize', scheduleMapResize);
+window.visualViewport?.addEventListener('resize', scheduleMapResize);

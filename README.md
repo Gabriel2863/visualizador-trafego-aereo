@@ -34,6 +34,14 @@ Depois abra:
 
 `http://localhost:8000`
 
+## Uso em dispositivos móveis
+
+Em telas de até 900 px, a interface reorganiza automaticamente o mapa e o painel
+de controles. No modo retrato, o mapa fica acima do painel rolável; no modo
+paisagem, mapa e controles permanecem lado a lado. A aba da TMA e o controle de
+camadas iniciam recolhidos para preservar a área útil do mapa, e os principais
+campos e botões usam áreas de toque ampliadas.
+
 ## GitHub Pages
 
 O projeto é um site estático e pode ser publicado pelo GitHub Pages.
