@@ -665,3 +665,139 @@ function scheduleMapResize() {
 }
 window.addEventListener('resize', scheduleMapResize);
 window.visualViewport?.addEventListener('resize', scheduleMapResize);
+
+/* Área de estudos — os conteúdos são carregados por manifesto para facilitar expansões futuras. */
+let studyManifest = null, studyCategories = [], activeStudyCategory = 'visao-geral', studyLastFocus = null, studyCloseTimer = null;
+
+function normalizedStudyText(value) {
+    return String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+}
+
+function studyTopicMatches(topic, query) {
+    if (!query) return true;
+    const searchable = [topic.title, topic.summary, ...(topic.tags || []), ...(topic.items || []).flatMap(item => typeof item === 'string' ? [item] : [item.label, item.text]), topic.note, ...(topic.sourceRefs || [])];
+    return normalizedStudyText(searchable.join(' ')).includes(query);
+}
+
+function studyTopicMarkup(topic, expanded = false) {
+    const tags = (topic.tags || []).length ? `<div class="study-topic-tags">${topic.tags.map(tag => `<span>${esc(tag)}</span>`).join('')}</div>` : '';
+    const points = (topic.items || []).map(item => {
+        const label = typeof item === 'string' ? 'Ponto-chave' : item.label;
+        const text = typeof item === 'string' ? item : item.text;
+        return `<div class="study-point"><dt>${esc(label)}</dt><dd>${esc(text)}</dd></div>`;
+    }).join('');
+    const note = topic.note ? `<p class="study-topic-note"><strong>Atenção:</strong> ${esc(topic.note)}</p>` : '';
+    const sources = (topic.sourceRefs || []).length ? `<p class="study-source-refs"><strong>Fonte de estudo:</strong> ${topic.sourceRefs.map(esc).join(' · ')}</p>` : '';
+    return `<details class="study-topic-card"${expanded ? ' open' : ''}><summary><strong class="study-topic-title">${esc(topic.title)}</strong><span class="study-topic-summary">${esc(topic.summary || '')}</span></summary><div class="study-topic-body">${tags}<dl class="study-points">${points}</dl>${note}${sources}</div></details>`;
+}
+
+function renderStudyTabs() {
+    const tabs = document.getElementById('study-tabs');
+    if (!tabs) return;
+    const options = [{ id: 'all', shortLabel: 'Todos' }, ...studyCategories];
+    tabs.innerHTML = options.map(category => `<button class="study-tab${category.id === activeStudyCategory ? ' is-active' : ''}" type="button" data-study-category="${esc(category.id)}" aria-pressed="${category.id === activeStudyCategory}">${esc(category.shortLabel || category.label)}</button>`).join('');
+    tabs.querySelectorAll('[data-study-category]').forEach(button => button.onclick = () => {
+        activeStudyCategory = button.dataset.studyCategory;
+        renderStudyTabs();
+        renderStudyContent();
+    });
+}
+
+function renderStudyContent() {
+    const target = document.getElementById('study-content'), search = document.getElementById('study-search'), count = document.getElementById('study-result-count'), title = document.getElementById('study-category-title'), clear = document.getElementById('study-search-clear');
+    if (!target || !studyManifest) return;
+    const rawQuery = search?.value.trim() || '', query = normalizedStudyText(rawQuery);
+    const selectedCategories = query || activeStudyCategory === 'all' ? studyCategories : studyCategories.filter(category => category.id === activeStudyCategory);
+    let resultCount = 0;
+    const blocks = selectedCategories.map(category => {
+        const topics = (category.topics || []).filter(topic => studyTopicMatches(topic, query));
+        resultCount += topics.length;
+        if (!topics.length) return '';
+        const heading = activeStudyCategory === 'all' || query ? `<header class="study-category-heading"><div><h3>${esc(category.label)}</h3><p>${esc(category.description || '')}</p></div></header>` : '';
+        return `<section class="study-category-block" aria-labelledby="study-category-${esc(category.id)}">${heading}${topics.map((topic, index) => studyTopicMarkup(topic, Boolean(query) || (activeStudyCategory !== 'all' && index === 0))).join('')}</section>`;
+    }).join('');
+    const active = studyCategories.find(category => category.id === activeStudyCategory);
+    title.textContent = rawQuery ? `Resultados para “${rawQuery}”` : (activeStudyCategory === 'all' ? 'Todos os tópicos' : active?.label || 'Resumos');
+    count.textContent = `${resultCount} ${resultCount === 1 ? 'tópico' : 'tópicos'}`;
+    if (clear) clear.hidden = !rawQuery;
+    target.innerHTML = blocks || `<div class="study-empty"><strong>Nenhum tópico encontrado.</strong><span>Tente outro termo ou selecione “Todos”.</span></div>`;
+    target.scrollTop = 0;
+}
+
+function openStudyDrawer() {
+    const drawer = document.getElementById('study-drawer'), backdrop = document.getElementById('study-drawer-backdrop'), fab = document.getElementById('study-fab'), app = document.getElementById('app-layout');
+    if (!drawer || !backdrop) return;
+    clearTimeout(studyCloseTimer);
+    studyLastFocus = document.activeElement;
+    backdrop.hidden = false;
+    drawer.removeAttribute('inert');
+    drawer.setAttribute('aria-hidden', 'false');
+    fab?.setAttribute('aria-expanded', 'true');
+    app?.setAttribute('inert', '');
+    document.body.classList.add('study-drawer-open');
+    requestAnimationFrame(() => {
+        backdrop.classList.add('is-open');
+        drawer.classList.add('is-open');
+        document.getElementById('study-search')?.focus();
+    });
+}
+
+function closeStudyDrawer() {
+    const drawer = document.getElementById('study-drawer'), backdrop = document.getElementById('study-drawer-backdrop'), fab = document.getElementById('study-fab'), app = document.getElementById('app-layout');
+    if (!drawer || !backdrop || drawer.getAttribute('aria-hidden') === 'true') return;
+    drawer.classList.remove('is-open');
+    backdrop.classList.remove('is-open');
+    drawer.setAttribute('aria-hidden', 'true');
+    drawer.setAttribute('inert', '');
+    fab?.setAttribute('aria-expanded', 'false');
+    app?.removeAttribute('inert');
+    document.body.classList.remove('study-drawer-open');
+    studyCloseTimer = setTimeout(() => { backdrop.hidden = true; }, 290);
+    if (studyLastFocus instanceof HTMLElement) studyLastFocus.focus();
+}
+
+function trapStudyDrawerFocus(event) {
+    const drawer = document.getElementById('study-drawer');
+    if (!drawer?.classList.contains('is-open')) return;
+    if (event.key === 'Escape') return closeStudyDrawer();
+    if (event.key !== 'Tab') return;
+    const focusable = [...drawer.querySelectorAll('button:not([disabled]), input:not([disabled]), summary, [tabindex]:not([tabindex="-1"])')].filter(element => !element.hidden && element.getClientRects().length);
+    if (!focusable.length) return;
+    const first = focusable[0], last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+    else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+}
+
+async function setupStudyDrawer() {
+    const fab = document.getElementById('study-fab'), close = document.getElementById('study-drawer-close'), backdrop = document.getElementById('study-drawer-backdrop'), search = document.getElementById('study-search'), clear = document.getElementById('study-search-clear'), content = document.getElementById('study-content');
+    if (!fab || !content) return;
+    fab.onclick = openStudyDrawer;
+    close.onclick = closeStudyDrawer;
+    backdrop.onclick = closeStudyDrawer;
+    search.oninput = renderStudyContent;
+    clear.onclick = () => { search.value = ''; renderStudyContent(); search.focus(); };
+    document.addEventListener('keydown', trapStudyDrawerFocus);
+    try {
+        const response = await fetch('data/studies/manifest.json');
+        if (!response.ok) throw Error('manifesto da área de estudos indisponível');
+        studyManifest = await response.json();
+        studyCategories = await Promise.all((studyManifest.categories || []).map(async category => {
+            const categoryResponse = await fetch(category.file);
+            if (!categoryResponse.ok) throw Error(`${category.file} indisponível`);
+            return { ...category, ...await categoryResponse.json() };
+        }));
+        if (!studyCategories.some(category => category.id === activeStudyCategory)) activeStudyCategory = studyCategories[0]?.id || 'all';
+        document.getElementById('study-drawer-title').textContent = studyManifest.title || 'Área de estudos';
+        document.getElementById('study-drawer-subtitle').textContent = studyManifest.subtitle || 'Resumos organizados por assunto';
+        document.getElementById('study-notice').textContent = studyManifest.notice || '';
+        document.getElementById('study-updated-at').textContent = studyManifest.updatedAt ? `Atualizado em ${studyManifest.updatedAt}` : '';
+        renderStudyTabs();
+        renderStudyContent();
+    } catch (error) {
+        console.error(error);
+        content.innerHTML = `<div class="study-error"><strong>Não foi possível carregar a área de estudos.</strong><span>${esc(error.message)}</span></div>`;
+        document.getElementById('study-result-count').textContent = 'indisponível';
+    }
+}
+
+setupStudyDrawer();

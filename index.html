@@ -140,6 +140,46 @@
         </div>
     </div>
 
+    <button id="study-fab" class="study-fab" type="button" aria-haspopup="dialog" aria-controls="study-drawer" aria-expanded="false">
+        <span class="study-fab-icon" aria-hidden="true">▤</span>
+        <span>Estudos</span>
+    </button>
+
+    <div id="study-drawer-backdrop" class="study-drawer-backdrop" hidden></div>
+    <aside id="study-drawer" class="study-drawer" role="dialog" aria-modal="true" aria-labelledby="study-drawer-title" aria-hidden="true" inert>
+        <header class="study-drawer-header">
+            <div>
+                <span class="study-eyebrow">CADERNO OPERACIONAL</span>
+                <h2 id="study-drawer-title">Área de estudos</h2>
+                <p id="study-drawer-subtitle">Carregando resumos…</p>
+            </div>
+            <button id="study-drawer-close" class="study-drawer-close" type="button" aria-label="Fechar área de estudos">×</button>
+        </header>
+
+        <div class="study-drawer-tools">
+            <label class="study-search-label" for="study-search">Pesquisar nos resumos</label>
+            <div class="study-search-wrap">
+                <span aria-hidden="true">⌕</span>
+                <input id="study-search" type="search" placeholder="Ex.: T12, SBSJ, SBR806…" autocomplete="off" />
+                <button id="study-search-clear" type="button" aria-label="Limpar pesquisa" hidden>×</button>
+            </div>
+            <nav id="study-tabs" class="study-tabs" aria-label="Categorias de estudo"></nav>
+        </div>
+
+        <div id="study-notice" class="study-notice" role="note"></div>
+        <div class="study-results-bar">
+            <strong id="study-category-title">Resumos</strong>
+            <span id="study-result-count" aria-live="polite"></span>
+        </div>
+        <div id="study-content" class="study-content">
+            <div class="study-loading"><span></span> Organizando seus estudos…</div>
+        </div>
+        <footer class="study-drawer-footer">
+            <span id="study-updated-at"></span>
+            <span>Base modular para novas matérias</span>
+        </footer>
+    </aside>
+
     <div id="cafe-easter-egg" class="cafe-easter-egg" role="status" aria-label="Café dos Crias" hidden>
         <img src="assets/cafe-dos-crias.jpg" alt="Emblema Café dos Crias desenvolvimentos" />
     </div>

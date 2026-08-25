@@ -1,0 +1,77 @@
+name: Deploy protected build to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install locked build dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Build protected site
+        run: npm run build
+
+      - name: Verify production artifact
+        shell: bash
+        run: |
+          test -f dist/index.html
+          test -f dist/assets/app.min.js
+          test -f dist/assets/app.min.css
+          test ! -f dist/map_interface.js
+          test ! -f dist/styles.css
+          test ! -e dist/scripts
+          test ! -e dist/.github
+          test ! -e dist/node_modules
+          test ! -f dist/package.json
+
+          if find dist -type f \( -name '*.map' -o -name '*.md' -o -name '*.pdf' -o -name '*.xlsx' \) | grep -q .; then
+            echo "Arquivo de desenvolvimento ou source map encontrado no artefato."
+            exit 1
+          fi
+
+          if grep -qE 'map_interface\.js|href=.*styles\.css' dist/index.html; then
+            echo "O HTML de produção ainda referencia arquivos-fonte."
+            exit 1
+          fi
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
