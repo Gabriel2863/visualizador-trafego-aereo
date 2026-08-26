@@ -6,6 +6,7 @@ const aerodromesGroup = L.layerGroup().addTo(map), navaidsGroup = L.layerGroup()
 const activeMarkers = {}, selectedWaypointMarkers = new Map();
 let aeronauticalData = { aerodromes: [], navaids: [], fixes: [], tmas: [] }, nationalAerodromes = [], nationalProcedures = [], nationalProcedurePoints = {}, waypointFeatures = [], searchEntries = [], procedures = [], procedureModules = [], tmaBoundaries = [], testAreas = [];
 const procedurePointIndex = new Map();
+const procedurePointCandidates = new Map();
 const activeProcedures = new Map();
 const measurementVectors = new Map();
 const nationalPointRenderer = L.canvas({ padding: 0.5 });
@@ -34,8 +35,8 @@ Promise.all([fetch('aeronautical_data.json').then(r => r.ok ? r.json() : Promise
             return { ...module, aerodromes: aerodromeData.aerodromes || module.aerodromes || [], boundaries: boundaryData ? tmaSectorFeatures(boundaryData, item.id) : [], operational: item.operational || module.operational || {}, manifestName: item.name, manifestFile: item.file, aerodromesFile: item.aerodromesFile, boundariesFile: item.boundariesFile };
         }));
         procedures = procedureModules.flatMap(module => (module.procedures || []).map(procedure => ({ ...procedure, tmaId: module.id })));
-        const moduleBoundaries = procedureModules.flatMap(module => module.boundaries || []), overriddenFamilies = new Set(moduleBoundaries.map(feature => normalizedOperationalName(tmaFamilyName(feature.properties?.family || feature.properties?.name))));
-        tmaBoundaries = [...(tmaData.features || []).filter(feature => !overriddenFamilies.has(normalizedOperationalName(tmaFamilyName(feature.properties?.family || feature.properties?.name)))), ...moduleBoundaries];
+        const moduleBoundaries = procedureModules.flatMap(module => module.boundaries || []);
+        tmaBoundaries = mergeOperationalTmaMetadata(tmaData.features || [], moduleBoundaries);
         testAreas = testAreaData.areas || [];
         buildProcedurePointIndex();
         renderBaseData();
@@ -51,33 +52,33 @@ Promise.all([fetch('aeronautical_data.json').then(r => r.ok ? r.json() : Promise
 
 function buildProcedurePointIndex() {
     procedurePointIndex.clear();
-    waypointFeatures.forEach(feature => procedurePointIndex.set(String(feature.properties.ident).toUpperCase(), feature));
+    procedurePointCandidates.clear();
+    waypointFeatures.forEach(feature => addProcedurePointCandidate(feature, 0));
     [...(aeronauticalData.aerodromes || []), ...nationalAerodromes, ...(aeronauticalData.navaids || []), ...(aeronauticalData.fixes || [])].forEach(point => {
         if (!point.id || !Number.isFinite(point.lat) || !Number.isFinite(point.lon)) return;
         const ident = String(point.id).toUpperCase();
-        if (procedurePointIndex.has(ident)) return;
-        procedurePointIndex.set(ident, {
+        addProcedurePointCandidate({
             type: 'Feature',
             id: `aeronautical:${ident}`,
             geometry: { type: 'Point', coordinates: [point.lon, point.lat] },
             properties: { ident, latitude: point.lat, longitude: point.lon, tipo: point.type || 'Dado aeronáutico' }
-        });
+        }, 10);
     });
     moduleAerodromes().forEach(point => {
         if (!point.id || !Number.isFinite(point.lat) || !Number.isFinite(point.lon)) return;
         [point.id, ...(point.aliases || [])].forEach(code => {
             const ident = String(code).toUpperCase();
-            procedurePointIndex.set(ident, {
+            addProcedurePointCandidate({
                 type: 'Feature',
                 id: `tma-aerodrome:${ident}`,
                 geometry: { type: 'Point', coordinates: [point.lon, point.lat] },
                 properties: { ident, latitude: point.lat, longitude: point.lon, latitude_gms: point.lat_dms, longitude_gms: point.lon_dms, tipo: point.type, source: point.source }
-            });
+            }, 10);
         });
     });
     procedureModules.forEach(module => Object.values(module.terminalPoints || {}).forEach(point => {
         const ident = String(point.ident).toUpperCase();
-        procedurePointIndex.set(ident, {
+        addProcedurePointCandidate({
             type: 'Feature',
             id: `terminal:${module.id}:${ident}`,
             geometry: { type: 'Point', coordinates: [point.longitude, point.latitude] },
@@ -90,17 +91,33 @@ function buildProcedurePointIndex() {
                 tipo: 'Ponto terminal publicado',
                 source: point.source
             }
-        });
+        }, 20);
     }));
-    Object.entries(nationalProcedurePoints).forEach(([ident, point]) => {
-        if (!Number.isFinite(point.latitude) || !Number.isFinite(point.longitude)) return;
-        procedurePointIndex.set(String(ident).toUpperCase(), {
-            type: 'Feature',
-            id: `aixm-procedure:${ident}`,
-            geometry: { type: 'Point', coordinates: [point.longitude, point.latitude] },
-            properties: { ident, latitude: point.latitude, longitude: point.longitude, tipo: 'Ponto de procedimento AIXM', source: point.source }
+    Object.entries(nationalProcedurePoints).forEach(([ident, records]) => {
+        (Array.isArray(records) ? records : [records]).forEach(point => {
+            if (!Number.isFinite(point.latitude) || !Number.isFinite(point.longitude)) return;
+            addProcedurePointCandidate(procedurePointFeature(ident, point), 30);
         });
     });
+}
+
+function addProcedurePointCandidate(feature, priority) {
+    const ident = String(feature.properties?.ident || '').toUpperCase();
+    if (!ident || !Number.isFinite(feature.properties?.latitude) || !Number.isFinite(feature.properties?.longitude)) return;
+    if (!procedurePointCandidates.has(ident)) procedurePointCandidates.set(ident, []);
+    procedurePointCandidates.get(ident).push({ feature, priority });
+    const current = procedurePointIndex.get(ident);
+    if (!current || priority < current.priority) procedurePointIndex.set(ident, { feature, priority });
+}
+
+function procedurePointFeature(ident, point) {
+    const normalizedIdent = String(ident || point.ident || '').toUpperCase();
+    return {
+        type: 'Feature',
+        id: `aixm-procedure:${point.pointRef || normalizedIdent}`,
+        geometry: { type: 'Point', coordinates: [point.longitude, point.latitude] },
+        properties: { ident: normalizedIdent, latitude: point.latitude, longitude: point.longitude, tipo: 'Ponto de procedimento AIXM', source: point.source, pointRef: point.pointRef }
+    };
 }
 
 function renderBaseData() {
@@ -144,12 +161,12 @@ function renderBaseData() {
         activeMarkers[`aerodrome:${ident}`] = marker;
     });
     tmaBoundaries.forEach(feature => {
-        const properties = feature.properties || {}, isModuleSector = /-official-sectorization$/.test(properties.dataset || ''), isFlexible = /\dF$/i.test(properties.sector_id || '');
-        const style = { color: isModuleSector ? '#ef5bff' : '#9c27b0', weight: isModuleSector ? 2.2 : 2, dashArray: isFlexible ? '8 5' : null, fillColor: '#9c27b0', fillOpacity: isModuleSector ? .055 : .12 };
+        const properties = feature.properties || {}, hasOperationalMetadata = Boolean(properties.frequencies), isFlexible = /\dF$/i.test(properties.sector_id || properties.designator || properties.sector_name || '');
+        const style = { color: hasOperationalMetadata ? '#ef5bff' : '#9c27b0', weight: hasOperationalMetadata ? 2.2 : 2, dashArray: isFlexible ? '8 5' : null, fillColor: '#9c27b0', fillOpacity: hasOperationalMetadata ? .055 : .12 };
         const primary = properties.frequencies?.primary?.join(', ') || 'não informada', secondary = properties.frequencies?.secondary?.join(', ') || '—';
-        const popup = `<b>${esc(properties.name)}</b><br>Limites: ${esc(properties.lower_limit)} — ${esc(properties.upper_limit)}<br>Classe: ${esc(properties.airspace_class || 'N/I')}${isModuleSector ? `<br>Primária: ${esc(primary)}<br>Secundária: ${esc(secondary)}<br><small>Vigência da base: ${esc(properties.effective_date)}</small>` : ''}`;
+        const popup = `<b>${esc(properties.name)}</b><br>Limites: ${esc(properties.lower_limit)} — ${esc(properties.upper_limit)}<br>Classe: ${esc(properties.airspace_class || 'N/I')}${hasOperationalMetadata ? `<br>Primária: ${esc(primary)}<br>Secundária: ${esc(secondary)}<br><small>Geometria AIXM vigente em ${esc(properties.effective_date)}</small>` : ''}`;
         const layer = L.geoJSON(feature, { style }).bindPopup(popup).bindTooltip(esc(properties.name), { sticky: true, className: 'tma-sector-tooltip' }).addTo(tmaGroup);
-        if (isModuleSector) layer.on('mouseover', () => layer.setStyle({ weight: 4, fillOpacity: .14 })).on('mouseout', () => layer.setStyle(style));
+        if (hasOperationalMetadata) layer.on('mouseover', () => layer.setStyle({ weight: 4, fillOpacity: .14 })).on('mouseout', () => layer.setStyle(style));
     });
 }
 
@@ -202,6 +219,34 @@ function tmaSectorFeatures(dataset, moduleId = 'tma') {
             geometry: { type: 'Polygon', coordinates: [coordinates] }
         };
     }).filter(Boolean);
+}
+
+function tmaSectorMetadataKey(feature) {
+    const properties = feature.properties || {};
+    const sectorName = properties.sector_name || properties.name || '';
+    return normalizedOperationalName(sectorName).replace(/^TMA\s+/, '');
+}
+
+function mergeOperationalTmaMetadata(officialFeatures, moduleFeatures) {
+    const metadataBySector = new Map(moduleFeatures.map(feature => [tmaSectorMetadataKey(feature), feature.properties || {}]));
+    return officialFeatures.map(feature => {
+        const operational = metadataBySector.get(tmaSectorMetadataKey(feature));
+        if (!operational) return feature;
+        return {
+            ...feature,
+            properties: {
+                ...feature.properties,
+                airspace_class: feature.properties?.airspace_class && feature.properties.airspace_class !== 'N/I' ? feature.properties.airspace_class : operational.airspace_class,
+                frequencies: operational.frequencies,
+                responsible_unit: operational.responsible_unit,
+                operation: operational.operation,
+                remarks: operational.remarks,
+                class_summary: operational.class_summary,
+                operational_metadata_source: operational.source,
+                operational_metadata_effective_date: operational.effective_date,
+            }
+        };
+    });
 }
 
 function renderTestAreas() {
@@ -684,7 +729,7 @@ function renderOperationalLayout() {
             }
             const hasPublishedGeometry = segment.geometry?.length > 1;
             if (!segment.destination || (!segment.origin && !hasPublishedGeometry)) return;
-            const origin = waypointForProcedure(segment.origin), destination = waypointForProcedure(segment.destination);
+            const origin = waypointForProcedure(segment.origin, segment.originPoint), destination = waypointForProcedure(segment.destination, segment.destinationPoint);
             if (!hasPublishedGeometry && (!origin || !destination)) return;
             const key = [procedure.type, segment.origin, segment.destination, segment.pathTerminator, segment.arcCenterFix, segment.turn].join('|');
             if (segmentKeys.has(key)) return;
@@ -752,15 +797,31 @@ function setupProcedureControls() {
     refreshAirports();
 }
 
-function waypointForProcedure(ident) { return procedurePointIndex.get(String(ident).toUpperCase()); }
+function waypointForProcedure(ident, referencePoint = null) {
+    if (!ident) return null;
+    const normalizedIdent = String(ident).toUpperCase(), candidates = procedurePointCandidates.get(normalizedIdent) || [];
+    if (!candidates.length) return referencePoint && Number.isFinite(referencePoint.latitude) && Number.isFinite(referencePoint.longitude) ? procedurePointFeature(normalizedIdent, referencePoint) : null;
+    const bestPriority = Math.min(...candidates.map(candidate => candidate.priority));
+    const preferred = candidates.filter(candidate => candidate.priority === bestPriority);
+    if (preferred.length === 1 || !referencePoint || !Number.isFinite(referencePoint.latitude) || !Number.isFinite(referencePoint.longitude)) return preferred[0].feature;
+    const latitudeScale = Math.cos(referencePoint.latitude * Math.PI / 180);
+    return preferred.reduce((nearest, candidate) => {
+        const point = candidate.feature.properties;
+        const distance = (point.latitude - referencePoint.latitude) ** 2 + ((point.longitude - referencePoint.longitude) * latitudeScale) ** 2;
+        return !nearest || distance < nearest.distance ? { feature: candidate.feature, distance } : nearest;
+    }, null).feature;
+}
 function altitudeText(value) {
     if (!value || !Number.isFinite(value.valueFt)) return null;
     const altitude = `${Math.abs(value.valueFt)} FT`;
-    return ({ 'at-or-above': `≥ ${altitude}`, 'at-or-below': `≤ ${altitude}`, at: `@ ${altitude}`, recommended: `REC ${altitude}` })[value.meaning] || altitude;
+    return ({ 'at-or-above': `≥ ${altitude}`, 'at-or-below': `≤ ${altitude}`, at: `@ ${altitude}`, recommended: `REC ${altitude}`, expected: `ESP ${altitude}`, 'as-assigned': 'Conforme autorizado' })[value.meaning] || altitude;
 }
 function speedText(segment) {
     if (!Number.isFinite(segment.speedLimitKt)) return null;
-    return `${segment.speedLimitDescription === '+' ? '≥' : segment.speedLimitDescription === '@' ? '@' : '≤'} ${segment.speedLimitKt} KT`;
+    const interpretation = String(segment.speedLimitDescription || 'BELOW_UPPER').toUpperCase();
+    if (interpretation === 'AS_ASSIGNED') return `Conforme autorizado (${segment.speedLimitKt} KT publicado)`;
+    const symbol = ({ BELOW_UPPER: '≤', ABOVE_LOWER: '≥', AT_LOWER: '@', '-': '≤', '+': '≥', '@': '@' })[interpretation] || 'PUB';
+    return `${symbol} ${segment.speedLimitKt} KT`;
 }
 function segmentRestriction(segment) {
     const lower = segment.lowerLimitAltitude, upper = segment.upperLimitAltitude;
@@ -795,14 +856,16 @@ function addProcedure(procedure, transition, includeMissedApproach = true) {
     const group = L.featureGroup();
     const unresolved = new Set();
     transition.segments.forEach(segment => {
-        const origin = segment.origin ? waypointForProcedure(segment.origin) : null, destination = segment.destination ? waypointForProcedure(segment.destination) : null;
+        const origin = segment.origin ? waypointForProcedure(segment.origin, segment.originPoint) : null, destination = segment.destination ? waypointForProcedure(segment.destination, segment.destinationPoint) : null;
+        const hasPublishedGeometry = segment.geometry?.length > 1;
         if (segment.origin && !origin) unresolved.add(segment.origin);
         if (segment.destination && !destination) unresolved.add(segment.destination);
-        if (!origin || !destination) return;
-        L.polyline(segmentLatLngs(segment, origin, destination), { color, weight: 4, opacity: .9 }).bindTooltip(`${segment.pathTerminator || 'LEG'} · ${courseText(segment.course)} · ${segment.distanceNm ?? 'N/A'} NM`).on('click', () => showSegmentDetails(segment, procedure, transition)).addTo(group);
+        if (!hasPublishedGeometry && (!origin || !destination)) return;
+        const geometry = hasPublishedGeometry ? segment.geometry : segmentLatLngs(segment, origin, destination);
+        L.polyline(geometry, { color, weight: 4, opacity: .9 }).bindTooltip(`${segment.pathTerminator || 'LEG'} · ${courseText(segment.course)} · ${segment.distanceNm ?? 'N/A'} NM`).on('click', () => showSegmentDetails(segment, procedure, transition)).addTo(group);
     });
     transition.sequence.forEach(ident => {
-        const point = waypointForProcedure(ident);
+        const destinationSegment = transition.segments.find(segment => segment.destination === ident), point = waypointForProcedure(ident, destinationSegment?.destinationPoint);
         if (!point) return unresolved.add(ident);
         const destinationSegments = transition.segments.filter(segment => segment.destination === ident), restriction = destinationSegments.map(segmentRestriction).find(value => value !== 'Sem restrição adicional publicada') || 'Sem restrição adicional publicada';
         L.marker([point.properties.latitude, point.properties.longitude], { icon: icon(ident, true), zIndexOffset: 1200 }).bindTooltip(`${ident} — ${restriction}`, { permanent: true, direction: 'top', offset: [0, -10] }).on('click', () => showProcedurePoint(point, procedure, transition, restriction)).addTo(group);
@@ -812,7 +875,7 @@ function addProcedure(procedure, transition, includeMissedApproach = true) {
 }
 function addMissedRoute(group, route, procedure) {
     route.segments.forEach(segment => {
-        const origin = segment.origin ? waypointForProcedure(segment.origin) : null, destination = segment.destination ? waypointForProcedure(segment.destination) : null;
+        const origin = segment.origin ? waypointForProcedure(segment.origin, segment.originPoint) : null, destination = segment.destination ? waypointForProcedure(segment.destination, segment.destinationPoint) : null;
         if (!origin || !destination) return;
         L.polyline(segmentLatLngs(segment, origin, destination), { color: '#ff5252', weight: 3, opacity: .95, dashArray: '8, 7' }).bindTooltip(`Aproximação perdida · ${segment.pathTerminator || 'LEG'} · ${courseText(segment.course)}`).on('click', () => showSegmentDetails(segment, procedure, route)).addTo(group);
     });

@@ -86,7 +86,9 @@ def altitude(element: ET.Element, field: str, interpretation: str) -> dict | Non
     unit = limit.attrib.get("uom", "FT").upper()
     value_ft = value * 100 if unit == "FL" else value * 3.28084 if unit == "M" else value
     meanings = {
-        "ABOVE_LOWER": "at-or-above", "BELOW_UPPER": "at-or-below", "AT": "at", "BETWEEN": "between-bound",
+        "ABOVE_LOWER": "at-or-above", "BELOW_UPPER": "at-or-below", "AT": "at", "AT_LOWER": "at",
+        "BETWEEN": "between-bound", "RECOMMENDED": "recommended", "EXPECT_LOWER": "expected",
+        "AS_ASSIGNED": "as-assigned",
     }
     return {"raw": f"{value:g} {unit}", "valueFt": round(value_ft), "meaning": meanings.get(interpretation, "published")}
 
@@ -100,7 +102,7 @@ def parse_point(element: ET.Element, kind: str) -> dict | None:
     designator = direct_text(slice_element, "designator") or direct_text(slice_element, "name") or uuid(element)[:8]
     if kind == "RunwayCentrelinePoint":
         designator = f"RW{designator}"
-    return {"ident": designator, "latitude": values[0], "longitude": values[1]}
+    return {"ident": designator, "latitude": values[0], "longitude": values[1], "pointRef": uuid(element), "pointType": kind}
 
 
 def parse_leg(element: ET.Element, kind: str) -> dict | None:
@@ -124,7 +126,7 @@ def parse_leg(element: ET.Element, kind: str) -> dict | None:
         "lowerLimitAltitude": altitude(slice_element, "lowerLimitAltitude", interpretation),
         "upperLimitAltitude": altitude(slice_element, "upperLimitAltitude", interpretation),
         "speedLimitKt": speed_value,
-        "speedLimitDescription": direct_text(slice_element, "speedInterpretation", "-") if speed_value is not None else None,
+        "speedLimitDescription": direct_text(slice_element, "speedInterpretation", "BELOW_UPPER") if speed_value is not None else None,
         "verticalAngle": numeric(direct_text(slice_element, "verticalAngle")),
         "fixRole": text(start_point, "role") if start_point is not None else None,
         "navigationSpecification": text(slice_element, "performance") or None,
@@ -203,7 +205,7 @@ def parse(source: Path) -> tuple[list[dict], dict[str, dict], dict[str, str], di
 
 def build(procedures: list[dict], legs: dict[str, dict], runways: dict[str, str], airports: dict[str, str], points: dict[str, dict]) -> dict:
     output_procedures = []
-    published_points: dict[str, dict] = {}
+    published_points: dict[str, list[dict]] = defaultdict(list)
     for procedure in procedures:
         airport = airports.get(procedure.pop("airportRef"), "")
         if not airport:
@@ -215,6 +217,7 @@ def build(procedures: list[dict], legs: dict[str, dict], runways: dict[str, str]
             segment_records = []
             sequence = []
             previous_ident = None
+            previous_point = None
             for reference in transition.pop("legRefs"):
                 source_leg = legs.get(reference)
                 if not source_leg:
@@ -223,17 +226,20 @@ def build(procedures: list[dict], legs: dict[str, dict], runways: dict[str, str]
                 point = points.get(leg.pop("pointRef", ""))
                 if point:
                     ident = point["ident"]
-                    published_points.setdefault(ident, {"latitude": point["latitude"], "longitude": point["longitude"], "source": "AIXM 2608A1"})
+                    destination_point = {**point, "source": "AIXM 2608A1"}
                 elif leg["geometry"]:
                     ident = f"AX{reference[:6].upper()}"
                     latitude, longitude = leg["geometry"][-1]
-                    published_points.setdefault(ident, {"latitude": latitude, "longitude": longitude, "source": "AIXM 2608A1 — ponto geométrico"})
+                    destination_point = {"ident": ident, "latitude": latitude, "longitude": longitude, "pointRef": reference, "pointType": "TrajectoryEndpoint", "source": "AIXM 2608A1 — ponto geométrico"}
                 else:
                     continue
+                if not any(existing["pointRef"] == destination_point["pointRef"] for existing in published_points[ident]):
+                    published_points[ident].append(destination_point)
                 if ident not in sequence:
                     sequence.append(ident)
-                segment_records.append({**leg, "origin": previous_ident, "destination": ident})
+                segment_records.append({**leg, "origin": previous_ident, "destination": ident, "originPoint": previous_point, "destinationPoint": destination_point})
                 previous_ident = ident
+                previous_point = destination_point
             if segment_records:
                 output_transitions.append({**transition, "sequence": sequence, "segments": segment_records})
         if not output_transitions:
@@ -242,7 +248,7 @@ def build(procedures: list[dict], legs: dict[str, dict], runways: dict[str, str]
         output_procedures.append({
             **procedure,
             "airport": airport,
-            "runways": sorted(runway_values) or re.findall(r"RWY\s+(\d{2}[LRC]?)", procedure["name"], re.I),
+            "runways": sorted(runway_values) or re.findall(r"RWY\s*(\d{2}[LRC]?)", procedure["name"], re.I),
             "status": "structured-aixm",
             "source": {"authority": "AISWEB/DECEA", "chartCode": "AIXM", "amendment": "2608A1", "effectiveDate": procedure.pop("effectiveDate")},
             "transitions": output_transitions,
@@ -253,7 +259,7 @@ def build(procedures: list[dict], legs: dict[str, dict], runways: dict[str, str]
         "amendment": "2608A1",
         "effectiveDate": "2026-08-06",
         "notice": "Somente pernas com trajetória codificada no AIXM são desenhadas. O conjunto não substitui cartas, AIP ou NOTAM vigentes.",
-        "publishedPoints": published_points,
+        "publishedPoints": dict(published_points),
         "procedures": output_procedures,
     }
 

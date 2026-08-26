@@ -4,7 +4,8 @@ Uso:
     python scripts/import-aixm-tmas.py BL__decoded.xml data/tmas/brazil-tmas-aixm.json
 
 O conversor preserva somente geometrias publicadas no AIXM. Composições por união
-são resolvidas recursivamente até os setores que possuem projeção horizontal.
+e subtração são resolvidas recursivamente até os setores que possuem projeção
+horizontal.
 """
 
 from __future__ import annotations
@@ -69,8 +70,11 @@ def distance_metres(radius: ET.Element | None) -> float | None:
     value = number(radius.text if radius is not None else None)
     if value is None:
         return None
-    unit = (radius.attrib.get("uom", "M") if radius is not None else "M").upper()
-    return value * {"NM": 1852.0, "KM": 1000.0, "FT": 0.3048, "M": 1.0}.get(unit, 1.0)
+    unit = (radius.attrib.get("uom", "M") if radius is not None else "M").upper().strip("[]")
+    factors = {"NM": 1852.0, "NMI": 1852.0, "NMI_I": 1852.0, "KM": 1000.0, "FT": 0.3048, "M": 1.0}
+    if unit not in factors:
+        raise ValueError(f"Unidade de distância AIXM não suportada: {unit}")
+    return value * factors[unit]
 
 
 def sampled_arc(segment: ET.Element, full_circle: bool = False) -> list[tuple[float, float]]:
@@ -248,23 +252,72 @@ def family_name(name: str) -> str:
     return f"TMA {accents.get(clean, clean)}"
 
 
-def resolve_geometries(root: dict, airspaces: dict[str, dict]) -> list[dict]:
-    resolved: list[dict] = []
+def published_limit(value: str, inherited: str) -> str:
+    return inherited if not value or value == "N/I" else value
 
-    def visit(item: dict, seen: set[str]) -> None:
+
+def point_in_ring(point: tuple[float, float], ring: list[tuple[float, float]]) -> bool:
+    longitude, latitude = point
+    inside = False
+    for index, current in enumerate(ring):
+        previous = ring[index - 1]
+        current_lon, current_lat = current
+        previous_lon, previous_lat = previous
+        intersects = ((current_lat > latitude) != (previous_lat > latitude)
+                      and longitude < (previous_lon - current_lon) * (latitude - current_lat)
+                      / ((previous_lat - current_lat) or 1e-12) + current_lon)
+        if intersects:
+            inside = not inside
+    return inside
+
+
+def ring_is_inside(inner: list[tuple[float, float]], outer: list[tuple[float, float]]) -> bool:
+    return bool(inner) and all(point_in_ring(point, outer) for point in inner[:-1])
+
+
+def resolve_geometries(root: dict, airspaces: dict[str, dict]) -> list[dict]:
+    """Resolve BASE/UNION/SUBTR sem transformar componentes em áreas independentes.
+
+    O AIXM brasileiro usa SUBTR para recortar setores internos (por exemplo,
+    FOZ SECT 01 menos FOZ SECT 02). Esses recortes publicados são contidos na
+    geometria base e podem ser representados fielmente como anéis internos GeoJSON.
+    """
+
+    def visit(item: dict, inherited: tuple[str, str], owner: dict, seen: set[str]) -> list[dict]:
         if item["id"] in seen:
-            return
+            return []
         seen = {*seen, item["id"]}
+        positive: list[dict] = []
+        subtractors: list[list[tuple[float, float]]] = []
         for component in item["components"]:
-            for polygon in component["polygons"]:
-                resolved.append({"owner": item, "component": component, "polygon": polygon})
+            limits = (
+                published_limit(component["lower"], inherited[0]),
+                published_limit(component["upper"], inherited[1]),
+            )
+            operation = component["operation"].upper()
+            surfaces = [{"owner": owner, "classes": item["classes"], "component": {**component, "lower": limits[0], "upper": limits[1]}, "rings": [polygon]}
+                        for polygon in component["polygons"]]
             for reference in component["references"]:
                 linked = airspaces.get(reference)
-                if linked:
-                    visit(linked, seen)
+                if not linked:
+                    continue
+                display_owner = linked if linked["type"] == "SECTOR" or (owner is root and linked["type"] == "TMA") else owner
+                surfaces.extend(visit(linked, limits, display_owner, seen))
+            if operation == "SUBTR":
+                subtractors.extend(surface["rings"][0] for surface in surfaces if surface["rings"])
+            else:
+                positive.extend(surfaces)
+        for subtractor in subtractors:
+            containers = [surface for surface in positive if ring_is_inside(subtractor, surface["rings"][0])]
+            if not containers:
+                raise ValueError(f"SUBTR de {item['designator'] or item['name']} não está contido na geometria BASE")
+            min(containers, key=lambda surface: abs(sum(
+                first[0] * second[1] - second[0] * first[1]
+                for first, second in zip(surface["rings"][0], surface["rings"][0][1:])
+            )))["rings"].append(subtractor)
+        return positive
 
-    visit(root, set())
-    return resolved
+    return visit(root, ("N/I", "N/I"), root, set())
 
 
 def build_geojson(airspaces: dict[str, dict], source_name: str) -> dict:
@@ -274,9 +327,10 @@ def build_geojson(airspaces: dict[str, dict], source_name: str) -> dict:
     emitted = set()
     for tma in tmas:
         family = family_name(tma["name"] or tma["designator"])
-        for index, resolved in enumerate(resolve_geometries(tma, airspaces), start=1):
-            owner, component, polygon = resolved["owner"], resolved["component"], resolved["polygon"]
-            key = (family, owner["id"], component["lower"], component["upper"], json.dumps(polygon, separators=(",", ":")))
+        resolved_geometries = sorted(resolve_geometries(tma, airspaces), key=lambda item: item["owner"]["type"] == "TMA")
+        for index, resolved in enumerate(resolved_geometries, start=1):
+            owner, component, rings = resolved["owner"], resolved["component"], resolved["rings"]
+            key = (family, component["lower"], component["upper"], json.dumps(rings, separators=(",", ":")))
             if key in emitted:
                 continue
             emitted.add(key)
@@ -292,13 +346,13 @@ def build_geojson(airspaces: dict[str, dict], source_name: str) -> dict:
                     "type": "TMA",
                     "upper_limit": component["upper"],
                     "lower_limit": component["lower"],
-                    "airspace_class": f"Classe {'/'.join(owner['classes'] or tma['classes'])}" if (owner["classes"] or tma["classes"]) else "N/I",
+                    "airspace_class": f"Classe {'/'.join(resolved['classes'] or owner['classes'] or tma['classes'])}" if (resolved["classes"] or owner["classes"] or tma["classes"]) else "N/I",
                     "effective_date": owner["effective"] or tma["effective"],
                     "source": "AISWEB/DECEA — AIXM completo AMDT 2608A1",
                     "source_url": "https://aisweb.decea.mil.br/?i=publicacoes&p=aixm",
                     "dataset": "brazil-aixm-2608a1",
                 },
-                "geometry": {"type": "Polygon", "coordinates": [polygon]},
+                "geometry": {"type": "Polygon", "coordinates": rings},
             })
     features.sort(key=lambda feature: (feature["properties"]["family"], feature["properties"]["sector_name"]))
     return {
