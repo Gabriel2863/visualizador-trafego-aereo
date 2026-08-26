@@ -1,5 +1,13 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
+  "scope": "Brazil",
+  "coverage": {
+    "boundariesFile": "data/tmas/brazil-tmas-aixm.json",
+    "aerodromesFile": "data/tmas/brazil-aerodromes-aixm.json",
+    "proceduresFile": "data/tmas/brazil-procedures-aixm.json",
+    "mode": "national-context-with-modular-procedures",
+    "notice": "Todas as TMA da base nacional podem ser focalizadas. Trajetorias IFR somente sao exibidas quando uma tabela de codificacao foi estruturada no modulo da terminal."
+  },
   "modules": [
     {
       "id": "tma-sp",
@@ -7,6 +15,28 @@
       "file": "data/tmas/tma-sp.json",
       "aerodromesFile": "data/tmas/tma-sp-airports.json",
       "boundariesFile": "data/tmas/tma-sp-sectors.json",
+      "operational": {
+        "family": "TMA São Paulo",
+        "status": "structured",
+        "primaryAirports": ["SBSP", "SBGR", "SBKP"],
+        "defaultRunways": {
+          "SBSP": "17",
+          "SBGR": "28",
+          "SBKP": "33"
+        },
+        "presets": [
+          "17-10-15",
+          "17-10-33",
+          "17-28-15",
+          "17-28-33",
+          "35-10-15",
+          "35-10-33",
+          "35-28-15",
+          "35-28-33"
+        ],
+        "presetsLabel": "Oito combinações das imagens SAG",
+        "sourceNote": "Traçados calculados pelas coordenadas dos FIX e tabelas de codificação das cartas. As imagens SAG foram usadas como referência visual, não como camada georreferenciada."
+      },
       "enabled": true
     }
   ]

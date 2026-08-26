@@ -63,7 +63,6 @@ function copyPublicAssets(sourceDir, destinationDir) {
 // Somente recursos efetivamente carregados pelo navegador entram em produção.
 for (const file of [
   'aeronautical_data.json',
-  'all_tmas_boundaries.json',
   'data/waypoints.json',
   'data/areas-ensaio.json',
   'data/tmas/manifest.json',
@@ -71,6 +70,9 @@ for (const file of [
 ]) copyRuntimeFile(file);
 
 const tmaManifest = loadJson('data/tmas/manifest.json');
+if (tmaManifest.coverage?.boundariesFile) copyRuntimeFile(tmaManifest.coverage.boundariesFile);
+if (tmaManifest.coverage?.aerodromesFile) copyRuntimeFile(tmaManifest.coverage.aerodromesFile);
+if (tmaManifest.coverage?.proceduresFile) copyRuntimeFile(tmaManifest.coverage.proceduresFile);
 for (const module of tmaManifest.modules || []) {
   for (const file of [module.file, module.aerodromesFile, module.boundariesFile].filter(Boolean)) copyRuntimeFile(file);
 }

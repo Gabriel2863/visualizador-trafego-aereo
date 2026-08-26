@@ -193,14 +193,57 @@ body, html {
     color: #f1f5f7;
 }
 
-.sp-layout-controls {
+.operational-layout-controls {
     margin-top: 13px;
     padding-top: 13px;
     border-top: 1px solid rgba(0, 229, 255, .25);
 }
 
-.sp-layout-controls[hidden] {
+.operational-layout-controls[hidden] {
     display: none !important;
+}
+
+.operational-tma-picker {
+    display: grid;
+    gap: 5px;
+    margin: 7px 0 8px;
+    color: #b7c7ce;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: .45px;
+}
+
+.operational-coverage-row {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin: 7px 0 10px;
+    color: #82969f;
+    font-size: 9px;
+    line-height: 1.3;
+}
+
+.operational-coverage-badge {
+    flex: 0 0 auto;
+    padding: 4px 6px;
+    border: 1px solid rgba(0, 229, 255, .4);
+    border-radius: 999px;
+    color: #8ef4ff;
+    background: rgba(0, 229, 255, .08);
+    font: 700 8px/1 monospace;
+    letter-spacing: .5px;
+}
+
+.operational-coverage-badge.is-structured {
+    border-color: rgba(117, 227, 109, .55);
+    color: #a8f7a2;
+    background: rgba(117, 227, 109, .1);
+}
+
+.operational-coverage-badge.is-pending {
+    border-color: rgba(255, 183, 71, .5);
+    color: #ffd18b;
+    background: rgba(255, 183, 71, .08);
 }
 
 .focus-block-title {
@@ -229,6 +272,10 @@ body, html {
     gap: 6px;
 }
 
+.runway-grid:empty {
+    display: none;
+}
+
 .runway-grid label {
     color: #d4dde1;
     font-size: 9px;
@@ -236,6 +283,16 @@ body, html {
 
 .runway-grid small {
     margin: 2px 0 4px;
+}
+
+.runway-unavailable {
+    display: block;
+    padding: 6px;
+    border: 1px dashed #40515a;
+    border-radius: 4px;
+    color: #74868e;
+    background: rgba(34, 48, 57, .6);
+    font-size: 8px;
 }
 
 .focus-select {
@@ -255,6 +312,10 @@ body, html {
     margin: 10px 0;
     color: #c4d0d5;
     font-size: 10px;
+}
+
+.layout-type-row.is-disabled {
+    opacity: .42;
 }
 
 .layout-type-row label,

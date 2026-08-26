@@ -31,41 +31,47 @@
                         <div id="tma-focus-details" class="focus-detail-list"><p>A identificação começa a partir do zoom 5.</p></div>
                     </div>
 
-                    <section id="sp-layout-controls" class="sp-layout-controls" hidden>
+                    <section id="operational-layout-controls" class="operational-layout-controls">
                         <div class="focus-block-title">
                             <div>
-                                <span class="focus-kicker">LAYOUT OPERACIONAL</span>
-                                <h3>TMA São Paulo</h3>
+                                <span class="focus-kicker">MAPA OPERACIONAL BRASIL</span>
+                                <h3 id="operational-layout-title">Selecione uma TMA</h3>
                             </div>
-                            <strong id="sp-layout-code" class="layout-code">17–28–33</strong>
+                            <strong id="operational-layout-code" class="layout-code">BR</strong>
                         </div>
 
-                        <div class="runway-grid">
-                            <label>Congonhas <small>SBSP</small><select id="sp-runway-sbsp" class="focus-select"><option value="17">17L/R</option><option value="35">35L/R</option></select></label>
-                            <label>Guarulhos <small>SBGR</small><select id="sp-runway-sbgr" class="focus-select"><option value="10">10L/R</option><option value="28" selected>28L/R</option></select></label>
-                            <label>Viracopos <small>SBKP</small><select id="sp-runway-sbkp" class="focus-select"><option value="15">15</option><option value="33" selected>33</option></select></label>
+                        <label class="operational-tma-picker">
+                            Terminal brasileira
+                            <select id="operational-tma-select" class="focus-select" aria-label="Selecionar TMA brasileira"></select>
+                        </label>
+
+                        <div class="operational-coverage-row">
+                            <span id="operational-coverage-badge" class="operational-coverage-badge">BASE NACIONAL</span>
+                            <span id="operational-coverage-summary">22 TMA disponíveis</span>
                         </div>
 
-                        <div class="layout-type-row" aria-label="Tipos de rota do layout">
+                        <div id="operational-runway-grid" class="runway-grid"></div>
+
+                        <div id="operational-type-row" class="layout-type-row" aria-label="Tipos de rota do layout">
                             <label><input class="layout-type-filter" type="checkbox" value="SID" checked><span class="legend-line sid"></span> SID</label>
                             <label><input class="layout-type-filter" type="checkbox" value="STAR" checked><span class="legend-line star"></span> STAR</label>
                             <label><input class="layout-type-filter" type="checkbox" value="ILS" checked><span class="legend-line ils"></span> ILS</label>
                             <label><input class="layout-type-filter" type="checkbox" value="RNP"><span class="legend-line rnp"></span> RNP</label>
                         </div>
 
-                        <label class="layout-master-toggle"><input id="sp-layout-enabled" type="checkbox"> Exibir malha IFR desta configuração</label>
+                        <label class="layout-master-toggle"><input id="operational-layout-enabled" type="checkbox"> <span id="operational-layout-toggle-label">Exibir contexto operacional desta TMA</span></label>
                         <div class="layout-actions">
-                            <button id="sp-layout-fit" class="focus-button" type="button">Enquadrar layout</button>
-                            <button id="sp-layout-clear" class="focus-button secondary" type="button">Limpar</button>
+                            <button id="operational-layout-fit" class="focus-button" type="button">Enquadrar TMA</button>
+                            <button id="operational-layout-clear" class="focus-button secondary" type="button">Limpar</button>
                         </div>
 
-                        <details class="layout-presets">
-                            <summary>Oito combinações das imagens SAG</summary>
-                            <div id="sp-layout-presets" class="preset-grid"></div>
+                        <details id="operational-layout-presets-panel" class="layout-presets" hidden>
+                            <summary id="operational-layout-presets-summary">Configurações operacionais</summary>
+                            <div id="operational-layout-presets" class="preset-grid"></div>
                         </details>
 
-                        <p id="sp-layout-status" class="layout-status">Selecione as pistas e ative a malha IFR.</p>
-                        <p class="layout-source-note">Traçados calculados pelas coordenadas dos FIX e tabelas de codificação das cartas. As imagens SAG foram usadas como referência visual, não como camada georreferenciada.</p>
+                        <p id="operational-layout-status" class="layout-status">Selecione uma terminal brasileira para abrir seu contexto.</p>
+                        <p id="operational-layout-source" class="layout-source-note">Cobertura nacional baseada nos limites e aeródromos disponíveis no projeto. Procedimentos só aparecem quando possuem geometria estruturada.</p>
                     </section>
                 </div>
             </aside>

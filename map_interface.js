@@ -4,23 +4,26 @@ const darkMatter = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{
 const openStreetMap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap contributors' });
 const aerodromesGroup = L.layerGroup().addTo(map), navaidsGroup = L.layerGroup().addTo(map), allFixesGroup = L.layerGroup(), testAreasGroup = L.layerGroup(), measurementVectorsGroup = L.layerGroup().addTo(map), waypointSelectionsGroup = L.layerGroup().addTo(map), proceduresGroup = L.layerGroup().addTo(map), operationalLayoutGroup = L.featureGroup().addTo(map), tmaGroup = L.layerGroup().addTo(map), routesGroup = L.layerGroup().addTo(map);
 const activeMarkers = {}, selectedWaypointMarkers = new Map();
-let aeronauticalData = { aerodromes: [], navaids: [], fixes: [], tmas: [] }, waypointFeatures = [], searchEntries = [], procedures = [], procedureModules = [], tmaBoundaries = [], testAreas = [];
+let aeronauticalData = { aerodromes: [], navaids: [], fixes: [], tmas: [] }, nationalAerodromes = [], nationalProcedures = [], nationalProcedurePoints = {}, waypointFeatures = [], searchEntries = [], procedures = [], procedureModules = [], tmaBoundaries = [], testAreas = [];
 const procedurePointIndex = new Map();
 const activeProcedures = new Map();
 const measurementVectors = new Map();
 const nationalPointRenderer = L.canvas({ padding: 0.5 });
 let allFixesRendered = false, pointerLatLng = null, draftVector = null, selectedVectorId = null, nextVectorId = 1;
-let tmaFocusRecords = [], dominantTmaRecord = null, spOperationalFocusBounds = null, layoutLabelsPermanent = false, cafeEasterEggTimer = null;
-const operationalRunways = { SBSP: '17', SBGR: '28', SBKP: '33' };
+let tmaFocusRecords = [], operationalCatalog = [], dominantTmaRecord = null, activeOperationalFamily = '', activeOperationalModule = null, manualOperationalFamily = '', layoutLabelsPermanent = false, cafeEasterEggTimer = null;
+const operationalRunways = {};
 const operationalColors = { SID: '#ffb347', STAR: '#75e36d', ILS: '#39c8ff', RNP: '#b388ff' };
 const esc = value => String(value ?? '').replace(/[&<>'"]/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[char]));
 const icon = (id, selected = false) => L.divIcon({ className: 'custom-icon fix-icon', html: selected ? `<div class="selected-waypoint-dot"></div><span class="icon-label">${esc(id)}</span>` : `<div class="icon-shape diamond"></div><span class="icon-label-small">${esc(id)}</span>`, iconSize: [28, 28], iconAnchor: [14, 14] });
 const aerodromeIcon = id => L.divIcon({ className: 'custom-icon aerodrome-icon', html: `<div class="aerodrome-symbol"><span>✈</span></div><span class="icon-label aerodrome-label">${esc(id)}</span>`, iconSize: [30, 30], iconAnchor: [15, 15] });
 const moduleAerodromes = () => procedureModules.flatMap(module => module.aerodromes || []);
 
-Promise.all([fetch('aeronautical_data.json').then(r => r.ok ? r.json() : Promise.reject(Error('aeronautical_data.json indisponível'))), fetch('data/waypoints.json').then(r => r.ok ? r.json() : Promise.reject(Error('data/waypoints.json indisponível — execute scripts/import-waypoints.py'))), fetch('data/tmas/manifest.json').then(r => r.ok ? r.json() : Promise.reject(Error('data/tmas/manifest.json indisponível'))), fetch('all_tmas_boundaries.json').then(r => r.ok ? r.json() : Promise.reject(Error('all_tmas_boundaries.json indisponível'))), fetch('data/areas-ensaio.json').then(r => r.ok ? r.json() : Promise.reject(Error('data/areas-ensaio.json indisponível')))])
-    .then(async ([base, waypoints, moduleManifest, tmaData, testAreaData]) => {
+Promise.all([fetch('aeronautical_data.json').then(r => r.ok ? r.json() : Promise.reject(Error('aeronautical_data.json indisponível'))), fetch('data/waypoints.json').then(r => r.ok ? r.json() : Promise.reject(Error('data/waypoints.json indisponível — execute scripts/import-waypoints.py'))), fetch('data/tmas/manifest.json').then(r => r.ok ? r.json() : Promise.reject(Error('data/tmas/manifest.json indisponível'))), fetch('data/tmas/brazil-tmas-aixm.json').then(r => r.ok ? r.json() : Promise.reject(Error('base AIXM nacional de TMA indisponível'))), fetch('data/tmas/brazil-aerodromes-aixm.json').then(r => r.ok ? r.json() : Promise.reject(Error('base AIXM nacional de aeródromos indisponível'))), fetch('data/tmas/brazil-procedures-aixm.json').then(r => r.ok ? r.json() : Promise.reject(Error('base AIXM nacional de procedimentos indisponível'))), fetch('data/areas-ensaio.json').then(r => r.ok ? r.json() : Promise.reject(Error('data/areas-ensaio.json indisponível')))])
+    .then(async ([base, waypoints, moduleManifest, tmaData, nationalAerodromeData, nationalProcedureData, testAreaData]) => {
         aeronauticalData = base;
+        nationalAerodromes = nationalAerodromeData.aerodromes || [];
+        nationalProcedures = nationalProcedureData.procedures || [];
+        nationalProcedurePoints = nationalProcedureData.publishedPoints || {};
         waypointFeatures = waypoints.features || [];
         procedureModules = await Promise.all((moduleManifest.modules || []).filter(item => item.enabled !== false).map(async item => {
             const [response, aerodromeResponse, boundaryResponse] = await Promise.all([fetch(item.file), item.aerodromesFile ? fetch(item.aerodromesFile) : Promise.resolve(null), item.boundariesFile ? fetch(item.boundariesFile) : Promise.resolve(null)]);
@@ -28,11 +31,11 @@ Promise.all([fetch('aeronautical_data.json').then(r => r.ok ? r.json() : Promise
             if (aerodromeResponse && !aerodromeResponse.ok) throw Error(`${item.aerodromesFile} indisponível`);
             if (boundaryResponse && !boundaryResponse.ok) throw Error(`${item.boundariesFile} indisponível`);
             const [module, aerodromeData, boundaryData] = await Promise.all([response.json(), aerodromeResponse ? aerodromeResponse.json() : Promise.resolve({ aerodromes: [] }), boundaryResponse ? boundaryResponse.json() : Promise.resolve(null)]);
-            return { ...module, aerodromes: aerodromeData.aerodromes || module.aerodromes || [], boundaries: boundaryData ? tmaSectorFeatures(boundaryData) : [], manifestName: item.name, manifestFile: item.file, aerodromesFile: item.aerodromesFile, boundariesFile: item.boundariesFile };
+            return { ...module, aerodromes: aerodromeData.aerodromes || module.aerodromes || [], boundaries: boundaryData ? tmaSectorFeatures(boundaryData, item.id) : [], operational: item.operational || module.operational || {}, manifestName: item.name, manifestFile: item.file, aerodromesFile: item.aerodromesFile, boundariesFile: item.boundariesFile };
         }));
         procedures = procedureModules.flatMap(module => (module.procedures || []).map(procedure => ({ ...procedure, tmaId: module.id })));
-        const moduleBoundaries = procedureModules.flatMap(module => module.boundaries || []), overriddenFamilies = new Set(moduleBoundaries.map(feature => tmaFamilyName(feature.properties?.name)));
-        tmaBoundaries = [...(tmaData.features || []).filter(feature => !overriddenFamilies.has(tmaFamilyName(feature.properties?.name))), ...moduleBoundaries];
+        const moduleBoundaries = procedureModules.flatMap(module => module.boundaries || []), overriddenFamilies = new Set(moduleBoundaries.map(feature => normalizedOperationalName(tmaFamilyName(feature.properties?.family || feature.properties?.name))));
+        tmaBoundaries = [...(tmaData.features || []).filter(feature => !overriddenFamilies.has(normalizedOperationalName(tmaFamilyName(feature.properties?.family || feature.properties?.name)))), ...moduleBoundaries];
         testAreas = testAreaData.areas || [];
         buildProcedurePointIndex();
         renderBaseData();
@@ -42,14 +45,14 @@ Promise.all([fetch('aeronautical_data.json').then(r => r.ok ? r.json() : Promise
         setupProcedureControls();
         setupMeasurementVectors();
         setupTmaFocusPanel();
-        console.info(`Base nacional carregada: ${waypointFeatures.length} pontos, ${aerodromesGroup.getLayers().length} aeródromos e ${testAreas.length} áreas de ensaio. Procedimentos TMA SP: ${procedures.length}.`);
+        console.info(`Base operacional do Brasil carregada: ${waypointFeatures.length} pontos, ${aerodromesGroup.getLayers().length} aeródromos AIXM, ${tmaBoundaries.length} setores TMA e ${nationalProcedures.length + procedures.length} procedimentos estruturados.`);
     })
     .catch(error => { console.error(error); document.getElementById('details-content').innerHTML = `<div class="panel-placeholder"><p>Não foi possível carregar a base: ${esc(error.message)}</p></div>`; });
 
 function buildProcedurePointIndex() {
     procedurePointIndex.clear();
     waypointFeatures.forEach(feature => procedurePointIndex.set(String(feature.properties.ident).toUpperCase(), feature));
-    [...(aeronauticalData.aerodromes || []), ...(aeronauticalData.navaids || []), ...(aeronauticalData.fixes || [])].forEach(point => {
+    [...(aeronauticalData.aerodromes || []), ...nationalAerodromes, ...(aeronauticalData.navaids || []), ...(aeronauticalData.fixes || [])].forEach(point => {
         if (!point.id || !Number.isFinite(point.lat) || !Number.isFinite(point.lon)) return;
         const ident = String(point.id).toUpperCase();
         if (procedurePointIndex.has(ident)) return;
@@ -89,6 +92,15 @@ function buildProcedurePointIndex() {
             }
         });
     }));
+    Object.entries(nationalProcedurePoints).forEach(([ident, point]) => {
+        if (!Number.isFinite(point.latitude) || !Number.isFinite(point.longitude)) return;
+        procedurePointIndex.set(String(ident).toUpperCase(), {
+            type: 'Feature',
+            id: `aixm-procedure:${ident}`,
+            geometry: { type: 'Point', coordinates: [point.longitude, point.latitude] },
+            properties: { ident, latitude: point.latitude, longitude: point.longitude, tipo: 'Ponto de procedimento AIXM', source: point.source }
+        });
+    });
 }
 
 function renderBaseData() {
@@ -114,6 +126,16 @@ function renderBaseData() {
         const marker = L.marker([item.lat, item.lon], { icon: icon(item.id) }).bindPopup(`<b>${esc(item.id)}</b><br>${esc(item.name || 'Aeródromo')}`).on('click', () => showDetails(item, 'aerodrome')).addTo(aerodromesGroup);
         activeMarkers[`aerodrome:${item.id}`] = marker;
     });
+    nationalAerodromes.forEach(item => {
+        const ident = String(item.id || '').toUpperCase();
+        if (!ident || !Number.isFinite(item.lat) || !Number.isFinite(item.lon) || renderedAerodromes.has(ident)) return;
+        renderedAerodromes.add(ident);
+        const marker = L.circleMarker([item.lat, item.lon], { renderer: nationalPointRenderer, radius: 3, color: '#ffd166', weight: 1, fillColor: '#ffd166', fillOpacity: .72 })
+            .bindTooltip(`${esc(ident)} — ${esc(item.name || 'Aeródromo')}`)
+            .on('click', () => showDetails(item, 'aerodrome'))
+            .addTo(aerodromesGroup);
+        activeMarkers[`aerodrome:${ident}`] = marker;
+    });
     waypointFeatures.filter(feature => String(feature.properties.tipo).toUpperCase() === 'OTHER:ADHP').forEach(feature => {
         const point = feature.properties, ident = String(point.ident).toUpperCase();
         if (!Number.isFinite(point.latitude) || !Number.isFinite(point.longitude) || renderedAerodromes.has(ident)) return;
@@ -122,12 +144,12 @@ function renderBaseData() {
         activeMarkers[`aerodrome:${ident}`] = marker;
     });
     tmaBoundaries.forEach(feature => {
-        const properties = feature.properties || {}, isSpSector = properties.dataset === 'tma-sp-official-sectorization', isFlexible = /\dF$/i.test(properties.sector_id || '');
-        const style = { color: isSpSector ? '#ef5bff' : '#9c27b0', weight: isSpSector ? 2.2 : 2, dashArray: isFlexible ? '8 5' : null, fillColor: '#9c27b0', fillOpacity: isSpSector ? .055 : .12 };
+        const properties = feature.properties || {}, isModuleSector = /-official-sectorization$/.test(properties.dataset || ''), isFlexible = /\dF$/i.test(properties.sector_id || '');
+        const style = { color: isModuleSector ? '#ef5bff' : '#9c27b0', weight: isModuleSector ? 2.2 : 2, dashArray: isFlexible ? '8 5' : null, fillColor: '#9c27b0', fillOpacity: isModuleSector ? .055 : .12 };
         const primary = properties.frequencies?.primary?.join(', ') || 'não informada', secondary = properties.frequencies?.secondary?.join(', ') || '—';
-        const popup = `<b>${esc(properties.name)}</b><br>Limites: ${esc(properties.lower_limit)} — ${esc(properties.upper_limit)}<br>Classe: ${esc(properties.airspace_class || 'N/I')}${isSpSector ? `<br>Primária: ${esc(primary)}<br>Secundária: ${esc(secondary)}<br><small>Vigência da base: ${esc(properties.effective_date)}</small>` : ''}`;
+        const popup = `<b>${esc(properties.name)}</b><br>Limites: ${esc(properties.lower_limit)} — ${esc(properties.upper_limit)}<br>Classe: ${esc(properties.airspace_class || 'N/I')}${isModuleSector ? `<br>Primária: ${esc(primary)}<br>Secundária: ${esc(secondary)}<br><small>Vigência da base: ${esc(properties.effective_date)}</small>` : ''}`;
         const layer = L.geoJSON(feature, { style }).bindPopup(popup).bindTooltip(esc(properties.name), { sticky: true, className: 'tma-sector-tooltip' }).addTo(tmaGroup);
-        if (isSpSector) layer.on('mouseover', () => layer.setStyle({ weight: 4, fillOpacity: .14 })).on('mouseout', () => layer.setStyle(style));
+        if (isModuleSector) layer.on('mouseover', () => layer.setStyle({ weight: 4, fillOpacity: .14 })).on('mouseout', () => layer.setStyle(style));
     });
 }
 
@@ -151,7 +173,7 @@ function compactDmsToDecimal(value) {
     return ['S', 'W'].includes(match[4]) ? -decimal : decimal;
 }
 
-function tmaSectorFeatures(dataset) {
+function tmaSectorFeatures(dataset, moduleId = 'tma') {
     return (dataset.sectors || []).map(sector => {
         const coordinates = (sector.coordinatesDms || []).map(([latitude, longitude]) => [compactDmsToDecimal(longitude), compactDmsToDecimal(latitude)]).filter(([longitude, latitude]) => Number.isFinite(longitude) && Number.isFinite(latitude));
         if (coordinates.length < 3) return null;
@@ -159,7 +181,7 @@ function tmaSectorFeatures(dataset) {
         if (first[0] !== last[0] || first[1] !== last[1]) coordinates.push([...first]);
         return {
             type: 'Feature',
-            id: `tma-sp-sector:${sector.id}`,
+            id: `${moduleId}-sector:${sector.id}`,
             properties: {
                 name: sector.name,
                 sector_id: sector.id,
@@ -175,7 +197,7 @@ function tmaSectorFeatures(dataset) {
                 source_url: dataset.source,
                 effective_date: dataset.effectiveDate,
                 class_summary: dataset.airspaceClassSummary,
-                dataset: 'tma-sp-official-sectorization'
+                dataset: `${moduleId}-official-sectorization`
             },
             geometry: { type: 'Polygon', coordinates: [coordinates] }
         };
@@ -294,6 +316,13 @@ function buildSearchIndex() {
     moduleAerodromes().forEach(item => {
         [item.id, ...(item.aliases || [])].forEach(code => base.push({ key: `aerodrome:${String(code).toUpperCase()}`, ident: String(code).toUpperCase(), type: code === item.id ? item.type : `Código alternativo de ${item.id}`, lat: item.lat, lon: item.lon, gms: `${item.lat_dms || ''} ${item.lon_dms || ''}`.trim(), item, category: 'aerodrome' }));
     });
+    const knownAerodromeCodes = new Set(base.filter(item => item.category === 'aerodrome').map(item => item.ident.toUpperCase()));
+    nationalAerodromes.forEach(item => {
+        const ident = String(item.id || '').toUpperCase();
+        if (!ident || knownAerodromeCodes.has(ident)) return;
+        knownAerodromeCodes.add(ident);
+        base.push({ key: `aerodrome:${ident}`, ident, type: item.type || 'Aeródromo AIXM', lat: item.lat, lon: item.lon, gms: '', item, category: 'aerodrome' });
+    });
     waypointFeatures.forEach(feature => { const p = feature.properties; base.push({ key: feature.id, ident: String(p.ident), type: String(p.tipo ?? ''), lat: p.latitude, lon: p.longitude, gms: `${p.latitude_gms ?? ''} ${p.longitude_gms ?? ''}`.trim(), item: feature, category: 'waypoint' }); });
     searchEntries = base.sort((a, b) => a.ident.localeCompare(b.ident));
 }
@@ -323,7 +352,7 @@ function addMultiplePoints() { const ids = document.getElementById('multiple-inp
 function showDetails(item, category) { const panel = document.getElementById('details-content'); if (category === 'waypoint') { const p = item.properties, fields = Object.entries(p).filter(([key, v]) => key !== 'source' && v !== null && v !== undefined && v !== '').map(([k, v]) => `<div class="info-row"><span class="info-label">${esc(k)}:</span><span class="info-val">${esc(typeof v === 'object' ? JSON.stringify(v) : v)}</span></div>`).join(''), source = item.sourceRow ? `waypoint.xlsx, linha ${item.sourceRow}` : p.source ? `${p.source.chart || p.source.procedure || 'tabela de codificação'}, página ${p.source.codingTablePage || 'não informada'}` : 'não informada'; panel.innerHTML = `<div class="panel-header fix-header"><h3>${esc(p.ident)}</h3><p class="subtitle">WAYPOINT — ${esc(p.tipo)}</p></div><div class="panel-body"><div class="coords-box"><strong>COORDENADAS DA FONTE</strong><br><span class="mono">${esc(p.latitude_gms)} ${esc(p.longitude_gms)}</span><br><span class="mono-small">Decimal: ${esc(p.latitude)}, ${esc(p.longitude)}</span></div>${fields}<div class="source-tag"><strong>Fonte:</strong> ${esc(source)}</div></div>`; return; } const details = category === 'aerodrome' ? `<div class="info-row"><span class="info-label">Nome:</span><span class="info-val">${esc(item.name || '')}</span></div><div class="info-row"><span class="info-label">Localidade:</span><span class="info-val">${esc(item.city || '')}</span></div><div class="info-row"><span class="info-label">Elevação:</span><span class="info-val">${Number.isFinite(item.elevation_ft) ? `${esc(item.elevation_ft)} FT` : 'não informada'}</span></div>${item.aliases?.length ? `<div class="info-row"><span class="info-label">Código alternativo:</span><span class="info-val">${esc(item.aliases.join(', '))}</span></div>` : ''}` : ''; const source = item.source_url ? `<a href="${esc(item.source_url)}" target="_blank" rel="noopener">${esc(item.source || 'Consultar fonte')}</a>` : esc(item.source || 'não informada'); panel.innerHTML = `<div class="panel-header fix-header"><h3>${esc(item.id || item.name)}</h3><p class="subtitle">${esc(item.type || category)}</p></div><div class="panel-body"><div class="coords-box"><strong>COORDENADAS DA FONTE</strong><br><span class="mono">${esc(item.lat_dms || '')} ${esc(item.lon_dms || '')}</span><br><span class="mono-small">Decimal: ${esc(item.lat)}, ${esc(item.lon)}</span></div>${details}<div class="source-tag"><strong>Fonte:</strong> ${source}</div></div>`; }
 
 function tmaFamilyName(name) {
-    return String(name || 'TMA').replace(/\s+SECT\b.*$/i, '').replace(/\s+\d+$/i, '').replace(/\s+\(Circular.*$/i, '').trim();
+    return String(name || 'TMA').split('·')[0].replace(/\s+SECT\b.*$/i, '').replace(/\s+\d+$/i, '').replace(/\s+\(Circular.*$/i, '').trim();
 }
 function overlapArea(first, second) {
     const west = Math.max(first.getWest(), second.getWest()), east = Math.min(first.getEast(), second.getEast()), south = Math.max(first.getSouth(), second.getSouth()), north = Math.min(first.getNorth(), second.getNorth());
@@ -377,12 +406,140 @@ function geometryVertexCount(geometry) {
     if (geometry.type === 'MultiPolygon') return geometry.coordinates.reduce((total, polygon) => total + polygon.reduce((sum, ring) => sum + ring.length, 0), 0);
     return 0;
 }
+function normalizedOperationalName(value) {
+    return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase().replace(/[^A-Z0-9]+/g, ' ').trim();
+}
+function pointInRing(longitude, latitude, ring) {
+    let inside = false;
+    for (let current = 0, previous = ring.length - 1; current < ring.length; previous = current++) {
+        const [currentLon, currentLat] = ring[current], [previousLon, previousLat] = ring[previous];
+        const intersects = (currentLat > latitude) !== (previousLat > latitude) && longitude < (previousLon - currentLon) * (latitude - currentLat) / ((previousLat - currentLat) || 1e-12) + currentLon;
+        if (intersects) inside = !inside;
+    }
+    return inside;
+}
+function pointInFeature(latitude, longitude, feature) {
+    const geometry = feature?.geometry;
+    if (!geometry?.coordinates) return false;
+    const polygons = geometry.type === 'Polygon' ? [geometry.coordinates] : geometry.type === 'MultiPolygon' ? geometry.coordinates : [];
+    return polygons.some(polygon => polygon[0] && pointInRing(longitude, latitude, polygon[0]) && !polygon.slice(1).some(ring => pointInRing(longitude, latitude, ring)));
+}
+function moduleForOperationalFamily(family) {
+    const key = normalizedOperationalName(family);
+    return procedureModules.find(module => normalizedOperationalName(module.operational?.family || module.manifestName || module.name) === key) || null;
+}
+function knownOperationalAerodromes() {
+    const unique = new Map();
+    [...nationalAerodromes, ...(aeronauticalData.aerodromes || []), ...moduleAerodromes()].forEach(item => {
+        const id = String(item.id || item.icao || '').toUpperCase();
+        if (!id || !Number.isFinite(item.lat) || !Number.isFinite(item.lon)) return;
+        unique.set(id, { ...(unique.get(id) || {}), ...item, id });
+    });
+    return [...unique.values()];
+}
+function buildOperationalCatalog() {
+    const families = new Map();
+    tmaFocusRecords.forEach(record => {
+        if (!families.has(record.family)) families.set(record.family, { family: record.family, records: [], bounds: L.latLngBounds([]), aerodromes: [] });
+        const entry = families.get(record.family);
+        entry.records.push(record);
+        entry.bounds.extend(record.bounds);
+    });
+    const aerodromes = knownOperationalAerodromes();
+    families.forEach(entry => {
+        entry.module = moduleForOperationalFamily(entry.family);
+        const moduleIds = new Set((entry.module?.aerodromes || []).map(item => String(item.id || '').toUpperCase()));
+        entry.aerodromes = aerodromes.filter(item => moduleIds.has(item.id) || entry.records.some(record => record.bounds.contains([item.lat, item.lon]) && pointInFeature(item.lat, item.lon, record.feature)));
+        const airportIds = new Set(entry.aerodromes.map(item => item.id));
+        entry.procedures = entry.module ? procedures.filter(procedure => procedure.tmaId === entry.module.id) : nationalProcedures.filter(procedure => airportIds.has(procedure.airport));
+        entry.procedureCount = entry.procedures.length;
+        entry.status = entry.procedureCount ? 'structured' : 'context';
+    });
+    operationalCatalog = [...families.values()].sort((first, second) => first.family.localeCompare(second.family, 'pt-BR'));
+}
+function runwayFamily(value) {
+    const match = String(value || '').toUpperCase().match(/^(\d{2})/);
+    return match ? match[1] : String(value || '').toUpperCase();
+}
+function runwayOptionsForAirport(airport, entry) {
+    const values = new Set();
+    (entry?.procedures || []).filter(procedure => procedure.airport === airport.id).forEach(procedure => (procedure.runways || [procedure.runway]).filter(Boolean).forEach(runway => values.add(runwayFamily(runway))));
+    (airport.runways || []).forEach(pair => String(pair).split('/').forEach(runway => values.add(runwayFamily(runway))));
+    return [...values].filter(Boolean).sort();
+}
+function operationalAirportsForEntry(entry) {
+    const primary = entry?.module?.operational?.primaryAirports || [];
+    if (!primary.length) {
+        const aerodromes = entry?.aerodromes || [], principal = aerodromes.filter(item => /^SB[A-Z0-9]{2}$/.test(item.id));
+        return (principal.length ? principal : aerodromes).slice(0, 6);
+    }
+    const byId = new Map([...(entry.module.aerodromes || []), ...(entry.aerodromes || [])].map(item => [String(item.id || item.icao).toUpperCase(), { ...item, id: String(item.id || item.icao).toUpperCase() }]));
+    return primary.map(id => byId.get(String(id).toUpperCase())).filter(Boolean);
+}
+function configureOperationalTma(family) {
+    const entry = operationalCatalog.find(item => item.family === family);
+    if (!entry) return;
+    const changed = activeOperationalFamily !== entry.family;
+    activeOperationalFamily = entry.family;
+    activeOperationalModule = entry.module;
+    const select = document.getElementById('operational-tma-select'), title = document.getElementById('operational-layout-title'), badge = document.getElementById('operational-coverage-badge'), summary = document.getElementById('operational-coverage-summary'), grid = document.getElementById('operational-runway-grid'), typeRow = document.getElementById('operational-type-row'), toggleLabel = document.getElementById('operational-layout-toggle-label'), presetsPanel = document.getElementById('operational-layout-presets-panel'), presets = document.getElementById('operational-layout-presets'), source = document.getElementById('operational-layout-source');
+    if (select) select.value = entry.family;
+    title.textContent = entry.family;
+    badge.className = `operational-coverage-badge ${entry.status === 'structured' ? 'is-structured' : 'is-pending'}`;
+    badge.textContent = entry.status === 'structured' ? 'IFR ESTRUTURADO' : 'CONTEXTO NACIONAL';
+    summary.textContent = `${entry.records.length} setor(es) · ${entry.aerodromes.length} aeródromo(s) na base`;
+    typeRow.querySelectorAll('input').forEach(input => { input.disabled = entry.status !== 'structured'; });
+    typeRow.classList.toggle('is-disabled', entry.status !== 'structured');
+    toggleLabel.textContent = entry.status === 'structured' ? 'Exibir malha IFR e contexto desta TMA' : 'Destacar setores e aeródromos desta TMA';
+    Object.keys(operationalRunways).forEach(key => delete operationalRunways[key]);
+    const airports = operationalAirportsForEntry(entry), defaults = entry.module?.operational?.defaultRunways || {};
+    grid.replaceChildren(...airports.map(airport => {
+        const options = runwayOptionsForAirport(airport, entry), label = document.createElement('label'), code = String(airport.id || airport.icao).toUpperCase();
+        label.append(document.createTextNode(airport.name || airport.city || code));
+        const small = document.createElement('small'); small.textContent = code; label.appendChild(small);
+        if (options.length) {
+            const runwaySelect = document.createElement('select'); runwaySelect.className = 'focus-select'; runwaySelect.dataset.airport = code;
+            runwaySelect.replaceChildren(...options.map(value => new Option(value, value)));
+            runwaySelect.value = options.includes(defaults[code]) ? defaults[code] : options[0];
+            operationalRunways[code] = runwaySelect.value;
+            runwaySelect.onchange = () => { operationalRunways[code] = runwaySelect.value; renderOperationalLayout(); };
+            label.appendChild(runwaySelect);
+        } else {
+            const unavailable = document.createElement('span'); unavailable.className = 'runway-unavailable'; unavailable.textContent = 'pistas não cadastradas'; label.appendChild(unavailable);
+        }
+        return label;
+    }));
+    const presetCodes = entry.module?.operational?.presets || [];
+    presetsPanel.hidden = !presetCodes.length;
+    document.getElementById('operational-layout-presets-summary').textContent = entry.module?.operational?.presetsLabel || 'Configurações operacionais';
+    presets.replaceChildren(...presetCodes.map(code => {
+        const button = document.createElement('button'); button.type = 'button'; button.textContent = code; button.dataset.config = code;
+        button.onclick = () => {
+            const values = code.split('-'), selectors = [...grid.querySelectorAll('select[data-airport]')];
+            selectors.forEach((runwaySelect, index) => { if (values[index] && [...runwaySelect.options].some(option => option.value === values[index])) { runwaySelect.value = values[index]; operationalRunways[runwaySelect.dataset.airport] = values[index]; } });
+            document.getElementById('operational-layout-enabled').checked = true;
+            renderOperationalLayout();
+        };
+        return button;
+    }));
+    source.textContent = entry.module?.operational?.sourceNote || (entry.procedureCount ? 'Trajetórias e restrições extraídas das pernas codificadas no pacote AIXM oficial AMDT 2608A1. Consulte cartas, AIP e NOTAM vigentes para uso real.' : 'Contexto baseado nos limites de TMA e aeródromos disponíveis no projeto. Nenhuma trajetória IFR é inferida sem tabela de codificação estruturada.');
+    if (changed) {
+        const enabled = document.getElementById('operational-layout-enabled');
+        if (enabled.checked) renderOperationalLayout();
+        else clearOperationalLayout(entry.status === 'structured' ? 'Selecione as pistas e ative a malha IFR.' : 'Ative o destaque para visualizar os setores e aeródromos desta terminal.');
+    } else updateOperationalControls();
+}
 function setupTmaFocusPanel() {
     const panel = document.getElementById('tma-focus-panel'), toggle = document.getElementById('tma-focus-toggle');
     if (!panel || !toggle) return;
-    tmaFocusRecords = tmaBoundaries.map(feature => ({ feature, bounds: L.geoJSON(feature).getBounds(), family: tmaFamilyName(feature.properties?.name) })).filter(record => record.bounds.isValid());
-    const spAerodromeCoordinates = moduleAerodromes().map(item => [item.lat, item.lon]).filter(([lat, lon]) => Number.isFinite(lat) && Number.isFinite(lon));
-    spOperationalFocusBounds = spAerodromeCoordinates.length ? L.latLngBounds(spAerodromeCoordinates).pad(.55) : null;
+    tmaFocusRecords = tmaBoundaries.map(feature => {
+        const rawFamily = tmaFamilyName(feature.properties?.family || feature.properties?.name), module = moduleForOperationalFamily(rawFamily);
+        return { feature, bounds: L.geoJSON(feature).getBounds(), family: module?.operational?.family || rawFamily };
+    }).filter(record => record.bounds.isValid());
+    buildOperationalCatalog();
+    const selector = document.getElementById('operational-tma-select');
+    selector.replaceChildren(new Option('Escolha uma terminal…', ''), ...operationalCatalog.map(entry => new Option(`${entry.family}${entry.status === 'structured' ? ' · IFR' : ''}`, entry.family)));
+    document.getElementById('operational-coverage-summary').textContent = `${operationalCatalog.length} TMA disponíveis na base`;
     L.DomEvent.disableClickPropagation(panel);
     L.DomEvent.disableScrollPropagation(panel);
     const setCollapsed = collapsed => {
@@ -394,58 +551,52 @@ function setupTmaFocusPanel() {
     if (compactViewport.matches) setCollapsed(true);
     compactViewport.addEventListener('change', event => { if (event.matches) setCollapsed(true); });
     setupOperationalLayoutControls();
+    map.on('dragstart', () => { manualOperationalFamily = ''; });
     map.on('moveend zoomend', updateDominantTma);
     updateDominantTma();
 }
 function updateDominantTma() {
-    const name = document.getElementById('tma-focus-name'), subtitle = document.getElementById('tma-focus-subtitle'), limits = document.getElementById('tma-focus-limits'), airspaceClass = document.getElementById('tma-focus-class'), presence = document.getElementById('tma-focus-presence'), details = document.getElementById('tma-focus-details'), spControls = document.getElementById('sp-layout-controls');
+    const name = document.getElementById('tma-focus-name'), subtitle = document.getElementById('tma-focus-subtitle'), limits = document.getElementById('tma-focus-limits'), airspaceClass = document.getElementById('tma-focus-class'), presence = document.getElementById('tma-focus-presence'), details = document.getElementById('tma-focus-details');
     if (!name || !tmaFocusRecords.length) return;
     if (map.getZoom() < 5) {
         dominantTmaRecord = null;
-        name.textContent = 'Aproxime o mapa';
-        subtitle.textContent = 'A identificação automática começa no zoom 5.';
+        name.textContent = 'Mapa operacional do Brasil';
+        subtitle.textContent = 'Escolha uma terminal no seletor ou aproxime o mapa.';
         limits.textContent = airspaceClass.textContent = presence.textContent = '—';
-        details.innerHTML = '<p>A TMA com maior presença estimada na janela será selecionada automaticamente.</p>';
-        spControls.hidden = true;
+        details.innerHTML = `<p>A base atual reúne ${operationalCatalog.length} famílias de TMA. A identificação automática começa no zoom 5.</p>`;
         return;
     }
-    const view = map.getBounds(), viewArea = boundsArea(view), officialSpRecords = tmaFocusRecords.filter(item => /TMA São Paulo/i.test(item.family)), hasCompleteSpSectorization = officialSpRecords.length >= 15;
-    const ranked = tmaFocusRecords.filter(record => overlapArea(record.bounds, view) > 0).map(record => ({ ...record, score: featureVisibleArea(record.feature, view) })).filter(record => record.score > 0).sort((a, b) => b.score - a.score);
+    const view = map.getBounds(), viewArea = boundsArea(view);
+    const ranked = tmaFocusRecords.filter(record => overlapArea(record.bounds, view) > 0).map(record => ({ ...record, score: featureVisibleArea(record.feature, view) })).filter(record => record.score > 0).sort((first, second) => second.score - first.score);
     const familyScores = new Map();
     ranked.forEach(record => familyScores.set(record.family, (familyScores.get(record.family) || 0) + record.score));
-    const spOfficialFocus = map.getZoom() >= 6 && spOperationalFocusBounds?.contains(map.getCenter()) && ranked.some(record => /TMA São Paulo/i.test(record.family));
-    const dominantFamily = spOfficialFocus ? officialSpRecords[0]?.family : [...familyScores.entries()].sort((first, second) => second[1] - first[1])[0]?.[0], dominantOfficialRecord = ranked.find(record => record.family === dominantFamily);
-    const spOperationalFocus = !hasCompleteSpSectorization && map.getZoom() >= 6 && spOperationalFocusBounds?.contains(map.getCenter());
-    if (!ranked.length && !spOperationalFocus) {
+    const automaticFamily = [...familyScores.entries()].sort((first, second) => second[1] - first[1])[0]?.[0], dominantFamily = manualOperationalFamily && ranked.some(item => item.family === manualOperationalFamily) ? manualOperationalFamily : automaticFamily, record = ranked.find(item => item.family === dominantFamily);
+    if (!record) {
         dominantTmaRecord = null;
         name.textContent = 'Nenhuma TMA na janela';
-        subtitle.textContent = 'Desloque ou afaste o mapa para localizar um limite disponível.';
+        subtitle.textContent = 'Use o seletor nacional para localizar outra terminal.';
         limits.textContent = airspaceClass.textContent = presence.textContent = '—';
-        details.innerHTML = '<p>A camada nacional possui somente os setores publicados no arquivo local.</p>';
-        spControls.hidden = true;
+        details.innerHTML = '<p>A camada mostra somente os limites presentes na base nacional do projeto.</p>';
         return;
     }
-    const officialSpRecord = officialSpRecords[0];
-    const record = spOperationalFocus ? { ...(officialSpRecord || {}), family: 'TMA São Paulo', score: 0, operationalFocus: true, feature: officialSpRecord?.feature || { properties: {}, geometry: null } } : dominantOfficialRecord, properties = record.feature.properties || {}, familyRecords = tmaFocusRecords.filter(item => item.family === record.family), visibleFamilyRecords = familyRecords.filter(item => overlapArea(item.bounds, view) > 0 && featureVisibleArea(item.feature, view) > 0), familyScore = familyScores.get(record.family) || record.score, percentage = record.operationalFocus ? null : Math.min(100, familyScore / viewArea * 100), vertices = geometryVertexCount(record.feature.geometry), circular = Number.isFinite(properties.radius_nm), isSaoPaulo = /TMA São Paulo/i.test(record.family);
+    const properties = record.feature.properties || {}, entry = operationalCatalog.find(item => item.family === record.family), familyRecords = entry?.records || [], visibleFamilyRecords = familyRecords.filter(item => overlapArea(item.bounds, view) > 0 && featureVisibleArea(item.feature, view) > 0), familyScore = familyScores.get(record.family) || record.score, percentage = Math.min(100, familyScore / viewArea * 100), vertices = geometryVertexCount(record.feature.geometry), circular = Number.isFinite(properties.radius_nm), module = entry?.module;
     dominantTmaRecord = record;
-    name.textContent = record.operationalFocus ? 'TMA São Paulo — foco IFR' : properties.name || record.family;
-    subtitle.textContent = record.operationalFocus ? 'Contexto definido pelos aeródromos do módulo; não representa um novo limite oficial.' : `${record.family} · setor com maior presença na tela`;
-    limits.textContent = record.operationalFocus ? 'Variam por setor' : `${properties.lower_limit || 'N/I'} / ${properties.upper_limit || 'N/I'}`;
-    airspaceClass.textContent = record.operationalFocus ? 'A/C por setor' : properties.airspace_class || 'N/I';
-    presence.textContent = record.operationalFocus ? 'FOCO IFR' : `${percentage < 1 ? '<1' : Math.round(percentage)}%`;
-    const geometryText = record.operationalFocus ? 'Área contextual calculada pela distribuição dos oito aeródromos do módulo IFR.' : circular ? `Setor circular com raio publicado de ${properties.radius_nm} NM.` : `Setor poligonal com ${Math.max(0, vertices - 1)} lados/pontos de contorno.`;
-    const moduleAirports = isSaoPaulo ? moduleAerodromes().map(item => item.id).join(', ') : '';
-    const primary = properties.frequencies?.primary?.join(', '), secondary = properties.frequencies?.secondary?.join(', '), frequencyInfo = primary ? `<p><strong>Frequência:</strong> PRI ${esc(primary)}${secondary ? ` · SRY ${esc(secondary)}` : ''} · EMERG ${esc(properties.frequencies.emergency || '121.500 MHz')}.</p>` : '';
-    const sectorizationInfo = isSaoPaulo && hasCompleteSpSectorization ? `<p><strong>Setorização:</strong> conjunto oficial completo com ${familyRecords.length} setores; 02F e 03F aparecem tracejados. Base vigente em ${esc(properties.effective_date || '2026-08-06')}.</p><p><strong>Particularidade:</strong> ${esc(properties.remarks || 'Os limites e frequências variam por setor.')}</p>` : isSaoPaulo ? '<p><strong>Particularidade da base:</strong> a malha IFR não amplia nem infere limites oficiais ausentes.</p>' : '<p><strong>Leitura:</strong> presença calculada pela interseção real do polígono com a tela; consulte a publicação vigente para uso operacional.</p>';
-    details.innerHTML = `<p><strong>Tipo:</strong> ${esc(properties.type || 'TMA')} · ${esc(geometryText)}</p><p><strong>Cobertura local:</strong> ${visibleFamilyRecords.length} de ${familyRecords.length} setor(es) oficiais aparecem na janela.</p>${frequencyInfo}${moduleAirports ? `<p><strong>Aeródromos do módulo IFR:</strong> ${esc(moduleAirports)}.</p>` : ''}${sectorizationInfo}`;
-    spControls.hidden = !isSaoPaulo;
+    name.textContent = properties.name || record.family;
+    subtitle.textContent = `${record.family} · setor com maior presença na tela`;
+    limits.textContent = `${properties.lower_limit || 'N/I'} / ${properties.upper_limit || 'N/I'}`;
+    airspaceClass.textContent = properties.airspace_class || 'N/I';
+    presence.textContent = `${percentage < 1 ? '<1' : Math.round(percentage)}%`;
+    const geometryText = circular ? `Setor circular com raio publicado de ${properties.radius_nm} NM.` : `Setor poligonal com ${Math.max(0, vertices - 1)} lados/pontos de contorno.`, primary = properties.frequencies?.primary?.join(', '), secondary = properties.frequencies?.secondary?.join(', '), frequencyInfo = primary ? `<p><strong>Frequência:</strong> PRI ${esc(primary)}${secondary ? ` · SRY ${esc(secondary)}` : ''} · EMERG ${esc(properties.frequencies.emergency || '121.500 MHz')}.</p>` : '', airportCodes = (entry?.aerodromes || []).map(item => item.id).join(', '), coverageInfo = module ? `<p><strong>Mapa IFR:</strong> ${module.procedures.length} carta(s) estruturada(s), com trajetórias e restrições associadas aos FIX.</p>` : '<p><strong>Mapa IFR:</strong> cartas ainda não estruturadas para esta terminal; o sistema exibe apenas o contexto nacional confirmado.</p>';
+    details.innerHTML = `<p><strong>Tipo:</strong> ${esc(properties.type || 'TMA')} · ${esc(geometryText)}</p><p><strong>Cobertura local:</strong> ${visibleFamilyRecords.length} de ${familyRecords.length} setor(es) aparecem na janela.</p>${frequencyInfo}${airportCodes ? `<p><strong>Aeródromos na base:</strong> ${esc(airportCodes)}.</p>` : '<p><strong>Aeródromos na base:</strong> nenhum ponto associado a este polígono.</p>'}${coverageInfo}<p><strong>Segurança:</strong> consulte a publicação aeronáutica vigente antes de qualquer uso real.</p>`;
+    configureOperationalTma(record.family);
 }
 
 function selectedOperationalTypes() {
     return new Set([...document.querySelectorAll('.layout-type-filter:checked')].map(input => input.value));
 }
 function currentOperationalCode() {
-    return `${operationalRunways.SBSP}–${operationalRunways.SBGR}–${operationalRunways.SBKP}`;
+    const values = Object.values(operationalRunways);
+    return values.length ? values.join('–') : 'CTX';
 }
 function operationalCategory(procedure) {
     if (procedure.type !== 'IAC') return procedure.type;
@@ -460,42 +611,66 @@ function procedureMatchesOperationalConfig(procedure, enabledTypes) {
     return Boolean(runway && (procedure.runways || []).some(value => String(value).startsWith(runway)));
 }
 function setupOperationalLayoutControls() {
-    const selectors = { SBSP: document.getElementById('sp-runway-sbsp'), SBGR: document.getElementById('sp-runway-sbgr'), SBKP: document.getElementById('sp-runway-sbkp') }, enabled = document.getElementById('sp-layout-enabled'), fit = document.getElementById('sp-layout-fit'), clear = document.getElementById('sp-layout-clear'), presets = document.getElementById('sp-layout-presets');
-    const combinations = ['17-10-15', '17-10-33', '17-28-15', '17-28-33', '35-10-15', '35-10-33', '35-28-15', '35-28-33'];
-    presets.replaceChildren(...combinations.map(code => { const button = document.createElement('button'); button.type = 'button'; button.textContent = code; button.dataset.config = code; button.onclick = () => { const [sbsp, sbgr, sbkp] = code.split('-'); selectors.SBSP.value = sbsp; selectors.SBGR.value = sbgr; selectors.SBKP.value = sbkp; operationalRunways.SBSP = sbsp; operationalRunways.SBGR = sbgr; operationalRunways.SBKP = sbkp; enabled.checked = true; renderOperationalLayout(); }; return button; }));
-    Object.entries(selectors).forEach(([airport, select]) => select.onchange = () => { operationalRunways[airport] = select.value; renderOperationalLayout(); });
+    const selector = document.getElementById('operational-tma-select'), enabled = document.getElementById('operational-layout-enabled'), fit = document.getElementById('operational-layout-fit'), clear = document.getElementById('operational-layout-clear');
+    selector.onchange = () => {
+        const entry = operationalCatalog.find(item => item.family === selector.value);
+        if (!entry) return;
+        manualOperationalFamily = entry.family;
+        configureOperationalTma(entry.family);
+        map.fitBounds(entry.bounds, { padding: [45, 45], maxZoom: 8 });
+    };
     document.querySelectorAll('.layout-type-filter').forEach(input => input.onchange = renderOperationalLayout);
     enabled.onchange = () => {
         if (enabled.checked) { if (!map.hasLayer(operationalLayoutGroup)) operationalLayoutGroup.addTo(map); renderOperationalLayout(); }
-        else clearOperationalLayout('Malha IFR ocultada.');
+        else clearOperationalLayout('Contexto operacional ocultado.');
     };
-    fit.onclick = () => { const bounds = operationalLayoutGroup.getBounds(); if (bounds.isValid()) map.fitBounds(bounds, { padding: [45, 45], maxZoom: 9 }); };
-    clear.onclick = () => { enabled.checked = false; clearOperationalLayout('Malha IFR removida do mapa.'); };
+    fit.onclick = () => {
+        const bounds = operationalLayoutGroup.getBounds(), entry = operationalCatalog.find(item => item.family === activeOperationalFamily);
+        if (bounds.isValid()) map.fitBounds(bounds, { padding: [45, 45], maxZoom: 9 });
+        else if (entry?.bounds.isValid()) map.fitBounds(entry.bounds, { padding: [45, 45], maxZoom: 8 });
+    };
+    clear.onclick = () => { enabled.checked = false; clearOperationalLayout('Mapa operacional removido da tela.'); };
     map.on('zoomend', () => { const permanent = map.getZoom() >= 9; if (enabled.checked && permanent !== layoutLabelsPermanent) renderOperationalLayout(); });
-    map.on('overlayremove', event => { if (event.layer === operationalLayoutGroup) { enabled.checked = false; clearOperationalLayout('Malha IFR ocultada pelo controle de camadas.', false); } });
+    map.on('overlayremove', event => { if (event.layer === operationalLayoutGroup) { enabled.checked = false; clearOperationalLayout('Mapa operacional ocultado pelo controle de camadas.', false); } });
     map.on('overlayadd', event => { if (event.layer === operationalLayoutGroup && operationalLayoutGroup.getLayers().length) enabled.checked = true; });
-    clearOperationalLayout('Selecione as pistas e ative a malha IFR.');
+    clearOperationalLayout('Selecione uma terminal brasileira para abrir seu contexto.');
 }
 function updateOperationalControls() {
-    const code = currentOperationalCode(), codeTarget = document.getElementById('sp-layout-code');
+    const code = currentOperationalCode(), codeTarget = document.getElementById('operational-layout-code');
     if (codeTarget) codeTarget.textContent = code;
-    document.querySelectorAll('#sp-layout-presets button').forEach(button => button.classList.toggle('is-active', button.dataset.config === code.replaceAll('–', '-')));
+    document.querySelectorAll('#operational-layout-presets button').forEach(button => button.classList.toggle('is-active', button.dataset.config === code.replaceAll('–', '-')));
 }
 function clearOperationalLayout(message, removeLayer = true) {
     operationalLayoutGroup.clearLayers();
     if (removeLayer && map.hasLayer(operationalLayoutGroup)) map.removeLayer(operationalLayoutGroup);
-    document.getElementById('sp-layout-fit').disabled = true;
-    document.getElementById('sp-layout-status').textContent = message;
+    document.getElementById('operational-layout-fit').disabled = !activeOperationalFamily;
+    document.getElementById('operational-layout-status').textContent = message;
     updateOperationalControls();
+}
+function renderOperationalContext(entry) {
+    entry.records.forEach(record => L.geoJSON(record.feature, { style: { color: '#00e5ff', weight: 3.4, opacity: .9, fillColor: '#00e5ff', fillOpacity: .035, dashArray: '10 5' } }).bindTooltip(record.feature.properties?.name || entry.family, { sticky: true, className: 'tma-sector-tooltip' }).addTo(operationalLayoutGroup));
+    entry.aerodromes.forEach(airport => {
+        L.circleMarker([airport.lat, airport.lon], { radius: 7, color: '#ffd166', weight: 2.2, fillColor: '#111820', fillOpacity: .95 })
+            .bindTooltip(`<strong>${esc(airport.id)}</strong><br>${esc(airport.name || airport.city || 'Aeródromo')}${airport.runways?.length ? `<br>Pistas ${esc(airport.runways.join(', '))}` : ''}`, { permanent: map.getZoom() >= 9 && entry.aerodromes.length <= 30, direction: 'top', className: 'layout-fix-label' })
+            .on('click', () => showDetails(airport, 'aerodrome'))
+            .addTo(operationalLayoutGroup);
+    });
 }
 function renderOperationalLayout() {
     updateOperationalControls();
-    const enabled = document.getElementById('sp-layout-enabled');
-    if (!enabled?.checked) return clearOperationalLayout('Selecione as pistas e ative a malha IFR.');
+    const enabled = document.getElementById('operational-layout-enabled'), entry = operationalCatalog.find(item => item.family === activeOperationalFamily);
+    if (!entry) return clearOperationalLayout('Selecione uma terminal brasileira para abrir seu contexto.');
+    if (!enabled?.checked) return clearOperationalLayout(entry.status === 'structured' ? 'Selecione as pistas e ative a malha IFR.' : 'Ative o destaque para visualizar os setores e aeródromos desta terminal.');
     if (!map.hasLayer(operationalLayoutGroup)) operationalLayoutGroup.addTo(map);
     operationalLayoutGroup.clearLayers();
     layoutLabelsPermanent = map.getZoom() >= 9;
-    const types = selectedOperationalTypes(), matchedProcedures = procedures.filter(procedure => procedure.tmaId === 'tma-sp' && procedureMatchesOperationalConfig(procedure, types)), segmentKeys = new Set(), pointData = new Map();
+    renderOperationalContext(entry);
+    if (!entry.procedureCount) {
+        document.getElementById('operational-layout-fit').disabled = !entry.bounds.isValid();
+        document.getElementById('operational-layout-status').textContent = `${entry.family} · ${entry.records.length} setor(es) · ${entry.aerodromes.length} aeródromo(s). Cartas IFR ainda não estruturadas; nenhuma rota foi inferida.`;
+        return;
+    }
+    const types = selectedOperationalTypes(), matchedProcedures = entry.procedures.filter(procedure => procedureMatchesOperationalConfig(procedure, types)), segmentKeys = new Set(), pointData = new Map();
     const pointRecord = (ident, category) => { if (!pointData.has(ident)) pointData.set(ident, { categories: new Set(), restrictions: new Map() }); const record = pointData.get(ident); record.categories.add(category); return record; };
     let routeCount = 0, segmentCount = 0;
     matchedProcedures.forEach(procedure => (procedure.transitions || []).forEach(transition => {
@@ -507,14 +682,16 @@ function renderOperationalLayout() {
                 const restriction = segmentRestriction(segment), record = pointRecord(segment.destination, category);
                 if (restriction !== 'Sem restrição adicional publicada') record.restrictions.set(`${procedure.id}|${restriction}`, { text: restriction, procedure, transition });
             }
-            if (!segment.origin || !segment.destination) return;
+            const hasPublishedGeometry = segment.geometry?.length > 1;
+            if (!segment.destination || (!segment.origin && !hasPublishedGeometry)) return;
             const origin = waypointForProcedure(segment.origin), destination = waypointForProcedure(segment.destination);
-            if (!origin || !destination) return;
+            if (!hasPublishedGeometry && (!origin || !destination)) return;
             const key = [procedure.type, segment.origin, segment.destination, segment.pathTerminator, segment.arcCenterFix, segment.turn].join('|');
             if (segmentKeys.has(key)) return;
             segmentKeys.add(key);
             segmentCount += 1;
-            L.polyline(segmentLatLngs(segment, origin, destination), { color: operationalColors[category], weight: ['ILS', 'RNP'].includes(category) ? 2.6 : 2.1, opacity: .82, dashArray: category === 'SID' ? '8 5' : category === 'RNP' ? '10 3 2 3' : category === 'ILS' ? '3 4' : null, interactive: true })
+            const geometry = hasPublishedGeometry ? segment.geometry : segmentLatLngs(segment, origin, destination);
+            L.polyline(geometry, { color: operationalColors[category], weight: ['ILS', 'RNP'].includes(category) ? 2.6 : 2.1, opacity: .82, dashArray: category === 'SID' ? '8 5' : category === 'RNP' ? '10 3 2 3' : category === 'ILS' ? '3 4' : null, interactive: true })
                 .bindTooltip(`${category} · ${procedure.airport} · ${procedure.name}<br>${segment.origin} → ${segment.destination}<br>${esc(segmentRestriction(segment))}`)
                 .on('click', () => showSegmentDetails(segment, procedure, transition))
                 .addTo(operationalLayoutGroup);
@@ -532,9 +709,9 @@ function renderOperationalLayout() {
             .on('click', () => showOperationalFixDetails(point, ident, record))
             .addTo(operationalLayoutGroup);
     });
-    const bounds = operationalLayoutGroup.getBounds(), status = document.getElementById('sp-layout-status');
-    document.getElementById('sp-layout-fit').disabled = !bounds.isValid();
-    status.textContent = `${currentOperationalCode()} · ${matchedProcedures.length} cartas · ${routeCount} trajetórias · ${segmentCount} trechos únicos · ${pointData.size} FIX · ${restrictedFixes} com restrição.`;
+    const bounds = operationalLayoutGroup.getBounds(), status = document.getElementById('operational-layout-status');
+    document.getElementById('operational-layout-fit').disabled = !bounds.isValid();
+    status.textContent = `${entry.family} · ${currentOperationalCode()} · ${matchedProcedures.length} cartas · ${routeCount} trajetórias · ${segmentCount} trechos únicos · ${pointData.size} FIX · ${restrictedFixes} com restrição.`;
 }
 function setupProcedureControls() {
     const tma = document.getElementById('procedure-tma'), airport = document.getElementById('procedure-airport'), type = document.getElementById('procedure-type'), procedure = document.getElementById('procedure-select'), transition = document.getElementById('procedure-transition'), missedOption = document.getElementById('include-missed-approach'), addButton = document.getElementById('add-procedure');
@@ -656,7 +833,7 @@ function showSegmentDetails(segment, procedure, transition) { const arc = segmen
 function focusProcedure(key) { const item = activeProcedures.get(key); if (item && item.group.getBounds().isValid()) map.fitBounds(item.group.getBounds(), { padding: [45, 45], maxZoom: 10 }); }
 function removeProcedure(key) { const item = activeProcedures.get(key); if (item) proceduresGroup.removeLayer(item.group); activeProcedures.delete(key); renderActiveProcedures(); }
 function renderActiveProcedures() { const target = document.getElementById('active-procedures'); target.replaceChildren(); if (!activeProcedures.size) { target.innerHTML = '<span class="empty-selection">Nenhum procedimento ativo.</span>'; return; } activeProcedures.forEach((item, key) => { const row = document.createElement('div'); row.className = 'selected-point-row'; row.innerHTML = `<span><strong>${esc(item.procedure.type)} — ${esc(item.procedure.name)}</strong><br><span class="mono-small">${esc(item.transition.name)} · ${esc(item.procedure.source.chartCode || 'OMNI')} · ${esc(item.procedure.source.effectiveDate)}${item.includeMissedApproach && item.procedure.type === 'IAC' ? ' · APCH perdida' : ''}</span></span><button type="button">Remover</button>`; row.querySelector('span').onclick = () => focusProcedure(key); row.querySelector('button').onclick = () => removeProcedure(key); target.appendChild(row); }); }
-L.control.layers({ 'Cartografia Escura': darkMatter, 'Mapa Padrão (OSM)': openStreetMap }, { 'Todos os aeródromos (Brasil)': aerodromesGroup, 'Todos os fixos (Brasil)': allFixesGroup, 'Áreas de ensaio em voo': testAreasGroup, 'Vetores de medição': measurementVectorsGroup, 'Auxílios Rádio': navaidsGroup, 'Waypoints selecionados': waypointSelectionsGroup, 'Procedimentos IFR': proceduresGroup, 'Layout operacional TMA SP': operationalLayoutGroup, 'Áreas TMA': tmaGroup, 'Simulações de Rota': routesGroup }, { collapsed: compactViewport.matches, position: 'topright' }).addTo(map);
+L.control.layers({ 'Cartografia Escura': darkMatter, 'Mapa Padrão (OSM)': openStreetMap }, { 'Todos os aeródromos (Brasil)': aerodromesGroup, 'Todos os fixos (Brasil)': allFixesGroup, 'Áreas de ensaio em voo': testAreasGroup, 'Vetores de medição': measurementVectorsGroup, 'Auxílios Rádio': navaidsGroup, 'Waypoints selecionados': waypointSelectionsGroup, 'Procedimentos IFR': proceduresGroup, 'Mapa operacional Brasil': operationalLayoutGroup, 'Áreas TMA — AIXM Brasil': tmaGroup, 'Simulações de Rota': routesGroup }, { collapsed: compactViewport.matches, position: 'topright' }).addTo(map);
 
 let mapResizeTimer = null;
 function scheduleMapResize() {
