@@ -466,54 +466,172 @@ async function loadProcedureIndex(airportEntry) {
     if (!procedureIndexCache.has(airportEntry.proceduresIndex)) procedureIndexCache.set(airportEntry.proceduresIndex, fetchJson(airportEntry.proceduresIndex, `procedimentos de ${airportEntry.icao}`));
     return procedureIndexCache.get(airportEntry.proceduresIndex);
 }
-function hydrateProcedure(document, catalogEntry, tmaId) {
-    const metadata = document.procedure || {}, legById = new Map((document.legs || []).map(leg => [leg.id, leg]));
-    const source = metadata.source || {};
-    const segment = leg => ({
-        id: leg.id,
-        origin: leg.from,
-        destination: leg.to,
-        via: leg.via || [],
-        pathTerminator: leg.path_terminator,
-        course: { magnetic: leg.course_magnetic, true: leg.course_true },
-        distanceNm: leg.distance_nm,
-        turn: leg.turn,
-        flyOver: leg.fly_over,
-        lowerLimitAltitude: leg.lower_limit,
-        upperLimitAltitude: leg.upper_limit,
-        speedLimitKt: leg.speed_limit_kt,
-        speedLimitDescription: leg.speed_interpretation,
-        verticalAngle: leg.vertical_angle,
-        fixRole: leg.fix_role,
-        navigationSpecification: leg.navigation_specification,
-        arcCenterFix: leg.arc_center,
-        arcRadiusNm: leg.arc_radius_nm,
-        sourcePage: leg.source_page,
+function normalizeProcedureRef(value) {
+    if (typeof value === 'string') return value;
+    if (value && typeof value === 'object') return value.ident || value.name || value.id || null;
+    return value == null ? null : String(value);
+}
+function sanitizeProcedureObject(value) {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) return value;
+    const copy = { ...value };
+    ['latitude', 'longitude', 'lat', 'lon', 'lng'].forEach(key => delete copy[key]);
+    return copy;
+}
+function procedureCourseValues(rawLeg) {
+    const course = rawLeg?.course && typeof rawLeg.course === 'object' ? rawLeg.course : {}, reference = String(rawLeg?.course_reference || '').toUpperCase();
+    let magnetic = Number.isFinite(rawLeg?.course_magnetic) ? rawLeg.course_magnetic : Number.isFinite(course.magnetic) ? course.magnetic : null;
+    let trueCourse = Number.isFinite(rawLeg?.course_true) ? rawLeg.course_true : Number.isFinite(course.true) ? course.true : null;
+    if (Number.isFinite(rawLeg?.course)) {
+        if (reference.includes('TRUE')) trueCourse = rawLeg.course;
+        else if (reference.includes('MAG')) magnetic = rawLeg.course;
+        else if (magnetic == null) magnetic = rawLeg.course;
+    }
+    return { magnetic, true: trueCourse };
+}
+function normalizeProcedureLeg(rawLeg, index, prefix = 'LEG') {
+    const source = sanitizeProcedureObject(rawLeg || {}), course = procedureCourseValues(source), courseReference = source.course_reference || (Number.isFinite(course.magnetic) ? 'MAG' : Number.isFinite(course.true) ? 'TRUE' : null);
+    const normalized = {
+        ...source,
+        id: source.id || `${prefix}-${index + 1}`,
+        from: normalizeProcedureRef(source.from),
+        to: normalizeProcedureRef(source.to),
+        via: Array.isArray(source.via) ? source.via.map(normalizeProcedureRef).filter(Boolean) : [],
+        path_terminator: source.path_terminator || source.pathTerminator || source.terminator || null,
+        course: Number.isFinite(source.course) ? source.course : source.course ?? null,
+        course_reference: courseReference,
+        course_magnetic: course.magnetic,
+        course_true: course.true,
+        distance_nm: Number.isFinite(source.distance_nm) ? source.distance_nm : Number.isFinite(source.distanceNm) ? source.distanceNm : null,
+        turn: source.turn ?? source.turn_direction ?? source.direction ?? null,
+        arc_center: normalizeProcedureRef(source.arc_center ?? source.arcCenterFix),
+        arc_radius_nm: Number.isFinite(source.arc_radius_nm) ? source.arc_radius_nm : Number.isFinite(source.arcRadiusNm) ? source.arcRadiusNm : null,
+        lower_limit: source.lower_limit ?? source.lowerLimit ?? null,
+        upper_limit: source.upper_limit ?? source.upperLimit ?? null,
+        speed_limit_kt: source.speed_limit_kt ?? source.speedLimitKt ?? null,
+        speed_interpretation: source.speed_interpretation ?? source.speedLimitDescription ?? null,
+        fix_role: source.fix_role ?? source.fixRole ?? null,
+        navigation_specification: source.navigation_specification ?? source.navigationSpecification ?? null,
+    };
+    return {
+        ...normalized,
+        origin: normalized.from,
+        destination: normalized.to,
+        pathTerminator: normalized.path_terminator,
+        course: course,
+        course_value: Number.isFinite(source.course) ? source.course : null,
+        distanceNm: normalized.distance_nm,
+        flyOver: normalized.fly_over,
+        lowerLimitAltitude: normalized.lower_limit,
+        upperLimitAltitude: normalized.upper_limit,
+        speedLimitKt: normalized.speed_limit_kt,
+        speedLimitDescription: normalized.speed_interpretation,
+        verticalAngle: normalized.vertical_angle,
+        fixRole: normalized.fix_role,
+        navigationSpecification: normalized.navigation_specification,
+        arcCenterFix: normalized.arc_center,
+        arcRadiusNm: normalized.arc_radius_nm,
+        sourcePage: normalized.source_page,
+    };
+}
+function procedureRouteSequence(segments) {
+    const sequence = [], append = value => { const ref = normalizeProcedureRef(value); if (ref && sequence[sequence.length - 1] !== ref) sequence.push(ref); };
+    (segments || []).forEach(segment => { append(segment.from); (segment.via || []).forEach(append); append(segment.to); });
+    return sequence;
+}
+function generatedProcedureTransitions(legs) {
+    const outgoing = new Map(), destinations = new Set(), legById = new Map(legs.map(leg => [leg.id, leg])), routes = [], emitted = new Set();
+    legs.forEach(leg => {
+        if (leg.from) {
+            if (!outgoing.has(leg.from)) outgoing.set(leg.from, []);
+            outgoing.get(leg.from).push(leg);
+        }
+        if (leg.to) destinations.add(leg.to);
+    });
+    const pushRoute = path => {
+        if (!path.length) return;
+        path.forEach(leg => emitted.add(leg.id));
+        const number = routes.length + 1;
+        routes.push({ id: `AUTO-${number}`, name: `Trajetória ${number}`, kind: 'AUTO', generated: true, sequence: procedureRouteSequence(path), leg_ids: path.map(leg => leg.id), segments: path });
+    };
+    const walk = (path, currentRef, visited) => {
+        const next = (outgoing.get(currentRef) || []).filter(leg => !visited.has(leg.id));
+        if (!next.length) return pushRoute(path);
+        next.forEach(leg => walk([...path, leg], leg.to, new Set([...visited, leg.id])));
+    };
+    const roots = legs.filter(leg => !leg.from || !destinations.has(leg.from));
+    roots.forEach(leg => walk([leg], leg.to, new Set([leg.id])));
+    legs.forEach(leg => { if (!emitted.has(leg.id)) walk([leg], leg.to, new Set([leg.id])); });
+    return routes;
+}
+function normalizeProcedureRoute(route, legById, prefix) {
+    const rawRoute = sanitizeProcedureObject(route || {}), routeLegs = Array.isArray(rawRoute.leg_ids) ? rawRoute.leg_ids.map(id => legById.get(id)).filter(Boolean) : Array.isArray(rawRoute.legs) ? rawRoute.legs.map((leg, index) => normalizeProcedureLeg(leg, index, `${prefix}-LEG`)) : [];
+    const segments = routeLegs.map((leg, index) => leg.origin !== undefined ? leg : normalizeProcedureLeg(leg, index, prefix));
+    const sequence = Array.isArray(rawRoute.sequence) ? rawRoute.sequence.map(normalizeProcedureRef).filter(Boolean) : procedureRouteSequence(segments);
+    return { ...rawRoute, id: rawRoute.id || prefix, name: rawRoute.name || rawRoute.id || prefix, sequence, segments, leg_ids: segments.map(leg => leg.id) };
+}
+function normalizeProcedure(rawProcedure, catalogEntry = {}, tmaId = '') {
+    const document = rawProcedure || {}, metadata = document.procedure || {}, source = metadata.source && typeof metadata.source === 'object' ? metadata.source : { authority: metadata.source || null }, rawPoints = document.points && typeof document.points === 'object' ? document.points : {}, format = document.schemaVersion && Array.isArray(document.transitions) && document.transitions.some(route => Array.isArray(route.leg_ids)) ? 'architecture-v1' : 'simplified-legs';
+    const points = Object.fromEntries(Object.entries(rawPoints).map(([key, value]) => {
+        const point = sanitizeProcedureObject(value || {}), ident = normalizeProcedureRef(point.ident) || key;
+        return [key, { ...point, ident, coordinate_ref: point.coordinate_ref || null }];
+    }));
+    const legs = (document.legs || []).map((leg, index) => normalizeProcedureLeg(leg, index, `${metadata.id || catalogEntry.id || 'PROCEDURE'}-LEG`)), legById = new Map(legs.map(leg => [leg.id, leg]));
+    const rawRoutes = Array.isArray(document.transitions) && document.transitions.length ? document.transitions : [], normalizedRoutes = rawRoutes.map((route, index) => normalizeProcedureRoute(route, legById, `${metadata.id || 'ROUTE'}-${index + 1}`)), transitions = normalizedRoutes.length && (format === 'architecture-v1' || normalizedRoutes.some(route => route.segments.length)) ? normalizedRoutes : generatedProcedureTransitions(legs);
+    const rawMissedApproach = Array.isArray(document.missed_approach) ? document.missed_approach : [], missedEntriesAreLegs = rawMissedApproach.length > 0 && rawMissedApproach.every(entry => entry && !Array.isArray(entry.legs) && (entry.from || entry.to || entry.action || entry.course != null || entry.direct || entry.holding || entry.climb_to != null || entry.until_altitude != null)), missedRoutes = missedEntriesAreLegs ? [{ id: 'MISSED-1', name: 'Aproximação perdida', kind: 'MISSED', legs: rawMissedApproach }] : rawMissedApproach;
+    const missedApproach = missedRoutes.map((route, index) => {
+        const normalizedRoute = sanitizeProcedureObject(route || {}), routeLegs = (route.legs || []).map((leg, legIndex) => normalizeProcedureLeg(leg, legIndex, `${normalizedRoute.id || 'MISSED'}-${index + 1}-LEG`));
+        const sequence = Array.isArray(normalizedRoute.sequence) ? normalizedRoute.sequence.map(normalizeProcedureRef).filter(Boolean) : procedureRouteSequence(routeLegs);
+        return { ...normalizedRoute, id: normalizedRoute.id || `MISSED-${index + 1}`, name: normalizedRoute.name || normalizedRoute.id || `Aproximação perdida ${index + 1}`, sequence, segments: routeLegs, legs: routeLegs };
     });
     const procedure = {
-        id: metadata.id,
-        name: metadata.name,
-        type: metadata.type,
-        airport: metadata.airport,
-        runways: metadata.runways || (metadata.runway ? [metadata.runway] : []),
-        modes: metadata.modes || [],
-        status: metadata.status,
-        source: { authority: source.authority, chartCode: source.chart_code, amendment: source.amendment, effectiveDate: source.effective_date, document: source.document, page: source.page },
-        sourceHistory: metadata.source_history || [],
-        points: document.points || {},
-        warnings: document.warnings || [],
+        id: metadata.id || catalogEntry.id || `${metadata.airport || catalogEntry.airport || 'UNKNOWN'}-${metadata.name || catalogEntry.name || 'PROCEDURE'}`,
+        name: metadata.name || catalogEntry.name || 'Procedimento sem nome',
+        type: String(metadata.type || catalogEntry.type || 'IAC').toUpperCase(),
+        airport: metadata.airport || catalogEntry.airport || '',
+        runways: Array.isArray(metadata.runways) ? metadata.runways : metadata.runways ? [metadata.runways] : metadata.runway ? [metadata.runway] : Array.isArray(catalogEntry.runways) ? catalogEntry.runways : catalogEntry.runways ? [catalogEntry.runways] : [],
+        modes: Array.isArray(metadata.modes) ? metadata.modes : metadata.modes ? [metadata.modes] : Array.isArray(catalogEntry.modes) ? catalogEntry.modes : catalogEntry.modes ? [catalogEntry.modes] : [],
+        status: metadata.status || (format === 'simplified-legs' ? 'simplified-normalized' : null),
+        source: { ...source, authority: source.authority, chartCode: source.chart_code || source.chartCode, amendment: source.amendment, effectiveDate: source.effective_date || source.effectiveDate, document: source.document, page: source.page },
+        sourceHistory: Array.isArray(metadata.source_history) ? metadata.source_history : Array.isArray(metadata.sourceHistory) ? metadata.sourceHistory : [],
+        points,
+        legs,
+        transitions,
+        missedApproach,
+        warnings: Array.isArray(document.warnings) ? [...document.warnings] : [],
         tmaId,
         catalogFile: catalogEntry.file,
+        format,
     };
-    procedure.transitions = (document.transitions || []).map(route => ({ ...route, segments: (route.leg_ids || []).map(id => legById.get(id)).filter(Boolean).map(segment) }));
-    procedure.missedApproach = (document.missed_approach || []).map(route => ({ ...route, segments: (route.legs || []).map(segment) }));
+    const pointDefinition = ident => {
+        const key = Object.keys(procedure.points).find(candidate => candidate.toUpperCase() === String(ident).toUpperCase());
+        return procedure.points[key] || Object.values(procedure.points).find(point => String(point.ident || '').toUpperCase() === String(ident).toUpperCase()) || null;
+    };
+    const requiredRefs = new Set(), collectLegRefs = leg => {
+        [leg.from, leg.to, leg.arc_center, ...(leg.via || [])].forEach(ref => { if (ref) requiredRefs.add(ref); });
+    };
+    legs.forEach(collectLegRefs);
+    missedApproach.forEach(route => route.segments.forEach(collectLegRefs));
+    Object.keys(points).forEach(key => requiredRefs.add(points[key].ident || key));
+    const missing = new Set();
+    requiredRefs.forEach(ident => {
+        if (waypointForProcedure(ident, pointDefinition(ident))) return;
+        const normalized = String(ident).toUpperCase();
+        if (missing.has(normalized)) return;
+        missing.add(normalized);
+        const warning = `FIX/WAYPOINT ${ident} não encontrado em data/waypoints.json; segmentos dependentes não serão desenhados.`;
+        procedure.warnings.push(warning);
+        console.warn(`[Procedimento ${procedure.name}] ${warning}`);
+    });
     return procedure;
+}
+function hydrateProcedure(document, catalogEntry, tmaId) {
+    return normalizeProcedure(document, catalogEntry, tmaId);
 }
 async function loadProcedureData(catalogEntry, tmaId) {
     if (!catalogEntry?.file) return null;
     if (!procedureDataCache.has(catalogEntry.file)) {
         procedureDataCache.set(catalogEntry.file, fetchJson(catalogEntry.file, catalogEntry.name).then(document => {
-            const procedure = hydrateProcedure(document, catalogEntry, tmaId);
+            const procedure = normalizeProcedure(document, catalogEntry, tmaId);
             procedures.push(procedure);
             return procedure;
         }));
@@ -936,7 +1054,10 @@ function setupProcedureControls() {
 
 function waypointForProcedure(ident, pointDefinition = null) {
     if (!ident) return null;
-    if (pointDefinition?.coordinate_ref) return procedurePointById.get(pointDefinition.coordinate_ref) || null;
+    if (pointDefinition?.coordinate_ref) {
+        const referenced = procedurePointById.get(pointDefinition.coordinate_ref);
+        if (referenced) return referenced;
+    }
     const normalizedIdent = String(ident).toUpperCase(), candidates = procedurePointCandidates.get(normalizedIdent) || [];
     if (!candidates.length) return null;
     const bestPriority = Math.min(...candidates.map(candidate => candidate.priority));
@@ -958,7 +1079,12 @@ function speedText(segment) {
 }
 function segmentRestriction(segment) {
     const lower = segment.lowerLimitAltitude, upper = segment.upperLimitAltitude;
-    const altitude = lower?.meaning === 'between-bound' && upper?.meaning === 'between-bound' && Number.isFinite(lower.valueFt) && Number.isFinite(upper.valueFt) ? `${Math.min(Math.abs(lower.valueFt), Math.abs(upper.valueFt))}–${Math.max(Math.abs(lower.valueFt), Math.abs(upper.valueFt))} FT` : [altitudeText(lower), altitudeText(upper)].filter(Boolean).join(' · ');
+    const publishedAltitude = segment.altitude && typeof segment.altitude === 'object' ? [
+        Number.isFinite(segment.altitude.at) ? `AT ${segment.altitude.at} FT` : null,
+        Number.isFinite(segment.altitude.min) ? `MIN ${segment.altitude.min} FT` : null,
+        Number.isFinite(segment.altitude.max) ? `MAX ${segment.altitude.max} FT` : null,
+    ].filter(Boolean).join(' · ') : '';
+    const altitude = lower?.meaning === 'between-bound' && upper?.meaning === 'between-bound' && Number.isFinite(lower.valueFt) && Number.isFinite(upper.valueFt) ? `${Math.min(Math.abs(lower.valueFt), Math.abs(upper.valueFt))}–${Math.max(Math.abs(lower.valueFt), Math.abs(upper.valueFt))} FT` : [altitudeText(lower), altitudeText(upper)].filter(Boolean).join(' · ') || publishedAltitude;
     return [altitude, speedText(segment)].filter(Boolean).join(' · ') || 'Sem restrição adicional publicada';
 }
 function courseText(course) { const values = course ? [Number.isFinite(course.magnetic) ? `${course.magnetic}° MAG` : null, Number.isFinite(course.true) ? `${course.true}° TRUE` : null].filter(Boolean) : []; return values.join(' / ') || 'N/A'; }
@@ -982,7 +1108,7 @@ function segmentLatLngs(segment, origin, destination, procedure = null) {
     return points;
 }
 function showProcedureSummary(procedure) {
-    const source = procedure.source || {}, status = procedure.status === 'structured' || procedure.status === 'structured-aixm' ? 'Estruturado por dados publicados' : procedure.status === 'legacy-preserved' ? 'Registro legado preservado' : 'Estruturado com ressalvas', warningBlock = procedure.warnings?.length ? `<div class="source-tag warning-tag"><strong>Avisos:</strong><ul class="restriction-list">${procedure.warnings.map(item => `<li>${esc(item)}</li>`).join('')}</ul></div>` : '';
+    const source = procedure.source || {}, status = procedure.status === 'structured' || procedure.status === 'structured-aixm' ? 'Estruturado por dados publicados' : procedure.status === 'legacy-preserved' ? 'Registro legado preservado' : procedure.status === 'simplified-normalized' ? 'Normalizado de JSON simplificado' : 'Estruturado com ressalvas', warningBlock = procedure.warnings?.length ? `<div class="source-tag warning-tag"><strong>Avisos:</strong><ul class="restriction-list">${procedure.warnings.map(item => `<li>${esc(item)}</li>`).join('')}</ul></div>` : '';
     document.getElementById('details-content').innerHTML = `<div class="panel-header fix-header"><h3>${esc(procedure.name)}</h3><p class="subtitle">${esc(procedure.type)} — ${esc(procedure.airport)}</p></div><div class="panel-body"><div class="info-row"><span class="info-label">Pistas:</span><span class="info-val">${esc(procedure.runways.join(', ') || 'Não informadas')}</span></div><div class="info-row"><span class="info-label">Modalidade:</span><span class="info-val">${esc(procedure.modes.join(', ') || 'Não informada')}</span></div><div class="info-row"><span class="info-label">Situação:</span><span class="info-val">${esc(status)}</span></div><div class="info-row"><span class="info-label">Transições:</span><span class="info-val">${procedure.transitions.length}</span></div><div class="info-row"><span class="info-label">Aproximações perdidas:</span><span class="info-val">${procedure.missedApproach.length}</span></div><div class="source-tag"><strong>Fonte:</strong> ${esc(source.authority || 'não informada')} · ${esc(source.chartCode || 'carta/AIXM')} · ${esc(source.amendment || 'emenda não informada')} · ${esc(source.effectiveDate || 'data não informada')}<br><strong>Coordenadas:</strong> resolvidas exclusivamente por data/waypoints.json.</div>${warningBlock}</div>`;
 }
 function addProcedure(procedure, transition, includeMissedApproach = true) {

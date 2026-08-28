@@ -113,7 +113,12 @@ Cada aeródromo possui `procedures/index.json` com três listas:
 
 As entradas informam nome, arquivo, pistas, modalidades, quantidade de transições, aproximações perdidas e avisos. O navegador só baixa o procedimento escolhido. O mapa operacional baixa apenas as cartas compatíveis com a TMA, pistas e filtros ativos.
 
-## Schema de procedimento
+## Schemas de procedimento aceitos
+
+O aplicativo aceita dois formatos de procedimento. Ambos são convertidos pela
+função central `normalizeProcedure(rawProcedure)` antes de chegar ao
+renderizador; o restante da interface trabalha somente com o modelo
+normalizado.
 
 Cada carta possui esta estrutura:
 
@@ -166,19 +171,66 @@ Cada carta possui esta estrutura:
 
 O schema é extensível. Além dos campos do exemplo, as pernas podem guardar limites inferior/superior, velocidade, ângulo vertical, fly-over, sentido de curva, especificação de navegação, centro e raio RF e página da fonte.
 
+Também é aceito o schema simplificado produzido por interpretadores externos:
+
+```json
+{
+  "procedure": {
+    "airport": "SBBI",
+    "name": "RNP Y RWY 36",
+    "type": "IAC",
+    "runway": "36"
+  },
+  "points": {
+    "OPVIS": {
+      "role": "IAF",
+      "altitude": { "at": null, "min": 7200, "max": null }
+    }
+  },
+  "legs": [
+    {
+      "from": "OPVIS",
+      "to": "BI101",
+      "course": 355,
+      "course_reference": "MAG",
+      "distance_nm": 12
+    }
+  ],
+  "missed_approach": []
+}
+```
+
+Nesse formato, `coordinate_ref`, `schemaVersion` e `transitions` são
+opcionais. Se `transitions` não for fornecido, o interpretador cria
+trajetórias automaticamente a partir do grafo de `legs`, preservando
+ramificações e convergências. Os valores de altitude `at`, `min` e `max` são
+preservados sem conversão.
+
 ## Resolução de FIXES e coordenadas
 
-O procedimento nunca contém coordenadas. Cada item de `points` possui `coordinate_ref`, que aponta para o `feature.id` de uma feição em `data/waypoints.json`.
+O procedimento nunca contém latitude, longitude ou geometria. O arquivo
+`data/waypoints.json` é a única fonte de coordenadas de FIXES/WAYPOINTS.
+
+No schema atual, cada item de `points` pode apontar por `coordinate_ref` para
+o `feature.id` de uma feição em `data/waypoints.json`. No schema simplificado,
+o próprio identificador do ponto é usado para a busca. O código aceita os dois
+casos e gera referências somente em memória quando necessário; nenhum JSON de
+procedimento é alterado para incluir coordenadas.
 
 O processo de desenho é:
 
 1. carregar o JSON do procedimento;
 2. localizar a transição escolhida;
-3. obter as pernas por `leg_ids`;
-4. procurar cada `coordinate_ref` no índice global de waypoints;
+3. obter as pernas por `leg_ids` ou normalizar os `legs` simplificados;
+4. procurar cada `coordinate_ref` ou identificador no índice global de waypoints;
 5. desenhar `from`, pontos `via` e `to` na ordem publicada;
 6. aplicar curso, distância e restrições quando disponíveis;
 7. desenhar `missed_approach` em camada visual separada.
+
+Se o FIX não existir, a carta continua sendo carregada, o segmento dependente
+não é desenhado, o identificador ausente é registrado no console e o painel
+informa o aviso. O sistema não busca coordenadas na internet e não cria
+aproximações.
 
 Os 7.938 registros originais continuam intactos. Pontos de cabeceira, navaids ausentes e vértices de curvas que já existiam nas bases estruturadas foram acrescentados ao mesmo arquivo com:
 
@@ -220,14 +272,41 @@ Se a TMA vier das bases atuais, prefira atualizar os arquivos de origem e execut
 4. Inclua a entrada leve em `airports/index.json`.
 5. Use somente dados já publicados; não invente nome, posição, pista ou elevação.
 
+## Descoberta automática de procedimentos
+
+Como o site é estático, o navegador não pode listar diretórios do servidor.
+Por isso, `scripts/discover-procedure-indexes.mjs` varre os diretórios durante
+o desenvolvimento/build e atualiza os índices leves automaticamente. O build
+executa essa descoberta antes de copiar os dados para `dist/`.
+
+Para adicionar uma carta, basta salvar o JSON no diretório correspondente:
+
+```text
+data/tmas/curitiba/airports/SBBI/procedures/IAC/rnp_y_rwy_36.json
+```
+
+Depois execute:
+
+```bash
+npm run discover:data
+npm test
+npm run build
+```
+
+Não é necessário cadastrar o arquivo no JavaScript nem editar manualmente o
+`procedures/index.json`. Em um servidor de desenvolvimento que serve `data/`
+diretamente, execute ao menos `npm run discover:data` antes de abrir a página.
+
 ## Como adicionar SID, STAR ou IAC
 
 1. Confirme que todos os FIXES existem em `data/waypoints.json`.
 2. Crie um JSON em `procedures/SID`, `procedures/STAR` ou `procedures/IAC`.
 3. Preencha `procedure`, `points`, `legs`, `transitions`, `missed_approach` e `warnings`.
-4. Em `points`, use `coordinate_ref`; não copie latitude/longitude.
-5. Adicione o arquivo ao tipo correto em `procedures/index.json`.
-6. Execute `npm test`.
+4. Em `points`, use `coordinate_ref` se estiver no schema atual, ou somente o
+   identificador se estiver no schema simplificado; nunca copie
+   latitude/longitude.
+5. Coloque o arquivo na pasta `SID`, `STAR` ou `IAC` correta.
+6. Execute `npm run discover:data`, `npm test` e `npm run build`.
 
 Não é necessário alterar `map_interface.js` para adicionar uma carta compatível com o schema.
 

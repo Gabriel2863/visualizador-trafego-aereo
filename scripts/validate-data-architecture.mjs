@@ -15,6 +15,25 @@ let airportCount = 0;
 let procedureCount = 0;
 let pointCount = 0;
 let legCount = 0;
+const forbiddenCoordinateKeys = new Set(['latitude', 'longitude', 'lat', 'lon', 'lng', 'geometry']);
+
+function assertNoInlineCoordinates(value, location) {
+  if (!value || typeof value !== 'object') return;
+  const isPointMap = location.endsWith('.points');
+  for (const [key, child] of Object.entries(value)) {
+    assert.ok(isPointMap || !forbiddenCoordinateKeys.has(key.toLowerCase()), `Coordenada duplicada no procedimento: ${location}.${key}`);
+    assertNoInlineCoordinates(child, `${location}.${key}`);
+  }
+}
+
+function pointIdentifiers(points) {
+  return new Set(Object.entries(points || {}).flatMap(([key, point]) => [key, point?.ident]).filter(Boolean).map(value => String(value).toUpperCase()));
+}
+
+function referenceName(value) {
+  if (typeof value === 'object' && value) return value.ident || value.name || value.id;
+  return value;
+}
 
 assert.equal(catalog.coordinateSource, 'data/waypoints.json');
 assert.equal(catalog.tmas.filter(item => !item.technicalGroup).length, 40, 'O catálogo deve preservar as 40 famílias TMA da base AIXM.');
@@ -50,24 +69,27 @@ for (const catalogEntry of catalog.tmas) {
         assert.ok(!procedureFiles.has(item.file), `Arquivo de procedimento duplicado no catálogo: ${item.file}`);
         procedureFiles.add(item.file);
         const raw = fs.readFileSync(path.join(ROOT, item.file), 'utf8');
-        assert.ok(!/"(?:latitude|longitude|geometry)"\s*:/.test(raw), `Coordenada duplicada no procedimento: ${item.file}`);
         const procedure = JSON.parse(raw);
+        assertNoInlineCoordinates(procedure, item.file);
         assert.equal(procedure.procedure.airport, airport.icao);
         assert.equal(procedure.procedure.type, type);
         assert.ok(Array.isArray(procedure.legs));
-        assert.ok(Array.isArray(procedure.transitions));
+        if (procedure.schemaVersion) assert.ok(Array.isArray(procedure.transitions), `Transições ausentes no schema estruturado: ${item.file}`);
+        else assert.ok(!procedure.transitions || Array.isArray(procedure.transitions), `Transições inválidas: ${item.file}`);
         assert.ok(Array.isArray(procedure.missed_approach));
-        assert.ok(Array.isArray(procedure.warnings));
-        const pointKeys = new Set(Object.keys(procedure.points || {}));
+        assert.ok(!procedure.warnings || Array.isArray(procedure.warnings), `Avisos inválidos: ${item.file}`);
+        const pointKeys = pointIdentifiers(procedure.points);
         for (const [key, point] of Object.entries(procedure.points || {})) {
           pointCount += 1;
-          assert.ok(point.coordinate_ref, `Ponto sem coordinate_ref: ${item.file}#${key}`);
-          assert.ok(waypointIds.has(point.coordinate_ref), `coordinate_ref inexistente: ${item.file}#${key}`);
+          if (point.coordinate_ref) assert.ok(waypointIds.has(point.coordinate_ref), `coordinate_ref inexistente: ${item.file}#${key}`);
+          else assert.ok(point.ident || key, `Ponto sem identificador: ${item.file}#${key}`);
         }
-        for (const leg of [...procedure.legs, ...procedure.missed_approach.flatMap(route => route.legs || [])]) {
+        const missedLegs = procedure.missed_approach.flatMap(route => Array.isArray(route.legs) ? route.legs : [route]);
+        for (const leg of [...procedure.legs, ...missedLegs]) {
           legCount += 1;
-          for (const key of [leg.from, leg.to, ...(leg.via || []), leg.arc_center].filter(Boolean)) {
-            assert.ok(pointKeys.has(key), `Perna referencia ponto inexistente: ${item.file}#${leg.id}:${key}`);
+          for (const value of [leg.from, leg.to, ...(leg.via || []), leg.arc_center].filter(Boolean)) {
+            const key = referenceName(value);
+            assert.ok(pointKeys.has(String(key).toUpperCase()), `Perna referencia ponto inexistente: ${item.file}#${leg.id}:${key}`);
           }
         }
         procedureNames.add(`${airport.icao}|${type}|${procedure.procedure.name}`);

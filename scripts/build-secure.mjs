@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 import { minify } from 'terser';
 import CleanCSS from 'clean-css';
 import JavaScriptObfuscator from 'javascript-obfuscator';
@@ -14,6 +15,7 @@ const fail = message => {
 };
 
 if (DIST !== path.join(ROOT, 'dist')) fail('Destino de build inválido.');
+execFileSync(process.execPath, [path.join(ROOT, 'scripts', 'discover-procedure-indexes.mjs')], { cwd: ROOT, stdio: 'inherit' });
 
 const required = ['index.html', 'map_interface.js', 'styles.css'];
 for (const file of required) {

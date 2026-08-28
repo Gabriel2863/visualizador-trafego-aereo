@@ -95,7 +95,8 @@ solicitada. Cada procedimento ocupa um JSON independente. O mapa operacional
 também baixa apenas as cartas compatíveis com as pistas e filtros ativos.
 
 As cartas não armazenam latitude, longitude ou geometria. FIXES, cabeceiras e
-vértices de trajetória apontam por `coordinate_ref` para `data/waypoints.json`,
+vértices de trajetória apontam por `coordinate_ref` ou pelo identificador do
+FIX para `data/waypoints.json`,
 que é a fonte única de coordenadas do interpretador. Ramificações são descritas
 como um grafo de pernas e a aproximação perdida permanece separada.
 
@@ -110,7 +111,9 @@ Para reconstruir e validar a hierarquia:
 
 ```bash
 npm run migrate:data
+npm run discover:data
 npm test
+npm run build
 ```
 
 O arquivo `tma-sp-sectors.json` substitui, somente para São Paulo, o contorno
