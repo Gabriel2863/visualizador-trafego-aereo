@@ -1,0 +1,205 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-9d63225c-eebc-4287-b228-1523075a0460",
+    "airport": "SBFI",
+    "name": "RNAV DIDOM 1A RWY 15",
+    "type": "SID",
+    "runway": "15",
+    "runways": [
+      "15"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-07-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-07-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "FI003": {
+      "ident": "FI003",
+      "coordinate_ref": "waypoint:8374.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "KAMIL": {
+      "ident": "KAMIL",
+      "coordinate_ref": "waypoint:7713.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-27E841F": {
+      "ident": "GEO-27E841F",
+      "coordinate_ref": "procedure-point:18bac61595",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "DIDOM": {
+      "ident": "DIDOM",
+      "coordinate_ref": "waypoint:2480.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-didom-22c4b343-5e90-48f1-b448-ab5037599ce1",
+      "from": null,
+      "to": "FI003",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 130.58959003796,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 130.58959003796,
+      "distance_nm": 4.56604068680528,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "1718.02 FT",
+        "valueFt": 1718,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 210,
+      "speed_interpretation": "BELOW_UPPER",
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-didom-339e4fe6-fb4a-4825-8c16-7b1cf8b6b15c",
+      "from": "FI003",
+      "to": "KAMIL",
+      "via": [
+        "GEO-27E841F"
+      ],
+      "path_terminator": "TF",
+      "course": 83.3546720451329,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 83.3546720451329,
+      "distance_nm": 35.3950408772628,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "8817.74 FT",
+        "valueFt": 8818,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-didom-109ae2ba-f45f-44e9-b165-52e540e6c09d",
+      "from": "KAMIL",
+      "to": "DIDOM",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 61.409727564871,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 61.409727564871,
+      "distance_nm": 35.9715597747214,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "16034.8 FT",
+        "valueFt": 16035,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 210,
+      "speed_interpretation": "BELOW_UPPER",
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-didom",
+      "name": "DIDOM",
+      "kind": "RWY",
+      "sequence": [
+        "FI003",
+        "KAMIL",
+        "DIDOM"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-didom-22c4b343-5e90-48f1-b448-ab5037599ce1",
+        "aixm-national-didom-339e4fe6-fb4a-4825-8c16-7b1cf8b6b15c",
+        "aixm-national-didom-109ae2ba-f45f-44e9-b165-52e540e6c09d"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

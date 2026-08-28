@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-79a7b7cd-6689-40af-bf25-42d30be24109",
+    "airport": "SBPV",
+    "name": "RNAV DIKAL 2B RWY 19",
+    "type": "SID",
+    "runway": "19",
+    "runways": [
+      "19"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-08-10T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-08-10T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "PV393": {
+      "ident": "PV393",
+      "coordinate_ref": "waypoint:2137.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "DIKAL": {
+      "ident": "DIKAL",
+      "coordinate_ref": "waypoint:4905.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-03B93CA": {
+      "ident": "GEO-03B93CA",
+      "coordinate_ref": "procedure-point:7b2c767d91",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-dikal-15371381-431b-479f-a6b1-72933d32fc24",
+      "from": null,
+      "to": "PV393",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 176.797281335412,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 176.797281335412,
+      "distance_nm": 3.00504271446376,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "893.634 FT",
+        "valueFt": 894,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-dikal-843a75aa-c10d-4890-9f2f-e22dae771ca2",
+      "from": "PV393",
+      "to": "DIKAL",
+      "via": [
+        "GEO-03B93CA"
+      ],
+      "path_terminator": "TF",
+      "course": 139.682703356659,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 139.682703356659,
+      "distance_nm": 50.0807087098955,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "10839.9 FT",
+        "valueFt": 10840,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-dikal",
+      "name": "DIKAL",
+      "kind": "RWY",
+      "sequence": [
+        "PV393",
+        "DIKAL"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-dikal-15371381-431b-479f-a6b1-72933d32fc24",
+        "aixm-national-dikal-843a75aa-c10d-4890-9f2f-e22dae771ca2"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

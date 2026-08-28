@@ -1,0 +1,452 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "SBKP-IAC-KP04B",
+    "airport": "SBKP",
+    "name": "VOR Y RWY 33",
+    "type": "IAC",
+    "runway": "33",
+    "runways": [
+      "33"
+    ],
+    "modes": [
+      "VOR"
+    ],
+    "status": "structured",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "KP04B",
+      "amendment": "2601A1",
+      "effective_date": "2026-01-22",
+      "document": null,
+      "page": 1,
+      "origin_dataset": "tma-sp"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "KP04B",
+        "amendment": "2601A1",
+        "effective_date": "2026-01-22",
+        "document": null,
+        "page": 1,
+        "origin_dataset": "tma-sp"
+      }
+    ]
+  },
+  "points": {
+    "UBKUP": {
+      "ident": "UBKUP",
+      "coordinate_ref": "waypoint:10829.0",
+      "role": "IAF",
+      "altitude": {
+        "at": 0,
+        "min": 6500,
+        "max": 0
+      }
+    },
+    "KP044": {
+      "ident": "KP044",
+      "coordinate_ref": "waypoint:10826.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "RENUM": {
+      "ident": "RENUM",
+      "coordinate_ref": "waypoint:10823.0",
+      "role": "IF",
+      "altitude": {
+        "at": 0,
+        "min": 4400,
+        "max": 0
+      }
+    },
+    "ALDEG": {
+      "ident": "ALDEG",
+      "coordinate_ref": "waypoint:10824.0",
+      "role": "FAF",
+      "altitude": {
+        "at": 0,
+        "min": 3810,
+        "max": 0
+      }
+    },
+    "KP059": {
+      "ident": "KP059",
+      "coordinate_ref": "waypoint:10825.0",
+      "role": "SDF",
+      "altitude": {
+        "at": 0,
+        "min": 2978,
+        "max": 0
+      }
+    },
+    "KP071": {
+      "ident": "KP071",
+      "coordinate_ref": "waypoint:10827.0",
+      "role": "MAPT",
+      "altitude": {
+        "at": 2220,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "tma-sp-ubkup-apch-1",
+      "from": null,
+      "to": "UBKUP",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 6500,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+6500",
+        "valueFt": 6500,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": {
+        "raw": "Altitude (FT)",
+        "valueFt": null,
+        "meaning": "published"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": "Description",
+      "vertical_angle": 0,
+      "fix_role": "IAF",
+      "navigation_specification": "Specification",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-ubkup-apch-1-2",
+      "from": "UBKUP",
+      "to": "KP044",
+      "via": [],
+      "path_terminator": "AF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": "L",
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": null,
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-ubkup-apch-1-3",
+      "from": "KP044",
+      "to": "RENUM",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 334.57,
+      "course_reference": "MAG",
+      "course_magnetic": 334.57,
+      "course_true": 312.72,
+      "distance_nm": 1.93,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 4400,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+4400",
+        "valueFt": 4400,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "IF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-ubkup-final-1",
+      "from": null,
+      "to": "RENUM",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 4400,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+4400",
+        "valueFt": 4400,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "IF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-ubkup-final-1-2",
+      "from": "RENUM",
+      "to": "ALDEG",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 334.57,
+      "course_reference": "MAG",
+      "course_magnetic": 334.57,
+      "course_true": 312.72,
+      "distance_nm": 3,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 3810,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "R3810",
+        "valueFt": 3810,
+        "meaning": "recommended"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "FAF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-ubkup-final-1-3",
+      "from": "ALDEG",
+      "to": "KP059",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 334.57,
+      "course_reference": "MAG",
+      "course_magnetic": 334.57,
+      "course_true": 312.72,
+      "distance_nm": 2.6,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 2978,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "R2978",
+        "valueFt": 2978,
+        "meaning": "recommended"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -3,
+      "fix_role": "SDF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-ubkup-final-1-4",
+      "from": "KP059",
+      "to": "KP071",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 334.57,
+      "course_reference": "MAG",
+      "course_magnetic": 334.57,
+      "course_true": 312.72,
+      "distance_nm": 2.38,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": 2220,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "@2220",
+        "valueFt": 2220,
+        "meaning": "at"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -3,
+      "fix_role": "MAPT",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "tma-sp-ubkup",
+      "name": "Entrada UBKUP",
+      "kind": "approach",
+      "sequence": [
+        "UBKUP",
+        "KP044",
+        "RENUM",
+        "ALDEG",
+        "KP059",
+        "KP071"
+      ],
+      "source_dataset": "tma-sp",
+      "leg_ids": [
+        "tma-sp-ubkup-apch-1",
+        "tma-sp-ubkup-apch-1-2",
+        "tma-sp-ubkup-apch-1-3",
+        "tma-sp-ubkup-final-1",
+        "tma-sp-ubkup-final-1-2",
+        "tma-sp-ubkup-final-1-3",
+        "tma-sp-ubkup-final-1-4"
+      ]
+    }
+  ],
+  "missed_approach": [
+    {
+      "id": "tma-sp-missed-missed-1",
+      "name": "Aproximacao perdida",
+      "kind": "missed-approach",
+      "sequence": [
+        "KP071",
+        "UBKUP"
+      ],
+      "legs": [
+        {
+          "id": "tma-sp-missed-missed-1-ma-1",
+          "from": null,
+          "to": "UBKUP",
+          "via": [],
+          "path_terminator": "CF",
+          "course": 185.12,
+          "course_reference": "MAG",
+          "course_magnetic": 185.12,
+          "course_true": 163.27,
+          "distance_nm": 0,
+          "turn": null,
+          "fly_over": null,
+          "altitude": {
+            "at": null,
+            "min": 6500,
+            "max": null
+          },
+          "lower_limit": {
+            "raw": "+6500",
+            "valueFt": 6500,
+            "meaning": "at-or-above"
+          },
+          "upper_limit": null,
+          "speed_limit_kt": 200,
+          "speed_interpretation": "-",
+          "vertical_angle": 0,
+          "fix_role": "MAHF",
+          "navigation_specification": null,
+          "arc_center": null,
+          "arc_radius_nm": 0,
+          "source_page": 1,
+          "source_dataset": "tma-sp"
+        },
+        {
+          "id": "tma-sp-missed-missed-1-ma-1-2",
+          "from": "UBKUP",
+          "to": "UBKUP",
+          "via": [],
+          "path_terminator": "HM",
+          "course": 5.12,
+          "course_reference": "MAG",
+          "course_magnetic": 5.12,
+          "course_true": 343.28,
+          "distance_nm": 1,
+          "turn": "R",
+          "fly_over": null,
+          "altitude": {
+            "at": null,
+            "min": 6500,
+            "max": null
+          },
+          "lower_limit": {
+            "raw": "+6500",
+            "valueFt": 6500,
+            "meaning": "at-or-above"
+          },
+          "upper_limit": null,
+          "speed_limit_kt": 0,
+          "speed_interpretation": null,
+          "vertical_angle": 0,
+          "fix_role": "MAHF",
+          "navigation_specification": null,
+          "arc_center": null,
+          "arc_radius_nm": 0,
+          "source_page": 1,
+          "source_dataset": "tma-sp"
+        }
+      ],
+      "published_text": null,
+      "note": null,
+      "source_dataset": "tma-sp"
+    }
+  ],
+  "warnings": [
+    "(*) Fictitious point: only for coding purposes.",
+    "FICTITIOUS THRESHOLD"
+  ]
+}

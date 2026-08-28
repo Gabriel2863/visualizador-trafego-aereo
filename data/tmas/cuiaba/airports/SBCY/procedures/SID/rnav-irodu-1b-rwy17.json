@@ -1,0 +1,405 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-7a39f75b-9ed7-480a-b40a-23bd491c94f0",
+    "airport": "SBCY",
+    "name": "RNAV IRODU 1B RWY17",
+    "type": "SID",
+    "runway": "17",
+    "runways": [
+      "17"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2024-06-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2024-06-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "IRODU": {
+      "ident": "IRODU",
+      "coordinate_ref": "waypoint:2642.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "MIGOD": {
+      "ident": "MIGOD",
+      "coordinate_ref": "waypoint:940.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "TOSAR": {
+      "ident": "TOSAR",
+      "coordinate_ref": "waypoint:1204.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-1B28DDD": {
+      "ident": "GEO-1B28DDD",
+      "coordinate_ref": "procedure-point:bdc984da9c",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "POVNI": {
+      "ident": "POVNI",
+      "coordinate_ref": "waypoint:8032.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-E4AC0B8": {
+      "ident": "GEO-E4AC0B8",
+      "coordinate_ref": "procedure-point:d8914169d3",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "KOLRU": {
+      "ident": "KOLRU",
+      "coordinate_ref": "waypoint:8394.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-tosar-5a0aa6d9-144d-4005-853d-8ad6a06c2ae4",
+      "from": null,
+      "to": "IRODU",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "4105.15 FT",
+        "valueFt": 4105,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-tosar-78fc6480-69ca-45d8-ad56-be918e124c89",
+      "from": "IRODU",
+      "to": "MIGOD",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 154.481507418527,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 154.481507418527,
+      "distance_nm": 22.2094870755746,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "8559.76 FT",
+        "valueFt": 8560,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-tosar-466a192e-0314-436d-b9be-65c0b8932e4b",
+      "from": "MIGOD",
+      "to": "TOSAR",
+      "via": [
+        "GEO-1B28DDD"
+      ],
+      "path_terminator": "TF",
+      "course": 168.971390238587,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 168.971390238587,
+      "distance_nm": 84.8406575558682,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "25585.2 FT",
+        "valueFt": 25585,
+        "meaning": "published"
+      },
+      "upper_limit": {
+        "raw": "25585.2 FT",
+        "valueFt": 25585,
+        "meaning": "published"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-povni-cb4cb907-e2f4-40ad-869c-88d8b0d7c0c4",
+      "from": null,
+      "to": "IRODU",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "4105.15 FT",
+        "valueFt": 4105,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-povni-c7b49a3d-f457-4d19-b4fb-696bc3ba8e3c",
+      "from": "IRODU",
+      "to": "POVNI",
+      "via": [
+        "GEO-E4AC0B8"
+      ],
+      "path_terminator": "TF",
+      "course": 137.797934362676,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 137.797934362676,
+      "distance_nm": 22.5647897108633,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "8631.04 FT",
+        "valueFt": 8631,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-rwy-998cfaee-1539-4c34-a719-12533f13092a",
+      "from": null,
+      "to": "KOLRU",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 152.713725429802,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 152.713725429802,
+      "distance_nm": 2.99946079162262,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "1206.69 FT",
+        "valueFt": 1207,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-rwy-82c1abd2-f610-4fab-9743-8b1c236ee718",
+      "from": "KOLRU",
+      "to": "IRODU",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 152.748393667241,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 152.748393667241,
+      "distance_nm": 14.4534567204853,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "4105.15 FT",
+        "valueFt": 4105,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-tosar",
+      "name": "TOSAR",
+      "kind": "EN_ROUTE",
+      "sequence": [
+        "IRODU",
+        "MIGOD",
+        "TOSAR"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-tosar-5a0aa6d9-144d-4005-853d-8ad6a06c2ae4",
+        "aixm-national-tosar-78fc6480-69ca-45d8-ad56-be918e124c89",
+        "aixm-national-tosar-466a192e-0314-436d-b9be-65c0b8932e4b"
+      ]
+    },
+    {
+      "id": "aixm-national-povni",
+      "name": "POVNI",
+      "kind": "EN_ROUTE",
+      "sequence": [
+        "IRODU",
+        "POVNI"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-povni-cb4cb907-e2f4-40ad-869c-88d8b0d7c0c4",
+        "aixm-national-povni-c7b49a3d-f457-4d19-b4fb-696bc3ba8e3c"
+      ]
+    },
+    {
+      "id": "aixm-national-rwy",
+      "name": "RWY",
+      "kind": "RWY",
+      "sequence": [
+        "KOLRU",
+        "IRODU"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-rwy-998cfaee-1539-4c34-a719-12533f13092a",
+        "aixm-national-rwy-82c1abd2-f610-4fab-9743-8b1c236ee718"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

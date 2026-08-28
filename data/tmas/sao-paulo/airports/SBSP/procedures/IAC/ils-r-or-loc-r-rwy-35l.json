@@ -1,0 +1,690 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "SBSP-IAC-SP02S",
+    "airport": "SBSP",
+    "name": "ILS R OR LOC R RWY 35L",
+    "type": "IAC",
+    "runway": "35L",
+    "runways": [
+      "35L"
+    ],
+    "modes": [
+      "ILS",
+      "LOC"
+    ],
+    "status": "structured",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "SP02S",
+      "amendment": "2608A1",
+      "effective_date": "2026-08-06",
+      "document": null,
+      "page": 1,
+      "origin_dataset": "tma-sp"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "SP02S",
+        "amendment": "2608A1",
+        "effective_date": "2026-08-06",
+        "document": null,
+        "page": 1,
+        "origin_dataset": "tma-sp"
+      }
+    ]
+  },
+  "points": {
+    "ESUNI": {
+      "ident": "ESUNI",
+      "coordinate_ref": "waypoint:630.0",
+      "role": "IAF",
+      "altitude": {
+        "at": 0,
+        "min": 6000,
+        "max": 0
+      }
+    },
+    "VUGVI": {
+      "ident": "VUGVI",
+      "coordinate_ref": "waypoint:3625.0",
+      "role": "IF",
+      "altitude": {
+        "at": 0,
+        "min": 5000,
+        "max": 0
+      }
+    },
+    "SURBU": {
+      "ident": "SURBU",
+      "coordinate_ref": "waypoint:4021.0",
+      "role": "FAF",
+      "altitude": {
+        "at": 0,
+        "min": 4290,
+        "max": 0
+      }
+    },
+    "SP023": {
+      "ident": "SP023",
+      "coordinate_ref": "waypoint:1785.0",
+      "role": "SDF",
+      "altitude": {
+        "at": 0,
+        "min": 3318,
+        "max": 0
+      }
+    },
+    "RW35L": {
+      "ident": "RW35L",
+      "coordinate_ref": "procedure-point:bb4c968a78",
+      "role": "LTP",
+      "altitude": {
+        "at": 2681,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "OGTAL": {
+      "ident": "OGTAL",
+      "coordinate_ref": "waypoint:5321.0",
+      "role": "IAF",
+      "altitude": {
+        "at": 0,
+        "min": 6000,
+        "max": 0
+      }
+    },
+    "SP118": {
+      "ident": "SP118",
+      "coordinate_ref": "waypoint:5989.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 5000,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "tma-sp-esuni-apch-1",
+      "from": null,
+      "to": "ESUNI",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 6000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+6000",
+        "valueFt": 6000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": {
+        "raw": "Altitude (FT)",
+        "valueFt": null,
+        "meaning": "published"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": "Description",
+      "vertical_angle": 0,
+      "fix_role": "IAF",
+      "navigation_specification": "Specification",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-esuni-apch-1-2",
+      "from": "ESUNI",
+      "to": "VUGVI",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 332.03,
+      "course_reference": "MAG",
+      "course_magnetic": 332.03,
+      "course_true": 310.113,
+      "distance_nm": 7.2,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 5000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+5000",
+        "valueFt": 5000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "IF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-esuni-final-1",
+      "from": null,
+      "to": "VUGVI",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 5000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+5000",
+        "valueFt": 5000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "IF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-esuni-final-1-2",
+      "from": "VUGVI",
+      "to": "SURBU",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 349.33,
+      "course_reference": "MAG",
+      "course_magnetic": 349.33,
+      "course_true": 327.46,
+      "distance_nm": 5.1,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 4290,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "R4290",
+        "valueFt": 4290,
+        "meaning": "recommended"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "FAF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-esuni-final-1-3",
+      "from": "SURBU",
+      "to": "SP023",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 349.35,
+      "course_reference": "MAG",
+      "course_magnetic": 349.35,
+      "course_true": 327.49,
+      "distance_nm": 3.03,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 3318,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "R3318",
+        "valueFt": 3318,
+        "meaning": "recommended"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -3,
+      "fix_role": "SDF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-esuni-final-1-4",
+      "from": "SP023",
+      "to": "RW35L",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 349.35,
+      "course_reference": "MAG",
+      "course_magnetic": 349.35,
+      "course_true": 327.49,
+      "distance_nm": 2,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": 2681,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "@2681",
+        "valueFt": 2681,
+        "meaning": "at"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -3,
+      "fix_role": "LTP",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-ogtal-apch-2",
+      "from": null,
+      "to": "OGTAL",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 6000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+6000",
+        "valueFt": 6000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "IAF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-ogtal-apch-2-2",
+      "from": "OGTAL",
+      "to": "SP118",
+      "via": [],
+      "path_terminator": "AF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": "L",
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 5000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+5000",
+        "valueFt": 5000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-ogtal-apch-2-3",
+      "from": "SP118",
+      "to": "VUGVI",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 349.47,
+      "course_reference": "MAG",
+      "course_magnetic": 349.47,
+      "course_true": 327.6,
+      "distance_nm": 3.23,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 5000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+5000",
+        "valueFt": 5000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "IF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-ogtal-final-1",
+      "from": null,
+      "to": "VUGVI",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 5000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+5000",
+        "valueFt": 5000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "IF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-ogtal-final-1-2",
+      "from": "VUGVI",
+      "to": "SURBU",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 349.33,
+      "course_reference": "MAG",
+      "course_magnetic": 349.33,
+      "course_true": 327.46,
+      "distance_nm": 5.1,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 4290,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "R4290",
+        "valueFt": 4290,
+        "meaning": "recommended"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "FAF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-ogtal-final-1-3",
+      "from": "SURBU",
+      "to": "SP023",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 349.35,
+      "course_reference": "MAG",
+      "course_magnetic": 349.35,
+      "course_true": 327.49,
+      "distance_nm": 3.03,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 3318,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "R3318",
+        "valueFt": 3318,
+        "meaning": "recommended"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -3,
+      "fix_role": "SDF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-ogtal-final-1-4",
+      "from": "SP023",
+      "to": "RW35L",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 349.35,
+      "course_reference": "MAG",
+      "course_magnetic": 349.35,
+      "course_true": 327.49,
+      "distance_nm": 2,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": 2681,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "@2681",
+        "valueFt": 2681,
+        "meaning": "at"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -3,
+      "fix_role": "LTP",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "tma-sp-esuni",
+      "name": "Entrada ESUNI",
+      "kind": "approach",
+      "sequence": [
+        "ESUNI",
+        "VUGVI",
+        "SURBU",
+        "SP023",
+        "RW35L"
+      ],
+      "source_dataset": "tma-sp",
+      "leg_ids": [
+        "tma-sp-esuni-apch-1",
+        "tma-sp-esuni-apch-1-2",
+        "tma-sp-esuni-final-1",
+        "tma-sp-esuni-final-1-2",
+        "tma-sp-esuni-final-1-3",
+        "tma-sp-esuni-final-1-4"
+      ]
+    },
+    {
+      "id": "tma-sp-ogtal",
+      "name": "Entrada OGTAL",
+      "kind": "approach",
+      "sequence": [
+        "OGTAL",
+        "SP118",
+        "VUGVI",
+        "SURBU",
+        "SP023",
+        "RW35L"
+      ],
+      "source_dataset": "tma-sp",
+      "leg_ids": [
+        "tma-sp-ogtal-apch-2",
+        "tma-sp-ogtal-apch-2-2",
+        "tma-sp-ogtal-apch-2-3",
+        "tma-sp-ogtal-final-1",
+        "tma-sp-ogtal-final-1-2",
+        "tma-sp-ogtal-final-1-3",
+        "tma-sp-ogtal-final-1-4"
+      ]
+    }
+  ],
+  "missed_approach": [
+    {
+      "id": "tma-sp-missed-missed-1",
+      "name": "Aproximacao perdida",
+      "kind": "missed-approach",
+      "sequence": [
+        "OGTAL"
+      ],
+      "legs": [
+        {
+          "id": "tma-sp-missed-missed-1-ma-1",
+          "from": null,
+          "to": "OGTAL",
+          "via": [],
+          "path_terminator": "CF",
+          "course": 195.25,
+          "course_reference": "MAG",
+          "course_magnetic": 195.25,
+          "course_true": 173.42,
+          "distance_nm": 0,
+          "turn": "R",
+          "fly_over": null,
+          "altitude": {
+            "at": null,
+            "min": 6000,
+            "max": null
+          },
+          "lower_limit": {
+            "raw": "+6000",
+            "valueFt": 6000,
+            "meaning": "at-or-above"
+          },
+          "upper_limit": null,
+          "speed_limit_kt": 0,
+          "speed_interpretation": null,
+          "vertical_angle": 0,
+          "fix_role": "MAHF",
+          "navigation_specification": null,
+          "arc_center": null,
+          "arc_radius_nm": 0,
+          "source_page": 1,
+          "source_dataset": "tma-sp"
+        },
+        {
+          "id": "tma-sp-missed-missed-1-ma-1-2",
+          "from": "OGTAL",
+          "to": "OGTAL",
+          "via": [],
+          "path_terminator": "HM",
+          "course": 15.23,
+          "course_reference": "MAG",
+          "course_magnetic": 15.23,
+          "course_true": 353.42,
+          "distance_nm": 1,
+          "turn": "L",
+          "fly_over": null,
+          "altitude": {
+            "at": null,
+            "min": 6000,
+            "max": null
+          },
+          "lower_limit": {
+            "raw": "+6000",
+            "valueFt": 6000,
+            "meaning": "at-or-above"
+          },
+          "upper_limit": null,
+          "speed_limit_kt": 0,
+          "speed_interpretation": null,
+          "vertical_angle": 0,
+          "fix_role": "MAHF",
+          "navigation_specification": null,
+          "arc_center": null,
+          "arc_radius_nm": 0,
+          "source_page": 1,
+          "source_dataset": "tma-sp"
+        }
+      ],
+      "published_text": null,
+      "note": null,
+      "source_dataset": "tma-sp"
+    }
+  ],
+  "warnings": [
+    "FICTITIOUS THRESHOLD"
+  ]
+}

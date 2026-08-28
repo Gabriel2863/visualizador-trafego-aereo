@@ -1,0 +1,251 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-789151eb-0416-4d87-b612-e91da57909b2",
+    "airport": "SBPJ",
+    "name": "RNAV LIBEC 2A RWY 32",
+    "type": "STAR",
+    "runway": "32",
+    "runways": [
+      "32"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2024-06-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2024-06-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "LIBEC": {
+      "ident": "LIBEC",
+      "coordinate_ref": "waypoint:2524.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 15000,
+        "max": 0
+      }
+    },
+    "PJ023": {
+      "ident": "PJ023",
+      "coordinate_ref": "waypoint:7425.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 10000
+      }
+    },
+    "PJ024": {
+      "ident": "PJ024",
+      "coordinate_ref": "waypoint:7059.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-335DFC3": {
+      "ident": "GEO-335DFC3",
+      "coordinate_ref": "procedure-point:fe601c549c",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "PJ026": {
+      "ident": "PJ026",
+      "coordinate_ref": "waypoint:7347.0",
+      "role": "IAF",
+      "altitude": {
+        "at": 0,
+        "min": 4000,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-libec-dddb2547-dfbb-4206-8679-803d3ea7ee6f",
+      "from": null,
+      "to": "LIBEC",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 15000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "15000 FT",
+        "valueFt": 15000,
+        "meaning": "recommended"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-libec-1c686324-82fe-4590-9da0-56572271dc19",
+      "from": "LIBEC",
+      "to": "PJ023",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 15.4901380653392,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 15.4901380653392,
+      "distance_nm": 21.7795719395131,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": 10000
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "10000 FT",
+        "valueFt": 10000,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -2.16126199954669,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-libec-b2683621-0907-480f-a52c-791e21f73a0b",
+      "from": "PJ023",
+      "to": "PJ024",
+      "via": [
+        "GEO-335DFC3"
+      ],
+      "path_terminator": "TF",
+      "course": 356.268452113281,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 356.268452113281,
+      "distance_nm": 17.1873913701186,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "10000 FT",
+        "valueFt": 10000,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-libec-8ba1713d-9be7-445c-afff-9bcf68e43c3f",
+      "from": "PJ024",
+      "to": "PJ026",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 356.249981064478,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 356.249981064478,
+      "distance_nm": 9.81100199517023,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 4000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "4000 FT",
+        "valueFt": 4000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -5.74552685491805,
+      "fix_role": "IAF",
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-libec",
+      "name": "LIBEC",
+      "kind": "RWY",
+      "sequence": [
+        "LIBEC",
+        "PJ023",
+        "PJ024",
+        "PJ026"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-libec-dddb2547-dfbb-4206-8679-803d3ea7ee6f",
+        "aixm-national-libec-1c686324-82fe-4590-9da0-56572271dc19",
+        "aixm-national-libec-b2683621-0907-480f-a52c-791e21f73a0b",
+        "aixm-national-libec-8ba1713d-9be7-445c-afff-9bcf68e43c3f"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

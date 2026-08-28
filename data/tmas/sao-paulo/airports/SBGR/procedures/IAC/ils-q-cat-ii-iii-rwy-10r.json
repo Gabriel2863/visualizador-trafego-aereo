@@ -1,0 +1,418 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "SBGR-IAC-GR03V",
+    "airport": "SBGR",
+    "name": "ILS Q CAT II & III RWY 10R",
+    "type": "IAC",
+    "runway": "10R",
+    "runways": [
+      "10R"
+    ],
+    "modes": [
+      "ILS"
+    ],
+    "status": "structured",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "GR03V",
+      "amendment": "2209A1",
+      "effective_date": "2022-09-08",
+      "document": null,
+      "page": 1,
+      "origin_dataset": "tma-sp"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "GR03V",
+        "amendment": "2209A1",
+        "effective_date": "2022-09-08",
+        "document": null,
+        "page": 1,
+        "origin_dataset": "tma-sp"
+      }
+    ]
+  },
+  "points": {
+    "LOMEN": {
+      "ident": "LOMEN",
+      "coordinate_ref": "waypoint:7533.0",
+      "role": "IAF",
+      "altitude": {
+        "at": 0,
+        "min": 6000,
+        "max": 0
+      }
+    },
+    "GR202": {
+      "ident": "GR202",
+      "coordinate_ref": "waypoint:2789.0",
+      "role": "SDF",
+      "altitude": {
+        "at": 0,
+        "min": 5100,
+        "max": 0
+      }
+    },
+    "LUTPO": {
+      "ident": "LUTPO",
+      "coordinate_ref": "waypoint:142.0",
+      "role": "IF",
+      "altitude": {
+        "at": 0,
+        "min": 4500,
+        "max": 0
+      }
+    },
+    "OPSER": {
+      "ident": "OPSER",
+      "coordinate_ref": "waypoint:1973.0",
+      "role": "FAF",
+      "altitude": {
+        "at": 0,
+        "min": 4100,
+        "max": 0
+      }
+    },
+    "RW10R": {
+      "ident": "RW10R",
+      "coordinate_ref": "procedure-point:47b4dfcc38",
+      "role": "LTP/SDF",
+      "altitude": {
+        "at": 2501,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "ISIMU": {
+      "ident": "ISIMU",
+      "coordinate_ref": "waypoint:8040.0",
+      "role": "MAHF",
+      "altitude": {
+        "at": 0,
+        "min": 6000,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "tma-sp-lomen-apch-1",
+      "from": null,
+      "to": "LOMEN",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 6000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+6000",
+        "valueFt": 6000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": {
+        "raw": "Altitude (FT)",
+        "valueFt": null,
+        "meaning": "published"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": "Description",
+      "vertical_angle": 0,
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-lomen-apch-1-2",
+      "from": "LOMEN",
+      "to": "GR202",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 145.79,
+      "course_reference": "MAG",
+      "course_magnetic": 145.79,
+      "course_true": 124.21,
+      "distance_nm": 2.63,
+      "turn": null,
+      "fly_over": "N",
+      "altitude": {
+        "at": null,
+        "min": 5100,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+5100",
+        "valueFt": 5100,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "SDF",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-lomen-apch-1-3",
+      "from": "GR202",
+      "to": "LUTPO",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 145.79,
+      "course_reference": "MAG",
+      "course_magnetic": 145.79,
+      "course_true": 124.2,
+      "distance_nm": 2.63,
+      "turn": null,
+      "fly_over": "N",
+      "altitude": {
+        "at": null,
+        "min": 4500,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+4500",
+        "valueFt": 4500,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "IF",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-lomen-final-1",
+      "from": null,
+      "to": "LUTPO",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 4500,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+4500",
+        "valueFt": 4500,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "IF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-lomen-final-1-2",
+      "from": "LUTPO",
+      "to": "OPSER",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 95.28,
+      "course_reference": "MAG",
+      "course_magnetic": 95.28,
+      "course_true": 73.66,
+      "distance_nm": 3,
+      "turn": null,
+      "fly_over": "N",
+      "altitude": {
+        "at": null,
+        "min": 4100,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+4100",
+        "valueFt": 4100,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "FAF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-lomen-final-1-3",
+      "from": "OPSER",
+      "to": "RW10R",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 95.11,
+      "course_reference": "MAG",
+      "course_magnetic": 95.11,
+      "course_true": 73.45,
+      "distance_nm": 5,
+      "turn": null,
+      "fly_over": "Y",
+      "altitude": {
+        "at": 2501,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "@2501",
+        "valueFt": 2501,
+        "meaning": "at"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -3,
+      "fix_role": "LTP/SDF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "tma-sp-lomen",
+      "name": "Entrada LOMEN",
+      "kind": "approach",
+      "sequence": [
+        "LOMEN",
+        "GR202",
+        "LUTPO",
+        "OPSER",
+        "RW10R"
+      ],
+      "source_dataset": "tma-sp",
+      "leg_ids": [
+        "tma-sp-lomen-apch-1",
+        "tma-sp-lomen-apch-1-2",
+        "tma-sp-lomen-apch-1-3",
+        "tma-sp-lomen-final-1",
+        "tma-sp-lomen-final-1-2",
+        "tma-sp-lomen-final-1-3"
+      ]
+    }
+  ],
+  "missed_approach": [
+    {
+      "id": "tma-sp-missed-missed-1",
+      "name": "Aproximacao perdida",
+      "kind": "missed-approach",
+      "sequence": [
+        "ISIMU"
+      ],
+      "legs": [
+        {
+          "id": "tma-sp-missed-missed-1-ma-1",
+          "from": null,
+          "to": "ISIMU",
+          "via": [],
+          "path_terminator": "DF",
+          "course": null,
+          "course_reference": null,
+          "course_magnetic": null,
+          "course_true": null,
+          "distance_nm": 0,
+          "turn": "R",
+          "fly_over": "Y",
+          "altitude": {
+            "at": null,
+            "min": 6000,
+            "max": null
+          },
+          "lower_limit": {
+            "raw": "+6000",
+            "valueFt": 6000,
+            "meaning": "at-or-above"
+          },
+          "upper_limit": null,
+          "speed_limit_kt": 230,
+          "speed_interpretation": "-",
+          "vertical_angle": 0,
+          "fix_role": "MAHF",
+          "navigation_specification": "RNAV 1 or RNP 1",
+          "arc_center": null,
+          "arc_radius_nm": 0,
+          "source_page": 1,
+          "source_dataset": "tma-sp"
+        },
+        {
+          "id": "tma-sp-missed-missed-1-ma-1-2",
+          "from": "ISIMU",
+          "to": "ISIMU",
+          "via": [],
+          "path_terminator": "HM",
+          "course": 130,
+          "course_reference": "MAG",
+          "course_magnetic": 130,
+          "course_true": 108.29,
+          "distance_nm": 0,
+          "turn": "R",
+          "fly_over": "Y",
+          "altitude": {
+            "at": null,
+            "min": 6000,
+            "max": null
+          },
+          "lower_limit": {
+            "raw": "+6000",
+            "valueFt": 6000,
+            "meaning": "at-or-above"
+          },
+          "upper_limit": null,
+          "speed_limit_kt": 0,
+          "speed_interpretation": null,
+          "vertical_angle": 0,
+          "fix_role": "MAHF",
+          "navigation_specification": "RNAV 1 or RNP 1",
+          "arc_center": null,
+          "arc_radius_nm": 0,
+          "source_page": 1,
+          "source_dataset": "tma-sp"
+        }
+      ],
+      "published_text": null,
+      "note": null,
+      "source_dataset": "tma-sp"
+    }
+  ],
+  "warnings": [
+    "FICTITIOUS THRESHOLD"
+  ]
+}

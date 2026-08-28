@@ -1,0 +1,239 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-81c0059a-7bb0-4bfe-9421-3a4e44f1301f",
+    "airport": "SBCY",
+    "name": "RNAV SINIP 1A RWY 35",
+    "type": "STAR",
+    "runway": "35",
+    "runways": [
+      "35"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-07-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-07-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "SINIP": {
+      "ident": "SINIP",
+      "coordinate_ref": "waypoint:8422.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 18000,
+        "max": 0
+      }
+    },
+    "EDPOT": {
+      "ident": "EDPOT",
+      "coordinate_ref": "waypoint:6404.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "CY018": {
+      "ident": "CY018",
+      "coordinate_ref": "waypoint:3437.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 8000,
+        "max": 0
+      }
+    },
+    "UBDON": {
+      "ident": "UBDON",
+      "coordinate_ref": "waypoint:789.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 4000,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-sinip-96079460-727b-4a1b-b981-813a7094b111",
+      "from": null,
+      "to": "SINIP",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 18000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "180 FL",
+        "valueFt": 18000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-sinip-fdad9122-69eb-4a79-9dd6-ef8e0838bdb6",
+      "from": "SINIP",
+      "to": "EDPOT",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 302.898811324373,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 302.898811324373,
+      "distance_nm": 61.5019505355253,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "18000 FT",
+        "valueFt": 18000,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-sinip-4e7d7d7b-0a46-4d38-a842-a8b182750abc",
+      "from": "EDPOT",
+      "to": "CY018",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 303.149864575839,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 303.149864575839,
+      "distance_nm": 13.9633754680598,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 8000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "8000 FT",
+        "valueFt": 8000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -6.71799107662896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-sinip-9505f28f-f618-4508-a997-c9dc5dbb7b6f",
+      "from": "CY018",
+      "to": "UBDON",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 303.25764411384,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 303.25764411384,
+      "distance_nm": 14.1617403409533,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 4000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "4000 FT",
+        "valueFt": 4000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -2.66074289566983,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-sinip",
+      "name": "SINIP",
+      "kind": "RWY",
+      "sequence": [
+        "SINIP",
+        "EDPOT",
+        "CY018",
+        "UBDON"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-sinip-96079460-727b-4a1b-b981-813a7094b111",
+        "aixm-national-sinip-fdad9122-69eb-4a79-9dd6-ef8e0838bdb6",
+        "aixm-national-sinip-4e7d7d7b-0a46-4d38-a842-a8b182750abc",
+        "aixm-national-sinip-9505f28f-f618-4508-a997-c9dc5dbb7b6f"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

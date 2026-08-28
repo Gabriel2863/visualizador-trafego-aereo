@@ -1,0 +1,321 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-d895298a-f82a-4cf9-9c74-5a337ce7b9c0",
+    "airport": "SBBR",
+    "name": "RNAV UGTAK 1A RWY 29L",
+    "type": "SID",
+    "runway": "29L",
+    "runways": [
+      "29L"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2024-08-08T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2024-08-08T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "AX52AFE2": {
+      "ident": "AX52AFE2",
+      "coordinate_ref": "procedure-point:52afe26c-5900-4275-ac00-58f0134a1539",
+      "role": null,
+      "altitude": {
+        "at": 0,
+        "min": 7000,
+        "max": 0
+      }
+    },
+    "UTPAS": {
+      "ident": "UTPAS",
+      "coordinate_ref": "waypoint:1836.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 12436
+      }
+    },
+    "GEO-EF6F5E7": {
+      "ident": "GEO-EF6F5E7",
+      "coordinate_ref": "procedure-point:35010a44f7",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "BR102": {
+      "ident": "BR102",
+      "coordinate_ref": "waypoint:9635.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 13000,
+        "max": 0
+      }
+    },
+    "GEO-3A945BE": {
+      "ident": "GEO-3A945BE",
+      "coordinate_ref": "procedure-point:b17c67d321",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "SIMUV": {
+      "ident": "SIMUV",
+      "coordinate_ref": "waypoint:5022.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "UGTAK": {
+      "ident": "UGTAK",
+      "coordinate_ref": "waypoint:2451.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-BB9CFA5": {
+      "ident": "GEO-BB9CFA5",
+      "coordinate_ref": "procedure-point:2fc965f434",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-rwy-52afe26c-5900-4275-ac00-58f0134a1539",
+      "from": null,
+      "to": "AX52AFE2",
+      "via": [],
+      "path_terminator": "CA",
+      "course": 266.202726089295,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 266.202726089295,
+      "distance_nm": 17.3829417837685,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 7000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "7000 FT",
+        "valueFt": 7000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": null,
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-rwy-22bef007-3537-4651-a138-8f59ae2f7eb7",
+      "from": "AX52AFE2",
+      "to": "UTPAS",
+      "via": [
+        "GEO-EF6F5E7"
+      ],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 27.1002481353444,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": 12436
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "12436.4 FT",
+        "valueFt": 12436,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-rwy-76908e7b-9211-4eb2-9d1a-ab0595c8777a",
+      "from": "UTPAS",
+      "to": "BR102",
+      "via": [
+        "GEO-3A945BE"
+      ],
+      "path_terminator": "TF",
+      "course": 79.4985595958329,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 79.4985595958329,
+      "distance_nm": 20.3943998518566,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 13000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "13000 FT",
+        "valueFt": 13000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0.260406991762585,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-rwy-50d9d51f-0b05-4bfa-ac76-91772d7c7abe",
+      "from": "BR102",
+      "to": "SIMUV",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 79.6940017971151,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 79.6940017971151,
+      "distance_nm": 17.633550822899,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "16538.2 FT",
+        "valueFt": 16538,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-rwy-a49383a7-1186-404c-9ff3-e49102b16608",
+      "from": "SIMUV",
+      "to": "UGTAK",
+      "via": [
+        "GEO-BB9CFA5"
+      ],
+      "path_terminator": "TF",
+      "course": 59.3603772286792,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 59.3603772286792,
+      "distance_nm": 75.9828076180132,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "31791.3 FT",
+        "valueFt": 31791,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-rwy",
+      "name": "RWY",
+      "kind": "RWY",
+      "sequence": [
+        "AX52AFE2",
+        "UTPAS",
+        "BR102",
+        "SIMUV",
+        "UGTAK"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-rwy-52afe26c-5900-4275-ac00-58f0134a1539",
+        "aixm-national-rwy-22bef007-3537-4651-a138-8f59ae2f7eb7",
+        "aixm-national-rwy-76908e7b-9211-4eb2-9d1a-ab0595c8777a",
+        "aixm-national-rwy-50d9d51f-0b05-4bfa-ac76-91772d7c7abe",
+        "aixm-national-rwy-a49383a7-1186-404c-9ff3-e49102b16608"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

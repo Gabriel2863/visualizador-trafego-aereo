@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-eaa6b110-12fd-4248-bb67-16e48eee1cdf",
+    "airport": "SBFI",
+    "name": "RNAV ALGEL 1B RWY 33",
+    "type": "SID",
+    "runway": "33",
+    "runways": [
+      "33"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-07-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-07-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "FI001": {
+      "ident": "FI001",
+      "coordinate_ref": "waypoint:5391.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "ALGEL": {
+      "ident": "ALGEL",
+      "coordinate_ref": "waypoint:1612.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-FA43F6D": {
+      "ident": "GEO-FA43F6D",
+      "coordinate_ref": "procedure-point:8da2ed9726",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-algel-4e7cfb3c-08bf-4883-a577-0ea46331b7e9",
+      "from": null,
+      "to": "FI001",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 310.595989176103,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 310.595989176103,
+      "distance_nm": 4.56427822124193,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "1624.41 FT",
+        "valueFt": 1624,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 210,
+      "speed_interpretation": "BELOW_UPPER",
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-algel-c4c89670-ad00-46a9-9ce0-6bcddcf5b735",
+      "from": "FI001",
+      "to": "ALGEL",
+      "via": [
+        "GEO-FA43F6D"
+      ],
+      "path_terminator": "TF",
+      "course": 238.436779785275,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 238.436779785275,
+      "distance_nm": 39.3413724504524,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "9514.93 FT",
+        "valueFt": 9515,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 210,
+      "speed_interpretation": "BELOW_UPPER",
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-algel",
+      "name": "ALGEL",
+      "kind": "RWY",
+      "sequence": [
+        "FI001",
+        "ALGEL"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-algel-4e7cfb3c-08bf-4883-a577-0ea46331b7e9",
+        "aixm-national-algel-c4c89670-ad00-46a9-9ce0-6bcddcf5b735"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

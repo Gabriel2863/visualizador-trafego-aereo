@@ -1,0 +1,193 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-bb9a494d-92fa-448d-86b8-7af59e09da93",
+    "airport": "SBCZ",
+    "name": "RNAV SIGIX 1B RWY 28",
+    "type": "SID",
+    "runway": "28",
+    "runways": [
+      "28"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-07-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-07-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "CZ017": {
+      "ident": "CZ017",
+      "coordinate_ref": "waypoint:131.0",
+      "role": "TP",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "CZ023": {
+      "ident": "CZ023",
+      "coordinate_ref": "waypoint:3321.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "DALIV": {
+      "ident": "DALIV",
+      "coordinate_ref": "waypoint:1358.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-cz017-ec9b36f6-72dc-4c2b-b329-c6f93d330863",
+      "from": null,
+      "to": "CZ017",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 272.989497605152,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 272.989497605152,
+      "distance_nm": 2.99910325419569,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "1250.59 FT",
+        "valueFt": 1251,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "TP",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-cz017-98199172-4f50-4ac1-8306-9ee4cd7b9c69",
+      "from": "CZ017",
+      "to": "CZ023",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 15.7033921427176,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "4266.91 FT",
+        "valueFt": 4267,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-cz017-11dfd37a-2dbb-4290-9f89-7b7d2bf32030",
+      "from": "CZ023",
+      "to": "DALIV",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 71.6506134365564,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 71.6506134365564,
+      "distance_nm": 48.7178263954352,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "14039.7 FT",
+        "valueFt": 14040,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-cz017",
+      "name": "CZ017",
+      "kind": "RWY",
+      "sequence": [
+        "CZ017",
+        "CZ023",
+        "DALIV"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-cz017-ec9b36f6-72dc-4c2b-b329-c6f93d330863",
+        "aixm-national-cz017-98199172-4f50-4ac1-8306-9ee4cd7b9c69",
+        "aixm-national-cz017-11dfd37a-2dbb-4290-9f89-7b7d2bf32030"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

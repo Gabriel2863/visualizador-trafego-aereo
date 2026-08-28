@@ -1,0 +1,469 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-bb06e65e-a0ad-4ee0-b031-c21b94b340af",
+    "airport": "SBCT",
+    "name": "STAR RNAV DODLU 1A RWY 15",
+    "type": "STAR",
+    "runway": "15",
+    "runways": [
+      "15"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2024-05-16T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2024-05-16T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "PUNTO": {
+      "ident": "PUNTO",
+      "coordinate_ref": "waypoint:5503.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "CT142": {
+      "ident": "CT142",
+      "coordinate_ref": "waypoint:9502.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 9000,
+        "max": 0
+      }
+    },
+    "DODLU": {
+      "ident": "DODLU",
+      "coordinate_ref": "waypoint:9475.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 8000
+      }
+    },
+    "VUGUP": {
+      "ident": "VUGUP",
+      "coordinate_ref": "waypoint:8206.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 9000,
+        "max": 0
+      }
+    },
+    "CT143": {
+      "ident": "CT143",
+      "coordinate_ref": "waypoint:9503.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "CT144": {
+      "ident": "CT144",
+      "coordinate_ref": "waypoint:9504.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "DODRA": {
+      "ident": "DODRA",
+      "coordinate_ref": "waypoint:3803.0",
+      "role": "IAF",
+      "altitude": {
+        "at": 0,
+        "min": 7500,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-punto-bffc7de4-9875-4169-a525-3790d2d8038f",
+      "from": null,
+      "to": "PUNTO",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "9000 FT",
+        "valueFt": 9000,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-punto-e4801c6c-6123-48bd-a961-c64f626faba1",
+      "from": "PUNTO",
+      "to": "CT142",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 93.2484358545255,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 93.2484358545255,
+      "distance_nm": 22.0803415143559,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 9000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "9000 FT",
+        "valueFt": 9000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-punto-0e4926ca-4962-4163-bc6f-3a01391006e4",
+      "from": "CT142",
+      "to": "DODLU",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 92.0792418786952,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 92.0792418786952,
+      "distance_nm": 7.37574778529393,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": 8000
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "8000 FT",
+        "valueFt": 8000,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -1.26625952552505,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-vugup-0460970b-474a-49e5-9a6f-6f1ee1a07eeb",
+      "from": null,
+      "to": "VUGUP",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 9000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "9000 FT",
+        "valueFt": 9000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-vugup-4d289079-26c0-4b3c-906f-b2652a46cca0",
+      "from": "VUGUP",
+      "to": "CT143",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 19.7950408787364,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 19.7950408787364,
+      "distance_nm": 15.2814062466286,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "9000 FT",
+        "valueFt": 9000,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-vugup-afadfc02-ee81-4c5f-b760-e30bdecb49dd",
+      "from": "CT143",
+      "to": "CT144",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 19.7564773369766,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 19.7564773369766,
+      "distance_nm": 13.2222379388357,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "9000 FT",
+        "valueFt": 9000,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-vugup-81af3307-2e7a-4d7f-a1b4-9f6f1f8ea103",
+      "from": "CT144",
+      "to": "DODLU",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 19.7166792131443,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 19.7166792131443,
+      "distance_nm": 19.020705639567,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": 8000
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "8000 FT",
+        "valueFt": 8000,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -0.495307879937233,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-rwy-1bf764f6-a7dc-4ab0-9255-e3241eb08f8b",
+      "from": null,
+      "to": "DODLU",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": 8000
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "8000 FT",
+        "valueFt": 8000,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-rwy-87104559-f597-4d19-a6ac-b02a17f570de",
+      "from": "DODLU",
+      "to": "DODRA",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 44.5114289681187,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 44.5114289681187,
+      "distance_nm": 9.62728264792367,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 7500,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "7500 FT",
+        "valueFt": 7500,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -0.489543446394859,
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-punto",
+      "name": "PUNTO",
+      "kind": "EN_ROUTE",
+      "sequence": [
+        "PUNTO",
+        "CT142",
+        "DODLU"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-punto-bffc7de4-9875-4169-a525-3790d2d8038f",
+        "aixm-national-punto-e4801c6c-6123-48bd-a961-c64f626faba1",
+        "aixm-national-punto-0e4926ca-4962-4163-bc6f-3a01391006e4"
+      ]
+    },
+    {
+      "id": "aixm-national-vugup",
+      "name": "VUGUP",
+      "kind": "EN_ROUTE",
+      "sequence": [
+        "VUGUP",
+        "CT143",
+        "CT144",
+        "DODLU"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-vugup-0460970b-474a-49e5-9a6f-6f1ee1a07eeb",
+        "aixm-national-vugup-4d289079-26c0-4b3c-906f-b2652a46cca0",
+        "aixm-national-vugup-afadfc02-ee81-4c5f-b760-e30bdecb49dd",
+        "aixm-national-vugup-81af3307-2e7a-4d7f-a1b4-9f6f1f8ea103"
+      ]
+    },
+    {
+      "id": "aixm-national-rwy",
+      "name": "RWY",
+      "kind": "RWY",
+      "sequence": [
+        "DODLU",
+        "DODRA"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-rwy-1bf764f6-a7dc-4ab0-9255-e3241eb08f8b",
+        "aixm-national-rwy-87104559-f597-4d19-a6ac-b02a17f570de"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

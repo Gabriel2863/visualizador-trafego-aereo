@@ -1,0 +1,469 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-64835dca-1bd5-495a-aa65-1e1eb31af977",
+    "airport": "SBJV",
+    "name": "RNAV TOSEV 1E RWY 15",
+    "type": "STAR",
+    "runway": "15",
+    "runways": [
+      "15"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-07-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-07-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "TESIB": {
+      "ident": "TESIB",
+      "coordinate_ref": "waypoint:3613.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 7000,
+        "max": 0
+      }
+    },
+    "VUNBA": {
+      "ident": "VUNBA",
+      "coordinate_ref": "waypoint:3944.0",
+      "role": "IAF",
+      "altitude": {
+        "at": 0,
+        "min": 6000,
+        "max": 0
+      }
+    },
+    "TOSEV": {
+      "ident": "TOSEV",
+      "coordinate_ref": "waypoint:7765.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 15000,
+        "max": 0
+      }
+    },
+    "AXF1F24C": {
+      "ident": "AXF1F24C",
+      "coordinate_ref": "procedure-point:f1f24c3a-aa88-44fe-ab6a-8e91680b6066",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 13000
+      }
+    },
+    "ISEDU": {
+      "ident": "ISEDU",
+      "coordinate_ref": "waypoint:5667.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 11000,
+        "max": 0
+      }
+    },
+    "ITADU": {
+      "ident": "ITADU",
+      "coordinate_ref": "waypoint:6502.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 9000
+      }
+    },
+    "KIMAD": {
+      "ident": "KIMAD",
+      "coordinate_ref": "waypoint:7114.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "UMDUK": {
+      "ident": "UMDUK",
+      "coordinate_ref": "waypoint:6526.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-rwy-4d82d075-8e9c-4809-bee6-3b297c2c7eca",
+      "from": null,
+      "to": "TESIB",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 7000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "7000 FT",
+        "valueFt": 7000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-rwy-32d89190-40b1-4046-b597-9a389974e319",
+      "from": "TESIB",
+      "to": "VUNBA",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 13.9530763078244,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 13.9530763078244,
+      "distance_nm": 14.5216724247045,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 6000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "6000 FT",
+        "valueFt": 6000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -0.0789346392736288,
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-tosev-9d49906e-8504-42c5-9572-9cd7850d5437",
+      "from": null,
+      "to": "TOSEV",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 15000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "15000 FT",
+        "valueFt": 15000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-tosev-f1f24c3a-aa88-44fe-ab6a-8e91680b6066",
+      "from": "TOSEV",
+      "to": "AXF1F24C",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 10.1432434637311,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 10.1432434637311,
+      "distance_nm": 56.3636549526975,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": 13000
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "13000 FT",
+        "valueFt": 13000,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -0.3343320287726,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-tosev-356c6632-b4e9-4801-9b45-bba23f11adad",
+      "from": "AXF1F24C",
+      "to": "ISEDU",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 25.4808093209213,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 25.4808093209213,
+      "distance_nm": 25.2489890158951,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 11000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "11000 FT",
+        "valueFt": 11000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -0.74646361836335,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-tosev-c0419ca4-cf65-41d9-a0a2-d82a959a2069",
+      "from": "ISEDU",
+      "to": "ITADU",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 23.0752472098727,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 23.0752472098727,
+      "distance_nm": 6.40854801432452,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": 9000
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "9000 FT",
+        "valueFt": 9000,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -2.93885408680697,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-tosev-5890e822-8799-42d2-83dc-ab2d2fcf51ad",
+      "from": "ITADU",
+      "to": "KIMAD",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 19.2069966813855,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 19.2069966813855,
+      "distance_nm": 4.06180770629608,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "9000 FT",
+        "valueFt": 9000,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-tosev-ff8231fc-3d35-40c1-b21c-9f7ea7238b0a",
+      "from": "KIMAD",
+      "to": "UMDUK",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 359.000806679767,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 359.000806679767,
+      "distance_nm": 7.80181040147913,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "9000 FT",
+        "valueFt": 9000,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-tosev-698c9f3b-6dd4-4185-a980-c77a7b2660f6",
+      "from": "UMDUK",
+      "to": "TESIB",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 13.9672124321246,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 13.9672124321246,
+      "distance_nm": 5.98854437027571,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 7000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "7000 FT",
+        "valueFt": 7000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -3.14486938359506,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-rwy",
+      "name": "RWY",
+      "kind": "RWY",
+      "sequence": [
+        "TESIB",
+        "VUNBA"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-rwy-4d82d075-8e9c-4809-bee6-3b297c2c7eca",
+        "aixm-national-rwy-32d89190-40b1-4046-b597-9a389974e319"
+      ]
+    },
+    {
+      "id": "aixm-national-tosev",
+      "name": "TOSEV",
+      "kind": "EN_ROUTE",
+      "sequence": [
+        "TOSEV",
+        "AXF1F24C",
+        "ISEDU",
+        "ITADU",
+        "KIMAD",
+        "UMDUK",
+        "TESIB"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-tosev-9d49906e-8504-42c5-9572-9cd7850d5437",
+        "aixm-national-tosev-f1f24c3a-aa88-44fe-ab6a-8e91680b6066",
+        "aixm-national-tosev-356c6632-b4e9-4801-9b45-bba23f11adad",
+        "aixm-national-tosev-c0419ca4-cf65-41d9-a0a2-d82a959a2069",
+        "aixm-national-tosev-5890e822-8799-42d2-83dc-ab2d2fcf51ad",
+        "aixm-national-tosev-ff8231fc-3d35-40c1-b21c-9f7ea7238b0a",
+        "aixm-national-tosev-698c9f3b-6dd4-4185-a980-c77a7b2660f6"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

@@ -1,0 +1,205 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-b183aecd-fa94-47a1-a5a5-e33feadae288",
+    "airport": "SBFI",
+    "name": "RNAV UDENO 1B RWY 33",
+    "type": "SID",
+    "runway": "33",
+    "runways": [
+      "33"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-07-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-07-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "FI001": {
+      "ident": "FI001",
+      "coordinate_ref": "waypoint:5391.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "FI006": {
+      "ident": "FI006",
+      "coordinate_ref": "waypoint:1445.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-B40C88E": {
+      "ident": "GEO-B40C88E",
+      "coordinate_ref": "procedure-point:be3966eefc",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "UDENO": {
+      "ident": "UDENO",
+      "coordinate_ref": "waypoint:7793.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-udeno-7b32d0d7-e50d-4c87-bb9a-f0d11f9df501",
+      "from": null,
+      "to": "FI001",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 310.595989176103,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 310.595989176103,
+      "distance_nm": 4.56427822124193,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "1663.2 FT",
+        "valueFt": 1663,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 210,
+      "speed_interpretation": "BELOW_UPPER",
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-udeno-e0dad13e-f3c7-4788-9c2c-89fe1ca356fc",
+      "from": "FI001",
+      "to": "FI006",
+      "via": [
+        "GEO-B40C88E"
+      ],
+      "path_terminator": "TF",
+      "course": 209.642733674009,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 209.642733674009,
+      "distance_nm": 20.0913998962012,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "5692.47 FT",
+        "valueFt": 5692,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-udeno-ad8217f1-e093-49dd-8cc4-599e0b8c0ec8",
+      "from": "FI006",
+      "to": "UDENO",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 209.694233015895,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 209.694233015895,
+      "distance_nm": 22.6203741267966,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "10229.9 FT",
+        "valueFt": 10230,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-udeno",
+      "name": "UDENO",
+      "kind": "RWY",
+      "sequence": [
+        "FI001",
+        "FI006",
+        "UDENO"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-udeno-7b32d0d7-e50d-4c87-bb9a-f0d11f9df501",
+        "aixm-national-udeno-e0dad13e-f3c7-4788-9c2c-89fe1ca356fc",
+        "aixm-national-udeno-ad8217f1-e093-49dd-8cc4-599e0b8c0ec8"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

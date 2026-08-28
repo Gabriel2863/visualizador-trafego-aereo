@@ -1,0 +1,251 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-82d36ae8-fbb9-4686-a455-9a7aa83c751c",
+    "airport": "SBGO",
+    "name": "RNAV LODUV 1A RWY 32",
+    "type": "SID",
+    "runway": "32",
+    "runways": [
+      "32"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2024-07-11T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2024-07-11T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "GO037": {
+      "ident": "GO037",
+      "coordinate_ref": "waypoint:7525.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GO018": {
+      "ident": "GO018",
+      "coordinate_ref": "waypoint:8174.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-C8F2FE7": {
+      "ident": "GEO-C8F2FE7",
+      "coordinate_ref": "procedure-point:04c4be6078",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "GO031": {
+      "ident": "GO031",
+      "coordinate_ref": "waypoint:5666.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 8000
+      }
+    },
+    "LODUV": {
+      "ident": "LODUV",
+      "coordinate_ref": "waypoint:7802.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-loduv-9e093b1a-a4da-44d0-b839-5f921f27f12b",
+      "from": null,
+      "to": "GO037",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 300.235215009599,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 300.235215009599,
+      "distance_nm": 6.99997099887376,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "3860.31 FT",
+        "valueFt": 3860,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 250,
+      "speed_interpretation": "BELOW_UPPER",
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-loduv-5b7bab73-2ed1-461e-a6d2-347963a0c10f",
+      "from": "GO037",
+      "to": "GO018",
+      "via": [
+        "GEO-C8F2FE7"
+      ],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 12.9175175171741,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "6451.06 FT",
+        "valueFt": 6451,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 250,
+      "speed_interpretation": "BELOW_UPPER",
+      "vertical_angle": 1.89007482589984,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-loduv-20654bbe-3c42-48dd-9644-7541508a302b",
+      "from": "GO018",
+      "to": "GO031",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 75.9615088822805,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 75.9615088822805,
+      "distance_nm": 8.31312883237422,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": 8000
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "8000 FT",
+        "valueFt": 8000,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.75582048863836,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-loduv-72526049-fe0a-48c9-8a11-9e728afae441",
+      "from": "GO031",
+      "to": "LODUV",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 75.9223684055071,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 75.9223684055071,
+      "distance_nm": 14.5095596059257,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "10910.7 FT",
+        "valueFt": 10911,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-loduv",
+      "name": "LODUV",
+      "kind": "RWY",
+      "sequence": [
+        "GO037",
+        "GO018",
+        "GO031",
+        "LODUV"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-loduv-9e093b1a-a4da-44d0-b839-5f921f27f12b",
+        "aixm-national-loduv-5b7bab73-2ed1-461e-a6d2-347963a0c10f",
+        "aixm-national-loduv-20654bbe-3c42-48dd-9644-7541508a302b",
+        "aixm-national-loduv-72526049-fe0a-48c9-8a11-9e728afae441"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

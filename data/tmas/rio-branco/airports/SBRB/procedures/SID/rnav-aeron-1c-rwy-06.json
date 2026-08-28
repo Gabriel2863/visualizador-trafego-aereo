@@ -1,0 +1,251 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-8e16c5db-42be-47a7-b3de-e2b25279ceae",
+    "airport": "SBRB",
+    "name": "RNAV AERON 1C RWY 06",
+    "type": "SID",
+    "runway": "07",
+    "runways": [
+      "07"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-07-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-07-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "RB014": {
+      "ident": "RB014",
+      "coordinate_ref": "waypoint:4979.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "RB017": {
+      "ident": "RB017",
+      "coordinate_ref": "waypoint:765.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-0E39DF2": {
+      "ident": "GEO-0E39DF2",
+      "coordinate_ref": "procedure-point:913eed24a9",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "AERON": {
+      "ident": "AERON",
+      "coordinate_ref": "waypoint:4752.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-rwy-083ede74-dc96-4169-815c-4ffec68f422c",
+      "from": null,
+      "to": "RB014",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 57.126596465741,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 57.126596465741,
+      "distance_nm": 2.99717546060441,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "1214.01 FT",
+        "valueFt": 1214,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-aeron-d9ed76bf-1a15-46a4-ac28-c0752e3270e7",
+      "from": null,
+      "to": "RB014",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "1214.01 FT",
+        "valueFt": 1214,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-aeron-ed56d50b-3a06-46e2-a9a6-40ee0c427716",
+      "from": "RB014",
+      "to": "RB017",
+      "via": [
+        "GEO-0E39DF2"
+      ],
+      "path_terminator": "TF",
+      "course": 307.794774799283,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 307.794774799283,
+      "distance_nm": 24.788723117427,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "6185.32 FT",
+        "valueFt": 6185,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-aeron-bb3e40f9-c85e-46ef-ab2c-3cbddb95ab30",
+      "from": "RB017",
+      "to": "AERON",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 277.073918109344,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 277.073918109344,
+      "distance_nm": 25.6316394619981,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "11326.9 FT",
+        "valueFt": 11327,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-rwy",
+      "name": "RWY",
+      "kind": "RWY",
+      "sequence": [
+        "RB014"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-rwy-083ede74-dc96-4169-815c-4ffec68f422c"
+      ]
+    },
+    {
+      "id": "aixm-national-aeron",
+      "name": "AERON",
+      "kind": "EN_ROUTE",
+      "sequence": [
+        "RB014",
+        "RB017",
+        "AERON"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-aeron-d9ed76bf-1a15-46a4-ac28-c0752e3270e7",
+        "aixm-national-aeron-ed56d50b-3a06-46e2-a9a6-40ee0c427716",
+        "aixm-national-aeron-bb3e40f9-c85e-46ef-ab2c-3cbddb95ab30"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

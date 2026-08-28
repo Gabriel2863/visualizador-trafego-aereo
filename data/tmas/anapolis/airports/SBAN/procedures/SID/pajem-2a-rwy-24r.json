@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-4d0f74ed-957f-4b2e-aad4-3be8be7b1da6",
+    "airport": "SBAN",
+    "name": "PAJEM 2A RWY 24R",
+    "type": "SID",
+    "runway": "24R",
+    "runways": [
+      "24R"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2024-07-11T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2024-07-11T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "AXDE71A9": {
+      "ident": "AXDE71A9",
+      "coordinate_ref": "procedure-point:de71a9ad-0537-4db7-9c31-fbc738fcf69d",
+      "role": null,
+      "altitude": {
+        "at": 0,
+        "min": 4200,
+        "max": 0
+      }
+    },
+    "PAJEM": {
+      "ident": "PAJEM",
+      "coordinate_ref": "waypoint:814.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-5C92589": {
+      "ident": "GEO-5C92589",
+      "coordinate_ref": "procedure-point:b47e53fba7",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-pajem-de71a9ad-0537-4db7-9c31-fbc738fcf69d",
+      "from": null,
+      "to": "AXDE71A9",
+      "via": [],
+      "path_terminator": "VA",
+      "course": 218.92,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 218.92,
+      "distance_nm": 2.26056880270666,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 4200,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "4200 FT",
+        "valueFt": 4200,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": null,
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-pajem-d307f85d-159c-47da-9e3c-eff6c9c802b6",
+      "from": "AXDE71A9",
+      "to": "PAJEM",
+      "via": [
+        "GEO-5C92589"
+      ],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 35.6873216140908,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "11358.4 FT",
+        "valueFt": 11358,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-pajem",
+      "name": "PAJEM",
+      "kind": "RWY",
+      "sequence": [
+        "AXDE71A9",
+        "PAJEM"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-pajem-de71a9ad-0537-4db7-9c31-fbc738fcf69d",
+        "aixm-national-pajem-d307f85d-159c-47da-9e3c-eff6c9c802b6"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

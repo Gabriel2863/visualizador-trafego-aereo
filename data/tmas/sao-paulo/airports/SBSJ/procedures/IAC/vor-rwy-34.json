@@ -1,0 +1,250 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "SBSJ-IAC-SJ01B",
+    "airport": "SBSJ",
+    "name": "VOR RWY 34",
+    "type": "IAC",
+    "runway": "34",
+    "runways": [
+      "34"
+    ],
+    "modes": [
+      "VOR"
+    ],
+    "status": "structured",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "SJ01B",
+      "amendment": "2512A1",
+      "effective_date": "2025-11-27",
+      "document": null,
+      "page": 1,
+      "origin_dataset": "tma-sp"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "SJ01B",
+        "amendment": "2512A1",
+        "effective_date": "2025-11-27",
+        "document": null,
+        "page": 1,
+        "origin_dataset": "tma-sp"
+      }
+    ]
+  },
+  "points": {
+    "SOTPI": {
+      "ident": "SOTPI",
+      "coordinate_ref": "waypoint:7280.0",
+      "role": "IAF",
+      "altitude": {
+        "at": 0,
+        "min": 7000,
+        "max": 0
+      }
+    },
+    "SJC02": {
+      "ident": "SJC02",
+      "coordinate_ref": "waypoint:6746.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "DAGOV": {
+      "ident": "DAGOV",
+      "coordinate_ref": "waypoint:296.0",
+      "role": "IAF",
+      "altitude": {
+        "at": 0,
+        "min": 7000,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "tma-sp-sotpi-apch-1",
+      "from": null,
+      "to": "SOTPI",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 7000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+7000",
+        "valueFt": 7000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "IAF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-sotpi-apch-1-2",
+      "from": "SOTPI",
+      "to": "SJC02",
+      "via": [],
+      "path_terminator": "AF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": "R",
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": null,
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-dagov-apch-2",
+      "from": null,
+      "to": "DAGOV",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 7000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+7000",
+        "valueFt": 7000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "IAF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "tma-sp-sotpi",
+      "name": "Entrada SOTPI (conexao final nao confirmada)",
+      "kind": "approach",
+      "sequence": [
+        "SOTPI",
+        "SJC02"
+      ],
+      "source_dataset": "tma-sp",
+      "leg_ids": [
+        "tma-sp-sotpi-apch-1",
+        "tma-sp-sotpi-apch-1-2"
+      ]
+    },
+    {
+      "id": "tma-sp-dagov",
+      "name": "Entrada DAGOV (conexao final nao confirmada)",
+      "kind": "approach",
+      "sequence": [
+        "DAGOV"
+      ],
+      "source_dataset": "tma-sp",
+      "leg_ids": [
+        "tma-sp-dagov-apch-2"
+      ]
+    }
+  ],
+  "missed_approach": [
+    {
+      "id": "tma-sp-missed-missed-1",
+      "name": "Aproximacao perdida",
+      "kind": "missed-approach",
+      "sequence": [
+        "SOTPI"
+      ],
+      "legs": [
+        {
+          "id": "tma-sp-missed-missed-1-ma-1",
+          "from": null,
+          "to": "SOTPI",
+          "via": [],
+          "path_terminator": "HM",
+          "course": 295.4,
+          "course_reference": "MAG",
+          "course_magnetic": 295.4,
+          "course_true": 93.21,
+          "distance_nm": 1,
+          "turn": "L",
+          "fly_over": null,
+          "altitude": {
+            "at": null,
+            "min": 7000,
+            "max": null
+          },
+          "lower_limit": {
+            "raw": "+7000",
+            "valueFt": 7000,
+            "meaning": "at-or-above"
+          },
+          "upper_limit": null,
+          "speed_limit_kt": 0,
+          "speed_interpretation": null,
+          "vertical_angle": 0,
+          "fix_role": "MAHF",
+          "navigation_specification": null,
+          "arc_center": null,
+          "arc_radius_nm": 0,
+          "source_page": 1,
+          "source_dataset": "tma-sp"
+        }
+      ],
+      "published_text": null,
+      "note": null,
+      "source_dataset": "tma-sp"
+    }
+  ],
+  "warnings": [
+    "*Fictitious point: Only for coding purpose.",
+    "FICTITIOUS THRESHOLD"
+  ]
+}

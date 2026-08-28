@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-cb62c2e1-9a82-4e6a-a009-e6aa6f4d8b59",
+    "airport": "SBAR",
+    "name": "AKNUT 1A",
+    "type": "SID",
+    "runway": "12",
+    "runways": [
+      "12"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2024-08-08T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2024-08-08T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "AX83E485": {
+      "ident": "AX83E485",
+      "coordinate_ref": "procedure-point:83e48573-87c3-4a6c-92e1-1ea9fb271998",
+      "role": null,
+      "altitude": {
+        "at": 0,
+        "min": 1500,
+        "max": 0
+      }
+    },
+    "AKNUT": {
+      "ident": "AKNUT",
+      "coordinate_ref": "waypoint:8912.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-0DBEE45": {
+      "ident": "GEO-0DBEE45",
+      "coordinate_ref": "procedure-point:366f60a271",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-aknut-83e48573-87c3-4a6c-92e1-1ea9fb271998",
+      "from": null,
+      "to": "AX83E485",
+      "via": [],
+      "path_terminator": "CA",
+      "course": 91.966144001888,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 91.966144001888,
+      "distance_nm": 7.29067342812957,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 1500,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "1500 FT",
+        "valueFt": 1500,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": null,
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-aknut-b0204aa7-27fc-4613-8926-4617d6bbc164",
+      "from": "AX83E485",
+      "to": "AKNUT",
+      "via": [
+        "GEO-0DBEE45"
+      ],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 82.1916281851081,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "17988.1 FT",
+        "valueFt": 17988,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-aknut",
+      "name": "AKNUT",
+      "kind": "RWY",
+      "sequence": [
+        "AX83E485",
+        "AKNUT"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-aknut-83e48573-87c3-4a6c-92e1-1ea9fb271998",
+        "aixm-national-aknut-b0204aa7-27fc-4613-8926-4617d6bbc164"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

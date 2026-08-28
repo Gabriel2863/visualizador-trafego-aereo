@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-a2f295be-b6ae-4edd-99a0-e12377334c1e",
+    "airport": "SBFI",
+    "name": "RNAV UPORU 1A RWY 15",
+    "type": "SID",
+    "runway": "15",
+    "runways": [
+      "15"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-07-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-07-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "FI003": {
+      "ident": "FI003",
+      "coordinate_ref": "waypoint:8374.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "UPORU": {
+      "ident": "UPORU",
+      "coordinate_ref": "waypoint:4629.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-96475F7": {
+      "ident": "GEO-96475F7",
+      "coordinate_ref": "procedure-point:75d8c414b3",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-uporu-7192f534-e1bc-4920-b6a6-b0a0cd4a418f",
+      "from": null,
+      "to": "FI003",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 130.58959003796,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 130.58959003796,
+      "distance_nm": 4.56604068680528,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "1718.02 FT",
+        "valueFt": 1718,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 210,
+      "speed_interpretation": "BELOW_UPPER",
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-uporu-104d4910-5f1d-4be2-af9c-a0865124c7e2",
+      "from": "FI003",
+      "to": "UPORU",
+      "via": [
+        "GEO-96475F7"
+      ],
+      "path_terminator": "TF",
+      "course": 47.9945811982549,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 47.9945811982549,
+      "distance_nm": 39.8706787323185,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "9714.75 FT",
+        "valueFt": 9715,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-uporu",
+      "name": "UPORU",
+      "kind": "RWY",
+      "sequence": [
+        "FI003",
+        "UPORU"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-uporu-7192f534-e1bc-4920-b6a6-b0a0cd4a418f",
+        "aixm-national-uporu-104d4910-5f1d-4be2-af9c-a0865124c7e2"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

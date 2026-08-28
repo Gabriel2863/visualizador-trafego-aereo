@@ -1,0 +1,228 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-d4a962f6-7a02-4eb1-81a9-4ab2e0ecd61d",
+    "airport": "SBGO",
+    "name": "RNAV MOSNA 1A RWY 32",
+    "type": "SID",
+    "runway": "32",
+    "runways": [
+      "32"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2024-07-11T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2024-07-11T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "GO037": {
+      "ident": "GO037",
+      "coordinate_ref": "waypoint:7525.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "EGATA": {
+      "ident": "EGATA",
+      "coordinate_ref": "waypoint:614.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 7995
+      }
+    },
+    "GEO-6B20DCC": {
+      "ident": "GEO-6B20DCC",
+      "coordinate_ref": "procedure-point:c860b04fb2",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "GEO-442051A": {
+      "ident": "GEO-442051A",
+      "coordinate_ref": "procedure-point:d1c56a3817",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "OPVEL": {
+      "ident": "OPVEL",
+      "coordinate_ref": "waypoint:6332.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-6DDB4FF": {
+      "ident": "GEO-6DDB4FF",
+      "coordinate_ref": "procedure-point:2f2d59477e",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-rwy-33b8bed7-8820-4759-9ccb-e515840ed20b",
+      "from": null,
+      "to": "GO037",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 300.235215009599,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 300.235215009599,
+      "distance_nm": 6.99997099887376,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "3860.31 FT",
+        "valueFt": 3860,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 250,
+      "speed_interpretation": "BELOW_UPPER",
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-rwy-540a1f0c-b75c-4021-97ff-5e3bf61e65f5",
+      "from": "GO037",
+      "to": "EGATA",
+      "via": [
+        "GEO-6B20DCC",
+        "GEO-442051A"
+      ],
+      "path_terminator": "TF",
+      "course": 280.435303048919,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 280.435303048919,
+      "distance_nm": 7.67330274092161,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": 7995
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "7995.05 FT",
+        "valueFt": 7995,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 250,
+      "speed_interpretation": "BELOW_UPPER",
+      "vertical_angle": 5.06646839458638,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-rwy-240f1995-0e60-4beb-8562-6ad461feeb58",
+      "from": "EGATA",
+      "to": "OPVEL",
+      "via": [
+        "GEO-6DDB4FF"
+      ],
+      "path_terminator": "TF",
+      "course": 305.417753562934,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 305.417753562934,
+      "distance_nm": 150.194078464832,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "38144 FT",
+        "valueFt": 38144,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 250,
+      "speed_interpretation": "BELOW_UPPER",
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-rwy",
+      "name": "RWY",
+      "kind": "RWY",
+      "sequence": [
+        "GO037",
+        "EGATA",
+        "OPVEL"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-rwy-33b8bed7-8820-4759-9ccb-e515840ed20b",
+        "aixm-national-rwy-540a1f0c-b75c-4021-97ff-5e3bf61e65f5",
+        "aixm-national-rwy-240f1995-0e60-4beb-8562-6ad461feeb58"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

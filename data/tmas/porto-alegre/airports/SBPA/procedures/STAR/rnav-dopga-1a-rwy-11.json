@@ -1,0 +1,193 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-1459a60b-3b31-44d8-bfe5-6a3ce5311c89",
+    "airport": "SBPA",
+    "name": "RNAV DOPGA 1A RWY 11",
+    "type": "STAR",
+    "runway": "11",
+    "runways": [
+      "11"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-08-10T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-08-10T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "DOPGA": {
+      "ident": "DOPGA",
+      "coordinate_ref": "waypoint:5280.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 10000,
+        "max": 0
+      }
+    },
+    "TIRNO": {
+      "ident": "TIRNO",
+      "coordinate_ref": "waypoint:53.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "OGVUV": {
+      "ident": "OGVUV",
+      "coordinate_ref": "waypoint:4881.0",
+      "role": "IAF",
+      "altitude": {
+        "at": 0,
+        "min": 4000,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-dopga-00ed9155-b1e4-413f-a76d-5a04315ab68f",
+      "from": null,
+      "to": "DOPGA",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 10000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "10000 FT",
+        "valueFt": 10000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-dopga-24682971-5623-418f-8d47-97e2d8b00f86",
+      "from": "DOPGA",
+      "to": "TIRNO",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 91.3944541922528,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 91.3944541922528,
+      "distance_nm": 21.4605338116552,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "10000 FT",
+        "valueFt": 10000,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-dopga-60a3738c-8e2d-499f-8a72-b3f648f08152",
+      "from": "TIRNO",
+      "to": "OGVUV",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 90.8696071031817,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 90.8696071031817,
+      "distance_nm": 21.2311026936757,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 4000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "4000 FT",
+        "valueFt": 4000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -2.66205581548871,
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-dopga",
+      "name": "DOPGA",
+      "kind": "EN_ROUTE",
+      "sequence": [
+        "DOPGA",
+        "TIRNO",
+        "OGVUV"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-dopga-00ed9155-b1e4-413f-a76d-5a04315ab68f",
+        "aixm-national-dopga-24682971-5623-418f-8d47-97e2d8b00f86",
+        "aixm-national-dopga-60a3738c-8e2d-499f-8a72-b3f648f08152"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

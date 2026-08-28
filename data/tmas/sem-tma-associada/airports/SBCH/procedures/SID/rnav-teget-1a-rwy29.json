@@ -1,0 +1,274 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-913805fb-04b3-4975-9cb1-1bb87c367f4b",
+    "airport": "SBCH",
+    "name": "RNAV TEGET 1A RWY29",
+    "type": "SID",
+    "runway": "30",
+    "runways": [
+      "30"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2024-08-08T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2024-08-08T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "AX8F3EDC": {
+      "ident": "AX8F3EDC",
+      "coordinate_ref": "procedure-point:8f3edcb0-635b-4869-bf9c-060404054292",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 2700,
+        "max": 0
+      }
+    },
+    "TEGET": {
+      "ident": "TEGET",
+      "coordinate_ref": "waypoint:5614.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-9413B8A": {
+      "ident": "GEO-9413B8A",
+      "coordinate_ref": "procedure-point:7dc510e254",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "GEO-AA416B0": {
+      "ident": "GEO-AA416B0",
+      "coordinate_ref": "procedure-point:ddaf84b00e",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "MAGNA": {
+      "ident": "MAGNA",
+      "coordinate_ref": "waypoint:1731.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-DA186F7": {
+      "ident": "GEO-DA186F7",
+      "coordinate_ref": "procedure-point:8ffd490fca",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-teget-8f3edcb0-635b-4869-bf9c-060404054292",
+      "from": null,
+      "to": "AX8F3EDC",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 279.054718542512,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 279.054718542512,
+      "distance_nm": 2.99560366699455,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 2700,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "2700 FT",
+        "valueFt": 2700,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.83790744870672,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-teget-255b4e33-9043-4c9d-bd20-9749d3c8344c",
+      "from": "AX8F3EDC",
+      "to": "TEGET",
+      "via": [
+        "GEO-9413B8A",
+        "GEO-AA416B0"
+      ],
+      "path_terminator": "TF",
+      "course": 192.127461843575,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 192.127461843575,
+      "distance_nm": 27.3396426545276,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "8184.32 FT",
+        "valueFt": 8184,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-magna-cce0ebf6-2aa9-468e-a27d-5018296c5556",
+      "from": null,
+      "to": "TEGET",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "8184.32 FT",
+        "valueFt": 8184,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-magna-8e039c37-020f-4d23-a208-db51bb6a49db",
+      "from": "TEGET",
+      "to": "MAGNA",
+      "via": [
+        "GEO-DA186F7"
+      ],
+      "path_terminator": "TF",
+      "course": 173.959775920194,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 173.959775920194,
+      "distance_nm": 24.2024594032175,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "13039.7 FT",
+        "valueFt": 13040,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-teget",
+      "name": "TEGET",
+      "kind": "RWY",
+      "sequence": [
+        "AX8F3EDC",
+        "TEGET"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-teget-8f3edcb0-635b-4869-bf9c-060404054292",
+        "aixm-national-teget-255b4e33-9043-4c9d-bd20-9749d3c8344c"
+      ]
+    },
+    {
+      "id": "aixm-national-magna",
+      "name": "MAGNA",
+      "kind": "EN_ROUTE",
+      "sequence": [
+        "TEGET",
+        "MAGNA"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-magna-cce0ebf6-2aa9-468e-a27d-5018296c5556",
+        "aixm-national-magna-8e039c37-020f-4d23-a208-db51bb6a49db"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

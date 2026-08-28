@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-2e7b47c3-ddae-436d-a15a-e4652d63013c",
+    "airport": "SBBE",
+    "name": "TAMAR 1B RWY 02",
+    "type": "SID",
+    "runway": "03",
+    "runways": [
+      "03"
+    ],
+    "modes": [],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-07-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-07-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "AX3644DF": {
+      "ident": "AX3644DF",
+      "coordinate_ref": "procedure-point:3644dfee-eb3b-4885-aca2-707568b7d126",
+      "role": null,
+      "altitude": {
+        "at": 0,
+        "min": 1200,
+        "max": 0
+      }
+    },
+    "AX7F5329": {
+      "ident": "AX7F5329",
+      "coordinate_ref": "procedure-point:7f532960-2d75-49c2-ad47-885b8f88f667",
+      "role": null,
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "TAMAR": {
+      "ident": "TAMAR",
+      "coordinate_ref": "waypoint:6775.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-6ED08DE": {
+      "ident": "GEO-6ED08DE",
+      "coordinate_ref": "procedure-point:8089a1b323",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-tamar-3644dfee-eb3b-4885-aca2-707568b7d126",
+      "from": null,
+      "to": "AX3644DF",
+      "via": [],
+      "path_terminator": "VA",
+      "course": 4.91395212600684,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 4.91395212600684,
+      "distance_nm": 4.3255905734514,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 1200,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "1200 FT",
+        "valueFt": 1200,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 2.46220172958629,
+      "fix_role": null,
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-tamar-7f532960-2d75-49c2-ad47-885b8f88f667",
+      "from": "AX3644DF",
+      "to": "AX7F5329",
+      "via": [],
+      "path_terminator": "VI",
+      "course": 219.82,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 219.82,
+      "distance_nm": 17.5538464700391,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "5787.11 FT",
+        "valueFt": 5787,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 2.46220172958629,
+      "fix_role": null,
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-tamar-03ffa004-96ce-4ca0-8dc0-483304f48576",
+      "from": "AX7F5329",
+      "to": "TAMAR",
+      "via": [
+        "GEO-6ED08DE"
+      ],
+      "path_terminator": "CF",
+      "course": 276.853676020099,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 276.853676020099,
+      "distance_nm": 29.526932350573,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "11710.1 FT",
+        "valueFt": 11710,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-tamar",
+      "name": "TAMAR",
+      "kind": "RWY",
+      "sequence": [
+        "AX3644DF",
+        "AX7F5329",
+        "TAMAR"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-tamar-3644dfee-eb3b-4885-aca2-707568b7d126",
+        "aixm-national-tamar-7f532960-2d75-49c2-ad47-885b8f88f667",
+        "aixm-national-tamar-03ffa004-96ce-4ca0-8dc0-483304f48576"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

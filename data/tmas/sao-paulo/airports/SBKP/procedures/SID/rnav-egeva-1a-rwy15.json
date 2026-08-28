@@ -1,0 +1,263 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-cb8fbd93-ab7b-4bfa-b98f-b564cd27d9c5",
+    "airport": "SBKP",
+    "name": "RNAV EGEVA 1A RWY15",
+    "type": "SID",
+    "runway": "15",
+    "runways": [
+      "15"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2025-08-07T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2025-08-07T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "AX15BDF4": {
+      "ident": "AX15BDF4",
+      "coordinate_ref": "procedure-point:15bdf40a-91ef-4e96-978d-3ac72fed5a9f",
+      "role": null,
+      "altitude": {
+        "at": 0,
+        "min": 3000,
+        "max": 0
+      }
+    },
+    "OSUDO": {
+      "ident": "OSUDO",
+      "coordinate_ref": "waypoint:6836.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-EF4897A": {
+      "ident": "GEO-EF4897A",
+      "coordinate_ref": "procedure-point:1705fcbb48",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "KP263": {
+      "ident": "KP263",
+      "coordinate_ref": "waypoint:10887.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 9000
+      }
+    },
+    "GEO-AEB10C8": {
+      "ident": "GEO-AEB10C8",
+      "coordinate_ref": "procedure-point:bac1ec90bf",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "EGEVA": {
+      "ident": "EGEVA",
+      "coordinate_ref": "waypoint:1220.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-rwy-15bdf40a-91ef-4e96-978d-3ac72fed5a9f",
+      "from": null,
+      "to": "AX15BDF4",
+      "via": [],
+      "path_terminator": "CA",
+      "course": 127.716220407531,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 127.716220407531,
+      "distance_nm": 4.05920556598505,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 3000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "3000 FT",
+        "valueFt": 3000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 250,
+      "speed_interpretation": "BELOW_UPPER",
+      "vertical_angle": 1.89007482589896,
+      "fix_role": null,
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-rwy-f37c32d8-0e27-4cba-a873-d4d002583b6a",
+      "from": "AX15BDF4",
+      "to": "OSUDO",
+      "via": [
+        "GEO-EF4897A"
+      ],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 8.53864292182729,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "4712.41 FT",
+        "valueFt": 4712,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-rwy-5f24bfc6-87a5-412f-8866-3e955bb8835c",
+      "from": "OSUDO",
+      "to": "KP263",
+      "via": [
+        "GEO-AEB10C8"
+      ],
+      "path_terminator": "TF",
+      "course": 268.374085909281,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 268.374085909281,
+      "distance_nm": 33.4695915293312,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": 9000
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "9000 FT",
+        "valueFt": 9000,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.2074027529782,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-rwy-c417dbfb-06ab-475e-9da1-b97ac3ff57d2",
+      "from": "KP263",
+      "to": "EGEVA",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 268.583260716622,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 268.583260716622,
+      "distance_nm": 45.2951839373332,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "18088.1 FT",
+        "valueFt": 18088,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-rwy",
+      "name": "RWY",
+      "kind": "RWY",
+      "sequence": [
+        "AX15BDF4",
+        "OSUDO",
+        "KP263",
+        "EGEVA"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-rwy-15bdf40a-91ef-4e96-978d-3ac72fed5a9f",
+        "aixm-national-rwy-f37c32d8-0e27-4cba-a873-d4d002583b6a",
+        "aixm-national-rwy-5f24bfc6-87a5-412f-8866-3e955bb8835c",
+        "aixm-national-rwy-c417dbfb-06ab-475e-9da1-b97ac3ff57d2"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

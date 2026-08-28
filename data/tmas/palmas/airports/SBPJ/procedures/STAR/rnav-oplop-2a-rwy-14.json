@@ -1,0 +1,251 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-f3c94850-1016-430a-bcb9-9b2d79988a7c",
+    "airport": "SBPJ",
+    "name": "RNAV OPLOP 2A RWY 14",
+    "type": "STAR",
+    "runway": "14",
+    "runways": [
+      "14"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2024-06-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2024-06-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "USTOV": {
+      "ident": "USTOV",
+      "coordinate_ref": "waypoint:4743.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 15000,
+        "max": 0
+      }
+    },
+    "OBGOV": {
+      "ident": "OBGOV",
+      "coordinate_ref": "waypoint:3124.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "PJ018": {
+      "ident": "PJ018",
+      "coordinate_ref": "waypoint:3985.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 7000
+      }
+    },
+    "GEO-56FDE0D": {
+      "ident": "GEO-56FDE0D",
+      "coordinate_ref": "procedure-point:0030f8dd28",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "PJ017": {
+      "ident": "PJ017",
+      "coordinate_ref": "waypoint:1215.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 4000,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-oplop-94300082-fa0f-4de6-a798-57dc5de49747",
+      "from": null,
+      "to": "USTOV",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 15000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "15000 FT",
+        "valueFt": 15000,
+        "meaning": "recommended"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-oplop-e5a069bd-8535-4d93-8f71-b28a43a30fce",
+      "from": "USTOV",
+      "to": "OBGOV",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 206.46105292099,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 206.46105292099,
+      "distance_nm": 48.9172088670139,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "15000 FT",
+        "valueFt": 15000,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-oplop-b37c75ae-27f9-429b-aa9b-b03c262ba64d",
+      "from": "OBGOV",
+      "to": "PJ018",
+      "via": [
+        "GEO-56FDE0D"
+      ],
+      "path_terminator": "TF",
+      "course": 231.90611675604,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 231.90611675604,
+      "distance_nm": 14.5995545715189,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": 7000
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "7000 FT",
+        "valueFt": 7000,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -5.15046419150442,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-oplop-3e183d0a-5929-4722-8e35-ce497ce7c288",
+      "from": "PJ018",
+      "to": "PJ017",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 231.93853269191,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 231.93853269191,
+      "distance_nm": 21.3395199300161,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 4000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "4000 FT",
+        "valueFt": 4000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -1.32507805124715,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-oplop",
+      "name": "OPLOP",
+      "kind": "RWY",
+      "sequence": [
+        "USTOV",
+        "OBGOV",
+        "PJ018",
+        "PJ017"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-oplop-94300082-fa0f-4de6-a798-57dc5de49747",
+        "aixm-national-oplop-e5a069bd-8535-4d93-8f71-b28a43a30fce",
+        "aixm-national-oplop-b37c75ae-27f9-429b-aa9b-b03c262ba64d",
+        "aixm-national-oplop-3e183d0a-5929-4722-8e35-ce497ce7c288"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

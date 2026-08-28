@@ -1,0 +1,193 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-655e77e1-e077-4abf-a4e8-88ddd31e83ac",
+    "airport": "SBPS",
+    "name": "RNAV MULAM 1A RWY 10",
+    "type": "SID",
+    "runway": "10",
+    "runways": [
+      "10"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-07-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-07-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "AX8851B1": {
+      "ident": "AX8851B1",
+      "coordinate_ref": "procedure-point:8851b107-0a66-4937-b017-bb164472fbab",
+      "role": null,
+      "altitude": {
+        "at": 0,
+        "min": 2000,
+        "max": 0
+      }
+    },
+    "AX4D72AF": {
+      "ident": "AX4D72AF",
+      "coordinate_ref": "procedure-point:4d72aff3-bfaf-4d4c-bbd0-60cf366321ba",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 10998,
+        "max": 0
+      }
+    },
+    "AXB9F74C": {
+      "ident": "AXB9F74C",
+      "coordinate_ref": "procedure-point:b9f74c81-9b35-4936-a382-b2572c121146",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-rwy-8851b107-0a66-4937-b017-bb164472fbab",
+      "from": null,
+      "to": "AX8851B1",
+      "via": [],
+      "path_terminator": "CA",
+      "course": 74.4020533742603,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 74.4020533742603,
+      "distance_nm": 9.12353938943818,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 2000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "2000 FT",
+        "valueFt": 2000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": null,
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-rwy-4d72aff3-bfaf-4d4c-bbd0-60cf366321ba",
+      "from": "AX8851B1",
+      "to": "AX4D72AF",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 27.599083446439,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 10998,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "10998.1 FT",
+        "valueFt": 10998,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 3.07045154494026,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-rwy-b9f74c81-9b35-4936-a382-b2572c121146",
+      "from": "AX4D72AF",
+      "to": "AXB9F74C",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 332.788685082421,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 332.788685082421,
+      "distance_nm": 30.1525049178384,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "17048.1 FT",
+        "valueFt": 17048,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-rwy",
+      "name": "RWY",
+      "kind": "RWY",
+      "sequence": [
+        "AX8851B1",
+        "AX4D72AF",
+        "AXB9F74C"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-rwy-8851b107-0a66-4937-b017-bb164472fbab",
+        "aixm-national-rwy-4d72aff3-bfaf-4d4c-bbd0-60cf366321ba",
+        "aixm-national-rwy-b9f74c81-9b35-4936-a382-b2572c121146"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

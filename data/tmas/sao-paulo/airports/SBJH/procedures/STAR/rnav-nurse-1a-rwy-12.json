@@ -1,0 +1,769 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "SBJH-STAR-JH00F",
+    "airport": "SBJH",
+    "name": "RNAV NURSE 1A RWY 12",
+    "type": "STAR",
+    "runway": "12",
+    "runways": [
+      "12"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "JH00F",
+      "amendment": "2508A1",
+      "effective_date": "2025-08-07",
+      "document": null,
+      "page": 1,
+      "origin_dataset": "tma-sp"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "JH00F",
+        "amendment": "2508A1",
+        "effective_date": "2025-08-07",
+        "document": null,
+        "page": 1,
+        "origin_dataset": "tma-sp"
+      }
+    ]
+  },
+  "points": {
+    "NURSE": {
+      "ident": "NURSE",
+      "coordinate_ref": "waypoint:8905.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 7000,
+        "max": 0
+      }
+    },
+    "JH032": {
+      "ident": "JH032",
+      "coordinate_ref": "waypoint:10783.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": -7000
+      }
+    },
+    "JH003": {
+      "ident": "JH003",
+      "coordinate_ref": "waypoint:1068.0",
+      "role": "IAF",
+      "altitude": {
+        "at": 5500,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "IBDAL": {
+      "ident": "IBDAL",
+      "coordinate_ref": "waypoint:3638.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "MANLO": {
+      "ident": "MANLO",
+      "coordinate_ref": "waypoint:3572.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": -26000
+      }
+    },
+    "UKDAN": {
+      "ident": "UKDAN",
+      "coordinate_ref": "waypoint:1197.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "JH028": {
+      "ident": "JH028",
+      "coordinate_ref": "waypoint:8906.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": -8000
+      }
+    },
+    "JH029": {
+      "ident": "JH029",
+      "coordinate_ref": "waypoint:11141.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "BUXUK": {
+      "ident": "BUXUK",
+      "coordinate_ref": "waypoint:663.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "tma-sp-nurse-rwy-1",
+      "from": null,
+      "to": "NURSE",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 7000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+7000",
+        "valueFt": 7000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-nurse-rwy-1-2",
+      "from": "NURSE",
+      "to": "JH032",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 26.01,
+      "course_reference": "MAG",
+      "course_magnetic": 26.01,
+      "course_true": 4.41,
+      "distance_nm": 5,
+      "turn": null,
+      "fly_over": "N",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -7000
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-7000",
+        "valueFt": -7000,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-nurse-rwy-1-3",
+      "from": "JH032",
+      "to": "JH003",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 26.03,
+      "course_reference": "MAG",
+      "course_magnetic": 26.03,
+      "course_true": 4.41,
+      "distance_nm": 13.07,
+      "turn": null,
+      "fly_over": "N",
+      "altitude": {
+        "at": 5500,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "@5500",
+        "valueFt": 5500,
+        "meaning": "at"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-ibdal-ibdal-1",
+      "from": null,
+      "to": "IBDAL",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "Altitude (FT)",
+        "valueFt": null,
+        "meaning": "published"
+      },
+      "upper_limit": {
+        "raw": "Altitude (FT)",
+        "valueFt": null,
+        "meaning": "published"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": "Description",
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-ibdal-ibdal-1-2",
+      "from": "IBDAL",
+      "to": "MANLO",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 278.87,
+      "course_reference": "MAG",
+      "course_magnetic": 278.87,
+      "course_true": 256.48,
+      "distance_nm": 10,
+      "turn": null,
+      "fly_over": "N",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -26000
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-26000",
+        "valueFt": -26000,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-ibdal-ibdal-1-3",
+      "from": "MANLO",
+      "to": "UKDAN",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 278.85,
+      "course_reference": "MAG",
+      "course_magnetic": 278.85,
+      "course_true": 256.52,
+      "distance_nm": 48.32,
+      "turn": null,
+      "fly_over": "N",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": null,
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-ibdal-ibdal-1-4",
+      "from": "UKDAN",
+      "to": "JH028",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 278.87,
+      "course_reference": "MAG",
+      "course_magnetic": 278.87,
+      "course_true": 256.87,
+      "distance_nm": 15.34,
+      "turn": null,
+      "fly_over": "N",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -8000
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-8000",
+        "valueFt": -8000,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-ibdal-ibdal-1-5",
+      "from": "JH028",
+      "to": "JH029",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 278.87,
+      "course_reference": "MAG",
+      "course_magnetic": 278.87,
+      "course_true": 256.98,
+      "distance_nm": 12.52,
+      "turn": null,
+      "fly_over": "N",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": null,
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-ibdal-ibdal-1-6",
+      "from": "JH029",
+      "to": "NURSE",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 322.22,
+      "course_reference": "MAG",
+      "course_magnetic": 322.22,
+      "course_true": 300.43,
+      "distance_nm": 44.51,
+      "turn": null,
+      "fly_over": "N",
+      "altitude": {
+        "at": null,
+        "min": 7000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+7000",
+        "valueFt": 7000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-ibdal-rwy-1",
+      "from": null,
+      "to": "NURSE",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 7000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+7000",
+        "valueFt": 7000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-ibdal-rwy-1-2",
+      "from": "NURSE",
+      "to": "JH032",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 26.01,
+      "course_reference": "MAG",
+      "course_magnetic": 26.01,
+      "course_true": 4.41,
+      "distance_nm": 5,
+      "turn": null,
+      "fly_over": "N",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -7000
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-7000",
+        "valueFt": -7000,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-ibdal-rwy-1-3",
+      "from": "JH032",
+      "to": "JH003",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 26.03,
+      "course_reference": "MAG",
+      "course_magnetic": 26.03,
+      "course_true": 4.41,
+      "distance_nm": 13.07,
+      "turn": null,
+      "fly_over": "N",
+      "altitude": {
+        "at": 5500,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "@5500",
+        "valueFt": 5500,
+        "meaning": "at"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-buxuk-buxuk-1",
+      "from": null,
+      "to": "BUXUK",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": null,
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-buxuk-buxuk-1-2",
+      "from": "BUXUK",
+      "to": "NURSE",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 102.24,
+      "course_reference": "MAG",
+      "course_magnetic": 102.24,
+      "course_true": 80.8,
+      "distance_nm": 20.16,
+      "turn": null,
+      "fly_over": "N",
+      "altitude": {
+        "at": null,
+        "min": 7000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+7000",
+        "valueFt": 7000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-buxuk-rwy-1",
+      "from": null,
+      "to": "NURSE",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 7000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+7000",
+        "valueFt": 7000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-buxuk-rwy-1-2",
+      "from": "NURSE",
+      "to": "JH032",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 26.01,
+      "course_reference": "MAG",
+      "course_magnetic": 26.01,
+      "course_true": 4.41,
+      "distance_nm": 5,
+      "turn": null,
+      "fly_over": "N",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -7000
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-7000",
+        "valueFt": -7000,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-buxuk-rwy-1-3",
+      "from": "JH032",
+      "to": "JH003",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 26.03,
+      "course_reference": "MAG",
+      "course_magnetic": 26.03,
+      "course_true": 4.41,
+      "distance_nm": 13.07,
+      "turn": null,
+      "fly_over": "N",
+      "altitude": {
+        "at": 5500,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "@5500",
+        "valueFt": 5500,
+        "meaning": "at"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "tma-sp-nurse",
+      "name": "Entrada NURSE",
+      "kind": "arrival",
+      "sequence": [
+        "NURSE",
+        "JH032",
+        "JH003"
+      ],
+      "source_dataset": "tma-sp",
+      "leg_ids": [
+        "tma-sp-nurse-rwy-1",
+        "tma-sp-nurse-rwy-1-2",
+        "tma-sp-nurse-rwy-1-3"
+      ]
+    },
+    {
+      "id": "tma-sp-ibdal",
+      "name": "Transicao IBDAL",
+      "kind": "arrival",
+      "sequence": [
+        "IBDAL",
+        "MANLO",
+        "UKDAN",
+        "JH028",
+        "JH029",
+        "NURSE",
+        "JH032",
+        "JH003"
+      ],
+      "source_dataset": "tma-sp",
+      "leg_ids": [
+        "tma-sp-ibdal-ibdal-1",
+        "tma-sp-ibdal-ibdal-1-2",
+        "tma-sp-ibdal-ibdal-1-3",
+        "tma-sp-ibdal-ibdal-1-4",
+        "tma-sp-ibdal-ibdal-1-5",
+        "tma-sp-ibdal-ibdal-1-6",
+        "tma-sp-ibdal-rwy-1",
+        "tma-sp-ibdal-rwy-1-2",
+        "tma-sp-ibdal-rwy-1-3"
+      ]
+    },
+    {
+      "id": "tma-sp-buxuk",
+      "name": "Transicao BUXUK",
+      "kind": "arrival",
+      "sequence": [
+        "BUXUK",
+        "NURSE",
+        "JH032",
+        "JH003"
+      ],
+      "source_dataset": "tma-sp",
+      "leg_ids": [
+        "tma-sp-buxuk-buxuk-1",
+        "tma-sp-buxuk-buxuk-1-2",
+        "tma-sp-buxuk-rwy-1",
+        "tma-sp-buxuk-rwy-1-2",
+        "tma-sp-buxuk-rwy-1-3"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": [
+    "FICTITIOUS THRESHOLD"
+  ]
+}

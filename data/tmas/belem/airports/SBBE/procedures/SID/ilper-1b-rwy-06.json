@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-6ea1efda-a24a-437a-a942-99d0a5f0e0ae",
+    "airport": "SBBE",
+    "name": "ILPER 1B RWY 06",
+    "type": "SID",
+    "runway": "07",
+    "runways": [
+      "07"
+    ],
+    "modes": [],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-07-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-07-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "AX24BA55": {
+      "ident": "AX24BA55",
+      "coordinate_ref": "procedure-point:24ba55e3-2d87-4772-9055-8341f8277636",
+      "role": null,
+      "altitude": {
+        "at": 0,
+        "min": 1200,
+        "max": 0
+      }
+    },
+    "AXA8A7B3": {
+      "ident": "AXA8A7B3",
+      "coordinate_ref": "procedure-point:a8a7b38f-1287-4712-ae34-15e8c8742c66",
+      "role": null,
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "ILPER": {
+      "ident": "ILPER",
+      "coordinate_ref": "waypoint:7739.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-9D97FB9": {
+      "ident": "GEO-9D97FB9",
+      "coordinate_ref": "procedure-point:b6b176163d",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-ilper-24ba55e3-2d87-4772-9055-8341f8277636",
+      "from": null,
+      "to": "AX24BA55",
+      "via": [],
+      "path_terminator": "VA",
+      "course": 45.4468302174667,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 45.4468302174667,
+      "distance_nm": 4.3180563179962,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 1200,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "1200 FT",
+        "valueFt": 1200,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 2.46220172958629,
+      "fix_role": null,
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-ilper-a8a7b38f-1287-4712-ae34-15e8c8742c66",
+      "from": "AX24BA55",
+      "to": "AXA8A7B3",
+      "via": [],
+      "path_terminator": "VI",
+      "course": 219.81,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 219.81,
+      "distance_nm": 19.1323127830973,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "5036.83 FT",
+        "valueFt": 5037,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": null,
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-ilper-f76c36f4-6ec8-41f4-8809-1e15f4bf07ff",
+      "from": "AXA8A7B3",
+      "to": "ILPER",
+      "via": [
+        "GEO-9D97FB9"
+      ],
+      "path_terminator": "CF",
+      "course": 298.764801138315,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 298.764801138315,
+      "distance_nm": 34.7838809546754,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "12014.3 FT",
+        "valueFt": 12014,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-ilper",
+      "name": "ILPER",
+      "kind": "RWY",
+      "sequence": [
+        "AX24BA55",
+        "AXA8A7B3",
+        "ILPER"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-ilper-24ba55e3-2d87-4772-9055-8341f8277636",
+        "aixm-national-ilper-a8a7b38f-1287-4712-ae34-15e8c8742c66",
+        "aixm-national-ilper-f76c36f4-6ec8-41f4-8809-1e15f4bf07ff"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

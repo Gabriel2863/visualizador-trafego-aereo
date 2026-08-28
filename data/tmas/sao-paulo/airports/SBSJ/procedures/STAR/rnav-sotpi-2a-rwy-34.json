@@ -1,0 +1,309 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-814cc6d7-ed72-4639-ac13-490b6f060901",
+    "airport": "SBSJ",
+    "name": "RNAV SOTPI 2A RWY 34",
+    "type": "STAR",
+    "runway": "34",
+    "runways": [
+      "34"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2024-10-03T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2024-10-03T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "VUNOX": {
+      "ident": "VUNOX",
+      "coordinate_ref": "waypoint:2894.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 17000
+      }
+    },
+    "SJ022": {
+      "ident": "SJ022",
+      "coordinate_ref": "waypoint:26.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 14000
+      }
+    },
+    "SUNBU": {
+      "ident": "SUNBU",
+      "coordinate_ref": "waypoint:4135.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 9000
+      }
+    },
+    "GEO-A067451": {
+      "ident": "GEO-A067451",
+      "coordinate_ref": "procedure-point:cfbf517e41",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "SJ017": {
+      "ident": "SJ017",
+      "coordinate_ref": "waypoint:4232.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 8000,
+        "max": 0
+      }
+    },
+    "GEO-D4960ED": {
+      "ident": "GEO-D4960ED",
+      "coordinate_ref": "procedure-point:2b0010ab4a",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "SOTPI": {
+      "ident": "SOTPI",
+      "coordinate_ref": "waypoint:7280.0",
+      "role": "IAF",
+      "altitude": {
+        "at": 0,
+        "min": 7000,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-vunox-4fc0c55e-634e-47c9-a37c-54ba72598b19",
+      "from": null,
+      "to": "VUNOX",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": 17000
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "17000 FT",
+        "valueFt": 17000,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-vunox-7e5ffe1a-7d8c-4bf5-9f47-95179f15504f",
+      "from": "VUNOX",
+      "to": "SJ022",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 172.923081140085,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 172.923081140085,
+      "distance_nm": 19.536352691085,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": 14000
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "14000 FT",
+        "valueFt": 14000,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -1.44663833752664,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-vunox-a92c9b42-9373-4dc4-a1bf-c21886e6472d",
+      "from": "SJ022",
+      "to": "SUNBU",
+      "via": [
+        "GEO-A067451"
+      ],
+      "path_terminator": "TF",
+      "course": 154.229404291604,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 154.229404291604,
+      "distance_nm": 22.3312049613153,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": 9000
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "9000 FT",
+        "valueFt": 9000,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -2.10920703131988,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-vunox-005ee6f4-e165-4800-9b5a-aa8218787238",
+      "from": "SUNBU",
+      "to": "SJ017",
+      "via": [
+        "GEO-D4960ED"
+      ],
+      "path_terminator": "TF",
+      "course": 128.136952011906,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 128.136952011906,
+      "distance_nm": 16.3277021533986,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 8000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "8000 FT",
+        "valueFt": 8000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -0.577271579575364,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-vunox-7448daa8-70d1-414b-b27c-5bbffadf5740",
+      "from": "SJ017",
+      "to": "SOTPI",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 128.053758450707,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 128.053758450707,
+      "distance_nm": 9.50855251275722,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 7000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "7000 FT",
+        "valueFt": 7000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -0.991249499536049,
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-vunox",
+      "name": "VUNOX",
+      "kind": "EN_ROUTE",
+      "sequence": [
+        "VUNOX",
+        "SJ022",
+        "SUNBU",
+        "SJ017",
+        "SOTPI"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-vunox-4fc0c55e-634e-47c9-a37c-54ba72598b19",
+        "aixm-national-vunox-7e5ffe1a-7d8c-4bf5-9f47-95179f15504f",
+        "aixm-national-vunox-a92c9b42-9373-4dc4-a1bf-c21886e6472d",
+        "aixm-national-vunox-005ee6f4-e165-4800-9b5a-aa8218787238",
+        "aixm-national-vunox-7448daa8-70d1-414b-b27c-5bbffadf5740"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

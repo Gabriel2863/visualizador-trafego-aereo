@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-bf1c210f-d409-46b2-a6d1-b6cfbe61e8d9",
+    "airport": "SBCH",
+    "name": "RNAV ATARI 2A RWY29",
+    "type": "SID",
+    "runway": "30",
+    "runways": [
+      "30"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2024-08-08T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2024-08-08T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "AX31A710": {
+      "ident": "AX31A710",
+      "coordinate_ref": "procedure-point:31a710eb-d7ce-4356-b785-ac83f4412d00",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 2700,
+        "max": 0
+      }
+    },
+    "ATARI": {
+      "ident": "ATARI",
+      "coordinate_ref": "waypoint:1620.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-342F56A": {
+      "ident": "GEO-342F56A",
+      "coordinate_ref": "procedure-point:cd47730e13",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-atari-31a710eb-d7ce-4356-b785-ac83f4412d00",
+      "from": null,
+      "to": "AX31A710",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 279.054718542512,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 279.054718542512,
+      "distance_nm": 2.99560366699455,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 2700,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "2700 FT",
+        "valueFt": 2700,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.83790744870672,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-atari-338c4056-770f-44cb-bcd1-491c024f7c72",
+      "from": "AX31A710",
+      "to": "ATARI",
+      "via": [
+        "GEO-342F56A"
+      ],
+      "path_terminator": "DF",
+      "course": 44.3736198486311,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 44.3736198486311,
+      "distance_nm": 42.0094185816701,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "11126.2 FT",
+        "valueFt": 11126,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-atari",
+      "name": "ATARI",
+      "kind": "RWY",
+      "sequence": [
+        "AX31A710",
+        "ATARI"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-atari-31a710eb-d7ce-4356-b785-ac83f4412d00",
+        "aixm-national-atari-338c4056-770f-44cb-bcd1-491c024f7c72"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

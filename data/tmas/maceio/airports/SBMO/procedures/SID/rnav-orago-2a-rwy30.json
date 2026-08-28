@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-e6b248f4-fd85-4e55-bc18-af825f88de56",
+    "airport": "SBMO",
+    "name": "RNAV ORAGO 2A RWY30",
+    "type": "SID",
+    "runway": "30",
+    "runways": [
+      "30"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-08-10T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-08-10T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "AX42DA62": {
+      "ident": "AX42DA62",
+      "coordinate_ref": "procedure-point:42da625d-c7d5-47cf-bc6f-f8a0eac27b1b",
+      "role": null,
+      "altitude": {
+        "at": 0,
+        "min": 900,
+        "max": 0
+      }
+    },
+    "ORAGO": {
+      "ident": "ORAGO",
+      "coordinate_ref": "waypoint:4653.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-rwy-42da625d-c7d5-47cf-bc6f-f8a0eac27b1b",
+      "from": null,
+      "to": "AX42DA62",
+      "via": [],
+      "path_terminator": "VA",
+      "course": 280.701219288131,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 280.701219288131,
+      "distance_nm": 2.47265008951234,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 900,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "900 FT",
+        "valueFt": 900,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": null,
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-rwy-16f2c087-9a07-4308-b860-3c717282eb18",
+      "from": "AX42DA62",
+      "to": "ORAGO",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 65.5129320580597,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "14040.8 FT",
+        "valueFt": 14041,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-rwy",
+      "name": "RWY",
+      "kind": "RWY",
+      "sequence": [
+        "AX42DA62",
+        "ORAGO"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-rwy-42da625d-c7d5-47cf-bc6f-f8a0eac27b1b",
+        "aixm-national-rwy-16f2c087-9a07-4308-b860-3c717282eb18"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

@@ -1,0 +1,193 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-e3a16a72-b2ce-497c-aeba-9a3f82039f97",
+    "airport": "SBBE",
+    "name": "RNAV SIMUK 1A RWY 06",
+    "type": "STAR",
+    "runway": "07",
+    "runways": [
+      "07"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-07-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-07-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "SIMUK": {
+      "ident": "SIMUK",
+      "coordinate_ref": "waypoint:7589.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 15000,
+        "max": 0
+      }
+    },
+    "BE051": {
+      "ident": "BE051",
+      "coordinate_ref": "waypoint:8534.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "BE389": {
+      "ident": "BE389",
+      "coordinate_ref": "waypoint:1793.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 3000,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-simuk-80312339-6dde-448a-b9c6-0a4ab465bf9e",
+      "from": null,
+      "to": "SIMUK",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 15000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "15000 FT",
+        "valueFt": 15000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-simuk-b6502ce4-968a-45ad-aa8f-796b61a69adb",
+      "from": "SIMUK",
+      "to": "BE051",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 89.3181587187472,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 89.3181587187472,
+      "distance_nm": 52.3816845698813,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "15000 FT",
+        "valueFt": 15000,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-simuk-21f63f63-e462-435d-be85-4b9ddc3ac093",
+      "from": "BE051",
+      "to": "BE389",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 89.071006122652,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 89.071006122652,
+      "distance_nm": 9.99998094867993,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 3000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "3000 FT",
+        "valueFt": 3000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -11.1671695265273,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-simuk",
+      "name": "SIMUK",
+      "kind": "EN_ROUTE",
+      "sequence": [
+        "SIMUK",
+        "BE051",
+        "BE389"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-simuk-80312339-6dde-448a-b9c6-0a4ab465bf9e",
+        "aixm-national-simuk-b6502ce4-968a-45ad-aa8f-796b61a69adb",
+        "aixm-national-simuk-21f63f63-e462-435d-be85-4b9ddc3ac093"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

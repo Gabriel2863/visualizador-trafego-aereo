@@ -1,0 +1,193 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-5ed67610-6337-4a91-b861-7fffa1f40ed7",
+    "airport": "SBBE",
+    "name": "RNAV NAXOT 1A RWY 06",
+    "type": "SID",
+    "runway": "07",
+    "runways": [
+      "07"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-07-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-07-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "AX927503": {
+      "ident": "AX927503",
+      "coordinate_ref": "procedure-point:9275032b-1ca7-4a43-93d6-168d1621b187",
+      "role": null,
+      "altitude": {
+        "at": 0,
+        "min": 1200,
+        "max": 0
+      }
+    },
+    "BE009": {
+      "ident": "BE009",
+      "coordinate_ref": "waypoint:8521.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 3482,
+        "max": 0
+      }
+    },
+    "NAXOT": {
+      "ident": "NAXOT",
+      "coordinate_ref": "waypoint:7934.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 9709,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-naxot-9275032b-1ca7-4a43-93d6-168d1621b187",
+      "from": null,
+      "to": "AX927503",
+      "via": [],
+      "path_terminator": "VA",
+      "course": 45.4468302174667,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 45.4468302174667,
+      "distance_nm": 4.3180563179962,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 1200,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "1200 FT",
+        "valueFt": 1200,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 2.46220172958629,
+      "fix_role": null,
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-naxot-550104be-da03-456b-b408-0dcc878ded88",
+      "from": "AX927503",
+      "to": "BE009",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 11.3779340490516,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 3482,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "3481.66 FT",
+        "valueFt": 3482,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-naxot-f044f0c6-ab91-4472-90c9-d16f13d35638",
+      "from": "BE009",
+      "to": "NAXOT",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 142.59179617231,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 142.59179617231,
+      "distance_nm": 31.0474991832605,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 9709,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "9709.02 FT",
+        "valueFt": 9709,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-naxot",
+      "name": "NAXOT",
+      "kind": "RWY",
+      "sequence": [
+        "AX927503",
+        "BE009",
+        "NAXOT"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-naxot-9275032b-1ca7-4a43-93d6-168d1621b187",
+        "aixm-national-naxot-550104be-da03-456b-b408-0dcc878ded88",
+        "aixm-national-naxot-f044f0c6-ab91-4472-90c9-d16f13d35638"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

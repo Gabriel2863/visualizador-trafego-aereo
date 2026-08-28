@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-d561e2dc-4484-41c4-8814-991596950e1c",
+    "airport": "SBCP",
+    "name": "RNAV TISKU 1A RWY 07 - TRNS RONIP",
+    "type": "SID",
+    "runway": "07",
+    "runways": [
+      "07"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-07-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-07-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "TISKU": {
+      "ident": "TISKU",
+      "coordinate_ref": "waypoint:555.0",
+      "role": "TP",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "RONIP": {
+      "ident": "RONIP",
+      "coordinate_ref": "waypoint:1848.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-rwy-67a4e5c1-bd9a-438d-bbb9-33ae4022cd8f",
+      "from": null,
+      "to": "TISKU",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 46.7340778770357,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 46.7340778770357,
+      "distance_nm": 2.99809159054216,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "669.657 FT",
+        "valueFt": 670,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "TP",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-rwy-b7c0efcd-f0fe-49ac-9500-fa2e62c478cf",
+      "from": "TISKU",
+      "to": "RONIP",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 30.1406354593163,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "6714.28 FT",
+        "valueFt": 6714,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-rwy",
+      "name": "RWY",
+      "kind": "RWY",
+      "sequence": [
+        "TISKU",
+        "RONIP"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-rwy-67a4e5c1-bd9a-438d-bbb9-33ae4022cd8f",
+        "aixm-national-rwy-b7c0efcd-f0fe-49ac-9500-fa2e62c478cf"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

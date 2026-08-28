@@ -1,0 +1,193 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-14d6b918-2c87-465e-95d4-b880162ed0f7",
+    "airport": "SBCZ",
+    "name": "RNAV NEPIN 1B RWY 28",
+    "type": "SID",
+    "runway": "28",
+    "runways": [
+      "28"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-07-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-07-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "CZ017": {
+      "ident": "CZ017",
+      "coordinate_ref": "waypoint:131.0",
+      "role": "TP",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "CZ022": {
+      "ident": "CZ022",
+      "coordinate_ref": "waypoint:6659.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "NEPIN": {
+      "ident": "NEPIN",
+      "coordinate_ref": "waypoint:4960.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-nepin-aa894dc9-9860-4b30-ad68-6681aeefc960",
+      "from": null,
+      "to": "CZ017",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 272.989497605152,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 272.989497605152,
+      "distance_nm": 2.99910325419569,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "1250.59 FT",
+        "valueFt": 1251,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "TP",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-nepin-3dc2c768-b908-422d-bec8-9f5ae8aed0fd",
+      "from": "CZ017",
+      "to": "CZ022",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 16.2862644346163,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "4371.16 FT",
+        "valueFt": 4371,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-nepin-3de49dc7-1a28-4230-bb27-c0fbcf6f5d56",
+      "from": "CZ022",
+      "to": "NEPIN",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 107.422502027796,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 107.422502027796,
+      "distance_nm": 57.1276871566455,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "15831.4 FT",
+        "valueFt": 15831,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-nepin",
+      "name": "NEPIN",
+      "kind": "RWY",
+      "sequence": [
+        "CZ017",
+        "CZ022",
+        "NEPIN"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-nepin-aa894dc9-9860-4b30-ad68-6681aeefc960",
+        "aixm-national-nepin-3dc2c768-b908-422d-bec8-9f5ae8aed0fd",
+        "aixm-national-nepin-3de49dc7-1a28-4230-bb27-c0fbcf6f5d56"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

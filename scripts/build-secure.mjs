@@ -66,15 +66,31 @@ for (const file of [
   'data/waypoints.json',
   'data/areas-ensaio.json',
   'data/tmas/manifest.json',
+  'data/tmas/catalog.json',
   'data/studies/manifest.json'
 ]) copyRuntimeFile(file);
 
 const tmaManifest = loadJson('data/tmas/manifest.json');
 if (tmaManifest.coverage?.boundariesFile) copyRuntimeFile(tmaManifest.coverage.boundariesFile);
 if (tmaManifest.coverage?.aerodromesFile) copyRuntimeFile(tmaManifest.coverage.aerodromesFile);
-if (tmaManifest.coverage?.proceduresFile) copyRuntimeFile(tmaManifest.coverage.proceduresFile);
 for (const module of tmaManifest.modules || []) {
-  for (const file of [module.file, module.aerodromesFile, module.boundariesFile].filter(Boolean)) copyRuntimeFile(file);
+  for (const file of [module.aerodromesFile, module.boundariesFile].filter(Boolean)) copyRuntimeFile(file);
+}
+
+const architectureCatalog = loadJson('data/tmas/catalog.json');
+for (const entry of architectureCatalog.tmas || []) {
+  copyRuntimeFile(entry.file);
+  const tma = loadJson(entry.file);
+  copyRuntimeFile(tma.airportsIndex);
+  const airportIndex = loadJson(tma.airportsIndex);
+  for (const airportEntry of airportIndex.airports || []) {
+    copyRuntimeFile(airportEntry.file);
+    copyRuntimeFile(airportEntry.proceduresIndex);
+    const procedureIndex = loadJson(airportEntry.proceduresIndex);
+    for (const type of ['SID', 'STAR', 'IAC']) {
+      for (const procedure of procedureIndex.types?.[type] || []) copyRuntimeFile(procedure.file);
+    }
+  }
 }
 
 const studyManifest = loadJson('data/studies/manifest.json');

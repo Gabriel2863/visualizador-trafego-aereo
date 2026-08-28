@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-a418a381-1858-4ebd-bbea-355b8b3fc049",
+    "airport": "SBFI",
+    "name": "RNAV KAMIL 1A RWY 15",
+    "type": "SID",
+    "runway": "15",
+    "runways": [
+      "15"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-07-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-07-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "FI003": {
+      "ident": "FI003",
+      "coordinate_ref": "waypoint:8374.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "KAMIL": {
+      "ident": "KAMIL",
+      "coordinate_ref": "waypoint:7713.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-5B682A2": {
+      "ident": "GEO-5B682A2",
+      "coordinate_ref": "procedure-point:42cef535c4",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-kamil-bfc0f2d7-1968-4498-8467-ceafa89a7d3d",
+      "from": null,
+      "to": "FI003",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 130.58959003796,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 130.58959003796,
+      "distance_nm": 4.56604068680528,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "1718.02 FT",
+        "valueFt": 1718,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 210,
+      "speed_interpretation": "BELOW_UPPER",
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-kamil-a0c40fb2-b234-4986-bf23-ae94ee6c4a5f",
+      "from": "FI003",
+      "to": "KAMIL",
+      "via": [
+        "GEO-5B682A2"
+      ],
+      "path_terminator": "TF",
+      "course": 83.3546720451329,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 83.3546720451329,
+      "distance_nm": 35.40340108003,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "8818.61 FT",
+        "valueFt": 8819,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-kamil",
+      "name": "KAMIL",
+      "kind": "RWY",
+      "sequence": [
+        "FI003",
+        "KAMIL"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-kamil-bfc0f2d7-1968-4498-8467-ceafa89a7d3d",
+        "aixm-national-kamil-a0c40fb2-b234-4986-bf23-ae94ee6c4a5f"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

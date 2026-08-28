@@ -1,0 +1,239 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-1186b280-c9bb-4c23-8c7a-2c2d9cb10bb3",
+    "airport": "SBBE",
+    "name": "RNAV KODSU 1A RWY 06",
+    "type": "SID",
+    "runway": "07",
+    "runways": [
+      "07"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-07-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-07-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "AX49F845": {
+      "ident": "AX49F845",
+      "coordinate_ref": "procedure-point:49f84544-fdb7-4407-9ff6-0a78ee3eb4ad",
+      "role": null,
+      "altitude": {
+        "at": 0,
+        "min": 1200,
+        "max": 0
+      }
+    },
+    "BE008": {
+      "ident": "BE008",
+      "coordinate_ref": "waypoint:8520.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 4997,
+        "max": 0
+      }
+    },
+    "ILSAT": {
+      "ident": "ILSAT",
+      "coordinate_ref": "waypoint:225.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 11040,
+        "max": 0
+      }
+    },
+    "KODSU": {
+      "ident": "KODSU",
+      "coordinate_ref": "waypoint:1874.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 14771,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-kodsu-49f84544-fdb7-4407-9ff6-0a78ee3eb4ad",
+      "from": null,
+      "to": "AX49F845",
+      "via": [],
+      "path_terminator": "VA",
+      "course": 45.4468302174667,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 45.4468302174667,
+      "distance_nm": 4.3180563179962,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 1200,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "1200 FT",
+        "valueFt": 1200,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 2.46220172958629,
+      "fix_role": null,
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-kodsu-1f985604-21fb-4791-86f2-4c7e736b62b7",
+      "from": "AX49F845",
+      "to": "BE008",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 18.9343088779922,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 4997,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "4997.05 FT",
+        "valueFt": 4997,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-kodsu-4d6a2807-3411-4a5e-a79e-1f7bb17a3bdf",
+      "from": "BE008",
+      "to": "ILSAT",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 176.439868967087,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 176.439868967087,
+      "distance_nm": 30.1272936166877,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 11040,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "11039.7 FT",
+        "valueFt": 11040,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-kodsu-45786281-e212-4731-bf7f-47810184ea12",
+      "from": "ILSAT",
+      "to": "KODSU",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 208.680979101402,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 208.680979101402,
+      "distance_nm": 18.5951420606191,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 14771,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "14770.5 FT",
+        "valueFt": 14771,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-kodsu",
+      "name": "KODSU",
+      "kind": "RWY",
+      "sequence": [
+        "AX49F845",
+        "BE008",
+        "ILSAT",
+        "KODSU"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-kodsu-49f84544-fdb7-4407-9ff6-0a78ee3eb4ad",
+        "aixm-national-kodsu-1f985604-21fb-4791-86f2-4c7e736b62b7",
+        "aixm-national-kodsu-4d6a2807-3411-4a5e-a79e-1f7bb17a3bdf",
+        "aixm-national-kodsu-45786281-e212-4731-bf7f-47810184ea12"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

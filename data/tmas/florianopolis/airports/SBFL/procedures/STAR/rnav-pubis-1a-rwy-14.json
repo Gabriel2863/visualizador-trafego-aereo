@@ -1,0 +1,313 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-4f1ac409-dcdd-4029-ab9b-7be9c6db7dfc",
+    "airport": "SBFL",
+    "name": "RNAV PUBIS 1A RWY 14",
+    "type": "STAR",
+    "runway": "14",
+    "runways": [
+      "14"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2024-05-16T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2024-05-16T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "PUBIS": {
+      "ident": "PUBIS",
+      "coordinate_ref": "waypoint:1975.0",
+      "role": "IF",
+      "altitude": {
+        "at": 0,
+        "min": 13000,
+        "max": 0
+      }
+    },
+    "FL928": {
+      "ident": "FL928",
+      "coordinate_ref": "waypoint:9572.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 13000,
+        "max": 0
+      }
+    },
+    "FL927": {
+      "ident": "FL927",
+      "coordinate_ref": "waypoint:9571.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 10000,
+        "max": 11000
+      }
+    },
+    "FL939": {
+      "ident": "FL939",
+      "coordinate_ref": "waypoint:9570.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 8000,
+        "max": 0
+      }
+    },
+    "GEO-72E36F6": {
+      "ident": "GEO-72E36F6",
+      "coordinate_ref": "procedure-point:1b5f81cebe",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "DIMOG": {
+      "ident": "DIMOG",
+      "coordinate_ref": "waypoint:2095.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 5000,
+        "max": 0
+      }
+    },
+    "GEO-EB51F9D": {
+      "ident": "GEO-EB51F9D",
+      "coordinate_ref": "procedure-point:01909860ba",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-pubis-27eac33e-862d-4b61-b497-159e380d3db6",
+      "from": null,
+      "to": "PUBIS",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 13000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "130 FL",
+        "valueFt": 13000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "IF",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-pubis-84bab9e6-16d0-4312-90c4-4dbdd70552a0",
+      "from": "PUBIS",
+      "to": "FL928",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 198.684063703028,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 198.684063703028,
+      "distance_nm": 48.3023793705305,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 13000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "13000 FT",
+        "valueFt": 13000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-pubis-96b1a23a-c34d-4618-864f-11cf40deb150",
+      "from": "FL928",
+      "to": "FL927",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 198.816603662651,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 198.816603662651,
+      "distance_nm": 8.21732760798707,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 10000,
+        "max": 11000
+      },
+      "lower_limit": {
+        "raw": "10000 FT",
+        "valueFt": 10000,
+        "meaning": "between-bound"
+      },
+      "upper_limit": {
+        "raw": "11000 FT",
+        "valueFt": 11000,
+        "meaning": "between-bound"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -3.43658444068029,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-pubis-1ee32d73-3d2a-4ed5-b87a-ea53826f7f14",
+      "from": "FL927",
+      "to": "FL939",
+      "via": [
+        "GEO-72E36F6"
+      ],
+      "path_terminator": "TF",
+      "course": 209.82053601154,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 209.82053601154,
+      "distance_nm": 19.8858732254076,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 8000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "8000 FT",
+        "valueFt": 8000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -0.947884141359124,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-pubis-66553870-42f5-4bb4-8414-75ff794d1fea",
+      "from": "FL939",
+      "to": "DIMOG",
+      "via": [
+        "GEO-EB51F9D"
+      ],
+      "path_terminator": "TF",
+      "course": 197.526688410844,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 197.526688410844,
+      "distance_nm": 17.4255111467565,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 5000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "5000 FT",
+        "valueFt": 5000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -1.62248662872284,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-pubis",
+      "name": "PUBIS",
+      "kind": "EN_ROUTE",
+      "sequence": [
+        "PUBIS",
+        "FL928",
+        "FL927",
+        "FL939",
+        "DIMOG"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-pubis-27eac33e-862d-4b61-b497-159e380d3db6",
+        "aixm-national-pubis-84bab9e6-16d0-4312-90c4-4dbdd70552a0",
+        "aixm-national-pubis-96b1a23a-c34d-4618-864f-11cf40deb150",
+        "aixm-national-pubis-1ee32d73-3d2a-4ed5-b87a-ea53826f7f14",
+        "aixm-national-pubis-66553870-42f5-4bb4-8414-75ff794d1fea"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

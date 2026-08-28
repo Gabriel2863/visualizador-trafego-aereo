@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-be23edcd-093d-4362-838c-8cc49d91961b",
+    "airport": "SBJA",
+    "name": "FLN 1A",
+    "type": "SID",
+    "runway": "05",
+    "runways": [
+      "05"
+    ],
+    "modes": [],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2026-04-16T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2026-04-16T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "OPRUK": {
+      "ident": "OPRUK",
+      "coordinate_ref": "waypoint:3560.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 20190,
+        "max": 0
+      }
+    },
+    "FLN": {
+      "ident": "FLN",
+      "coordinate_ref": "procedure-point:b814bccd-30c9-4f61-9f6e-58ed747a8c98",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-DAEAFBE": {
+      "ident": "GEO-DAEAFBE",
+      "coordinate_ref": "procedure-point:4c91ce5d7b",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-rwy-a4682703-d50a-4a3a-91c2-f5feaec6f9a2",
+      "from": null,
+      "to": "OPRUK",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 34.8299067073699,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 34.8299067073699,
+      "distance_nm": 10.0015210323282,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 20190,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "20190.1 FT",
+        "valueFt": 20190,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 18.2628899421941,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-rwy-5e865833-b038-4154-acf4-568dc7f2b8f1",
+      "from": "OPRUK",
+      "to": "FLN",
+      "via": [
+        "GEO-DAEAFBE"
+      ],
+      "path_terminator": "CF",
+      "course": 22.7240179109238,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 22.7240179109238,
+      "distance_nm": 55.6564594537855,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "8722.66 FT",
+        "valueFt": 8723,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.06225134267636,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-rwy",
+      "name": "RWY",
+      "kind": "RWY",
+      "sequence": [
+        "OPRUK",
+        "FLN"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-rwy-a4682703-d50a-4a3a-91c2-f5feaec6f9a2",
+        "aixm-national-rwy-5e865833-b038-4154-acf4-568dc7f2b8f1"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

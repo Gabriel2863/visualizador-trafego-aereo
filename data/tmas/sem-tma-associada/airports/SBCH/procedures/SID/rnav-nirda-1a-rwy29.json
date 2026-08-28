@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-4cb7a059-f793-40c5-8df1-1b8329a37b62",
+    "airport": "SBCH",
+    "name": "RNAV NIRDA 1A RWY29",
+    "type": "SID",
+    "runway": "30",
+    "runways": [
+      "30"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2024-08-08T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2024-08-08T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "AX9B59AF": {
+      "ident": "AX9B59AF",
+      "coordinate_ref": "procedure-point:9b59afde-38fa-47ab-9452-d5703b00d768",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 2700,
+        "max": 0
+      }
+    },
+    "NIRDA": {
+      "ident": "NIRDA",
+      "coordinate_ref": "waypoint:5233.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-B9B6C15": {
+      "ident": "GEO-B9B6C15",
+      "coordinate_ref": "procedure-point:cb91d012b1",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-nirda-9b59afde-38fa-47ab-9452-d5703b00d768",
+      "from": null,
+      "to": "AX9B59AF",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 279.054718542512,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 279.054718542512,
+      "distance_nm": 2.99560366699455,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 2700,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "2700 FT",
+        "valueFt": 2700,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.83790744870672,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-nirda-d49da8da-a58c-4694-8ceb-1ec345275954",
+      "from": "AX9B59AF",
+      "to": "NIRDA",
+      "via": [
+        "GEO-B9B6C15"
+      ],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 36.9094530357001,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "10103 FT",
+        "valueFt": 10103,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-nirda",
+      "name": "NIRDA",
+      "kind": "RWY",
+      "sequence": [
+        "AX9B59AF",
+        "NIRDA"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-nirda-9b59afde-38fa-47ab-9452-d5703b00d768",
+        "aixm-national-nirda-d49da8da-a58c-4694-8ceb-1ec345275954"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

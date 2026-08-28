@@ -1,0 +1,161 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "SBGR-IAC-GR03Z",
+    "airport": "SBGR",
+    "name": "ILS Y RWY 28L",
+    "type": "IAC",
+    "runway": "28L",
+    "runways": [
+      "28L"
+    ],
+    "modes": [
+      "ILS"
+    ],
+    "status": "structured",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "GR03Z",
+      "amendment": "2209A1",
+      "effective_date": "2022-09-08",
+      "document": null,
+      "page": 1,
+      "origin_dataset": "tma-sp"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "GR03Z",
+        "amendment": "2209A1",
+        "effective_date": "2022-09-08",
+        "document": null,
+        "page": 1,
+        "origin_dataset": "tma-sp"
+      }
+    ]
+  },
+  "points": {
+    "UTKUG": {
+      "ident": "UTKUG",
+      "coordinate_ref": "waypoint:7577.0",
+      "role": "IAF",
+      "altitude": {
+        "at": 0,
+        "min": 6000,
+        "max": 0
+      }
+    },
+    "ISIMU": {
+      "ident": "ISIMU",
+      "coordinate_ref": "waypoint:8040.0",
+      "role": "MAHF",
+      "altitude": {
+        "at": 0,
+        "min": 6000,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "tma-sp-utkug-apch-1",
+      "from": null,
+      "to": "UTKUG",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 6000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+6000",
+        "valueFt": 6000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "IAF",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "tma-sp-utkug",
+      "name": "Entrada UTKUG (conexao final nao confirmada)",
+      "kind": "approach",
+      "sequence": [
+        "UTKUG"
+      ],
+      "source_dataset": "tma-sp",
+      "leg_ids": [
+        "tma-sp-utkug-apch-1"
+      ]
+    }
+  ],
+  "missed_approach": [
+    {
+      "id": "tma-sp-missed-missed-1",
+      "name": "Aproximacao perdida",
+      "kind": "missed-approach",
+      "sequence": [
+        "ISIMU"
+      ],
+      "legs": [
+        {
+          "id": "tma-sp-missed-missed-1-ma-1",
+          "from": null,
+          "to": "ISIMU",
+          "via": [],
+          "path_terminator": "DF",
+          "course": null,
+          "course_reference": null,
+          "course_magnetic": null,
+          "course_true": null,
+          "distance_nm": 0,
+          "turn": "L",
+          "fly_over": null,
+          "altitude": {
+            "at": null,
+            "min": 6000,
+            "max": null
+          },
+          "lower_limit": {
+            "raw": "+6000",
+            "valueFt": 6000,
+            "meaning": "at-or-above"
+          },
+          "upper_limit": null,
+          "speed_limit_kt": 230,
+          "speed_interpretation": "-",
+          "vertical_angle": 0,
+          "fix_role": "MAHF",
+          "navigation_specification": "RNP 1 or RNAV 1",
+          "arc_center": null,
+          "arc_radius_nm": 0,
+          "source_page": 1,
+          "source_dataset": "tma-sp"
+        }
+      ],
+      "published_text": null,
+      "note": null,
+      "source_dataset": "tma-sp"
+    }
+  ],
+  "warnings": [
+    "FICTITIOUS THRESHOLD"
+  ]
+}

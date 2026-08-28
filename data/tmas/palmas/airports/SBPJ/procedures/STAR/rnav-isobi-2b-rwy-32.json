@@ -1,0 +1,309 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-7ce50f89-abf8-40d4-abe2-dba895e80e67",
+    "airport": "SBPJ",
+    "name": "RNAV ISOBI 2B RWY 32",
+    "type": "STAR",
+    "runway": "32",
+    "runways": [
+      "32"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2024-06-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2024-06-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "ISOBI": {
+      "ident": "ISOBI",
+      "coordinate_ref": "waypoint:5030.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 15000,
+        "max": 0
+      }
+    },
+    "OPNUP": {
+      "ident": "OPNUP",
+      "coordinate_ref": "waypoint:6616.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "PJ033": {
+      "ident": "PJ033",
+      "coordinate_ref": "waypoint:6094.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 10000,
+        "max": 0
+      }
+    },
+    "GEO-1D555CD": {
+      "ident": "GEO-1D555CD",
+      "coordinate_ref": "procedure-point:cc821b0797",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "PJ039": {
+      "ident": "PJ039",
+      "coordinate_ref": "waypoint:4191.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "PJ022": {
+      "ident": "PJ022",
+      "coordinate_ref": "waypoint:3571.0",
+      "role": "IAF",
+      "altitude": {
+        "at": 0,
+        "min": 4000,
+        "max": 0
+      }
+    },
+    "GEO-FE74C89": {
+      "ident": "GEO-FE74C89",
+      "coordinate_ref": "procedure-point:a411d3f32b",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-isobi-cebe91f6-db56-4d0f-bc66-fa52d75bc735",
+      "from": null,
+      "to": "ISOBI",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 15000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "15000 FT",
+        "valueFt": 15000,
+        "meaning": "recommended"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-isobi-6ed5b94d-539b-41e8-84a9-2452300c721e",
+      "from": "ISOBI",
+      "to": "OPNUP",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 152.045105053249,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 152.045105053249,
+      "distance_nm": 35.1902343510287,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "15000 FT",
+        "valueFt": 15000,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-isobi-09ec6f46-c627-4cdb-b946-23cb0ac5633a",
+      "from": "OPNUP",
+      "to": "PJ033",
+      "via": [
+        "GEO-1D555CD"
+      ],
+      "path_terminator": "TF",
+      "course": 133.104034303029,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 133.104034303029,
+      "distance_nm": 26.1642920590798,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 10000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "10000 FT",
+        "valueFt": 10000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -1.80034145223642,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-isobi-847899ed-ca82-47c7-a221-eaf1b6964519",
+      "from": "PJ033",
+      "to": "PJ039",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 133.049382973808,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 133.049382973808,
+      "distance_nm": 10.4747529882085,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "10000 FT",
+        "valueFt": 10000,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-isobi-adef4854-b204-4b16-9db5-1ae40d4a0df1",
+      "from": "PJ039",
+      "to": "PJ022",
+      "via": [
+        "GEO-FE74C89"
+      ],
+      "path_terminator": "TF",
+      "course": 161.666896716042,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 161.666896716042,
+      "distance_nm": 14.1837098418023,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 4000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "4000 FT",
+        "valueFt": 4000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -3.9811889936527,
+      "fix_role": "IAF",
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-isobi",
+      "name": "ISOBI",
+      "kind": "RWY",
+      "sequence": [
+        "ISOBI",
+        "OPNUP",
+        "PJ033",
+        "PJ039",
+        "PJ022"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-isobi-cebe91f6-db56-4d0f-bc66-fa52d75bc735",
+        "aixm-national-isobi-6ed5b94d-539b-41e8-84a9-2452300c721e",
+        "aixm-national-isobi-09ec6f46-c627-4cdb-b946-23cb0ac5633a",
+        "aixm-national-isobi-847899ed-ca82-47c7-a221-eaf1b6964519",
+        "aixm-national-isobi-adef4854-b204-4b16-9db5-1ae40d4a0df1"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

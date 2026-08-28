@@ -1,0 +1,193 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-032f3dc7-ade0-4fd8-9a6c-410e3bc08d4e",
+    "airport": "SBMN",
+    "name": "RNAV EKUTU 1A RWY 09",
+    "type": "SID",
+    "runway": "09",
+    "runways": [
+      "09"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-08-10T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-08-10T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "AX6F2E91": {
+      "ident": "AX6F2E91",
+      "coordinate_ref": "procedure-point:6f2e911e-fb2c-466b-a15c-d2a470c73f32",
+      "role": null,
+      "altitude": {
+        "at": 0,
+        "min": 2000,
+        "max": 0
+      }
+    },
+    "EKUTU": {
+      "ident": "EKUTU",
+      "coordinate_ref": "waypoint:2062.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 7000
+      }
+    },
+    "TEPEM": {
+      "ident": "TEPEM",
+      "coordinate_ref": "waypoint:7732.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-tepem-6f2e911e-fb2c-466b-a15c-d2a470c73f32",
+      "from": null,
+      "to": "AX6F2E91",
+      "via": [],
+      "path_terminator": "CA",
+      "course": 76.0811467992002,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 76.0811467992002,
+      "distance_nm": 8.59340565860806,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 2000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "2000 FT",
+        "valueFt": 2000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": null,
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-tepem-610af3c3-62e4-4764-bab1-a388c8d3cb62",
+      "from": "AX6F2E91",
+      "to": "EKUTU",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 16.6681006822456,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": 7000
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "7000 FT",
+        "valueFt": 7000,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 2.82575592118682,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-tepem-345c070d-d644-4dbf-9e22-e22839afb5e5",
+      "from": "EKUTU",
+      "to": "TEPEM",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 30.1089557253707,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 30.1089557253707,
+      "distance_nm": 20.16802017714,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "11045.7 FT",
+        "valueFt": 11046,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-tepem",
+      "name": "TEPEM",
+      "kind": "RWY",
+      "sequence": [
+        "AX6F2E91",
+        "EKUTU",
+        "TEPEM"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-tepem-6f2e911e-fb2c-466b-a15c-d2a470c73f32",
+        "aixm-national-tepem-610af3c3-62e4-4764-bab1-a388c8d3cb62",
+        "aixm-national-tepem-345c070d-d644-4dbf-9e22-e22839afb5e5"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

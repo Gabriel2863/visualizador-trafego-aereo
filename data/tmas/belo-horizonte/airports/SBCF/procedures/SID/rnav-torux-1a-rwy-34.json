@@ -1,0 +1,518 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-1e31bc41-d1a9-4ac8-8124-5bfdd5d9718e",
+    "airport": "SBCF",
+    "name": "RNAV TORUX 1A RWY 34",
+    "type": "SID",
+    "runway": "16",
+    "runways": [
+      "16",
+      "34"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-07-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-07-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "CNF": {
+      "ident": "CNF",
+      "coordinate_ref": "procedure-point:5c528570-5dc2-4cd6-8089-f593e1fe0206",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "TORUX": {
+      "ident": "TORUX",
+      "coordinate_ref": "waypoint:2996.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 9000
+      }
+    },
+    "GEO-220AE4B": {
+      "ident": "GEO-220AE4B",
+      "coordinate_ref": "procedure-point:f2b095db19",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "SIDOL": {
+      "ident": "SIDOL",
+      "coordinate_ref": "waypoint:2424.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "PENTE": {
+      "ident": "PENTE",
+      "coordinate_ref": "waypoint:967.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "AX27617D": {
+      "ident": "AX27617D",
+      "coordinate_ref": "procedure-point:27617d34-02bf-4fcd-be3a-63a111f69eb5",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-comon-3a952d05-6630-40bc-bf30-c9ffa032f0dc",
+      "from": null,
+      "to": "CNF",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "4277.19 FT",
+        "valueFt": 4277,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-comon-02fe8763-d2ed-4f6b-9d2e-405bc7a355b4",
+      "from": "CNF",
+      "to": "TORUX",
+      "via": [
+        "GEO-220AE4B"
+      ],
+      "path_terminator": "TF",
+      "course": 341.118740720861,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 341.118740720861,
+      "distance_nm": 17.8222740198201,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": 9000
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "9000 FT",
+        "valueFt": 9000,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 2.50944711474524,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-rwy-c8e68d9b-d951-471e-9bdb-9c1015106093",
+      "from": null,
+      "to": "CNF",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 315.596067656708,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 315.596067656708,
+      "distance_nm": 7.67936691050556,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "4277.19 FT",
+        "valueFt": 4277,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-sidol-d5179690-0f93-47e3-86c8-23419eb22a9e",
+      "from": null,
+      "to": "TORUX",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": 9000
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "9000 FT",
+        "valueFt": 9000,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-sidol-d5ed63c2-4f44-4ed8-8962-9229c1cc0496",
+      "from": "TORUX",
+      "to": "SIDOL",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 318.606112863594,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 318.606112863594,
+      "distance_nm": 16.6304676810074,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "12336.3 FT",
+        "valueFt": 12336,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-obgar-a4cac3b7-ede7-45e0-b530-1b8e1bf4f495",
+      "from": null,
+      "to": "TORUX",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": 9000
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "9000 FT",
+        "valueFt": 9000,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-obgar-cecb5be8-3c93-4cb9-9ffe-0041a5a8ec74",
+      "from": "TORUX",
+      "to": "PENTE",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 24.4655219913724,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 24.4655219913724,
+      "distance_nm": 20.5201650026182,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "13116.8 FT",
+        "valueFt": 13117,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-obgar-27617d34-02bf-4fcd-be3a-63a111f69eb5",
+      "from": "PENTE",
+      "to": "AX27617D",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 43.7701933369051,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 43.7701933369051,
+      "distance_nm": 37.274821836177,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "20597 FT",
+        "valueFt": 20597,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-pente-a355cb61-46c9-4f04-86d3-42f71318ffc0",
+      "from": null,
+      "to": "TORUX",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": 9000
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "9000 FT",
+        "valueFt": 9000,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-pente-df04481d-1a95-45e3-a883-f71830e55793",
+      "from": "TORUX",
+      "to": "PENTE",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 24.4655219913724,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 24.4655219913724,
+      "distance_nm": 20.5275080991783,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "13118.2 FT",
+        "valueFt": 13118,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-comon",
+      "name": "COMON",
+      "kind": "COMMON",
+      "sequence": [
+        "CNF",
+        "TORUX"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-comon-3a952d05-6630-40bc-bf30-c9ffa032f0dc",
+        "aixm-national-comon-02fe8763-d2ed-4f6b-9d2e-405bc7a355b4"
+      ]
+    },
+    {
+      "id": "aixm-national-rwy",
+      "name": "RWY",
+      "kind": "RWY",
+      "sequence": [
+        "CNF"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-rwy-c8e68d9b-d951-471e-9bdb-9c1015106093"
+      ]
+    },
+    {
+      "id": "aixm-national-sidol",
+      "name": "SIDOL",
+      "kind": "EN_ROUTE",
+      "sequence": [
+        "TORUX",
+        "SIDOL"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-sidol-d5179690-0f93-47e3-86c8-23419eb22a9e",
+        "aixm-national-sidol-d5ed63c2-4f44-4ed8-8962-9229c1cc0496"
+      ]
+    },
+    {
+      "id": "aixm-national-obgar",
+      "name": "OBGAR",
+      "kind": "EN_ROUTE",
+      "sequence": [
+        "TORUX",
+        "PENTE",
+        "AX27617D"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-obgar-a4cac3b7-ede7-45e0-b530-1b8e1bf4f495",
+        "aixm-national-obgar-cecb5be8-3c93-4cb9-9ffe-0041a5a8ec74",
+        "aixm-national-obgar-27617d34-02bf-4fcd-be3a-63a111f69eb5"
+      ]
+    },
+    {
+      "id": "aixm-national-pente",
+      "name": "PENTE",
+      "kind": "EN_ROUTE",
+      "sequence": [
+        "TORUX",
+        "PENTE"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-pente-a355cb61-46c9-4f04-86d3-42f71318ffc0",
+        "aixm-national-pente-df04481d-1a95-45e3-a883-f71830e55793"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

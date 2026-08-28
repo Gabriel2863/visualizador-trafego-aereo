@@ -7,9 +7,11 @@ Site web interativo para estudo e visualização de dados aeronáuticos.
 - `index.html` — página principal
 - `map_interface.js` — lógica do mapa e da interface
 - `styles.css` — estilos
-- `data/waypoints.json` — base de 7.938 waypoints
-- `data/tmas/manifest.json` — lista dos módulos de TMA carregados pelo site
-- `data/tmas/tma-sp.json` — procedimentos IFR vigentes da TMA São Paulo
+- `data/waypoints.json` — 7.938 waypoints originais e referências globais de geometria IFR
+- `data/tmas/catalog.json` — catálogo leve das 40 TMAs e seus índices sob demanda
+- `data/tmas/<tma>/` — aeródromos e procedimentos SID/STAR/IAC em arquivos individuais
+- `data/tmas/manifest.json` — fontes nacionais e módulos de contexto operacional
+- `data/tmas/tma-sp.json` — fonte monolítica preservada para reconstruir os procedimentos de São Paulo
 - `data/tmas/tma-sp-airports.json` — aeroportos da TMA São Paulo com coordenadas, elevação e fonte AISWEB
 - `data/tmas/tma-sp-sectors.json` — 15 setores oficiais da TMA São Paulo, com limites, classes e frequências
 - `data/tmas/tma-sp-audit.json` — auditoria de cobertura, fontes e divergências da TMA São Paulo
@@ -21,6 +23,8 @@ Site web interativo para estudo e visualização de dados aeronáuticos.
 - `data/studies/manifest.json` — categorias carregadas pelo painel flutuante de estudos
 - `data/studies/*.json` — resumos organizados por assunto, sem incluir os documentos brutos
 - `scripts/import-waypoints.py` — conversor do Excel de waypoints para JSON
+- `scripts/migrate-data-architecture.mjs` — gera a hierarquia modular a partir das fontes existentes
+- `scripts/validate-data-architecture.mjs` — valida catálogos, referências e schemas
 - `scripts/build-secure.mjs` — gera o artefato protegido publicado no GitHub Pages
 - `.github/workflows/deploy-pages.yml` — build e deploy automatizados do conteúdo de `dist/`
 
@@ -83,16 +87,31 @@ O arquivo Excel deve conter as colunas obrigatórias:
 - `longitude`
 - `tipo`
 
-## Módulos de procedimentos IFR
+## Arquitetura de procedimentos IFR
 
-Cada TMA fica em um JSON independente dentro de `data/tmas/`. O arquivo
-`data/tmas/manifest.json` determina quais módulos o site carrega. Assim, uma nova
-terminal (por exemplo, Curitiba) pode ser adicionada criando seu próprio arquivo e
-incluindo uma entrada no manifesto, sem alterar a lógica principal do mapa.
+O site usa `data/tmas/catalog.json` para descobrir TMAs e carrega, em sequência,
+somente o índice da TMA, o aeródromo escolhido, o tipo SID/STAR/IAC e a carta
+solicitada. Cada procedimento ocupa um JSON independente. O mapa operacional
+também baixa apenas as cartas compatíveis com as pistas e filtros ativos.
 
-O módulo `tma-sp.json` contém aeroportos, procedimentos SID/STAR/IAC, transições,
-aproximações perdidas, ligações STAR→IAC e pontos terminais publicados que não
-existem — ou divergem — da base geral de waypoints.
+As cartas não armazenam latitude, longitude ou geometria. FIXES, cabeceiras e
+vértices de trajetória apontam por `coordinate_ref` para `data/waypoints.json`,
+que é a fonte única de coordenadas do interpretador. Ramificações são descritas
+como um grafo de pernas e a aproximação perdida permanece separada.
+
+As bases monolíticas `tma-sp.json`, `brazil-procedures-aixm.json` e
+`data/procedures.json` não são mais carregadas pelo navegador, mas foram
+preservadas como fontes de reconstrução e auditoria.
+
+A especificação completa, os schemas e as instruções para adicionar TMA,
+aeródromo, SID, STAR ou IAC estão em [DATA_ARCHITECTURE.md](DATA_ARCHITECTURE.md).
+
+Para reconstruir e validar a hierarquia:
+
+```bash
+npm run migrate:data
+npm test
+```
 
 O arquivo `tma-sp-sectors.json` substitui, somente para São Paulo, o contorno
 nacional incompleto. Ele contém os setores 01, 02, 02F, 03, 03F, 04 a 13 da
@@ -100,7 +119,7 @@ publicação ENR 2.1 vigente em 06/08/2026. Na interface, o setor com maior áre
 visível é identificado automaticamente na aba esquerda; 02F e 03F são desenhados
 com contorno tracejado.
 
-Para reconstruir o módulo a partir das tabelas de codificação oficiais previamente
+Para reconstruir a fonte de São Paulo a partir das tabelas de codificação oficiais previamente
 baixadas:
 
 ```bash

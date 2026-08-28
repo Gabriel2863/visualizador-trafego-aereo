@@ -1,0 +1,193 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-357f9b82-6f05-482a-9828-42b4e5305c7a",
+    "airport": "SBPV",
+    "name": "RNAV MUPEG 1C RWY 19",
+    "type": "SID",
+    "runway": "19",
+    "runways": [
+      "19"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-08-10T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-08-10T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "PV393": {
+      "ident": "PV393",
+      "coordinate_ref": "waypoint:2137.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "PV022": {
+      "ident": "PV022",
+      "coordinate_ref": "waypoint:4463.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "MUPEG": {
+      "ident": "MUPEG",
+      "coordinate_ref": "waypoint:6409.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-mupeg-e46b200f-02f3-4db8-9e30-b51298933984",
+      "from": null,
+      "to": "PV393",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 176.797281335412,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 176.797281335412,
+      "distance_nm": 3.00504271446376,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "905.473 FT",
+        "valueFt": 905,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-mupeg-05d4bcfb-4962-4d05-95b6-088da7f3c929",
+      "from": "PV393",
+      "to": "PV022",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 28.3443412546459,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "6589.86 FT",
+        "valueFt": 6590,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-mupeg-495dc514-af31-4bb4-a0e7-5cbcbeea70dc",
+      "from": "PV022",
+      "to": "MUPEG",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 30.4897262070883,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 30.4897262070883,
+      "distance_nm": 20.2341056616508,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "10648.7 FT",
+        "valueFt": 10649,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-mupeg",
+      "name": "MUPEG",
+      "kind": "RWY",
+      "sequence": [
+        "PV393",
+        "PV022",
+        "MUPEG"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-mupeg-e46b200f-02f3-4db8-9e30-b51298933984",
+        "aixm-national-mupeg-05d4bcfb-4962-4d05-95b6-088da7f3c929",
+        "aixm-national-mupeg-495dc514-af31-4bb4-a0e7-5cbcbeea70dc"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

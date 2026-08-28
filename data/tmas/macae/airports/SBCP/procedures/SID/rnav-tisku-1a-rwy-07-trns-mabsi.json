@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-be5b4f90-18da-46d2-a994-76d387d53943",
+    "airport": "SBCP",
+    "name": "RNAV TISKU 1A RWY 07 - TRNS MABSI",
+    "type": "SID",
+    "runway": "07",
+    "runways": [
+      "07"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-07-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-07-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "TISKU": {
+      "ident": "TISKU",
+      "coordinate_ref": "waypoint:555.0",
+      "role": "TP",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "MABSI": {
+      "ident": "MABSI",
+      "coordinate_ref": "waypoint:5695.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-48E90CB": {
+      "ident": "GEO-48E90CB",
+      "coordinate_ref": "procedure-point:ef79ebc909",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-rwy-bdb6ad7f-a465-4fe8-b714-2bcb9769e51e",
+      "from": null,
+      "to": "TISKU",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 46.7340778770357,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 46.7340778770357,
+      "distance_nm": 2.99809159054216,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "669.657 FT",
+        "valueFt": 670,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "TP",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-rwy-a4306e26-695b-4e72-948a-f1edd764b45f",
+      "from": "TISKU",
+      "to": "MABSI",
+      "via": [
+        "GEO-48E90CB"
+      ],
+      "path_terminator": "TF",
+      "course": 40.6006171986769,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 40.6006171986769,
+      "distance_nm": 59.5404686814941,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "12612 FT",
+        "valueFt": 12612,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-rwy",
+      "name": "RWY",
+      "kind": "RWY",
+      "sequence": [
+        "TISKU",
+        "MABSI"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-rwy-bdb6ad7f-a465-4fe8-b714-2bcb9769e51e",
+        "aixm-national-rwy-a4306e26-695b-4e72-948a-f1edd764b45f"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-81aefcfe-79ae-4e36-a3a8-0e353554fb1b",
+    "airport": "SBMO",
+    "name": "RNAV UKARI 2A RWY30",
+    "type": "SID",
+    "runway": "30",
+    "runways": [
+      "30"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-08-10T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-08-10T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "AXC83A4D": {
+      "ident": "AXC83A4D",
+      "coordinate_ref": "procedure-point:c83a4d07-528b-45e2-8b79-64ed1beb3abb",
+      "role": null,
+      "altitude": {
+        "at": 0,
+        "min": 900,
+        "max": 0
+      }
+    },
+    "UKARI": {
+      "ident": "UKARI",
+      "coordinate_ref": "waypoint:7060.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-rwy-c83a4d07-528b-45e2-8b79-64ed1beb3abb",
+      "from": null,
+      "to": "AXC83A4D",
+      "via": [],
+      "path_terminator": "VA",
+      "course": 280.701219288131,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 280.701219288131,
+      "distance_nm": 2.47265008951234,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 900,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "900 FT",
+        "valueFt": 900,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": null,
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-rwy-aec9b5ab-4350-465d-aefa-e8c3ffbf8cbf",
+      "from": "AXC83A4D",
+      "to": "UKARI",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 55.2207124835826,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "11975.8 FT",
+        "valueFt": 11976,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-rwy",
+      "name": "RWY",
+      "kind": "RWY",
+      "sequence": [
+        "AXC83A4D",
+        "UKARI"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-rwy-c83a4d07-528b-45e2-8b79-64ed1beb3abb",
+        "aixm-national-rwy-aec9b5ab-4350-465d-aefa-e8c3ffbf8cbf"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

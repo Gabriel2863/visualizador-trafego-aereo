@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-850f2053-f1e1-41ba-8104-e38a7c867f50",
+    "airport": "SBCT",
+    "name": "SID RNAV PONLU 1A RWY 15",
+    "type": "SID",
+    "runway": "15",
+    "runways": [
+      "15"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2024-05-16T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2024-05-16T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "AX897072": {
+      "ident": "AX897072",
+      "coordinate_ref": "procedure-point:8970725a-aa63-4ddc-b6e4-a934b487839a",
+      "role": null,
+      "altitude": {
+        "at": 0,
+        "min": 4000,
+        "max": 0
+      }
+    },
+    "PONLU": {
+      "ident": "PONLU",
+      "coordinate_ref": "waypoint:515.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-ponlu-8970725a-aa63-4ddc-b6e4-a934b487839a",
+      "from": null,
+      "to": "AX897072",
+      "via": [],
+      "path_terminator": "VA",
+      "course": 134.545658003201,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 134.545658003201,
+      "distance_nm": 4.97042153867886,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 4000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "4000 FT",
+        "valueFt": 4000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": null,
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-ponlu-3daeb898-4c68-4850-bb66-d46ddac5f889",
+      "from": "AX897072",
+      "to": "PONLU",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 56.0952143659645,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "15252.9 FT",
+        "valueFt": 15253,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-ponlu",
+      "name": "PONLU",
+      "kind": "RWY",
+      "sequence": [
+        "AX897072",
+        "PONLU"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-ponlu-8970725a-aa63-4ddc-b6e4-a934b487839a",
+        "aixm-national-ponlu-3daeb898-4c68-4850-bb66-d46ddac5f889"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

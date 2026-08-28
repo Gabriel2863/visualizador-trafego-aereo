@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-0dc5f131-b71d-4bab-90d1-7ab1e8de99ec",
+    "airport": "SBTT",
+    "name": "RNAV TARIB 1A RWY 12",
+    "type": "SID",
+    "runway": "12",
+    "runways": [
+      "12"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-08-10T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-08-10T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "AX4532AB": {
+      "ident": "AX4532AB",
+      "coordinate_ref": "procedure-point:4532ab25-8f64-425f-80a4-6b6be10f508c",
+      "role": null,
+      "altitude": {
+        "at": 0,
+        "min": 800,
+        "max": 0
+      }
+    },
+    "ARUKO": {
+      "ident": "ARUKO",
+      "coordinate_ref": "waypoint:2729.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-tarib-4532ab25-8f64-425f-80a4-6b6be10f508c",
+      "from": null,
+      "to": "AX4532AB",
+      "via": [],
+      "path_terminator": "CA",
+      "course": 113.432552943084,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 113.432552943084,
+      "distance_nm": 2.62891999377074,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 800,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "800 FT",
+        "valueFt": 800,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": null,
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-tarib-e905e18d-95f7-4337-bfce-b42db0ae65e4",
+      "from": "AX4532AB",
+      "to": "ARUKO",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 32.2451360057123,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "7289.99 FT",
+        "valueFt": 7290,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-tarib",
+      "name": "TARIB",
+      "kind": "RWY",
+      "sequence": [
+        "AX4532AB",
+        "ARUKO"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-tarib-4532ab25-8f64-425f-80a4-6b6be10f508c",
+        "aixm-national-tarib-e905e18d-95f7-4337-bfce-b42db0ae65e4"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

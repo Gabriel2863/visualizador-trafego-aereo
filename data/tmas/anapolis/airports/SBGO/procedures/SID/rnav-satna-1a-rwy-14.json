@@ -1,0 +1,205 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-8a1ff9fd-8fde-4802-8ca5-f71fcedc1a79",
+    "airport": "SBGO",
+    "name": "RNAV SATNA 1A RWY 14",
+    "type": "SID",
+    "runway": "14",
+    "runways": [
+      "14"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2024-07-11T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2024-07-11T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "GO013": {
+      "ident": "GO013",
+      "coordinate_ref": "waypoint:4781.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GO011": {
+      "ident": "GO011",
+      "coordinate_ref": "waypoint:3558.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 8000
+      }
+    },
+    "DIGEP": {
+      "ident": "DIGEP",
+      "coordinate_ref": "waypoint:1349.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-48E3DC5": {
+      "ident": "GEO-48E3DC5",
+      "coordinate_ref": "procedure-point:20b9619828",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-satna-baf8b207-a2ca-4077-996c-d62dab9d2f6e",
+      "from": null,
+      "to": "GO013",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 120.177932932695,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 120.177932932695,
+      "distance_nm": 2.99681477262074,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "3070.36 FT",
+        "valueFt": 3070,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 250,
+      "speed_interpretation": "BELOW_UPPER",
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-satna-36e61240-7501-4fc6-a896-2378c280fbc0",
+      "from": "GO013",
+      "to": "GO011",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 120.258090261134,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 120.258090261134,
+      "distance_nm": 6.98120205578156,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": 8000
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "8000 FT",
+        "valueFt": 8000,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 250,
+      "speed_interpretation": "BELOW_UPPER",
+      "vertical_angle": 6.62710955270066,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-satna-1307a3ce-9c03-448a-88de-049fdb42abb1",
+      "from": "GO011",
+      "to": "DIGEP",
+      "via": [
+        "GEO-48E3DC5"
+      ],
+      "path_terminator": "TF",
+      "course": 151.610762675458,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 151.610762675458,
+      "distance_nm": 18.0417716974461,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "11619.3 FT",
+        "valueFt": 11619,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-satna",
+      "name": "SATNA",
+      "kind": "RWY",
+      "sequence": [
+        "GO013",
+        "GO011",
+        "DIGEP"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-satna-baf8b207-a2ca-4077-996c-d62dab9d2f6e",
+        "aixm-national-satna-36e61240-7501-4fc6-a896-2378c280fbc0",
+        "aixm-national-satna-1307a3ce-9c03-448a-88de-049fdb42abb1"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

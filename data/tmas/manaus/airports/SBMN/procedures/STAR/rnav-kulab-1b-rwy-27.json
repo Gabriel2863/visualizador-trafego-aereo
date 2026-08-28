@@ -1,0 +1,355 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-7cc6e865-5766-47e4-88bb-526c497c72c0",
+    "airport": "SBMN",
+    "name": "RNAV KULAB 1B RWY 27",
+    "type": "STAR",
+    "runway": "27",
+    "runways": [
+      "27"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-08-10T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-08-10T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "MALPU": {
+      "ident": "MALPU",
+      "coordinate_ref": "waypoint:7014.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "MN021": {
+      "ident": "MN021",
+      "coordinate_ref": "waypoint:2898.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 7000
+      }
+    },
+    "MN013": {
+      "ident": "MN013",
+      "coordinate_ref": "waypoint:4677.0",
+      "role": "IAF",
+      "altitude": {
+        "at": 0,
+        "min": 4000,
+        "max": 0
+      }
+    },
+    "KULAB": {
+      "ident": "KULAB",
+      "coordinate_ref": "waypoint:3427.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 15000,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-rwy-a3f1e49f-db28-4b21-a6c1-ad12e800714a",
+      "from": null,
+      "to": "MALPU",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "15000 FT",
+        "valueFt": 15000,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-rwy-3b884a13-8384-4d9c-8aa4-c6321e4cafc9",
+      "from": "MALPU",
+      "to": "MN021",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 251.853248700312,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 251.853248700312,
+      "distance_nm": 16.0331060636715,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": 7000
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "7000 FT",
+        "valueFt": 7000,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -4.69210740187512,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-rwy-f9b82daa-7a3d-4e2a-b909-d20c8fb19c84",
+      "from": "MN021",
+      "to": "MN021",
+      "via": [],
+      "path_terminator": "HM",
+      "course": 252.23169876873,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 252.23169876873,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": 7000
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "7000 FT",
+        "valueFt": 7000,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-rwy-afe5b11d-4bdc-48ed-bb37-c7c10871a649",
+      "from": "MN021",
+      "to": "MN013",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 251.730682927969,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 251.730682927969,
+      "distance_nm": 9.99993363220396,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 4000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "4000 FT",
+        "valueFt": 4000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -2.82588235182281,
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-kulab-aa8dbbbe-e076-4940-a65c-38ede793a7fe",
+      "from": null,
+      "to": "KULAB",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 15000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "15000 FT",
+        "valueFt": 15000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-kulab-aabcd2a1-e1d2-4c3f-a6ea-ab1dd0062d1e",
+      "from": "KULAB",
+      "to": "KULAB",
+      "via": [],
+      "path_terminator": "HM",
+      "course": 262.703212720296,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 262.703212720296,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "15000 FT",
+        "valueFt": 15000,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-kulab-563f5ccd-82e8-4e1c-899e-fda356c9a041",
+      "from": "KULAB",
+      "to": "MALPU",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 263.635806309336,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 263.635806309336,
+      "distance_nm": 49.820958683853,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "15000 FT",
+        "valueFt": 15000,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-rwy",
+      "name": "RWY",
+      "kind": "RWY",
+      "sequence": [
+        "MALPU",
+        "MN021",
+        "MN013"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-rwy-a3f1e49f-db28-4b21-a6c1-ad12e800714a",
+        "aixm-national-rwy-3b884a13-8384-4d9c-8aa4-c6321e4cafc9",
+        "aixm-national-rwy-f9b82daa-7a3d-4e2a-b909-d20c8fb19c84",
+        "aixm-national-rwy-afe5b11d-4bdc-48ed-bb37-c7c10871a649"
+      ]
+    },
+    {
+      "id": "aixm-national-kulab",
+      "name": "KULAB",
+      "kind": "EN_ROUTE",
+      "sequence": [
+        "KULAB",
+        "MALPU"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-kulab-aa8dbbbe-e076-4940-a65c-38ede793a7fe",
+        "aixm-national-kulab-aabcd2a1-e1d2-4c3f-a6ea-ab1dd0062d1e",
+        "aixm-national-kulab-563f5ccd-82e8-4e1c-899e-fda356c9a041"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

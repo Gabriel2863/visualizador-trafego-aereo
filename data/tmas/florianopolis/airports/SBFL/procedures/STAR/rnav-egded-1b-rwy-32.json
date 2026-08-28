@@ -1,0 +1,239 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-a85a36bc-0069-4343-90a9-6a4c1690efcb",
+    "airport": "SBFL",
+    "name": "RNAV EGDED 1B RWY 32",
+    "type": "STAR",
+    "runway": "32",
+    "runways": [
+      "32"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-07-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-07-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "EGDED": {
+      "ident": "EGDED",
+      "coordinate_ref": "waypoint:2279.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 25000,
+        "max": 0
+      }
+    },
+    "FL953": {
+      "ident": "FL953",
+      "coordinate_ref": "waypoint:1219.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "FL997": {
+      "ident": "FL997",
+      "coordinate_ref": "waypoint:4988.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "EPKON": {
+      "ident": "EPKON",
+      "coordinate_ref": "waypoint:5587.0",
+      "role": "IAF",
+      "altitude": {
+        "at": 0,
+        "min": 4000,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-egded-3e687efd-789a-43c0-9695-b32914394a5e",
+      "from": null,
+      "to": "EGDED",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 25000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "25000 FT",
+        "valueFt": 25000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-egded-c48e3d78-36d8-4ca9-bfc2-47ed5f5ab9bc",
+      "from": "EGDED",
+      "to": "FL953",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 216.000955119505,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 216.000955119505,
+      "distance_nm": 21.3354470816374,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "25000 FT",
+        "valueFt": 25000,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-egded-9a58b38b-d1a6-4f94-a904-b7298788d8c9",
+      "from": "FL953",
+      "to": "FL997",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 232.255025622467,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 232.255025622467,
+      "distance_nm": 18.2250617474425,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "25000 FT",
+        "valueFt": 25000,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-egded-38a2a01c-2b6e-43ee-b958-48314241b6ee",
+      "from": "FL997",
+      "to": "EPKON",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 233.524808731075,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 233.524808731075,
+      "distance_nm": 31.8680069801325,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 4000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "4000 FT",
+        "valueFt": 4000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -6.18540228739129,
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-egded",
+      "name": "EGDED",
+      "kind": "EN_ROUTE",
+      "sequence": [
+        "EGDED",
+        "FL953",
+        "FL997",
+        "EPKON"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-egded-3e687efd-789a-43c0-9695-b32914394a5e",
+        "aixm-national-egded-c48e3d78-36d8-4ca9-bfc2-47ed5f5ab9bc",
+        "aixm-national-egded-9a58b38b-d1a6-4f94-a904-b7298788d8c9",
+        "aixm-national-egded-38a2a01c-2b6e-43ee-b958-48314241b6ee"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

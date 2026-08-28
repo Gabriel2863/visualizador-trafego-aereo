@@ -1,0 +1,273 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-1311fec2-f9af-4741-aa71-18b7acb8066f",
+    "airport": "SBKP",
+    "name": "RNAV UTLOT 1A RWY15",
+    "type": "STAR",
+    "runway": "15",
+    "runways": [
+      "15"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2025-08-07T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2025-08-07T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "UTLOT": {
+      "ident": "UTLOT",
+      "coordinate_ref": "waypoint:1359.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 16000
+      }
+    },
+    "GEO-C51C438": {
+      "ident": "GEO-C51C438",
+      "coordinate_ref": "procedure-point:9735c89cd8",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "GEO-6067830": {
+      "ident": "GEO-6067830",
+      "coordinate_ref": "procedure-point:c8788f5932",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "GEO-1A2A15C": {
+      "ident": "GEO-1A2A15C",
+      "coordinate_ref": "procedure-point:d03b0ecc09",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "GEO-26CFB96": {
+      "ident": "GEO-26CFB96",
+      "coordinate_ref": "procedure-point:415daa4457",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "KP201": {
+      "ident": "KP201",
+      "coordinate_ref": "waypoint:10705.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "NOBRE": {
+      "ident": "NOBRE",
+      "coordinate_ref": "waypoint:10596.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 6000,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-en-route-42072538-48b4-430d-b788-e0fbffc1fc45",
+      "from": null,
+      "to": "UTLOT",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": 16000
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "16000 FT",
+        "valueFt": 16000,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-en-route-593cbc22-b3fd-4cd0-864b-e0cc0674908b",
+      "from": "UTLOT",
+      "to": "UTLOT",
+      "via": [
+        "GEO-C51C438",
+        "GEO-6067830",
+        "GEO-1A2A15C",
+        "GEO-26CFB96"
+      ],
+      "path_terminator": "HM",
+      "course": 129.0048,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 129.0048,
+      "distance_nm": 5.20670204060307,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "16000 FT",
+        "valueFt": 16000,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-en-route-9e994a9f-7c5d-4e06-9b81-49b52ee2c0d7",
+      "from": "UTLOT",
+      "to": "KP201",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 129.004756134147,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 129.004756134147,
+      "distance_nm": 21.93650113631,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "16000 FT",
+        "valueFt": 16000,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-en-route-10710a98-e1fb-47fb-a70e-ee4294fe13b4",
+      "from": "KP201",
+      "to": "NOBRE",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 124.060380038261,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 124.060380038261,
+      "distance_nm": 14.985163488637,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 6000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "6000 FT",
+        "valueFt": 6000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -6.26428082415035,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-en-route",
+      "name": "EN_ROUTE",
+      "kind": "EN_ROUTE",
+      "sequence": [
+        "UTLOT",
+        "KP201",
+        "NOBRE"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-en-route-42072538-48b4-430d-b788-e0fbffc1fc45",
+        "aixm-national-en-route-593cbc22-b3fd-4cd0-864b-e0cc0674908b",
+        "aixm-national-en-route-9e994a9f-7c5d-4e06-9b81-49b52ee2c0d7",
+        "aixm-national-en-route-10710a98-e1fb-47fb-a70e-ee4294fe13b4"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

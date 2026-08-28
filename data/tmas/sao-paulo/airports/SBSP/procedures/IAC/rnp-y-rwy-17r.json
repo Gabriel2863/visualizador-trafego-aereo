@@ -1,0 +1,725 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "SBSP-IAC-SP02O",
+    "airport": "SBSP",
+    "name": "RNP Y RWY 17R",
+    "type": "IAC",
+    "runway": "17R",
+    "runways": [
+      "17R"
+    ],
+    "modes": [
+      "RNP"
+    ],
+    "status": "structured",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "SP02O",
+      "amendment": "2608A1",
+      "effective_date": "2026-08-06",
+      "document": null,
+      "page": 1,
+      "origin_dataset": "tma-sp"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "SP02O",
+        "amendment": "2608A1",
+        "effective_date": "2026-08-06",
+        "document": null,
+        "page": 1,
+        "origin_dataset": "tma-sp"
+      }
+    ]
+  },
+  "points": {
+    "KOMGU": {
+      "ident": "KOMGU",
+      "coordinate_ref": "waypoint:2866.0",
+      "role": "IAF",
+      "altitude": {
+        "at": 0,
+        "min": 5500,
+        "max": 0
+      }
+    },
+    "GERSU": {
+      "ident": "GERSU",
+      "coordinate_ref": "waypoint:4859.0",
+      "role": "IF",
+      "altitude": {
+        "at": 0,
+        "min": 4700,
+        "max": 0
+      }
+    },
+    "URUTA": {
+      "ident": "URUTA",
+      "coordinate_ref": "waypoint:649.0",
+      "role": "FAF",
+      "altitude": {
+        "at": 0,
+        "min": 4070,
+        "max": 0
+      }
+    },
+    "SP139": {
+      "ident": "SP139",
+      "coordinate_ref": "waypoint:4993.0",
+      "role": "SDF",
+      "altitude": {
+        "at": 0,
+        "min": 3594,
+        "max": 0
+      }
+    },
+    "SP017": {
+      "ident": "SP017",
+      "coordinate_ref": "waypoint:5571.0",
+      "role": "SDF",
+      "altitude": {
+        "at": 0,
+        "min": 3308,
+        "max": 0
+      }
+    },
+    "RW17R": {
+      "ident": "RW17R",
+      "coordinate_ref": "procedure-point:30f1a24572",
+      "role": "LTP",
+      "altitude": {
+        "at": 2640,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "LUVDI": {
+      "ident": "LUVDI",
+      "coordinate_ref": "waypoint:3296.0",
+      "role": "IAF",
+      "altitude": {
+        "at": 0,
+        "min": 5500,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "tma-sp-komgu-apch-1",
+      "from": null,
+      "to": "KOMGU",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 5500,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+5500",
+        "valueFt": 5500,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": {
+        "raw": "Altitude (FT)",
+        "valueFt": null,
+        "meaning": "published"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": "Description",
+      "vertical_angle": 0,
+      "fix_role": "IAF",
+      "navigation_specification": "RNP APCH",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-komgu-apch-1-2",
+      "from": "KOMGU",
+      "to": "GERSU",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 78.99,
+      "course_reference": "MAG",
+      "course_magnetic": 78.99,
+      "course_true": 57.55,
+      "distance_nm": 6,
+      "turn": null,
+      "fly_over": "N",
+      "altitude": {
+        "at": null,
+        "min": 4700,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+4700",
+        "valueFt": 4700,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "IF",
+      "navigation_specification": "RNP APCH",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-komgu-final-1",
+      "from": null,
+      "to": "GERSU",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 4700,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+4700",
+        "valueFt": 4700,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "IF",
+      "navigation_specification": "RNP APCH",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-komgu-final-1-2",
+      "from": "GERSU",
+      "to": "URUTA",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 169,
+      "course_reference": "MAG",
+      "course_magnetic": 169,
+      "course_true": 147.51,
+      "distance_nm": 3.3,
+      "turn": null,
+      "fly_over": "N",
+      "altitude": {
+        "at": null,
+        "min": 4070,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "R4070",
+        "valueFt": 4070,
+        "meaning": "recommended"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "FAF",
+      "navigation_specification": "RNP APCH",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-komgu-final-1-3",
+      "from": "URUTA",
+      "to": "SP139",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 169.04,
+      "course_reference": "MAG",
+      "course_magnetic": 169.04,
+      "course_true": 147.5,
+      "distance_nm": 1.47,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 3594,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "R3594",
+        "valueFt": 3594,
+        "meaning": "recommended"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -3,
+      "fix_role": "SDF",
+      "navigation_specification": "RNP APCH",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-komgu-final-1-4",
+      "from": "SP139",
+      "to": "SP017",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 169.04,
+      "course_reference": "MAG",
+      "course_magnetic": 169.04,
+      "course_true": 147.5,
+      "distance_nm": 0.9,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 3308,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "R3308",
+        "valueFt": 3308,
+        "meaning": "recommended"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -3,
+      "fix_role": "SDF",
+      "navigation_specification": "RNP APCH",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-komgu-final-1-5",
+      "from": "SP017",
+      "to": "RW17R",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 168.99,
+      "course_reference": "MAG",
+      "course_magnetic": 168.99,
+      "course_true": 147.49,
+      "distance_nm": 2.1,
+      "turn": null,
+      "fly_over": "Y",
+      "altitude": {
+        "at": 2640,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "@2640",
+        "valueFt": 2640,
+        "meaning": "at"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -3,
+      "fix_role": "LTP",
+      "navigation_specification": "RNP APCH",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-luvdi-apch-2",
+      "from": null,
+      "to": "LUVDI",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 5500,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+5500",
+        "valueFt": 5500,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "IAF",
+      "navigation_specification": "RNP APCH",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-luvdi-apch-2-2",
+      "from": "LUVDI",
+      "to": "GERSU",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 127.14,
+      "course_reference": "MAG",
+      "course_magnetic": 127.14,
+      "course_true": 105.68,
+      "distance_nm": 4,
+      "turn": null,
+      "fly_over": "N",
+      "altitude": {
+        "at": null,
+        "min": 4700,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+4700",
+        "valueFt": 4700,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "IF",
+      "navigation_specification": "RNP APCH",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-luvdi-final-1",
+      "from": null,
+      "to": "GERSU",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 4700,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+4700",
+        "valueFt": 4700,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "IF",
+      "navigation_specification": "RNP APCH",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-luvdi-final-1-2",
+      "from": "GERSU",
+      "to": "URUTA",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 169,
+      "course_reference": "MAG",
+      "course_magnetic": 169,
+      "course_true": 147.51,
+      "distance_nm": 3.3,
+      "turn": null,
+      "fly_over": "N",
+      "altitude": {
+        "at": null,
+        "min": 4070,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "R4070",
+        "valueFt": 4070,
+        "meaning": "recommended"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "FAF",
+      "navigation_specification": "RNP APCH",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-luvdi-final-1-3",
+      "from": "URUTA",
+      "to": "SP139",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 169.04,
+      "course_reference": "MAG",
+      "course_magnetic": 169.04,
+      "course_true": 147.5,
+      "distance_nm": 1.47,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 3594,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "R3594",
+        "valueFt": 3594,
+        "meaning": "recommended"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -3,
+      "fix_role": "SDF",
+      "navigation_specification": "RNP APCH",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-luvdi-final-1-4",
+      "from": "SP139",
+      "to": "SP017",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 169.04,
+      "course_reference": "MAG",
+      "course_magnetic": 169.04,
+      "course_true": 147.5,
+      "distance_nm": 0.9,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 3308,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "R3308",
+        "valueFt": 3308,
+        "meaning": "recommended"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -3,
+      "fix_role": "SDF",
+      "navigation_specification": "RNP APCH",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-luvdi-final-1-5",
+      "from": "SP017",
+      "to": "RW17R",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 168.99,
+      "course_reference": "MAG",
+      "course_magnetic": 168.99,
+      "course_true": 147.49,
+      "distance_nm": 2.1,
+      "turn": null,
+      "fly_over": "Y",
+      "altitude": {
+        "at": 2640,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "@2640",
+        "valueFt": 2640,
+        "meaning": "at"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -3,
+      "fix_role": "LTP",
+      "navigation_specification": "RNP APCH",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "tma-sp-komgu",
+      "name": "Entrada KOMGU",
+      "kind": "approach",
+      "sequence": [
+        "KOMGU",
+        "GERSU",
+        "URUTA",
+        "SP139",
+        "SP017",
+        "RW17R"
+      ],
+      "source_dataset": "tma-sp",
+      "leg_ids": [
+        "tma-sp-komgu-apch-1",
+        "tma-sp-komgu-apch-1-2",
+        "tma-sp-komgu-final-1",
+        "tma-sp-komgu-final-1-2",
+        "tma-sp-komgu-final-1-3",
+        "tma-sp-komgu-final-1-4",
+        "tma-sp-komgu-final-1-5"
+      ]
+    },
+    {
+      "id": "tma-sp-luvdi",
+      "name": "Entrada LUVDI",
+      "kind": "approach",
+      "sequence": [
+        "LUVDI",
+        "GERSU",
+        "URUTA",
+        "SP139",
+        "SP017",
+        "RW17R"
+      ],
+      "source_dataset": "tma-sp",
+      "leg_ids": [
+        "tma-sp-luvdi-apch-2",
+        "tma-sp-luvdi-apch-2-2",
+        "tma-sp-luvdi-final-1",
+        "tma-sp-luvdi-final-1-2",
+        "tma-sp-luvdi-final-1-3",
+        "tma-sp-luvdi-final-1-4",
+        "tma-sp-luvdi-final-1-5"
+      ]
+    }
+  ],
+  "missed_approach": [
+    {
+      "id": "tma-sp-missed-missed-1",
+      "name": "Aproximacao perdida",
+      "kind": "missed-approach",
+      "sequence": [
+        "KOMGU"
+      ],
+      "legs": [
+        {
+          "id": "tma-sp-missed-missed-1-ma-1",
+          "from": null,
+          "to": "KOMGU",
+          "via": [],
+          "path_terminator": "DF",
+          "course": null,
+          "course_reference": null,
+          "course_magnetic": null,
+          "course_true": null,
+          "distance_nm": 0,
+          "turn": "R",
+          "fly_over": "Y",
+          "altitude": {
+            "at": null,
+            "min": 5500,
+            "max": null
+          },
+          "lower_limit": {
+            "raw": "+5500",
+            "valueFt": 5500,
+            "meaning": "at-or-above"
+          },
+          "upper_limit": null,
+          "speed_limit_kt": 0,
+          "speed_interpretation": null,
+          "vertical_angle": 0,
+          "fix_role": "MAHF",
+          "navigation_specification": "RNP APCH",
+          "arc_center": null,
+          "arc_radius_nm": 0,
+          "source_page": 1,
+          "source_dataset": "tma-sp"
+        },
+        {
+          "id": "tma-sp-missed-missed-1-ma-1-2",
+          "from": "KOMGU",
+          "to": "KOMGU",
+          "via": [],
+          "path_terminator": "HM",
+          "course": 348.74,
+          "course_reference": "MAG",
+          "course_magnetic": 348.74,
+          "course_true": 327.29,
+          "distance_nm": 1,
+          "turn": "L",
+          "fly_over": "Y",
+          "altitude": {
+            "at": null,
+            "min": 5500,
+            "max": null
+          },
+          "lower_limit": {
+            "raw": "+5500",
+            "valueFt": 5500,
+            "meaning": "at-or-above"
+          },
+          "upper_limit": null,
+          "speed_limit_kt": 0,
+          "speed_interpretation": null,
+          "vertical_angle": 0,
+          "fix_role": "MAHF",
+          "navigation_specification": "RNP APCH",
+          "arc_center": null,
+          "arc_radius_nm": 0,
+          "source_page": 1,
+          "source_dataset": "tma-sp"
+        }
+      ],
+      "published_text": null,
+      "note": null,
+      "source_dataset": "tma-sp"
+    }
+  ],
+  "warnings": [
+    "FICTITIOUS THRESHOLD"
+  ]
+}

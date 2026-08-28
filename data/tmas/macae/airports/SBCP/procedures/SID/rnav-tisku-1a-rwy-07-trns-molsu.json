@@ -1,0 +1,205 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-29df8d54-f7bc-453c-b280-3f587ed2c1c3",
+    "airport": "SBCP",
+    "name": "RNAV TISKU 1A RWY 07 - TRNS MOLSU",
+    "type": "SID",
+    "runway": "07",
+    "runways": [
+      "07"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-07-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-07-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "TISKU": {
+      "ident": "TISKU",
+      "coordinate_ref": "waypoint:555.0",
+      "role": "TP",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "CP004": {
+      "ident": "CP004",
+      "coordinate_ref": "waypoint:7817.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "MOLSU": {
+      "ident": "MOLSU",
+      "coordinate_ref": "waypoint:3.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-B63C15A": {
+      "ident": "GEO-B63C15A",
+      "coordinate_ref": "procedure-point:56d0b46cd2",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-molsu-c9a31051-016b-41b2-9b41-38bbe023aeed",
+      "from": null,
+      "to": "TISKU",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 46.7340778770357,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 46.7340778770357,
+      "distance_nm": 2.99809159054216,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "669.657 FT",
+        "valueFt": 670,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "TP",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-molsu-51906fd2-17db-4a12-985b-10bc38d7bdd9",
+      "from": "TISKU",
+      "to": "CP004",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 23.926652773788,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "5467.94 FT",
+        "valueFt": 5468,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-molsu-8f22c581-97af-4377-b69d-30e588af8705",
+      "from": "CP004",
+      "to": "MOLSU",
+      "via": [
+        "GEO-B63C15A"
+      ],
+      "path_terminator": "TF",
+      "course": 245.557279531121,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 245.557279531121,
+      "distance_nm": 41.3874338946926,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "13770.4 FT",
+        "valueFt": 13770,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-molsu",
+      "name": "MOLSU",
+      "kind": "RWY",
+      "sequence": [
+        "TISKU",
+        "CP004",
+        "MOLSU"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-molsu-c9a31051-016b-41b2-9b41-38bbe023aeed",
+        "aixm-national-molsu-51906fd2-17db-4a12-985b-10bc38d7bdd9",
+        "aixm-national-molsu-8f22c581-97af-4377-b69d-30e588af8705"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-6f65b22b-4d01-4c49-b469-b6c60902f0ac",
+    "airport": "SBAU",
+    "name": "VUMIK 1A",
+    "type": "SID",
+    "runway": "05",
+    "runways": [
+      "05"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-11-02T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-11-02T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "AXB03C6B": {
+      "ident": "AXB03C6B",
+      "coordinate_ref": "procedure-point:b03c6b14-5118-456a-a935-541eac3f1518",
+      "role": null,
+      "altitude": {
+        "at": 0,
+        "min": 2400,
+        "max": 0
+      }
+    },
+    "VUMIK": {
+      "ident": "VUMIK",
+      "coordinate_ref": "waypoint:2870.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 7574,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-vumik-b03c6b14-5118-456a-a935-541eac3f1518",
+      "from": null,
+      "to": "AXB03C6B",
+      "via": [],
+      "path_terminator": "CA",
+      "course": 28.631116644367,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 28.631116644367,
+      "distance_nm": 5.29508223875032,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 2400,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "2400 FT",
+        "valueFt": 2400,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": null,
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-vumik-b7961f4f-961b-4eb8-b19c-8b45afe8370f",
+      "from": "AXB03C6B",
+      "to": "VUMIK",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 72.1465817933972,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 7574,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "7574.06 FT",
+        "valueFt": 7574,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0.676065125175387,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-vumik",
+      "name": "VUMIK",
+      "kind": "RWY",
+      "sequence": [
+        "AXB03C6B",
+        "VUMIK"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-vumik-b03c6b14-5118-456a-a935-541eac3f1518",
+        "aixm-national-vumik-b7961f4f-961b-4eb8-b19c-8b45afe8370f"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

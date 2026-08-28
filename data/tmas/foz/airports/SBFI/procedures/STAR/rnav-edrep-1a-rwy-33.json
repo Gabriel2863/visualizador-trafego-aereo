@@ -1,0 +1,239 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-a87b1645-23f8-4ace-a9bc-7e0443c372d0",
+    "airport": "SBFI",
+    "name": "RNAV EDREP 1A RWY 33",
+    "type": "STAR",
+    "runway": "33",
+    "runways": [
+      "33"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-07-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-07-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "VUGLA": {
+      "ident": "VUGLA",
+      "coordinate_ref": "waypoint:2248.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 15000,
+        "max": 0
+      }
+    },
+    "EDREP": {
+      "ident": "EDREP",
+      "coordinate_ref": "waypoint:6643.0",
+      "role": "IAF",
+      "altitude": {
+        "at": 0,
+        "min": 4000,
+        "max": 0
+      }
+    },
+    "NELUP": {
+      "ident": "NELUP",
+      "coordinate_ref": "waypoint:5804.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 15000,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-vugla-65bb513b-b100-4e44-9a77-5e9d308dbd51",
+      "from": null,
+      "to": "VUGLA",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 15000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "15000 FT",
+        "valueFt": 15000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-vugla-6c3449f5-81f4-4525-b26a-404df3f9e951",
+      "from": "VUGLA",
+      "to": "EDREP",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 261.980124216508,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 261.980124216508,
+      "distance_nm": 64.4527831818148,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 4000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "4000 FT",
+        "valueFt": 4000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -1.60818538708023,
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-nelup-e7779898-1111-455f-ba46-c7adbdc8128d",
+      "from": null,
+      "to": "NELUP",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 15000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "15000 FT",
+        "valueFt": 15000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-nelup-8d46f445-9264-414c-ab14-b9dd83a27cfa",
+      "from": "NELUP",
+      "to": "EDREP",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 284.860811113977,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 284.860811113977,
+      "distance_nm": 22.7952463573507,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 4000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "4000 FT",
+        "valueFt": 4000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -4.53876607551755,
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-vugla",
+      "name": "VUGLA",
+      "kind": "EN_ROUTE",
+      "sequence": [
+        "VUGLA",
+        "EDREP"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-vugla-65bb513b-b100-4e44-9a77-5e9d308dbd51",
+        "aixm-national-vugla-6c3449f5-81f4-4525-b26a-404df3f9e951"
+      ]
+    },
+    {
+      "id": "aixm-national-nelup",
+      "name": "NELUP",
+      "kind": "EN_ROUTE",
+      "sequence": [
+        "NELUP",
+        "EDREP"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-nelup-e7779898-1111-455f-ba46-c7adbdc8128d",
+        "aixm-national-nelup-8d46f445-9264-414c-ab14-b9dd83a27cfa"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

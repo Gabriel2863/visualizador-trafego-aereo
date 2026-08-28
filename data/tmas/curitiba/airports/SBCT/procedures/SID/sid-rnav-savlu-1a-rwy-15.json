@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-7c1de782-f217-4782-bb9d-6f3458d2abb9",
+    "airport": "SBCT",
+    "name": "SID RNAV SAVLU 1A RWY 15",
+    "type": "SID",
+    "runway": "15",
+    "runways": [
+      "15"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2024-05-16T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2024-05-16T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "AXD00DCC": {
+      "ident": "AXD00DCC",
+      "coordinate_ref": "procedure-point:d00dccfb-0c66-4c2a-890d-65e97e001ff0",
+      "role": null,
+      "altitude": {
+        "at": 0,
+        "min": 4000,
+        "max": 0
+      }
+    },
+    "SAVLU": {
+      "ident": "SAVLU",
+      "coordinate_ref": "waypoint:7216.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-savlu-d00dccfb-0c66-4c2a-890d-65e97e001ff0",
+      "from": null,
+      "to": "AXD00DCC",
+      "via": [],
+      "path_terminator": "VA",
+      "course": 134.545658003201,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 134.545658003201,
+      "distance_nm": 4.97042153867886,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 4000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "4000 FT",
+        "valueFt": 4000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": null,
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-savlu-c9d61868-9c69-4b42-ad22-75b90622f60a",
+      "from": "AXD00DCC",
+      "to": "SAVLU",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 32.9651232843467,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "10612.2 FT",
+        "valueFt": 10612,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-savlu",
+      "name": "SAVLU",
+      "kind": "RWY",
+      "sequence": [
+        "AXD00DCC",
+        "SAVLU"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-savlu-d00dccfb-0c66-4c2a-890d-65e97e001ff0",
+        "aixm-national-savlu-c9d61868-9c69-4b42-ad22-75b90622f60a"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

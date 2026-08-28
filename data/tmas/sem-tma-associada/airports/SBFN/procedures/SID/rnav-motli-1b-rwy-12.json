@@ -1,0 +1,193 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-207db4f2-efc5-4e12-91f2-61f52b393487",
+    "airport": "SBFN",
+    "name": "RNAV MOTLI 1B RWY 12",
+    "type": "SID",
+    "runway": "12",
+    "runways": [
+      "12"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-07-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-07-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "AXC76BF2": {
+      "ident": "AXC76BF2",
+      "coordinate_ref": "procedure-point:c76bf2b3-5fe3-42e0-b5ed-0ada52d0d747",
+      "role": null,
+      "altitude": {
+        "at": 0,
+        "min": 2000,
+        "max": 0
+      }
+    },
+    "FN016": {
+      "ident": "FN016",
+      "coordinate_ref": "waypoint:4279.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "TOMEK": {
+      "ident": "TOMEK",
+      "coordinate_ref": "waypoint:3748.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 14606,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-motli-c76bf2b3-5fe3-42e0-b5ed-0ada52d0d747",
+      "from": null,
+      "to": "AXC76BF2",
+      "via": [],
+      "path_terminator": "VA",
+      "course": 94.3722307398681,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 94.3722307398681,
+      "distance_nm": 7.51193631861278,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 2000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "2000 FT",
+        "valueFt": 2000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 2.29061004263853,
+      "fix_role": null,
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-motli-589bea5b-b96c-496f-978b-5b1c34f056f9",
+      "from": "AXC76BF2",
+      "to": "FN016",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 39.0436097046094,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "9830.92 FT",
+        "valueFt": 9831,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-motli-4198ea54-9444-4d98-9041-12329979d136",
+      "from": "FN016",
+      "to": "TOMEK",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 244.573281269804,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 244.573281269804,
+      "distance_nm": 23.7984019933634,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 14606,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "14605.6 FT",
+        "valueFt": 14606,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-motli",
+      "name": "MOTLI",
+      "kind": "RWY",
+      "sequence": [
+        "AXC76BF2",
+        "FN016",
+        "TOMEK"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-motli-c76bf2b3-5fe3-42e0-b5ed-0ada52d0d747",
+        "aixm-national-motli-589bea5b-b96c-496f-978b-5b1c34f056f9",
+        "aixm-national-motli-4198ea54-9444-4d98-9041-12329979d136"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

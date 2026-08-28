@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-f84e26c4-ed58-4847-8661-59c735da2600",
+    "airport": "SBTT",
+    "name": "RNAV VUKEB 1A RWY 12",
+    "type": "SID",
+    "runway": "12",
+    "runways": [
+      "12"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-08-10T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-08-10T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "AX7B6CC0": {
+      "ident": "AX7B6CC0",
+      "coordinate_ref": "procedure-point:7b6cc005-790e-46d7-96e6-da8555c042f2",
+      "role": null,
+      "altitude": {
+        "at": 0,
+        "min": 800,
+        "max": 0
+      }
+    },
+    "VUKEB": {
+      "ident": "VUKEB",
+      "coordinate_ref": "waypoint:6104.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-tarib-7b6cc005-790e-46d7-96e6-da8555c042f2",
+      "from": null,
+      "to": "AX7B6CC0",
+      "via": [],
+      "path_terminator": "CA",
+      "course": 113.36,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 113.36,
+      "distance_nm": 2.62891999377074,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 800,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "800 FT",
+        "valueFt": 800,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": null,
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-tarib-db55e4dd-25d8-4a61-bd75-f56c36d9d75d",
+      "from": "AX7B6CC0",
+      "to": "VUKEB",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 41.1181497637248,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "7289.99 FT",
+        "valueFt": 7290,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.49012360891645,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-tarib",
+      "name": "TARIB",
+      "kind": "RWY",
+      "sequence": [
+        "AX7B6CC0",
+        "VUKEB"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-tarib-7b6cc005-790e-46d7-96e6-da8555c042f2",
+        "aixm-national-tarib-db55e4dd-25d8-4a61-bd75-f56c36d9d75d"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

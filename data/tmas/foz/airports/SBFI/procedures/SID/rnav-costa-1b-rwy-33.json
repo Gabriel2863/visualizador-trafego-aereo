@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-d4dc84ba-dc17-4a82-a0f2-bba0b6325375",
+    "airport": "SBFI",
+    "name": "RNAV COSTA 1B RWY 33",
+    "type": "SID",
+    "runway": "33",
+    "runways": [
+      "33"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-07-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-07-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "FI001": {
+      "ident": "FI001",
+      "coordinate_ref": "waypoint:5391.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "COSTA": {
+      "ident": "COSTA",
+      "coordinate_ref": "waypoint:4318.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-C742BBD": {
+      "ident": "GEO-C742BBD",
+      "coordinate_ref": "procedure-point:dd22216ed8",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-costa-b3be8da8-86dd-45e4-a418-24b655e57212",
+      "from": null,
+      "to": "FI001",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 310.595989176103,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 310.595989176103,
+      "distance_nm": 4.56427822124193,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "1663.2 FT",
+        "valueFt": 1663,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 210,
+      "speed_interpretation": "BELOW_UPPER",
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-costa-fc8d4cd4-1ec3-4ea9-b547-bf412493443c",
+      "from": "FI001",
+      "to": "COSTA",
+      "via": [
+        "GEO-C742BBD"
+      ],
+      "path_terminator": "TF",
+      "course": 272.019408057748,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 272.019408057748,
+      "distance_nm": 36.623294561427,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "9008.48 FT",
+        "valueFt": 9008,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 210,
+      "speed_interpretation": "BELOW_UPPER",
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-costa",
+      "name": "COSTA",
+      "kind": "RWY",
+      "sequence": [
+        "FI001",
+        "COSTA"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-costa-b3be8da8-86dd-45e4-a418-24b655e57212",
+        "aixm-national-costa-fc8d4cd4-1ec3-4ea9-b547-bf412493443c"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

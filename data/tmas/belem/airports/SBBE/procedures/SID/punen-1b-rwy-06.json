@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-79e61c4e-9ae2-42fc-8b04-139697372cad",
+    "airport": "SBBE",
+    "name": "PUNEN 1B RWY 06",
+    "type": "SID",
+    "runway": "07",
+    "runways": [
+      "07"
+    ],
+    "modes": [],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-07-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-07-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "AX495EC7": {
+      "ident": "AX495EC7",
+      "coordinate_ref": "procedure-point:495ec77a-b20a-4ecc-8835-156c372a9014",
+      "role": null,
+      "altitude": {
+        "at": 0,
+        "min": 1200,
+        "max": 0
+      }
+    },
+    "AX164DC7": {
+      "ident": "AX164DC7",
+      "coordinate_ref": "procedure-point:164dc7b6-d9cb-4734-8b9f-985f9799a956",
+      "role": null,
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "PUNEN": {
+      "ident": "PUNEN",
+      "coordinate_ref": "waypoint:3007.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-BC0D0F7": {
+      "ident": "GEO-BC0D0F7",
+      "coordinate_ref": "procedure-point:f72c31085b",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-punen-495ec77a-b20a-4ecc-8835-156c372a9014",
+      "from": null,
+      "to": "AX495EC7",
+      "via": [],
+      "path_terminator": "VA",
+      "course": 45.4468302174667,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 45.4468302174667,
+      "distance_nm": 4.3180563179962,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 1200,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "1200 FT",
+        "valueFt": 1200,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 2.46220172958629,
+      "fix_role": null,
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-punen-164dc7b6-d9cb-4734-8b9f-985f9799a956",
+      "from": "AX495EC7",
+      "to": "AX164DC7",
+      "via": [],
+      "path_terminator": "VI",
+      "course": 219.81,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 219.81,
+      "distance_nm": 24.8592652574568,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "6185.46 FT",
+        "valueFt": 6185,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": null,
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-punen-605eecc7-b68a-48d6-ad78-a8a1f29d1f96",
+      "from": "AX164DC7",
+      "to": "PUNEN",
+      "via": [
+        "GEO-BC0D0F7"
+      ],
+      "path_terminator": "CF",
+      "course": 264.38292607346,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 264.38292607346,
+      "distance_nm": 30.476530745048,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "12299.1 FT",
+        "valueFt": 12299,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-punen",
+      "name": "PUNEN",
+      "kind": "RWY",
+      "sequence": [
+        "AX495EC7",
+        "AX164DC7",
+        "PUNEN"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-punen-495ec77a-b20a-4ecc-8835-156c372a9014",
+        "aixm-national-punen-164dc7b6-d9cb-4734-8b9f-985f9799a956",
+        "aixm-national-punen-605eecc7-b68a-48d6-ad78-a8a1f29d1f96"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

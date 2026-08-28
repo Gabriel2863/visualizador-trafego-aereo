@@ -1,0 +1,205 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-55be3b39-4604-4b73-a343-40df1021b80c",
+    "airport": "SBRB",
+    "name": "RNAV EGBAK 1D RWY 24",
+    "type": "SID",
+    "runway": "25",
+    "runways": [
+      "25"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-07-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-07-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "RB018": {
+      "ident": "RB018",
+      "coordinate_ref": "waypoint:7185.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "EGBAK": {
+      "ident": "EGBAK",
+      "coordinate_ref": "waypoint:2013.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-8743856": {
+      "ident": "GEO-8743856",
+      "coordinate_ref": "procedure-point:b09052591b",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-bigod-6df1943f-8be3-4bbc-9c41-ee8a98f87640",
+      "from": null,
+      "to": "RB018",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "648.087 FT",
+        "valueFt": 648,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-bigod-3a176a76-3d33-4a9c-aa0d-be87b8e5da78",
+      "from": "RB018",
+      "to": "EGBAK",
+      "via": [
+        "GEO-8743856"
+      ],
+      "path_terminator": "TF",
+      "course": 322.784407613446,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 322.784407613446,
+      "distance_nm": 43.0717297491309,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "9286.53 FT",
+        "valueFt": 9287,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-rwy-9d57dfa8-ca1e-4c0d-a9e9-081fbb4e1e36",
+      "from": null,
+      "to": "RB018",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 237.133705060178,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 237.133705060178,
+      "distance_nm": 2.9937192042637,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "648.087 FT",
+        "valueFt": 648,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-bigod",
+      "name": "BIGOD",
+      "kind": "EN_ROUTE",
+      "sequence": [
+        "RB018",
+        "EGBAK"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-bigod-6df1943f-8be3-4bbc-9c41-ee8a98f87640",
+        "aixm-national-bigod-3a176a76-3d33-4a9c-aa0d-be87b8e5da78"
+      ]
+    },
+    {
+      "id": "aixm-national-rwy",
+      "name": "RWY",
+      "kind": "RWY",
+      "sequence": [
+        "RB018"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-rwy-9d57dfa8-ca1e-4c0d-a9e9-081fbb4e1e36"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

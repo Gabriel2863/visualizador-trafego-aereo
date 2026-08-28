@@ -1,0 +1,728 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "SBKP-IAC-KP04A",
+    "airport": "SBKP",
+    "name": "VOR Z RWY 15",
+    "type": "IAC",
+    "runway": "15",
+    "runways": [
+      "15"
+    ],
+    "modes": [
+      "VOR"
+    ],
+    "status": "structured",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "KP04A",
+      "amendment": "2508A1",
+      "effective_date": "2025-08-07",
+      "document": null,
+      "page": 1,
+      "origin_dataset": "tma-sp"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "KP04A",
+        "amendment": "2508A1",
+        "effective_date": "2025-08-07",
+        "document": null,
+        "page": 1,
+        "origin_dataset": "tma-sp"
+      }
+    ]
+  },
+  "points": {
+    "ITEDI": {
+      "ident": "ITEDI",
+      "coordinate_ref": "waypoint:10722.0",
+      "role": "IAF",
+      "altitude": {
+        "at": 0,
+        "min": 6000,
+        "max": 0
+      }
+    },
+    "KP113": {
+      "ident": "KP113",
+      "coordinate_ref": "waypoint:10851.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "ATARA": {
+      "ident": "ATARA",
+      "coordinate_ref": "waypoint:1311.0",
+      "role": "IF",
+      "altitude": {
+        "at": 0,
+        "min": 4400,
+        "max": 0
+      }
+    },
+    "SEBSU": {
+      "ident": "SEBSU",
+      "coordinate_ref": "waypoint:1670.0",
+      "role": "FAF",
+      "altitude": {
+        "at": 0,
+        "min": 3790,
+        "max": 0
+      }
+    },
+    "KP273": {
+      "ident": "KP273",
+      "coordinate_ref": "waypoint:11138.0",
+      "role": "SDF",
+      "altitude": {
+        "at": 0,
+        "min": 2920,
+        "max": 0
+      }
+    },
+    "KP014": {
+      "ident": "KP014",
+      "coordinate_ref": "waypoint:10850.0",
+      "role": "FTP",
+      "altitude": {
+        "at": 2189,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "NILKA": {
+      "ident": "NILKA",
+      "coordinate_ref": "waypoint:10828.0",
+      "role": "IAF",
+      "altitude": {
+        "at": 0,
+        "min": 6500,
+        "max": 0
+      }
+    },
+    "KP013": {
+      "ident": "KP013",
+      "coordinate_ref": "waypoint:10849.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "tma-sp-itedi-apch-1",
+      "from": null,
+      "to": "ITEDI",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 6000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+6000",
+        "valueFt": 6000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": {
+        "raw": "Altitude (FT)",
+        "valueFt": null,
+        "meaning": "published"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": "Description",
+      "vertical_angle": 0,
+      "fix_role": "IAF",
+      "navigation_specification": "Specification",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-itedi-apch-1-2",
+      "from": "ITEDI",
+      "to": "KP113",
+      "via": [],
+      "path_terminator": "AF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": "L",
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": null,
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-itedi-apch-1-3",
+      "from": "KP113",
+      "to": "ATARA",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 149.02,
+      "course_reference": "MAG",
+      "course_magnetic": 149.02,
+      "course_true": 127.17,
+      "distance_nm": 1.53,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 4400,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+4400",
+        "valueFt": 4400,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "IF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-itedi-final-1",
+      "from": null,
+      "to": "ATARA",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 4400,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+4400",
+        "valueFt": 4400,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "IF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-itedi-final-1-2",
+      "from": "ATARA",
+      "to": "SEBSU",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 148.57,
+      "course_reference": "MAG",
+      "course_magnetic": 148.57,
+      "course_true": 126.72,
+      "distance_nm": 5,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 3790,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "R3790",
+        "valueFt": 3790,
+        "meaning": "recommended"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "FAF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-itedi-final-1-3",
+      "from": "SEBSU",
+      "to": "KP273",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 148.57,
+      "course_reference": "MAG",
+      "course_magnetic": 148.57,
+      "course_true": 126.72,
+      "distance_nm": 2.7,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 2920,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+2920",
+        "valueFt": 2920,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -3,
+      "fix_role": "SDF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-itedi-final-1-4",
+      "from": "KP273",
+      "to": "KP014",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 148.57,
+      "course_reference": "MAG",
+      "course_magnetic": 148.57,
+      "course_true": 126.72,
+      "distance_nm": 2.3,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": 2189,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "@2189",
+        "valueFt": 2189,
+        "meaning": "at"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -3,
+      "fix_role": "FTP",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-nilka-apch-2",
+      "from": null,
+      "to": "NILKA",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 6500,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+6500",
+        "valueFt": 6500,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "IAF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-nilka-apch-2-2",
+      "from": "NILKA",
+      "to": "KP013",
+      "via": [],
+      "path_terminator": "AF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": "R",
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": null,
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-nilka-apch-2-3",
+      "from": "KP013",
+      "to": "ATARA",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 149.02,
+      "course_reference": "MAG",
+      "course_magnetic": 149.02,
+      "course_true": 127.17,
+      "distance_nm": 1.56,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 4400,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+4400",
+        "valueFt": 4400,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "IF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-nilka-final-1",
+      "from": null,
+      "to": "ATARA",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 4400,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+4400",
+        "valueFt": 4400,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "IF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-nilka-final-1-2",
+      "from": "ATARA",
+      "to": "SEBSU",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 148.57,
+      "course_reference": "MAG",
+      "course_magnetic": 148.57,
+      "course_true": 126.72,
+      "distance_nm": 5,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 3790,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "R3790",
+        "valueFt": 3790,
+        "meaning": "recommended"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "FAF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-nilka-final-1-3",
+      "from": "SEBSU",
+      "to": "KP273",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 148.57,
+      "course_reference": "MAG",
+      "course_magnetic": 148.57,
+      "course_true": 126.72,
+      "distance_nm": 2.7,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 2920,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+2920",
+        "valueFt": 2920,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -3,
+      "fix_role": "SDF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-nilka-final-1-4",
+      "from": "KP273",
+      "to": "KP014",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 148.57,
+      "course_reference": "MAG",
+      "course_magnetic": 148.57,
+      "course_true": 126.72,
+      "distance_nm": 2.3,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": 2189,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "@2189",
+        "valueFt": 2189,
+        "meaning": "at"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -3,
+      "fix_role": "FTP",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "tma-sp-itedi",
+      "name": "Entrada ITEDI",
+      "kind": "approach",
+      "sequence": [
+        "ITEDI",
+        "KP113",
+        "ATARA",
+        "SEBSU",
+        "KP273",
+        "KP014"
+      ],
+      "source_dataset": "tma-sp",
+      "leg_ids": [
+        "tma-sp-itedi-apch-1",
+        "tma-sp-itedi-apch-1-2",
+        "tma-sp-itedi-apch-1-3",
+        "tma-sp-itedi-final-1",
+        "tma-sp-itedi-final-1-2",
+        "tma-sp-itedi-final-1-3",
+        "tma-sp-itedi-final-1-4"
+      ]
+    },
+    {
+      "id": "tma-sp-nilka",
+      "name": "Entrada NILKA",
+      "kind": "approach",
+      "sequence": [
+        "NILKA",
+        "KP013",
+        "ATARA",
+        "SEBSU",
+        "KP273",
+        "KP014"
+      ],
+      "source_dataset": "tma-sp",
+      "leg_ids": [
+        "tma-sp-nilka-apch-2",
+        "tma-sp-nilka-apch-2-2",
+        "tma-sp-nilka-apch-2-3",
+        "tma-sp-nilka-final-1",
+        "tma-sp-nilka-final-1-2",
+        "tma-sp-nilka-final-1-3",
+        "tma-sp-nilka-final-1-4"
+      ]
+    }
+  ],
+  "missed_approach": [
+    {
+      "id": "tma-sp-missed-missed-1",
+      "name": "Aproximacao perdida",
+      "kind": "missed-approach",
+      "sequence": [
+        "NILKA"
+      ],
+      "legs": [
+        {
+          "id": "tma-sp-missed-missed-1-ma-1",
+          "from": null,
+          "to": "NILKA",
+          "via": [],
+          "path_terminator": "CF",
+          "course": 300.77,
+          "course_reference": "MAG",
+          "course_magnetic": 300.77,
+          "course_true": 278.92,
+          "distance_nm": 0,
+          "turn": "L",
+          "fly_over": null,
+          "altitude": {
+            "at": null,
+            "min": 6500,
+            "max": null
+          },
+          "lower_limit": {
+            "raw": "+6500",
+            "valueFt": 6500,
+            "meaning": "at-or-above"
+          },
+          "upper_limit": null,
+          "speed_limit_kt": 210,
+          "speed_interpretation": "-",
+          "vertical_angle": 0,
+          "fix_role": "MAHF",
+          "navigation_specification": null,
+          "arc_center": null,
+          "arc_radius_nm": 0,
+          "source_page": 1,
+          "source_dataset": "tma-sp"
+        },
+        {
+          "id": "tma-sp-missed-missed-1-ma-1-2",
+          "from": "NILKA",
+          "to": "NILKA",
+          "via": [],
+          "path_terminator": "HM",
+          "course": 120.77,
+          "course_reference": "MAG",
+          "course_magnetic": 120.77,
+          "course_true": 98.92,
+          "distance_nm": 1,
+          "turn": "R",
+          "fly_over": null,
+          "altitude": {
+            "at": null,
+            "min": 6500,
+            "max": null
+          },
+          "lower_limit": {
+            "raw": "+6500",
+            "valueFt": 6500,
+            "meaning": "at-or-above"
+          },
+          "upper_limit": null,
+          "speed_limit_kt": 0,
+          "speed_interpretation": null,
+          "vertical_angle": 0,
+          "fix_role": "MAHF",
+          "navigation_specification": null,
+          "arc_center": null,
+          "arc_radius_nm": 0,
+          "source_page": 1,
+          "source_dataset": "tma-sp"
+        }
+      ],
+      "published_text": null,
+      "note": null,
+      "source_dataset": "tma-sp"
+    }
+  ],
+  "warnings": [
+    "(*) Fictitious point only for coding purpose.",
+    "FICTITIOUS THRESHOLD"
+  ]
+}

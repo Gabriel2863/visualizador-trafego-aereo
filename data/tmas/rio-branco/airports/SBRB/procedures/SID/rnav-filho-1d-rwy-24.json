@@ -1,0 +1,263 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-86aa62e7-002d-4d46-8ae6-c65d06eb4a07",
+    "airport": "SBRB",
+    "name": "RNAV FILHO 1D RWY 24",
+    "type": "SID",
+    "runway": "25",
+    "runways": [
+      "25"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-07-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-07-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "RB018": {
+      "ident": "RB018",
+      "coordinate_ref": "waypoint:7185.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "RB023": {
+      "ident": "RB023",
+      "coordinate_ref": "waypoint:4700.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-27AA7CC": {
+      "ident": "GEO-27AA7CC",
+      "coordinate_ref": "procedure-point:1220b7f843",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "FILHO": {
+      "ident": "FILHO",
+      "coordinate_ref": "waypoint:7935.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-46FF263": {
+      "ident": "GEO-46FF263",
+      "coordinate_ref": "procedure-point:a34e2d31b3",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-filho-43d89468-c964-4fe3-a4d0-96be2466b3e7",
+      "from": null,
+      "to": "RB018",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "648.087 FT",
+        "valueFt": 648,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-filho-004271d1-201b-4586-8350-91172781e9f1",
+      "from": "RB018",
+      "to": "RB023",
+      "via": [
+        "GEO-27AA7CC"
+      ],
+      "path_terminator": "TF",
+      "course": 127.254796769463,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 127.254796769463,
+      "distance_nm": 26.5462572562703,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "5968.02 FT",
+        "valueFt": 5968,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-filho-9553a102-9c64-4077-bc04-8bc029e5cf42",
+      "from": "RB023",
+      "to": "FILHO",
+      "via": [
+        "GEO-46FF263"
+      ],
+      "path_terminator": "TF",
+      "course": 97.5322624804329,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 97.5322624804329,
+      "distance_nm": 41.770407000409,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "14347.5 FT",
+        "valueFt": 14348,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-rwy-5310d10e-9763-487f-a17c-5c0413021506",
+      "from": null,
+      "to": "RB018",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 237.133705060178,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 237.133705060178,
+      "distance_nm": 2.9937192042637,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "648.087 FT",
+        "valueFt": 648,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-filho",
+      "name": "FILHO",
+      "kind": "EN_ROUTE",
+      "sequence": [
+        "RB018",
+        "RB023",
+        "FILHO"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-filho-43d89468-c964-4fe3-a4d0-96be2466b3e7",
+        "aixm-national-filho-004271d1-201b-4586-8350-91172781e9f1",
+        "aixm-national-filho-9553a102-9c64-4077-bc04-8bc029e5cf42"
+      ]
+    },
+    {
+      "id": "aixm-national-rwy",
+      "name": "RWY",
+      "kind": "RWY",
+      "sequence": [
+        "RB018"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-rwy-5310d10e-9763-487f-a17c-5c0413021506"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

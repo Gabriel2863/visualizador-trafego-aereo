@@ -1,0 +1,505 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-398b9d54-34de-487e-88f8-71c19f825994",
+    "airport": "SBRD",
+    "name": "RNAV VUDUD 1A RWY 02",
+    "type": "SID",
+    "runway": "02",
+    "runways": [
+      "02"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-07-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-07-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "VUDUD": {
+      "ident": "VUDUD",
+      "coordinate_ref": "waypoint:7642.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "ISUKA": {
+      "ident": "ISUKA",
+      "coordinate_ref": "waypoint:7968.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 11000,
+        "max": 0
+      }
+    },
+    "GEO-B15B768": {
+      "ident": "GEO-B15B768",
+      "coordinate_ref": "procedure-point:4c406ddad7",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "POVNI": {
+      "ident": "POVNI",
+      "coordinate_ref": "waypoint:8032.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-B853DDC": {
+      "ident": "GEO-B853DDC",
+      "coordinate_ref": "procedure-point:635f26ccff",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "MASVO": {
+      "ident": "MASVO",
+      "coordinate_ref": "waypoint:302.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-12EB250": {
+      "ident": "GEO-12EB250",
+      "coordinate_ref": "procedure-point:3eb635f958",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "EGIMO": {
+      "ident": "EGIMO",
+      "coordinate_ref": "waypoint:863.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-rwy-30518736-c126-44da-92c4-3c18dea6b7a5",
+      "from": null,
+      "to": "VUDUD",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 0.889878911264017,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 0.889878911264017,
+      "distance_nm": 3.00076967627825,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "2054.95 FT",
+        "valueFt": 2055,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-isuka-c7334cf1-9cbb-4651-a371-7798e93c1b22",
+      "from": null,
+      "to": "VUDUD",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "2054.95 FT",
+        "valueFt": 2055,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-isuka-d557eea5-9043-4515-98be-8e5766b1ff29",
+      "from": "VUDUD",
+      "to": "ISUKA",
+      "via": [
+        "GEO-B15B768"
+      ],
+      "path_terminator": "TF",
+      "course": 50.4886916109326,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 50.4886916109326,
+      "distance_nm": 28.9104132229131,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 11000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "11000 FT",
+        "valueFt": 11000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 2.91417033969107,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-povni-072eb2c3-8c18-4885-98f3-fab603d5387e",
+      "from": null,
+      "to": "VUDUD",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "2054.95 FT",
+        "valueFt": 2055,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-povni-cb2839a7-dc91-4e93-b73a-1466f701efd8",
+      "from": "VUDUD",
+      "to": "POVNI",
+      "via": [
+        "GEO-B853DDC"
+      ],
+      "path_terminator": "TF",
+      "course": 288.744411590615,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 288.744411590615,
+      "distance_nm": 61.966459090265,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "14484.9 FT",
+        "valueFt": 14485,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-masvo-57f33435-33df-4f9e-b446-bf0fb4684de1",
+      "from": null,
+      "to": "VUDUD",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "2054.95 FT",
+        "valueFt": 2055,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-masvo-9f9cefca-13dc-45a2-84e7-6f9f4e2c0787",
+      "from": "VUDUD",
+      "to": "MASVO",
+      "via": [
+        "GEO-12EB250"
+      ],
+      "path_terminator": "TF",
+      "course": 62.2846565344582,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 62.2846565344582,
+      "distance_nm": 92.894332952584,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "20691.5 FT",
+        "valueFt": 20691,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-egimo-a54079d2-12f9-4424-bafa-baa5ad18b8e8",
+      "from": null,
+      "to": "VUDUD",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "2054.95 FT",
+        "valueFt": 2055,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-egimo-2f9c2ad9-cbd0-4cc5-9b32-57a10fe70388",
+      "from": "VUDUD",
+      "to": "EGIMO",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 74.4792918454304,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "16995.7 FT",
+        "valueFt": 16996,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-rwy",
+      "name": "RWY",
+      "kind": "RWY",
+      "sequence": [
+        "VUDUD"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-rwy-30518736-c126-44da-92c4-3c18dea6b7a5"
+      ]
+    },
+    {
+      "id": "aixm-national-isuka",
+      "name": "ISUKA",
+      "kind": "EN_ROUTE",
+      "sequence": [
+        "VUDUD",
+        "ISUKA"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-isuka-c7334cf1-9cbb-4651-a371-7798e93c1b22",
+        "aixm-national-isuka-d557eea5-9043-4515-98be-8e5766b1ff29"
+      ]
+    },
+    {
+      "id": "aixm-national-povni",
+      "name": "POVNI",
+      "kind": "EN_ROUTE",
+      "sequence": [
+        "VUDUD",
+        "POVNI"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-povni-072eb2c3-8c18-4885-98f3-fab603d5387e",
+        "aixm-national-povni-cb2839a7-dc91-4e93-b73a-1466f701efd8"
+      ]
+    },
+    {
+      "id": "aixm-national-masvo",
+      "name": "MASVO",
+      "kind": "EN_ROUTE",
+      "sequence": [
+        "VUDUD",
+        "MASVO"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-masvo-57f33435-33df-4f9e-b446-bf0fb4684de1",
+        "aixm-national-masvo-9f9cefca-13dc-45a2-84e7-6f9f4e2c0787"
+      ]
+    },
+    {
+      "id": "aixm-national-egimo",
+      "name": "EGIMO",
+      "kind": "EN_ROUTE",
+      "sequence": [
+        "VUDUD",
+        "EGIMO"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-egimo-a54079d2-12f9-4424-bafa-baa5ad18b8e8",
+        "aixm-national-egimo-2f9c2ad9-cbd0-4cc5-9b32-57a10fe70388"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

@@ -1,0 +1,170 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-a2727cb7-2d7d-477b-98b6-46e94d0fd850",
+    "airport": "SBCH",
+    "name": "RNAV USEXA 1A RWY29",
+    "type": "SID",
+    "runway": "30",
+    "runways": [
+      "30"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2024-08-08T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2024-08-08T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "AX060F52": {
+      "ident": "AX060F52",
+      "coordinate_ref": "procedure-point:060f5246-9d35-4d7d-a052-b83b48896100",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 2700,
+        "max": 0
+      }
+    },
+    "USEXA": {
+      "ident": "USEXA",
+      "coordinate_ref": "waypoint:3169.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-77A3EF0": {
+      "ident": "GEO-77A3EF0",
+      "coordinate_ref": "procedure-point:02d8d0ddeb",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "GEO-739CFEB": {
+      "ident": "GEO-739CFEB",
+      "coordinate_ref": "procedure-point:a9b23ec4cf",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-rwy-060f5246-9d35-4d7d-a052-b83b48896100",
+      "from": null,
+      "to": "AX060F52",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 279.054718542512,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 279.054718542512,
+      "distance_nm": 2.99560366699455,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 2700,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "2700 FT",
+        "valueFt": 2700,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.83790744870672,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-rwy-c77b9424-3cff-4c7e-8508-6f39f00dd8ae",
+      "from": "AX060F52",
+      "to": "USEXA",
+      "via": [
+        "GEO-77A3EF0",
+        "GEO-739CFEB"
+      ],
+      "path_terminator": "TF",
+      "course": 293.033310260548,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 293.033310260548,
+      "distance_nm": 53.0513195774354,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "13341.5 FT",
+        "valueFt": 13342,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-rwy",
+      "name": "RWY",
+      "kind": "RWY",
+      "sequence": [
+        "AX060F52",
+        "USEXA"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-rwy-060f5246-9d35-4d7d-a052-b83b48896100",
+        "aixm-national-rwy-c77b9424-3cff-4c7e-8508-6f39f00dd8ae"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

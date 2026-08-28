@@ -1,0 +1,193 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-2ae3989a-4ab4-4af3-8b20-9fc09c7fae96",
+    "airport": "SBBE",
+    "name": "RNAV ITAKI 1A RWY 06",
+    "type": "STAR",
+    "runway": "06",
+    "runways": [
+      "06"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-07-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-07-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "ITAKI": {
+      "ident": "ITAKI",
+      "coordinate_ref": "waypoint:7042.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 15000,
+        "max": 0
+      }
+    },
+    "BE062": {
+      "ident": "BE062",
+      "coordinate_ref": "waypoint:8538.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "BE017": {
+      "ident": "BE017",
+      "coordinate_ref": "waypoint:8526.0",
+      "role": "IAF",
+      "altitude": {
+        "at": 0,
+        "min": 3000,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-itaki-e5a84d94-d042-46ce-8dec-d38e5f4b15da",
+      "from": null,
+      "to": "ITAKI",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 15000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "150 FL",
+        "valueFt": 15000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-itaki-72518121-fd39-4378-a5e8-97ccbb3cec2b",
+      "from": "ITAKI",
+      "to": "BE062",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 272.503931886361,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 272.503931886361,
+      "distance_nm": 48.8081477726548,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "15000 FT",
+        "valueFt": 15000,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-itaki-d2d2da88-cdb3-4251-8434-bba8713cde7c",
+      "from": "BE062",
+      "to": "BE017",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 289.843176169337,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 289.843176169337,
+      "distance_nm": 16.5635852372214,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 3000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "3000 FT",
+        "valueFt": 3000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -6.79661532899628,
+      "fix_role": "IAF",
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-itaki",
+      "name": "ITAKI",
+      "kind": "RWY",
+      "sequence": [
+        "ITAKI",
+        "BE062",
+        "BE017"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-itaki-e5a84d94-d042-46ce-8dec-d38e5f4b15da",
+        "aixm-national-itaki-72518121-fd39-4378-a5e8-97ccbb3cec2b",
+        "aixm-national-itaki-d2d2da88-cdb3-4251-8434-bba8713cde7c"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

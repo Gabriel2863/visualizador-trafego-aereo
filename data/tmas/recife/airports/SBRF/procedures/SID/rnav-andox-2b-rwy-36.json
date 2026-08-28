@@ -1,0 +1,285 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-645b2092-b216-4eb9-9e0d-0049ab829365",
+    "airport": "SBRF",
+    "name": "RNAV ANDOX 2B RWY 36",
+    "type": "SID",
+    "runway": "36",
+    "runways": [
+      "36"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-08-10T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-08-10T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "ANDOX": {
+      "ident": "ANDOX",
+      "coordinate_ref": "waypoint:1598.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 6000
+      }
+    },
+    "JPS": {
+      "ident": "JPS",
+      "coordinate_ref": "procedure-point:f095e7ca-6189-435f-b1bf-4d2ec52ea87a",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "SAFUC": {
+      "ident": "SAFUC",
+      "coordinate_ref": "waypoint:7516.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-jps-ece8db4d-8d24-4ddc-83f7-ea4be3c5bd99",
+      "from": null,
+      "to": "ANDOX",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": 6000
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "6000 FT",
+        "valueFt": 6000,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-jps-514baf36-a2ef-4ade-b80f-ddad61d1f103",
+      "from": "ANDOX",
+      "to": "JPS",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 4.67359141471439,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 4.67359141471439,
+      "distance_nm": 43.0587643365535,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "14638.2 FT",
+        "valueFt": 14638,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-safuc-71c06971-ff37-49bf-8ee2-1964e5ef5af1",
+      "from": null,
+      "to": "ANDOX",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": 6000
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "6000 FT",
+        "valueFt": 6000,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-safuc-b5311d14-9a60-4cca-ae30-24d2a6119fba",
+      "from": "ANDOX",
+      "to": "SAFUC",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 354.379880363706,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 354.379880363706,
+      "distance_nm": 57.3813042813558,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "17512.1 FT",
+        "valueFt": 17512,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-rwy-3ad41e64-fe57-4ee6-9d99-596f9fe4ee06",
+      "from": null,
+      "to": "ANDOX",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 341.779253686892,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 341.779253686892,
+      "distance_nm": 16.1028928134012,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": 6000
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "6000 FT",
+        "valueFt": 6000,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 3.48354869164775,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-jps",
+      "name": "JPS",
+      "kind": "EN_ROUTE",
+      "sequence": [
+        "ANDOX",
+        "JPS"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-jps-ece8db4d-8d24-4ddc-83f7-ea4be3c5bd99",
+        "aixm-national-jps-514baf36-a2ef-4ade-b80f-ddad61d1f103"
+      ]
+    },
+    {
+      "id": "aixm-national-safuc",
+      "name": "SAFUC",
+      "kind": "EN_ROUTE",
+      "sequence": [
+        "ANDOX",
+        "SAFUC"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-safuc-71c06971-ff37-49bf-8ee2-1964e5ef5af1",
+        "aixm-national-safuc-b5311d14-9a60-4cca-ae30-24d2a6119fba"
+      ]
+    },
+    {
+      "id": "aixm-national-rwy",
+      "name": "RWY",
+      "kind": "RWY",
+      "sequence": [
+        "ANDOX"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-rwy-3ad41e64-fe57-4ee6-9d99-596f9fe4ee06"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

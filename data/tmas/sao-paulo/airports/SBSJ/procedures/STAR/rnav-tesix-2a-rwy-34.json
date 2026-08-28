@@ -1,0 +1,481 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-548597fe-080f-4b9d-aeee-9b20dc8530f8",
+    "airport": "SBSJ",
+    "name": "RNAV TESIX 2A RWY 34",
+    "type": "STAR",
+    "runway": "34",
+    "runways": [
+      "34"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2024-10-03T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2024-10-03T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "ANISE": {
+      "ident": "ANISE",
+      "coordinate_ref": "waypoint:6304.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 17000
+      }
+    },
+    "UTMUR": {
+      "ident": "UTMUR",
+      "coordinate_ref": "waypoint:2611.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "SJ053": {
+      "ident": "SJ053",
+      "coordinate_ref": "waypoint:3092.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 13000
+      }
+    },
+    "SJ057": {
+      "ident": "SJ057",
+      "coordinate_ref": "waypoint:3428.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 9000,
+        "max": 0
+      }
+    },
+    "GEO-BCD0FE6": {
+      "ident": "GEO-BCD0FE6",
+      "coordinate_ref": "procedure-point:00568596bd",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "DAGOV": {
+      "ident": "DAGOV",
+      "coordinate_ref": "waypoint:296.0",
+      "role": "IAF",
+      "altitude": {
+        "at": 0,
+        "min": 7000,
+        "max": 0
+      }
+    },
+    "PORNA": {
+      "ident": "PORNA",
+      "coordinate_ref": "waypoint:5132.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 17000
+      }
+    },
+    "KEVUN": {
+      "ident": "KEVUN",
+      "coordinate_ref": "waypoint:531.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "SJ019": {
+      "ident": "SJ019",
+      "coordinate_ref": "waypoint:6793.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 11000,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-anise-5930ea62-4296-444f-ba88-6099e3ec3c9a",
+      "from": null,
+      "to": "ANISE",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": 17000
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "17000 FT",
+        "valueFt": 17000,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-anise-4c525d07-c896-4972-8acc-216a26082403",
+      "from": "ANISE",
+      "to": "UTMUR",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 51.3419307997463,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 51.3419307997463,
+      "distance_nm": 30.665050967833,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "17000 FT",
+        "valueFt": 17000,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-anise-7a23c617-df9b-4159-ab4e-01f019084bc7",
+      "from": "UTMUR",
+      "to": "SJ053",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 48.6539567563871,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 48.6539567563871,
+      "distance_nm": 26.0736822996953,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": 13000
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "13000 FT",
+        "valueFt": 13000,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -1.44527465195055,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-anise-ac330f84-9589-49df-a287-7052cc56f75e",
+      "from": "SJ053",
+      "to": "SJ057",
+      "via": [
+        "GEO-BCD0FE6"
+      ],
+      "path_terminator": "TF",
+      "course": 18.0751793362468,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 18.0751793362468,
+      "distance_nm": 21.1437962017321,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 9000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "9000 FT",
+        "valueFt": 9000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -1.782398851399,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-anise-f89b8331-bae9-4ca8-967b-7d292553c48d",
+      "from": "SJ057",
+      "to": "DAGOV",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 18.0268613240405,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 18.0268613240405,
+      "distance_nm": 13.7000526538613,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 7000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "7000 FT",
+        "valueFt": 7000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -1.37579780195453,
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-porna-83bbcf24-99f2-4a5a-8e4e-e88178db5db9",
+      "from": null,
+      "to": "PORNA",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": 17000
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "17000 FT",
+        "valueFt": 17000,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-porna-868f22b3-0cd9-4568-98a5-61b98071b727",
+      "from": "PORNA",
+      "to": "KEVUN",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 276.69726559288,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 276.69726559288,
+      "distance_nm": 38.4684214393967,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "17000 FT",
+        "valueFt": 17000,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-porna-057f4581-1143-4a6c-9f99-139dbe55cdc7",
+      "from": "KEVUN",
+      "to": "SJ019",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 272.948298209601,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 272.948298209601,
+      "distance_nm": 22.0735354574916,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 11000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "11000 FT",
+        "valueFt": 11000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -2.55974051473686,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-porna-55385076-d4f3-4a5a-ad28-9a990fbdc13f",
+      "from": "SJ019",
+      "to": "DAGOV",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 271.290816677019,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 271.290816677019,
+      "distance_nm": 15.6766075710702,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 7000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "7000 FT",
+        "valueFt": 7000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -2.40360216082573,
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-anise",
+      "name": "ANISE",
+      "kind": "EN_ROUTE",
+      "sequence": [
+        "ANISE",
+        "UTMUR",
+        "SJ053",
+        "SJ057",
+        "DAGOV"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-anise-5930ea62-4296-444f-ba88-6099e3ec3c9a",
+        "aixm-national-anise-4c525d07-c896-4972-8acc-216a26082403",
+        "aixm-national-anise-7a23c617-df9b-4159-ab4e-01f019084bc7",
+        "aixm-national-anise-ac330f84-9589-49df-a287-7052cc56f75e",
+        "aixm-national-anise-f89b8331-bae9-4ca8-967b-7d292553c48d"
+      ]
+    },
+    {
+      "id": "aixm-national-porna",
+      "name": "PORNA",
+      "kind": "EN_ROUTE",
+      "sequence": [
+        "PORNA",
+        "KEVUN",
+        "SJ019",
+        "DAGOV"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-porna-83bbcf24-99f2-4a5a-8e4e-e88178db5db9",
+        "aixm-national-porna-868f22b3-0cd9-4568-98a5-61b98071b727",
+        "aixm-national-porna-057f4581-1143-4a6c-9f99-139dbe55cdc7",
+        "aixm-national-porna-55385076-d4f3-4a5a-ad28-9a990fbdc13f"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

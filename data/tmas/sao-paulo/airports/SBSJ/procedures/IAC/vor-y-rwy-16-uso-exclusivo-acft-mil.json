@@ -1,0 +1,455 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "SBSJ-IAC-SJ00B",
+    "airport": "SBSJ",
+    "name": "VOR Y RWY 16 USO EXCLUSIVO ACFT MIL",
+    "type": "IAC",
+    "runway": "16",
+    "runways": [
+      "16"
+    ],
+    "modes": [
+      "VOR"
+    ],
+    "status": "structured",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "SJ00B",
+      "amendment": "2608A1",
+      "effective_date": "2026-08-06",
+      "document": null,
+      "page": 1,
+      "origin_dataset": "tma-sp"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "SJ00B",
+        "amendment": "2608A1",
+        "effective_date": "2026-08-06",
+        "document": null,
+        "page": 1,
+        "origin_dataset": "tma-sp"
+      }
+    ]
+  },
+  "points": {
+    "SCP": {
+      "ident": "SCP",
+      "coordinate_ref": "procedure-point:28bd0fb69d",
+      "role": "IAF",
+      "altitude": {
+        "at": 0,
+        "min": 6000,
+        "max": 0
+      }
+    },
+    "BOLEM": {
+      "ident": "BOLEM",
+      "coordinate_ref": "waypoint:1018.0",
+      "role": "FAF",
+      "altitude": {
+        "at": 0,
+        "min": 3700,
+        "max": 0
+      }
+    },
+    "SCP11": {
+      "ident": "SCP11",
+      "coordinate_ref": "waypoint:1535.0",
+      "role": "SDF",
+      "altitude": {
+        "at": 0,
+        "min": 3080,
+        "max": 0
+      }
+    },
+    "SCP15": {
+      "ident": "SCP15",
+      "coordinate_ref": "waypoint:11612.0",
+      "role": "SDF",
+      "altitude": {
+        "at": 0,
+        "min": 2814,
+        "max": 0
+      }
+    },
+    "SCP12": {
+      "ident": "SCP12",
+      "coordinate_ref": "waypoint:4150.0",
+      "role": "FTP",
+      "altitude": {
+        "at": 2082,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "tma-sp-scp-apch-1",
+      "from": null,
+      "to": "SCP",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 6000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+6000",
+        "valueFt": 6000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": {
+        "raw": "Altitude (FT)",
+        "valueFt": null,
+        "meaning": "published"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": "Description",
+      "vertical_angle": 0,
+      "fix_role": "IAF",
+      "navigation_specification": "Specification",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-scp-apch-1-2",
+      "from": "SCP",
+      "to": "SCP",
+      "via": [],
+      "path_terminator": "FC",
+      "course": 357.86,
+      "course_reference": "MAG",
+      "course_magnetic": 357.86,
+      "course_true": 335.67,
+      "distance_nm": 8.8,
+      "turn": "L",
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 4400,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+4400",
+        "valueFt": 4400,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 190,
+      "speed_interpretation": "-",
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-scp-apch-1-3",
+      "from": "SCP",
+      "to": "BOLEM",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 160.38,
+      "course_reference": "MAG",
+      "course_magnetic": 160.38,
+      "course_true": 138.21,
+      "distance_nm": 2.76,
+      "turn": "L",
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 3700,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+3700",
+        "valueFt": 3700,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "FAF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-bolem-final-1",
+      "from": null,
+      "to": "BOLEM",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 3700,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+3700",
+        "valueFt": 3700,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "FAF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-bolem-final-1-2",
+      "from": "BOLEM",
+      "to": "SCP11",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 160.17,
+      "course_reference": "MAG",
+      "course_magnetic": 160.17,
+      "course_true": 137.98,
+      "distance_nm": 1.87,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 3080,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+3080",
+        "valueFt": 3080,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -3,
+      "fix_role": "SDF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-bolem-final-1-3",
+      "from": "SCP11",
+      "to": "SCP15",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 160.46,
+      "course_reference": "MAG",
+      "course_magnetic": 160.46,
+      "course_true": 138.27,
+      "distance_nm": 0.84,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 2814,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "R2814",
+        "valueFt": 2814,
+        "meaning": "recommended"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -3,
+      "fix_role": "SDF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-bolem-final-1-4",
+      "from": "SCP15",
+      "to": "SCP12",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 160.47,
+      "course_reference": "MAG",
+      "course_magnetic": 160.47,
+      "course_true": 138.28,
+      "distance_nm": 2.3,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": 2082,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "@2082",
+        "valueFt": 2082,
+        "meaning": "at"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -3,
+      "fix_role": "FTP",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "tma-sp-scp",
+      "name": "Sequencia final publicada",
+      "kind": "approach",
+      "sequence": [
+        "SCP",
+        "BOLEM"
+      ],
+      "source_dataset": "tma-sp",
+      "leg_ids": [
+        "tma-sp-scp-apch-1",
+        "tma-sp-scp-apch-1-2",
+        "tma-sp-scp-apch-1-3"
+      ]
+    },
+    {
+      "id": "tma-sp-bolem",
+      "name": "Sequencia final publicada",
+      "kind": "approach",
+      "sequence": [
+        "BOLEM",
+        "SCP11",
+        "SCP15",
+        "SCP12"
+      ],
+      "source_dataset": "tma-sp",
+      "leg_ids": [
+        "tma-sp-bolem-final-1",
+        "tma-sp-bolem-final-1-2",
+        "tma-sp-bolem-final-1-3",
+        "tma-sp-bolem-final-1-4"
+      ]
+    }
+  ],
+  "missed_approach": [
+    {
+      "id": "tma-sp-missed-missed-1",
+      "name": "Aproximacao perdida",
+      "kind": "missed-approach",
+      "sequence": [
+        "SCP"
+      ],
+      "legs": [
+        {
+          "id": "tma-sp-missed-missed-1-ma-1",
+          "from": null,
+          "to": "SCP",
+          "via": [],
+          "path_terminator": "DF",
+          "course": null,
+          "course_reference": null,
+          "course_magnetic": null,
+          "course_true": null,
+          "distance_nm": 0,
+          "turn": "L",
+          "fly_over": null,
+          "altitude": {
+            "at": null,
+            "min": 6000,
+            "max": null
+          },
+          "lower_limit": {
+            "raw": "+6000",
+            "valueFt": 6000,
+            "meaning": "at-or-above"
+          },
+          "upper_limit": null,
+          "speed_limit_kt": 0,
+          "speed_interpretation": null,
+          "vertical_angle": 0,
+          "fix_role": "MAHF",
+          "navigation_specification": null,
+          "arc_center": null,
+          "arc_radius_nm": 0,
+          "source_page": 1,
+          "source_dataset": "tma-sp"
+        },
+        {
+          "id": "tma-sp-missed-missed-1-ma-1-2",
+          "from": "SCP",
+          "to": "SCP",
+          "via": [],
+          "path_terminator": "HM",
+          "course": 1.67,
+          "course_reference": "MAG",
+          "course_magnetic": 1.67,
+          "course_true": 339.47,
+          "distance_nm": 0,
+          "turn": "R",
+          "fly_over": null,
+          "altitude": {
+            "at": null,
+            "min": 6000,
+            "max": null
+          },
+          "lower_limit": {
+            "raw": "+6000",
+            "valueFt": 6000,
+            "meaning": "at-or-above"
+          },
+          "upper_limit": null,
+          "speed_limit_kt": 0,
+          "speed_interpretation": null,
+          "vertical_angle": 0,
+          "fix_role": "MAHF",
+          "navigation_specification": null,
+          "arc_center": null,
+          "arc_radius_nm": 0,
+          "source_page": 1,
+          "source_dataset": "tma-sp"
+        }
+      ],
+      "published_text": null,
+      "note": null,
+      "source_dataset": "tma-sp"
+    }
+  ],
+  "warnings": [
+    "*Fictitious point: only for coding purposes.",
+    "FICTITIOUS THRESHOLD"
+  ]
+}

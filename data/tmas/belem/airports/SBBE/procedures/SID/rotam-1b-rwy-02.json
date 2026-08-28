@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-83c7883e-5060-401e-adc9-006e2a7696c9",
+    "airport": "SBBE",
+    "name": "ROTAM 1B RWY 02",
+    "type": "SID",
+    "runway": "03",
+    "runways": [
+      "03"
+    ],
+    "modes": [],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-07-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-07-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "AXE1196D": {
+      "ident": "AXE1196D",
+      "coordinate_ref": "procedure-point:e1196d52-08a1-47b7-8037-4439a4a7edda",
+      "role": null,
+      "altitude": {
+        "at": 0,
+        "min": 1200,
+        "max": 0
+      }
+    },
+    "AXFEC560": {
+      "ident": "AXFEC560",
+      "coordinate_ref": "procedure-point:fec56031-b4f6-472f-9627-a46eaa73436c",
+      "role": null,
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "ROTAM": {
+      "ident": "ROTAM",
+      "coordinate_ref": "waypoint:3126.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-F3D4F84": {
+      "ident": "GEO-F3D4F84",
+      "coordinate_ref": "procedure-point:0803213de8",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-rotam-e1196d52-08a1-47b7-8037-4439a4a7edda",
+      "from": null,
+      "to": "AXE1196D",
+      "via": [],
+      "path_terminator": "VA",
+      "course": 4.91395212600684,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 4.91395212600684,
+      "distance_nm": 4.3255905734514,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 1200,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "1200 FT",
+        "valueFt": 1200,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 2.46220172958629,
+      "fix_role": null,
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-rotam-fec56031-b4f6-472f-9627-a46eaa73436c",
+      "from": "AXE1196D",
+      "to": "AXFEC560",
+      "via": [],
+      "path_terminator": "VI",
+      "course": 219.82,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 219.82,
+      "distance_nm": 32.8138901281273,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "7780.99 FT",
+        "valueFt": 7781,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": null,
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-rotam-6e49e665-9d09-42f4-85c4-6ff3de3779a5",
+      "from": "AXFEC560",
+      "to": "ROTAM",
+      "via": [
+        "GEO-F3D4F84"
+      ],
+      "path_terminator": "CF",
+      "course": 243.71877159012,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 243.71877159012,
+      "distance_nm": 16.6567812305496,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "11122.4 FT",
+        "valueFt": 11122,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-rotam",
+      "name": "ROTAM",
+      "kind": "RWY",
+      "sequence": [
+        "AXE1196D",
+        "AXFEC560",
+        "ROTAM"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-rotam-e1196d52-08a1-47b7-8037-4439a4a7edda",
+        "aixm-national-rotam-fec56031-b4f6-472f-9627-a46eaa73436c",
+        "aixm-national-rotam-6e49e665-9d09-42f4-85c4-6ff3de3779a5"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

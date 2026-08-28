@@ -1,0 +1,381 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-92e7cdb8-75f0-4257-b741-0af0490acbad",
+    "airport": "SBJV",
+    "name": "RNAV RAXIT 1E RWY 15",
+    "type": "STAR",
+    "runway": "15",
+    "runways": [
+      "15"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-07-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-07-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "RAXIT": {
+      "ident": "RAXIT",
+      "coordinate_ref": "waypoint:4109.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 25000,
+        "max": 0
+      }
+    },
+    "ATIMA": {
+      "ident": "ATIMA",
+      "coordinate_ref": "waypoint:900.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 17000
+      }
+    },
+    "AX459B4C": {
+      "ident": "AX459B4C",
+      "coordinate_ref": "procedure-point:459b4c7e-c21e-42f3-8083-8cce3d287c0e",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 14000
+      }
+    },
+    "AX3427F9": {
+      "ident": "AX3427F9",
+      "coordinate_ref": "procedure-point:3427f9ba-7cf1-45be-abf2-fb14aff1b191",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 12000,
+        "max": 13000
+      }
+    },
+    "AXC21A99": {
+      "ident": "AXC21A99",
+      "coordinate_ref": "procedure-point:c21a9905-04d8-465c-af9b-fadb28a7a200",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 10000
+      }
+    },
+    "AXDC0A32": {
+      "ident": "AXDC0A32",
+      "coordinate_ref": "procedure-point:dc0a323b-9563-435b-9fe7-eaa71bdd5928",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 9000
+      }
+    },
+    "ANDAM": {
+      "ident": "ANDAM",
+      "coordinate_ref": "waypoint:7030.0",
+      "role": "IAF",
+      "altitude": {
+        "at": 0,
+        "min": 6000,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-raxit-145d0ab6-4278-4668-9c08-11bacb63d624",
+      "from": null,
+      "to": "RAXIT",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 25000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "25000 FT",
+        "valueFt": 25000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-raxit-21a97db8-cabd-4eb3-8727-2cfeae079120",
+      "from": "RAXIT",
+      "to": "ATIMA",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 212.692425765989,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 212.692425765989,
+      "distance_nm": 61.1222815485105,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": 17000
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "17000 FT",
+        "valueFt": 17000,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -1.23229927763444,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-raxit-459b4c7e-c21e-42f3-8083-8cce3d287c0e",
+      "from": "ATIMA",
+      "to": "AX459B4C",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 190.835048761559,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 190.835048761559,
+      "distance_nm": 6.78255695075881,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": 14000
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "14000 FT",
+        "valueFt": 14000,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -4.16042857099493,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-raxit-3427f9ba-7cf1-45be-abf2-fb14aff1b191",
+      "from": "AX459B4C",
+      "to": "AX3427F9",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 190.863978684568,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 190.863978684568,
+      "distance_nm": 9.33505646693418,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 12000,
+        "max": 13000
+      },
+      "lower_limit": {
+        "raw": "12000 FT",
+        "valueFt": 12000,
+        "meaning": "between-bound"
+      },
+      "upper_limit": {
+        "raw": "13000 FT",
+        "valueFt": 13000,
+        "meaning": "between-bound"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -1.99974842200726,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-raxit-c21a9905-04d8-465c-af9b-fadb28a7a200",
+      "from": "AX3427F9",
+      "to": "AXC21A99",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 226.556067374705,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 226.556067374705,
+      "distance_nm": 10.6576264710607,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": 10000
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "10000 FT",
+        "valueFt": 10000,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -1.76807063177296,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-raxit-dc0a323b-9563-435b-9fe7-eaa71bdd5928",
+      "from": "AXC21A99",
+      "to": "AXDC0A32",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 226.857932927842,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 226.857932927842,
+      "distance_nm": 7.95252769324107,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": 9000
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "9000 FT",
+        "valueFt": 9000,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -1.18503734855952,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-raxit-ad82a0df-3efd-4eb6-b047-c93cc858dc89",
+      "from": "AXDC0A32",
+      "to": "ANDAM",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 226.906934640881,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 226.906934640881,
+      "distance_nm": 4.43398820586083,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 6000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "6000 FT",
+        "valueFt": 6000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -6.35160221028203,
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-raxit",
+      "name": "RAXIT",
+      "kind": "EN_ROUTE",
+      "sequence": [
+        "RAXIT",
+        "ATIMA",
+        "AX459B4C",
+        "AX3427F9",
+        "AXC21A99",
+        "AXDC0A32",
+        "ANDAM"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-raxit-145d0ab6-4278-4668-9c08-11bacb63d624",
+        "aixm-national-raxit-21a97db8-cabd-4eb3-8727-2cfeae079120",
+        "aixm-national-raxit-459b4c7e-c21e-42f3-8083-8cce3d287c0e",
+        "aixm-national-raxit-3427f9ba-7cf1-45be-abf2-fb14aff1b191",
+        "aixm-national-raxit-c21a9905-04d8-465c-af9b-fadb28a7a200",
+        "aixm-national-raxit-dc0a323b-9563-435b-9fe7-eaa71bdd5928",
+        "aixm-national-raxit-ad82a0df-3efd-4eb6-b047-c93cc858dc89"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

@@ -89,8 +89,13 @@ def main() -> None:
                     if segment[field]:
                         assert segment[field]["meaning"] in allowed_altitude
 
-    waypoint_idents = Counter(str(feature["properties"]["ident"]).upper() for feature in waypoints["features"])
-    assert sum(waypoint_idents.values()) == 7938 and len(waypoint_idents) == 7932
+    base_waypoints = [
+        feature for feature in waypoints["features"]
+        if feature.get("properties", {}).get("generated_by") != "data-architecture-v1"
+    ]
+    waypoint_idents = Counter(str(feature["properties"]["ident"]).upper() for feature in base_waypoints)
+    assert sum(waypoint_idents.values()) == waypoints.get("baseRecordCount", 7938) == 7938 and len(waypoint_idents) == 7932
+    assert waypoints["recordCount"] == len(waypoints["features"])
     assert any(waypoint_idents[ident] > 1 and len(procedures["publishedPoints"].get(ident, [])) > 1 for ident in waypoint_idents)
 
     aerodrome_by_id = {item["id"]: item for item in aerodromes["aerodromes"]}

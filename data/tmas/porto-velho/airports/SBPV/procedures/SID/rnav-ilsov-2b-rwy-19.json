@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-5805a37f-4ee9-4e1b-b8bf-3be137b97287",
+    "airport": "SBPV",
+    "name": "RNAV ILSOV 2B RWY 19",
+    "type": "SID",
+    "runway": "19",
+    "runways": [
+      "19"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-08-10T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-08-10T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "PV393": {
+      "ident": "PV393",
+      "coordinate_ref": "waypoint:2137.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "ILSOV": {
+      "ident": "ILSOV",
+      "coordinate_ref": "waypoint:3438.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-57D4C5B": {
+      "ident": "GEO-57D4C5B",
+      "coordinate_ref": "procedure-point:8a60299839",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-ilsov-ed1f403b-f7d3-4322-bc7e-929d3530611d",
+      "from": null,
+      "to": "PV393",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 176.797281335412,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 176.797281335412,
+      "distance_nm": 3.00504271446376,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "905.473 FT",
+        "valueFt": 905,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-ilsov-03512d51-1f82-4c15-9ef8-8b89d5cf14bd",
+      "from": "PV393",
+      "to": "ILSOV",
+      "via": [
+        "GEO-57D4C5B"
+      ],
+      "path_terminator": "TF",
+      "course": 152.676598726578,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 152.676598726578,
+      "distance_nm": 37.4480567717149,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "8415.93 FT",
+        "valueFt": 8416,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-ilsov",
+      "name": "ILSOV",
+      "kind": "RWY",
+      "sequence": [
+        "PV393",
+        "ILSOV"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-ilsov-ed1f403b-f7d3-4322-bc7e-929d3530611d",
+        "aixm-national-ilsov-03512d51-1f82-4c15-9ef8-8b89d5cf14bd"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

@@ -1,0 +1,283 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-1c043216-0cf2-492c-966a-8d31f07f8c41",
+    "airport": "SBPS",
+    "name": "RNAV DIBUS 1A RWY 10",
+    "type": "SID",
+    "runway": "10",
+    "runways": [
+      "10"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-07-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-07-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "AX013733": {
+      "ident": "AX013733",
+      "coordinate_ref": "procedure-point:01373361-e83a-4a01-b2bf-1acfc4f68990",
+      "role": null,
+      "altitude": {
+        "at": 0,
+        "min": 2000,
+        "max": 0
+      }
+    },
+    "AX0EBE94": {
+      "ident": "AX0EBE94",
+      "coordinate_ref": "procedure-point:0ebe9401-dd95-4bfe-b2e4-c01fc9c91ef4",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "NAXOV": {
+      "ident": "NAXOV",
+      "coordinate_ref": "waypoint:4844.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-545551E": {
+      "ident": "GEO-545551E",
+      "coordinate_ref": "procedure-point:4870cf8650",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "AX6434E8": {
+      "ident": "AX6434E8",
+      "coordinate_ref": "procedure-point:6434e860-6c2f-46e6-9f5f-445d5e6b01e7",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-A0DA99F": {
+      "ident": "GEO-A0DA99F",
+      "coordinate_ref": "procedure-point:4f4f1063bf",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-rwy-01373361-e83a-4a01-b2bf-1acfc4f68990",
+      "from": null,
+      "to": "AX013733",
+      "via": [],
+      "path_terminator": "CA",
+      "course": 74.4020533742603,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 74.4020533742603,
+      "distance_nm": 9.12353938943818,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 2000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "2000 FT",
+        "valueFt": 2000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": null,
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-rwy-0ebe9401-dd95-4bfe-b2e4-c01fc9c91ef4",
+      "from": "AX013733",
+      "to": "AX0EBE94",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 23.2226483782956,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "6657.38 FT",
+        "valueFt": 6657,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-naxop-ed38d896-ce61-4f22-a73c-1be6f7f487f6",
+      "from": null,
+      "to": "NAXOV",
+      "via": [
+        "GEO-545551E"
+      ],
+      "path_terminator": "TF",
+      "course": 31.6806910869414,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 31.6806910869414,
+      "distance_nm": 12.7448856767333,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "9213.85 FT",
+        "valueFt": 9214,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-vunap-6434e860-6c2f-46e6-9f5f-445d5e6b01e7",
+      "from": null,
+      "to": "AX6434E8",
+      "via": [
+        "GEO-A0DA99F"
+      ],
+      "path_terminator": "TF",
+      "course": 357.894871618761,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 357.894871618761,
+      "distance_nm": 22.8643894168807,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "11243.9 FT",
+        "valueFt": 11244,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-rwy",
+      "name": "RWY",
+      "kind": "RWY",
+      "sequence": [
+        "AX013733",
+        "AX0EBE94"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-rwy-01373361-e83a-4a01-b2bf-1acfc4f68990",
+        "aixm-national-rwy-0ebe9401-dd95-4bfe-b2e4-c01fc9c91ef4"
+      ]
+    },
+    {
+      "id": "aixm-national-naxop",
+      "name": "NAXOP",
+      "kind": "EN_ROUTE",
+      "sequence": [
+        "NAXOV"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-naxop-ed38d896-ce61-4f22-a73c-1be6f7f487f6"
+      ]
+    },
+    {
+      "id": "aixm-national-vunap",
+      "name": "VUNAP",
+      "kind": "EN_ROUTE",
+      "sequence": [
+        "AX6434E8"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-vunap-6434e860-6c2f-46e6-9f5f-445d5e6b01e7"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

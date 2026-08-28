@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-f53780ae-f429-4ea0-a04b-bfcd3468c8c0",
+    "airport": "SBCZ",
+    "name": "RNAV NEPIN 1A RWY 10",
+    "type": "SID",
+    "runway": "10",
+    "runways": [
+      "10"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-07-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-07-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "CZ016": {
+      "ident": "CZ016",
+      "coordinate_ref": "waypoint:2589.0",
+      "role": "TP",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "NEPIN": {
+      "ident": "NEPIN",
+      "coordinate_ref": "waypoint:4960.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-124B226": {
+      "ident": "GEO-124B226",
+      "coordinate_ref": "procedure-point:3080e93115",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-cz016-9a95108a-4674-4c9a-9aa4-c201091ff613",
+      "from": null,
+      "to": "CZ016",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 92.9534795391935,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 92.9534795391935,
+      "distance_nm": 3.00376758159076,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "1254.8 FT",
+        "valueFt": 1255,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "TP",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-cz016-2b5dcd61-ce87-4759-ad2d-642068ba48ea",
+      "from": "CZ016",
+      "to": "NEPIN",
+      "via": [
+        "GEO-124B226"
+      ],
+      "path_terminator": "TF",
+      "course": 117.248309030317,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 117.248309030317,
+      "distance_nm": 56.6964308994769,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "12625.7 FT",
+        "valueFt": 12626,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-cz016",
+      "name": "CZ016",
+      "kind": "RWY",
+      "sequence": [
+        "CZ016",
+        "NEPIN"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-cz016-9a95108a-4674-4c9a-9aa4-c201091ff613",
+        "aixm-national-cz016-2b5dcd61-ce87-4759-ad2d-642068ba48ea"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

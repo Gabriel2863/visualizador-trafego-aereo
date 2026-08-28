@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-15a83c9f-57ed-48af-8e93-43c8d7e05fef",
+    "airport": "SBBE",
+    "name": "ILSAT 1B RWY 02",
+    "type": "SID",
+    "runway": "03",
+    "runways": [
+      "03"
+    ],
+    "modes": [],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-07-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-07-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "AXE97F76": {
+      "ident": "AXE97F76",
+      "coordinate_ref": "procedure-point:e97f768a-283a-438e-9609-f1e59177fdce",
+      "role": null,
+      "altitude": {
+        "at": 0,
+        "min": 1200,
+        "max": 0
+      }
+    },
+    "AXB9AE88": {
+      "ident": "AXB9AE88",
+      "coordinate_ref": "procedure-point:b9ae8881-ce8d-47a2-b90f-2cb9f63817a7",
+      "role": null,
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "ILSAT": {
+      "ident": "ILSAT",
+      "coordinate_ref": "waypoint:225.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-DD45816": {
+      "ident": "GEO-DD45816",
+      "coordinate_ref": "procedure-point:39f830ead2",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-ilsat-e97f768a-283a-438e-9609-f1e59177fdce",
+      "from": null,
+      "to": "AXE97F76",
+      "via": [],
+      "path_terminator": "VA",
+      "course": 4.91395212600684,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 4.91395212600684,
+      "distance_nm": 4.3255905734514,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 1200,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "1200 FT",
+        "valueFt": 1200,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 2.46220172958629,
+      "fix_role": null,
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-ilsat-b9ae8881-ce8d-47a2-b90f-2cb9f63817a7",
+      "from": "AXE97F76",
+      "to": "AXB9AE88",
+      "via": [],
+      "path_terminator": "VI",
+      "course": 189.82,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 189.82,
+      "distance_nm": 33.3145197116768,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "9906.5 FT",
+        "valueFt": 9906,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 2.46220172958629,
+      "fix_role": null,
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-ilsat-a9c93ce2-56bc-45f3-8fa5-4e0fc6a8f094",
+      "from": "AXB9AE88",
+      "to": "ILSAT",
+      "via": [
+        "GEO-DD45816"
+      ],
+      "path_terminator": "CF",
+      "course": 166.01106404062,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 166.01106404062,
+      "distance_nm": 22.5195865201305,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "15793.9 FT",
+        "valueFt": 15794,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 2.46220172958629,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-ilsat",
+      "name": "ILSAT",
+      "kind": "RWY",
+      "sequence": [
+        "AXE97F76",
+        "AXB9AE88",
+        "ILSAT"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-ilsat-e97f768a-283a-438e-9609-f1e59177fdce",
+        "aixm-national-ilsat-b9ae8881-ce8d-47a2-b90f-2cb9f63817a7",
+        "aixm-national-ilsat-a9c93ce2-56bc-45f3-8fa5-4e0fc6a8f094"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

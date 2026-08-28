@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-67ca9274-695b-4194-8aba-e5f4b90c7977",
+    "airport": "SBRF",
+    "name": "RNAV AMBET 1A RWY 36",
+    "type": "SID",
+    "runway": "36",
+    "runways": [
+      "36"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-08-10T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-08-10T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "AX056BAD": {
+      "ident": "AX056BAD",
+      "coordinate_ref": "procedure-point:056bad84-4df7-41e0-826d-65aaa53a3243",
+      "role": null,
+      "altitude": {
+        "at": 0,
+        "min": 3000,
+        "max": 0
+      }
+    },
+    "AMBET": {
+      "ident": "AMBET",
+      "coordinate_ref": "waypoint:1011.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-ambet-056bad84-4df7-41e0-826d-65aaa53a3243",
+      "from": null,
+      "to": "AX056BAD",
+      "via": [],
+      "path_terminator": "CA",
+      "course": 342.025302267596,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 342.025302267596,
+      "distance_nm": 14.7461853402162,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 3000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "3000 FT",
+        "valueFt": 3000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": null,
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-ambet-181e6b39-cb3c-4f2f-8e87-e5edb6d80070",
+      "from": "AX056BAD",
+      "to": "AMBET",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 36.3158065704951,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "10266.4 FT",
+        "valueFt": 10266,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-ambet",
+      "name": "AMBET",
+      "kind": "RWY",
+      "sequence": [
+        "AX056BAD",
+        "AMBET"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-ambet-056bad84-4df7-41e0-826d-65aaa53a3243",
+        "aixm-national-ambet-181e6b39-cb3c-4f2f-8e87-e5edb6d80070"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

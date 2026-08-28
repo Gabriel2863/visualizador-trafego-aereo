@@ -1,0 +1,738 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "SBSP-IAC-SP00R",
+    "airport": "SBSP",
+    "name": "ILS Y OR LOC Y RWY 17R",
+    "type": "IAC",
+    "runway": "17R",
+    "runways": [
+      "17R"
+    ],
+    "modes": [
+      "ILS",
+      "LOC"
+    ],
+    "status": "structured",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "SP00R",
+      "amendment": "2404A1",
+      "effective_date": "2024-04-18",
+      "document": null,
+      "page": 1,
+      "origin_dataset": "tma-sp"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "SP00R",
+        "amendment": "2404A1",
+        "effective_date": "2024-04-18",
+        "document": null,
+        "page": 1,
+        "origin_dataset": "tma-sp"
+      }
+    ]
+  },
+  "points": {
+    "STN": {
+      "ident": "STN",
+      "coordinate_ref": "procedure-point:dfe7ea38fe",
+      "role": "IAF",
+      "altitude": {
+        "at": 6000,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "STN01": {
+      "ident": "STN01",
+      "coordinate_ref": "waypoint:1066.0",
+      "role": "SDF",
+      "altitude": {
+        "at": 0,
+        "min": 5700,
+        "max": 0
+      }
+    },
+    "STN02": {
+      "ident": "STN02",
+      "coordinate_ref": "waypoint:4523.0",
+      "role": "SDF",
+      "altitude": {
+        "at": 0,
+        "min": 5000,
+        "max": 0
+      }
+    },
+    "GERSU": {
+      "ident": "GERSU",
+      "coordinate_ref": "waypoint:4859.0",
+      "role": "IF",
+      "altitude": {
+        "at": 0,
+        "min": 4800,
+        "max": 0
+      }
+    },
+    "RENIT": {
+      "ident": "RENIT",
+      "coordinate_ref": "waypoint:6860.0",
+      "role": "FAF",
+      "altitude": {
+        "at": 0,
+        "min": 4210,
+        "max": 0
+      }
+    },
+    "ISP01": {
+      "ident": "ISP01",
+      "coordinate_ref": "procedure-point:a808a1198a",
+      "role": "SDF",
+      "altitude": {
+        "at": 0,
+        "min": 3630,
+        "max": 0
+      }
+    },
+    "RW17R": {
+      "ident": "RW17R",
+      "coordinate_ref": "procedure-point:30f1a24572",
+      "role": "MAPT",
+      "altitude": {
+        "at": 2645,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "AKRUB": {
+      "ident": "AKRUB",
+      "coordinate_ref": "waypoint:1230.0",
+      "role": "IAF",
+      "altitude": {
+        "at": 0,
+        "min": 6000,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "tma-sp-stn-apch-1",
+      "from": null,
+      "to": "STN",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": 6000,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "@6000",
+        "valueFt": 6000,
+        "meaning": "at"
+      },
+      "upper_limit": {
+        "raw": "Altitude (FT)",
+        "valueFt": null,
+        "meaning": "published"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": "Description",
+      "vertical_angle": 0,
+      "fix_role": "IAF",
+      "navigation_specification": "Specification",
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-stn-apch-1-2",
+      "from": "STN",
+      "to": "STN01",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 119.45,
+      "course_reference": "MAG",
+      "course_magnetic": 119.45,
+      "course_true": 97.9,
+      "distance_nm": 5.42,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 5700,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+5700",
+        "valueFt": 5700,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "SDF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-stn-apch-1-3",
+      "from": "STN01",
+      "to": "STN02",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 119.45,
+      "course_reference": "MAG",
+      "course_magnetic": 119.45,
+      "course_true": 97.9,
+      "distance_nm": 3.49,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 5000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+5000",
+        "valueFt": 5000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "SDF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-stn-apch-1-4",
+      "from": "STN02",
+      "to": "GERSU",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 119.45,
+      "course_reference": "MAG",
+      "course_magnetic": 119.45,
+      "course_true": 97.9,
+      "distance_nm": 1.5,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 4800,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+4800",
+        "valueFt": 4800,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 160,
+      "speed_interpretation": "-",
+      "vertical_angle": 0,
+      "fix_role": "IF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-stn-final-1",
+      "from": null,
+      "to": "GERSU",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 4800,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+4800",
+        "valueFt": 4800,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 160,
+      "speed_interpretation": "-",
+      "vertical_angle": 0,
+      "fix_role": "IF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-stn-final-1-2",
+      "from": "GERSU",
+      "to": "RENIT",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 169.17,
+      "course_reference": "MAG",
+      "course_magnetic": 169.17,
+      "course_true": 147.48,
+      "distance_nm": 2.69,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 4210,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "R4210",
+        "valueFt": 4210,
+        "meaning": "recommended"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "FAF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-stn-final-1-3",
+      "from": "RENIT",
+      "to": "ISP01",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 169.12,
+      "course_reference": "MAG",
+      "course_magnetic": 169.12,
+      "course_true": 147.44,
+      "distance_nm": 1.8,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 3630,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "R3630",
+        "valueFt": 3630,
+        "meaning": "recommended"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -2.9,
+      "fix_role": "SDF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-stn-final-1-4",
+      "from": "ISP01",
+      "to": "RW17R",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 169.12,
+      "course_reference": "MAG",
+      "course_magnetic": 169.12,
+      "course_true": 147.44,
+      "distance_nm": 3.2,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": 2645,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "@2645",
+        "valueFt": 2645,
+        "meaning": "at"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -2.9,
+      "fix_role": "MAPT",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-akrub-apch-2",
+      "from": null,
+      "to": "AKRUB",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 6000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+6000",
+        "valueFt": 6000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "IAF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-akrub-apch-2-2",
+      "from": "AKRUB",
+      "to": "GERSU",
+      "via": [],
+      "path_terminator": "AF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 4800,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+4800",
+        "valueFt": 4800,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 160,
+      "speed_interpretation": "-",
+      "vertical_angle": 0,
+      "fix_role": "IF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-akrub-final-1",
+      "from": null,
+      "to": "GERSU",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 4800,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "+4800",
+        "valueFt": 4800,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 160,
+      "speed_interpretation": "-",
+      "vertical_angle": 0,
+      "fix_role": "IF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-akrub-final-1-2",
+      "from": "GERSU",
+      "to": "RENIT",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 169.17,
+      "course_reference": "MAG",
+      "course_magnetic": 169.17,
+      "course_true": 147.48,
+      "distance_nm": 2.69,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 4210,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "R4210",
+        "valueFt": 4210,
+        "meaning": "recommended"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "FAF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-akrub-final-1-3",
+      "from": "RENIT",
+      "to": "ISP01",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 169.12,
+      "course_reference": "MAG",
+      "course_magnetic": 169.12,
+      "course_true": 147.44,
+      "distance_nm": 1.8,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 3630,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "R3630",
+        "valueFt": 3630,
+        "meaning": "recommended"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -2.9,
+      "fix_role": "SDF",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    },
+    {
+      "id": "tma-sp-akrub-final-1-4",
+      "from": "ISP01",
+      "to": "RW17R",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 169.12,
+      "course_reference": "MAG",
+      "course_magnetic": 169.12,
+      "course_true": 147.44,
+      "distance_nm": 3.2,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": 2645,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "@2645",
+        "valueFt": 2645,
+        "meaning": "at"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -2.9,
+      "fix_role": "MAPT",
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": 0,
+      "source_page": 1,
+      "source_dataset": "tma-sp"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "tma-sp-stn",
+      "name": "Entrada STN",
+      "kind": "approach",
+      "sequence": [
+        "STN",
+        "STN01",
+        "STN02",
+        "GERSU",
+        "RENIT",
+        "ISP01",
+        "RW17R"
+      ],
+      "source_dataset": "tma-sp",
+      "leg_ids": [
+        "tma-sp-stn-apch-1",
+        "tma-sp-stn-apch-1-2",
+        "tma-sp-stn-apch-1-3",
+        "tma-sp-stn-apch-1-4",
+        "tma-sp-stn-final-1",
+        "tma-sp-stn-final-1-2",
+        "tma-sp-stn-final-1-3",
+        "tma-sp-stn-final-1-4"
+      ]
+    },
+    {
+      "id": "tma-sp-akrub",
+      "name": "Entrada AKRUB",
+      "kind": "approach",
+      "sequence": [
+        "AKRUB",
+        "GERSU",
+        "RENIT",
+        "ISP01",
+        "RW17R"
+      ],
+      "source_dataset": "tma-sp",
+      "leg_ids": [
+        "tma-sp-akrub-apch-2",
+        "tma-sp-akrub-apch-2-2",
+        "tma-sp-akrub-final-1",
+        "tma-sp-akrub-final-1-2",
+        "tma-sp-akrub-final-1-3",
+        "tma-sp-akrub-final-1-4"
+      ]
+    }
+  ],
+  "missed_approach": [
+    {
+      "id": "tma-sp-missed-missed-1",
+      "name": "Aproximacao perdida",
+      "kind": "missed-approach",
+      "sequence": [
+        "RW17R",
+        "AKRUB"
+      ],
+      "legs": [
+        {
+          "id": "tma-sp-missed-missed-1-ma-1",
+          "from": null,
+          "to": "AKRUB",
+          "via": [],
+          "path_terminator": "CF",
+          "course": 339.59,
+          "course_reference": "MAG",
+          "course_magnetic": 339.59,
+          "course_true": 317.91,
+          "distance_nm": 0,
+          "turn": "R",
+          "fly_over": null,
+          "altitude": {
+            "at": null,
+            "min": 6000,
+            "max": null
+          },
+          "lower_limit": {
+            "raw": "+6000",
+            "valueFt": 6000,
+            "meaning": "at-or-above"
+          },
+          "upper_limit": null,
+          "speed_limit_kt": 180,
+          "speed_interpretation": "-",
+          "vertical_angle": 2.89,
+          "fix_role": "MAHF",
+          "navigation_specification": null,
+          "arc_center": null,
+          "arc_radius_nm": 0,
+          "source_page": 1,
+          "source_dataset": "tma-sp"
+        },
+        {
+          "id": "tma-sp-missed-missed-1-ma-1-2",
+          "from": "AKRUB",
+          "to": "AKRUB",
+          "via": [],
+          "path_terminator": "HM",
+          "course": 339.59,
+          "course_reference": "MAG",
+          "course_magnetic": 339.59,
+          "course_true": 317.91,
+          "distance_nm": 1,
+          "turn": "L",
+          "fly_over": null,
+          "altitude": {
+            "at": null,
+            "min": 6000,
+            "max": null
+          },
+          "lower_limit": {
+            "raw": "+6000",
+            "valueFt": 6000,
+            "meaning": "at-or-above"
+          },
+          "upper_limit": null,
+          "speed_limit_kt": 180,
+          "speed_interpretation": "-",
+          "vertical_angle": 0,
+          "fix_role": "MAHF",
+          "navigation_specification": null,
+          "arc_center": null,
+          "arc_radius_nm": 0,
+          "source_page": 1,
+          "source_dataset": "tma-sp"
+        }
+      ],
+      "published_text": null,
+      "note": null,
+      "source_dataset": "tma-sp"
+    }
+  ],
+  "warnings": [
+    "* Fictitious point: only for coding purposes.",
+    "FICTITIOUS THRESHOLD"
+  ]
+}

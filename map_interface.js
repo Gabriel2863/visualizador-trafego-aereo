@@ -4,14 +4,16 @@ const darkMatter = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{
 const openStreetMap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap contributors' });
 const aerodromesGroup = L.layerGroup().addTo(map), navaidsGroup = L.layerGroup().addTo(map), allFixesGroup = L.layerGroup(), testAreasGroup = L.layerGroup(), measurementVectorsGroup = L.layerGroup().addTo(map), waypointSelectionsGroup = L.layerGroup().addTo(map), proceduresGroup = L.layerGroup().addTo(map), operationalLayoutGroup = L.featureGroup().addTo(map), tmaGroup = L.layerGroup().addTo(map), routesGroup = L.layerGroup().addTo(map);
 const activeMarkers = {}, selectedWaypointMarkers = new Map();
-let aeronauticalData = { aerodromes: [], navaids: [], fixes: [], tmas: [] }, nationalAerodromes = [], nationalProcedures = [], nationalProcedurePoints = {}, waypointFeatures = [], searchEntries = [], procedures = [], procedureModules = [], tmaBoundaries = [], testAreas = [];
+let aeronauticalData = { aerodromes: [], navaids: [], fixes: [], tmas: [] }, nationalAerodromes = [], waypointFeatures = [], searchEntries = [], procedures = [], procedureModules = [], procedureCatalog = { tmas: [] }, tmaBoundaries = [], testAreas = [];
 const procedurePointIndex = new Map();
 const procedurePointCandidates = new Map();
+const procedurePointById = new Map();
 const activeProcedures = new Map();
 const measurementVectors = new Map();
+const tmaArchitectureCache = new Map(), airportIndexCache = new Map(), procedureIndexCache = new Map(), procedureDataCache = new Map();
 const nationalPointRenderer = L.canvas({ padding: 0.5 });
 let allFixesRendered = false, pointerLatLng = null, draftVector = null, selectedVectorId = null, nextVectorId = 1;
-let tmaFocusRecords = [], operationalCatalog = [], dominantTmaRecord = null, activeOperationalFamily = '', activeOperationalModule = null, manualOperationalFamily = '', layoutLabelsPermanent = false, cafeEasterEggTimer = null;
+let tmaFocusRecords = [], operationalCatalog = [], dominantTmaRecord = null, activeOperationalFamily = '', activeOperationalModule = null, manualOperationalFamily = '', layoutLabelsPermanent = false, cafeEasterEggTimer = null, operationalRenderToken = 0;
 const operationalRunways = {};
 const operationalColors = { SID: '#ffb347', STAR: '#75e36d', ILS: '#39c8ff', RNP: '#b388ff' };
 const esc = value => String(value ?? '').replace(/[&<>'"]/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[char]));
@@ -19,22 +21,19 @@ const icon = (id, selected = false) => L.divIcon({ className: 'custom-icon fix-i
 const aerodromeIcon = id => L.divIcon({ className: 'custom-icon aerodrome-icon', html: `<div class="aerodrome-symbol"><span>✈</span></div><span class="icon-label aerodrome-label">${esc(id)}</span>`, iconSize: [30, 30], iconAnchor: [15, 15] });
 const moduleAerodromes = () => procedureModules.flatMap(module => module.aerodromes || []);
 
-Promise.all([fetch('aeronautical_data.json').then(r => r.ok ? r.json() : Promise.reject(Error('aeronautical_data.json indisponível'))), fetch('data/waypoints.json').then(r => r.ok ? r.json() : Promise.reject(Error('data/waypoints.json indisponível — execute scripts/import-waypoints.py'))), fetch('data/tmas/manifest.json').then(r => r.ok ? r.json() : Promise.reject(Error('data/tmas/manifest.json indisponível'))), fetch('data/tmas/brazil-tmas-aixm.json').then(r => r.ok ? r.json() : Promise.reject(Error('base AIXM nacional de TMA indisponível'))), fetch('data/tmas/brazil-aerodromes-aixm.json').then(r => r.ok ? r.json() : Promise.reject(Error('base AIXM nacional de aeródromos indisponível'))), fetch('data/tmas/brazil-procedures-aixm.json').then(r => r.ok ? r.json() : Promise.reject(Error('base AIXM nacional de procedimentos indisponível'))), fetch('data/areas-ensaio.json').then(r => r.ok ? r.json() : Promise.reject(Error('data/areas-ensaio.json indisponível')))])
-    .then(async ([base, waypoints, moduleManifest, tmaData, nationalAerodromeData, nationalProcedureData, testAreaData]) => {
+Promise.all([fetch('aeronautical_data.json').then(r => r.ok ? r.json() : Promise.reject(Error('aeronautical_data.json indisponível'))), fetch('data/waypoints.json').then(r => r.ok ? r.json() : Promise.reject(Error('data/waypoints.json indisponível — execute scripts/import-waypoints.py'))), fetch('data/tmas/manifest.json').then(r => r.ok ? r.json() : Promise.reject(Error('data/tmas/manifest.json indisponível'))), fetch('data/tmas/catalog.json').then(r => r.ok ? r.json() : Promise.reject(Error('data/tmas/catalog.json indisponível — execute npm run migrate:data'))), fetch('data/tmas/brazil-tmas-aixm.json').then(r => r.ok ? r.json() : Promise.reject(Error('base AIXM nacional de TMA indisponível'))), fetch('data/tmas/brazil-aerodromes-aixm.json').then(r => r.ok ? r.json() : Promise.reject(Error('base AIXM nacional de aeródromos indisponível'))), fetch('data/areas-ensaio.json').then(r => r.ok ? r.json() : Promise.reject(Error('data/areas-ensaio.json indisponível')))])
+    .then(async ([base, waypoints, moduleManifest, architectureCatalog, tmaData, nationalAerodromeData, testAreaData]) => {
         aeronauticalData = base;
         nationalAerodromes = nationalAerodromeData.aerodromes || [];
-        nationalProcedures = nationalProcedureData.procedures || [];
-        nationalProcedurePoints = nationalProcedureData.publishedPoints || {};
         waypointFeatures = waypoints.features || [];
+        procedureCatalog = architectureCatalog;
         procedureModules = await Promise.all((moduleManifest.modules || []).filter(item => item.enabled !== false).map(async item => {
-            const [response, aerodromeResponse, boundaryResponse] = await Promise.all([fetch(item.file), item.aerodromesFile ? fetch(item.aerodromesFile) : Promise.resolve(null), item.boundariesFile ? fetch(item.boundariesFile) : Promise.resolve(null)]);
-            if (!response.ok) throw Error(`${item.file} indisponível`);
+            const [aerodromeResponse, boundaryResponse] = await Promise.all([item.aerodromesFile ? fetch(item.aerodromesFile) : Promise.resolve(null), item.boundariesFile ? fetch(item.boundariesFile) : Promise.resolve(null)]);
             if (aerodromeResponse && !aerodromeResponse.ok) throw Error(`${item.aerodromesFile} indisponível`);
             if (boundaryResponse && !boundaryResponse.ok) throw Error(`${item.boundariesFile} indisponível`);
-            const [module, aerodromeData, boundaryData] = await Promise.all([response.json(), aerodromeResponse ? aerodromeResponse.json() : Promise.resolve({ aerodromes: [] }), boundaryResponse ? boundaryResponse.json() : Promise.resolve(null)]);
-            return { ...module, aerodromes: aerodromeData.aerodromes || module.aerodromes || [], boundaries: boundaryData ? tmaSectorFeatures(boundaryData, item.id) : [], operational: item.operational || module.operational || {}, manifestName: item.name, manifestFile: item.file, aerodromesFile: item.aerodromesFile, boundariesFile: item.boundariesFile };
+            const [aerodromeData, boundaryData] = await Promise.all([aerodromeResponse ? aerodromeResponse.json() : Promise.resolve({ aerodromes: [] }), boundaryResponse ? boundaryResponse.json() : Promise.resolve(null)]);
+            return { id: item.id, name: item.name, aerodromes: aerodromeData.aerodromes || [], boundaries: boundaryData ? tmaSectorFeatures(boundaryData, item.id) : [], operational: item.operational || {}, manifestName: item.name, manifestFile: item.file, aerodromesFile: item.aerodromesFile, boundariesFile: item.boundariesFile };
         }));
-        procedures = procedureModules.flatMap(module => (module.procedures || []).map(procedure => ({ ...procedure, tmaId: module.id })));
         const moduleBoundaries = procedureModules.flatMap(module => module.boundaries || []);
         tmaBoundaries = mergeOperationalTmaMetadata(tmaData.features || [], moduleBoundaries);
         testAreas = testAreaData.areas || [];
@@ -46,13 +45,14 @@ Promise.all([fetch('aeronautical_data.json').then(r => r.ok ? r.json() : Promise
         setupProcedureControls();
         setupMeasurementVectors();
         setupTmaFocusPanel();
-        console.info(`Base operacional do Brasil carregada: ${waypointFeatures.length} pontos, ${aerodromesGroup.getLayers().length} aeródromos AIXM, ${tmaBoundaries.length} setores TMA e ${nationalProcedures.length + procedures.length} procedimentos estruturados.`);
+        console.info(`Base operacional do Brasil carregada: ${waypointFeatures.length} pontos, ${aerodromesGroup.getLayers().length} aeródromos AIXM, ${tmaBoundaries.length} setores TMA e ${procedureCatalog.tmas.reduce((total, item) => total + (item.procedureCount || 0), 0)} procedimentos disponíveis sob demanda.`);
     })
     .catch(error => { console.error(error); document.getElementById('details-content').innerHTML = `<div class="panel-placeholder"><p>Não foi possível carregar a base: ${esc(error.message)}</p></div>`; });
 
 function buildProcedurePointIndex() {
     procedurePointIndex.clear();
     procedurePointCandidates.clear();
+    procedurePointById.clear();
     waypointFeatures.forEach(feature => addProcedurePointCandidate(feature, 0));
     [...(aeronauticalData.aerodromes || []), ...nationalAerodromes, ...(aeronauticalData.navaids || []), ...(aeronauticalData.fixes || [])].forEach(point => {
         if (!point.id || !Number.isFinite(point.lat) || !Number.isFinite(point.lon)) return;
@@ -76,29 +76,6 @@ function buildProcedurePointIndex() {
             }, 10);
         });
     });
-    procedureModules.forEach(module => Object.values(module.terminalPoints || {}).forEach(point => {
-        const ident = String(point.ident).toUpperCase();
-        addProcedurePointCandidate({
-            type: 'Feature',
-            id: `terminal:${module.id}:${ident}`,
-            geometry: { type: 'Point', coordinates: [point.longitude, point.latitude] },
-            properties: {
-                ident,
-                latitude: point.latitude,
-                longitude: point.longitude,
-                latitude_gms: point.published,
-                longitude_gms: '',
-                tipo: 'Ponto terminal publicado',
-                source: point.source
-            }
-        }, 20);
-    }));
-    Object.entries(nationalProcedurePoints).forEach(([ident, records]) => {
-        (Array.isArray(records) ? records : [records]).forEach(point => {
-            if (!Number.isFinite(point.latitude) || !Number.isFinite(point.longitude)) return;
-            addProcedurePointCandidate(procedurePointFeature(ident, point), 30);
-        });
-    });
 }
 
 function addProcedurePointCandidate(feature, priority) {
@@ -106,18 +83,9 @@ function addProcedurePointCandidate(feature, priority) {
     if (!ident || !Number.isFinite(feature.properties?.latitude) || !Number.isFinite(feature.properties?.longitude)) return;
     if (!procedurePointCandidates.has(ident)) procedurePointCandidates.set(ident, []);
     procedurePointCandidates.get(ident).push({ feature, priority });
+    if (feature.id) procedurePointById.set(feature.id, feature);
     const current = procedurePointIndex.get(ident);
     if (!current || priority < current.priority) procedurePointIndex.set(ident, { feature, priority });
-}
-
-function procedurePointFeature(ident, point) {
-    const normalizedIdent = String(ident || point.ident || '').toUpperCase();
-    return {
-        type: 'Feature',
-        id: `aixm-procedure:${point.pointRef || normalizedIdent}`,
-        geometry: { type: 'Point', coordinates: [point.longitude, point.latitude] },
-        properties: { ident: normalizedIdent, latitude: point.latitude, longitude: point.longitude, tipo: 'Ponto de procedimento AIXM', source: point.source, pointRef: point.pointRef }
-    };
 }
 
 function renderBaseData() {
@@ -172,7 +140,7 @@ function renderBaseData() {
 
 function ensureAllFixesRendered() {
     if (allFixesRendered) return;
-    waypointFeatures.filter(feature => String(feature.properties.tipo).toUpperCase() !== 'OTHER:ADHP').forEach(feature => {
+    waypointFeatures.filter(feature => String(feature.properties.tipo).toUpperCase() !== 'OTHER:ADHP' && !feature.properties.hidden_on_map).forEach(feature => {
         const point = feature.properties;
         if (!Number.isFinite(point.latitude) || !Number.isFinite(point.longitude)) return;
         L.circleMarker([point.latitude, point.longitude], { renderer: nationalPointRenderer, radius: 2.5, color: '#00e5ff', weight: 1, fillColor: '#00e5ff', fillOpacity: .7 })
@@ -368,7 +336,7 @@ function buildSearchIndex() {
         knownAerodromeCodes.add(ident);
         base.push({ key: `aerodrome:${ident}`, ident, type: item.type || 'Aeródromo AIXM', lat: item.lat, lon: item.lon, gms: '', item, category: 'aerodrome' });
     });
-    waypointFeatures.forEach(feature => { const p = feature.properties; base.push({ key: feature.id, ident: String(p.ident), type: String(p.tipo ?? ''), lat: p.latitude, lon: p.longitude, gms: `${p.latitude_gms ?? ''} ${p.longitude_gms ?? ''}`.trim(), item: feature, category: 'waypoint' }); });
+    waypointFeatures.filter(feature => !feature.properties.hidden_on_map).forEach(feature => { const p = feature.properties; base.push({ key: feature.id, ident: String(p.ident), type: String(p.tipo ?? ''), lat: p.latitude, lon: p.longitude, gms: `${p.latitude_gms ?? ''} ${p.longitude_gms ?? ''}`.trim(), item: feature, category: 'waypoint' }); });
     searchEntries = base.sort((a, b) => a.ident.localeCompare(b.ident));
 }
 function setupSearch() {
@@ -473,6 +441,90 @@ function moduleForOperationalFamily(family) {
     const key = normalizedOperationalName(family);
     return procedureModules.find(module => normalizedOperationalName(module.operational?.family || module.manifestName || module.name) === key) || null;
 }
+function architectureForFamily(family) {
+    const key = normalizedOperationalName(family);
+    return (procedureCatalog.tmas || []).find(item => !item.technicalGroup && normalizedOperationalName(item.name) === key) || null;
+}
+async function fetchJson(file, label = file) {
+    const response = await fetch(file, { cache: 'no-cache' });
+    if (!response.ok) throw Error(`${label} indisponível`);
+    return response.json();
+}
+async function loadTmaArchitecture(entry) {
+    if (!entry) return null;
+    if (!tmaArchitectureCache.has(entry.file)) tmaArchitectureCache.set(entry.file, fetchJson(entry.file, `TMA ${entry.name}`));
+    return tmaArchitectureCache.get(entry.file);
+}
+async function loadAirportIndex(entry) {
+    const tma = await loadTmaArchitecture(entry);
+    if (!tma) return { airports: [] };
+    if (!airportIndexCache.has(tma.airportsIndex)) airportIndexCache.set(tma.airportsIndex, fetchJson(tma.airportsIndex, `aeródromos de ${tma.name}`));
+    return airportIndexCache.get(tma.airportsIndex);
+}
+async function loadProcedureIndex(airportEntry) {
+    if (!airportEntry?.proceduresIndex) return { types: { SID: [], STAR: [], IAC: [] } };
+    if (!procedureIndexCache.has(airportEntry.proceduresIndex)) procedureIndexCache.set(airportEntry.proceduresIndex, fetchJson(airportEntry.proceduresIndex, `procedimentos de ${airportEntry.icao}`));
+    return procedureIndexCache.get(airportEntry.proceduresIndex);
+}
+function hydrateProcedure(document, catalogEntry, tmaId) {
+    const metadata = document.procedure || {}, legById = new Map((document.legs || []).map(leg => [leg.id, leg]));
+    const source = metadata.source || {};
+    const segment = leg => ({
+        id: leg.id,
+        origin: leg.from,
+        destination: leg.to,
+        via: leg.via || [],
+        pathTerminator: leg.path_terminator,
+        course: { magnetic: leg.course_magnetic, true: leg.course_true },
+        distanceNm: leg.distance_nm,
+        turn: leg.turn,
+        flyOver: leg.fly_over,
+        lowerLimitAltitude: leg.lower_limit,
+        upperLimitAltitude: leg.upper_limit,
+        speedLimitKt: leg.speed_limit_kt,
+        speedLimitDescription: leg.speed_interpretation,
+        verticalAngle: leg.vertical_angle,
+        fixRole: leg.fix_role,
+        navigationSpecification: leg.navigation_specification,
+        arcCenterFix: leg.arc_center,
+        arcRadiusNm: leg.arc_radius_nm,
+        sourcePage: leg.source_page,
+    });
+    const procedure = {
+        id: metadata.id,
+        name: metadata.name,
+        type: metadata.type,
+        airport: metadata.airport,
+        runways: metadata.runways || (metadata.runway ? [metadata.runway] : []),
+        modes: metadata.modes || [],
+        status: metadata.status,
+        source: { authority: source.authority, chartCode: source.chart_code, amendment: source.amendment, effectiveDate: source.effective_date, document: source.document, page: source.page },
+        sourceHistory: metadata.source_history || [],
+        points: document.points || {},
+        warnings: document.warnings || [],
+        tmaId,
+        catalogFile: catalogEntry.file,
+    };
+    procedure.transitions = (document.transitions || []).map(route => ({ ...route, segments: (route.leg_ids || []).map(id => legById.get(id)).filter(Boolean).map(segment) }));
+    procedure.missedApproach = (document.missed_approach || []).map(route => ({ ...route, segments: (route.legs || []).map(segment) }));
+    return procedure;
+}
+async function loadProcedureData(catalogEntry, tmaId) {
+    if (!catalogEntry?.file) return null;
+    if (!procedureDataCache.has(catalogEntry.file)) {
+        procedureDataCache.set(catalogEntry.file, fetchJson(catalogEntry.file, catalogEntry.name).then(document => {
+            const procedure = hydrateProcedure(document, catalogEntry, tmaId);
+            procedures.push(procedure);
+            return procedure;
+        }));
+    }
+    return procedureDataCache.get(catalogEntry.file);
+}
+async function loadTmaProcedureEntries(architecture) {
+    const airportIndex = await loadAirportIndex(architecture);
+    const indexes = await Promise.all((airportIndex.airports || []).map(async airport => ({ airport, index: await loadProcedureIndex(airport) })));
+    return indexes.flatMap(({ airport, index }) => ['SID', 'STAR', 'IAC'].flatMap(type => (index.types?.[type] || []).map(item => ({ ...item, airport: airport.icao, type, tmaId: architecture.id }))));
+}
 function knownOperationalAerodromes() {
     const unique = new Map();
     [...nationalAerodromes, ...(aeronauticalData.aerodromes || []), ...moduleAerodromes()].forEach(item => {
@@ -493,11 +545,12 @@ function buildOperationalCatalog() {
     const aerodromes = knownOperationalAerodromes();
     families.forEach(entry => {
         entry.module = moduleForOperationalFamily(entry.family);
+        entry.architecture = architectureForFamily(entry.family);
         const moduleIds = new Set((entry.module?.aerodromes || []).map(item => String(item.id || '').toUpperCase()));
         entry.aerodromes = aerodromes.filter(item => moduleIds.has(item.id) || entry.records.some(record => record.bounds.contains([item.lat, item.lon]) && pointInFeature(item.lat, item.lon, record.feature)));
-        const airportIds = new Set(entry.aerodromes.map(item => item.id));
-        entry.procedures = entry.module ? procedures.filter(procedure => procedure.tmaId === entry.module.id) : nationalProcedures.filter(procedure => airportIds.has(procedure.airport));
-        entry.procedureCount = entry.procedures.length;
+        entry.procedureEntries = [];
+        entry.procedures = [];
+        entry.procedureCount = entry.architecture?.procedureCount || 0;
         entry.status = entry.procedureCount ? 'structured' : 'context';
     });
     operationalCatalog = [...families.values()].sort((first, second) => first.family.localeCompare(second.family, 'pt-BR'));
@@ -508,7 +561,7 @@ function runwayFamily(value) {
 }
 function runwayOptionsForAirport(airport, entry) {
     const values = new Set();
-    (entry?.procedures || []).filter(procedure => procedure.airport === airport.id).forEach(procedure => (procedure.runways || [procedure.runway]).filter(Boolean).forEach(runway => values.add(runwayFamily(runway))));
+    (entry?.procedureEntries || []).filter(procedure => procedure.airport === airport.id).forEach(procedure => (procedure.runways || [procedure.runway]).filter(Boolean).forEach(runway => values.add(runwayFamily(runway))));
     (airport.runways || []).forEach(pair => String(pair).split('/').forEach(runway => values.add(runwayFamily(runway))));
     return [...values].filter(Boolean).sort();
 }
@@ -521,12 +574,25 @@ function operationalAirportsForEntry(entry) {
     const byId = new Map([...(entry.module.aerodromes || []), ...(entry.aerodromes || [])].map(item => [String(item.id || item.icao).toUpperCase(), { ...item, id: String(item.id || item.icao).toUpperCase() }]));
     return primary.map(id => byId.get(String(id).toUpperCase())).filter(Boolean);
 }
-function configureOperationalTma(family) {
+async function configureOperationalTma(family) {
     const entry = operationalCatalog.find(item => item.family === family);
     if (!entry) return;
     const changed = activeOperationalFamily !== entry.family;
     activeOperationalFamily = entry.family;
     activeOperationalModule = entry.module;
+    if (entry.architecture && !entry.procedureEntriesLoaded) {
+        document.getElementById('operational-layout-status').textContent = `Carregando índice IFR de ${entry.family}…`;
+        try {
+            entry.procedureEntries = await loadTmaProcedureEntries(entry.architecture);
+            entry.procedureEntriesLoaded = true;
+        } catch (error) {
+            console.error(error);
+            entry.procedureEntries = [];
+            entry.procedureEntriesLoaded = false;
+            document.getElementById('operational-layout-status').textContent = `Não foi possível carregar o índice IFR: ${error.message}`;
+        }
+        if (activeOperationalFamily !== entry.family) return;
+    }
     const select = document.getElementById('operational-tma-select'), title = document.getElementById('operational-layout-title'), badge = document.getElementById('operational-coverage-badge'), summary = document.getElementById('operational-coverage-summary'), grid = document.getElementById('operational-runway-grid'), typeRow = document.getElementById('operational-type-row'), toggleLabel = document.getElementById('operational-layout-toggle-label'), presetsPanel = document.getElementById('operational-layout-presets-panel'), presets = document.getElementById('operational-layout-presets'), source = document.getElementById('operational-layout-source');
     if (select) select.value = entry.family;
     title.textContent = entry.family;
@@ -567,7 +633,7 @@ function configureOperationalTma(family) {
         };
         return button;
     }));
-    source.textContent = entry.module?.operational?.sourceNote || (entry.procedureCount ? 'Trajetórias e restrições extraídas das pernas codificadas no pacote AIXM oficial AMDT 2608A1. Consulte cartas, AIP e NOTAM vigentes para uso real.' : 'Contexto baseado nos limites de TMA e aeródromos disponíveis no projeto. Nenhuma trajetória IFR é inferida sem tabela de codificação estruturada.');
+    source.textContent = entry.module?.operational?.sourceNote || (entry.procedureCount ? 'Procedimentos carregados sob demanda da arquitetura modular; todas as coordenadas são resolvidas pela base global de waypoints. Consulte cartas, AIP e NOTAM vigentes para uso real.' : 'Contexto baseado nos limites de TMA e aeródromos disponíveis no projeto. Nenhuma trajetória IFR é inferida sem tabela de codificação estruturada.');
     if (changed) {
         const enabled = document.getElementById('operational-layout-enabled');
         if (enabled.checked) renderOperationalLayout();
@@ -631,7 +697,7 @@ function updateDominantTma() {
     limits.textContent = `${properties.lower_limit || 'N/I'} / ${properties.upper_limit || 'N/I'}`;
     airspaceClass.textContent = properties.airspace_class || 'N/I';
     presence.textContent = `${percentage < 1 ? '<1' : Math.round(percentage)}%`;
-    const geometryText = circular ? `Setor circular com raio publicado de ${properties.radius_nm} NM.` : `Setor poligonal com ${Math.max(0, vertices - 1)} lados/pontos de contorno.`, primary = properties.frequencies?.primary?.join(', '), secondary = properties.frequencies?.secondary?.join(', '), frequencyInfo = primary ? `<p><strong>Frequência:</strong> PRI ${esc(primary)}${secondary ? ` · SRY ${esc(secondary)}` : ''} · EMERG ${esc(properties.frequencies.emergency || '121.500 MHz')}.</p>` : '', airportCodes = (entry?.aerodromes || []).map(item => item.id).join(', '), coverageInfo = module ? `<p><strong>Mapa IFR:</strong> ${module.procedures.length} carta(s) estruturada(s), com trajetórias e restrições associadas aos FIX.</p>` : '<p><strong>Mapa IFR:</strong> cartas ainda não estruturadas para esta terminal; o sistema exibe apenas o contexto nacional confirmado.</p>';
+    const geometryText = circular ? `Setor circular com raio publicado de ${properties.radius_nm} NM.` : `Setor poligonal com ${Math.max(0, vertices - 1)} lados/pontos de contorno.`, primary = properties.frequencies?.primary?.join(', '), secondary = properties.frequencies?.secondary?.join(', '), frequencyInfo = primary ? `<p><strong>Frequência:</strong> PRI ${esc(primary)}${secondary ? ` · SRY ${esc(secondary)}` : ''} · EMERG ${esc(properties.frequencies.emergency || '121.500 MHz')}.</p>` : '', airportCodes = (entry?.aerodromes || []).map(item => item.id).join(', '), coverageInfo = entry?.procedureCount ? `<p><strong>Mapa IFR:</strong> ${entry.procedureCount} carta(s) disponíveis sob demanda, com trajetórias e restrições associadas aos FIX.</p>` : '<p><strong>Mapa IFR:</strong> cartas ainda não estruturadas para esta terminal; o sistema exibe apenas o contexto nacional confirmado.</p>';
     details.innerHTML = `<p><strong>Tipo:</strong> ${esc(properties.type || 'TMA')} · ${esc(geometryText)}</p><p><strong>Cobertura local:</strong> ${visibleFamilyRecords.length} de ${familyRecords.length} setor(es) aparecem na janela.</p>${frequencyInfo}${airportCodes ? `<p><strong>Aeródromos na base:</strong> ${esc(airportCodes)}.</p>` : '<p><strong>Aeródromos na base:</strong> nenhum ponto associado a este polígono.</p>'}${coverageInfo}<p><strong>Segurança:</strong> consulte a publicação aeronáutica vigente antes de qualquer uso real.</p>`;
     configureOperationalTma(record.family);
 }
@@ -686,6 +752,7 @@ function updateOperationalControls() {
     document.querySelectorAll('#operational-layout-presets button').forEach(button => button.classList.toggle('is-active', button.dataset.config === code.replaceAll('–', '-')));
 }
 function clearOperationalLayout(message, removeLayer = true) {
+    operationalRenderToken += 1;
     operationalLayoutGroup.clearLayers();
     if (removeLayer && map.hasLayer(operationalLayoutGroup)) map.removeLayer(operationalLayoutGroup);
     document.getElementById('operational-layout-fit').disabled = !activeOperationalFamily;
@@ -701,7 +768,7 @@ function renderOperationalContext(entry) {
             .addTo(operationalLayoutGroup);
     });
 }
-function renderOperationalLayout() {
+async function renderOperationalLayout() {
     updateOperationalControls();
     const enabled = document.getElementById('operational-layout-enabled'), entry = operationalCatalog.find(item => item.family === activeOperationalFamily);
     if (!entry) return clearOperationalLayout('Selecione uma terminal brasileira para abrir seu contexto.');
@@ -715,37 +782,65 @@ function renderOperationalLayout() {
         document.getElementById('operational-layout-status').textContent = `${entry.family} · ${entry.records.length} setor(es) · ${entry.aerodromes.length} aeródromo(s). Cartas IFR ainda não estruturadas; nenhuma rota foi inferida.`;
         return;
     }
-    const types = selectedOperationalTypes(), matchedProcedures = entry.procedures.filter(procedure => procedureMatchesOperationalConfig(procedure, types)), segmentKeys = new Set(), pointData = new Map();
-    const pointRecord = (ident, category) => { if (!pointData.has(ident)) pointData.set(ident, { categories: new Set(), restrictions: new Map() }); const record = pointData.get(ident); record.categories.add(category); return record; };
+    if (!entry.procedureEntriesLoaded && entry.architecture) {
+        document.getElementById('operational-layout-status').textContent = `Carregando índice IFR de ${entry.family}…`;
+        try {
+            entry.procedureEntries = await loadTmaProcedureEntries(entry.architecture);
+            entry.procedureEntriesLoaded = true;
+        } catch (error) {
+            console.error(error);
+            return void (document.getElementById('operational-layout-status').textContent = `Falha ao carregar o índice IFR: ${error.message}`);
+        }
+    }
+    const types = selectedOperationalTypes(), selectedEntries = entry.procedureEntries.filter(procedure => procedureMatchesOperationalConfig(procedure, types)), token = ++operationalRenderToken;
+    document.getElementById('operational-layout-status').textContent = `Carregando ${selectedEntries.length} carta(s) de ${entry.family} sob demanda…`;
+    let matchedProcedures;
+    try {
+        matchedProcedures = (await Promise.all(selectedEntries.map(item => loadProcedureData(item, entry.architecture?.id)))).filter(Boolean);
+    } catch (error) {
+        console.error(error);
+        return void (document.getElementById('operational-layout-status').textContent = `Falha ao carregar cartas IFR: ${error.message}`);
+    }
+    if (token !== operationalRenderToken || !enabled.checked || activeOperationalFamily !== entry.family) return;
+    operationalLayoutGroup.clearLayers();
+    renderOperationalContext(entry);
+    const segmentKeys = new Set(), pointData = new Map();
+    const pointRecord = (point, ident, category) => {
+        if (!pointData.has(point.id)) pointData.set(point.id, { point, ident, categories: new Set(), restrictions: new Map() });
+        const record = pointData.get(point.id); record.categories.add(category); return record;
+    };
     let routeCount = 0, segmentCount = 0;
     matchedProcedures.forEach(procedure => (procedure.transitions || []).forEach(transition => {
         const category = operationalCategory(procedure);
         routeCount += 1;
-        (transition.sequence || []).forEach(ident => pointRecord(ident, category));
+        (transition.sequence || []).forEach(key => {
+            const point = waypointForProcedure(key, procedure.points?.[key]);
+            if (point) pointRecord(point, procedurePointLabel(procedure, key), category);
+        });
         (transition.segments || []).forEach(segment => {
             if (segment.destination) {
-                const restriction = segmentRestriction(segment), record = pointRecord(segment.destination, category);
-                if (restriction !== 'Sem restrição adicional publicada') record.restrictions.set(`${procedure.id}|${restriction}`, { text: restriction, procedure, transition });
+                const point = waypointForProcedure(segment.destination, procedure.points?.[segment.destination]);
+                if (point) {
+                    const restriction = segmentRestriction(segment), record = pointRecord(point, procedurePointLabel(procedure, segment.destination), category);
+                    if (restriction !== 'Sem restrição adicional publicada') record.restrictions.set(`${procedure.id}|${restriction}`, { text: restriction, procedure, transition });
+                }
             }
-            const hasPublishedGeometry = segment.geometry?.length > 1;
-            if (!segment.destination || (!segment.origin && !hasPublishedGeometry)) return;
-            const origin = waypointForProcedure(segment.origin, segment.originPoint), destination = waypointForProcedure(segment.destination, segment.destinationPoint);
-            if (!hasPublishedGeometry && (!origin || !destination)) return;
-            const key = [procedure.type, segment.origin, segment.destination, segment.pathTerminator, segment.arcCenterFix, segment.turn].join('|');
+            const origin = waypointForProcedure(segment.origin, procedure.points?.[segment.origin]), destination = waypointForProcedure(segment.destination, procedure.points?.[segment.destination]);
+            const geometry = segmentLatLngs(segment, origin, destination, procedure);
+            if (geometry.length < 2) return;
+            const key = [procedure.type, origin?.id, destination?.id, segment.pathTerminator, segment.arcCenterFix, segment.turn, ...(segment.via || [])].join('|');
             if (segmentKeys.has(key)) return;
             segmentKeys.add(key);
             segmentCount += 1;
-            const geometry = hasPublishedGeometry ? segment.geometry : segmentLatLngs(segment, origin, destination);
             L.polyline(geometry, { color: operationalColors[category], weight: ['ILS', 'RNP'].includes(category) ? 2.6 : 2.1, opacity: .82, dashArray: category === 'SID' ? '8 5' : category === 'RNP' ? '10 3 2 3' : category === 'ILS' ? '3 4' : null, interactive: true })
-                .bindTooltip(`${category} · ${procedure.airport} · ${procedure.name}<br>${segment.origin} → ${segment.destination}<br>${esc(segmentRestriction(segment))}`)
+                .bindTooltip(`${category} · ${procedure.airport} · ${procedure.name}<br>${procedurePointLabel(procedure, segment.origin)} → ${procedurePointLabel(procedure, segment.destination)}<br>${esc(segmentRestriction(segment))}`)
                 .on('click', () => showSegmentDetails(segment, procedure, transition))
                 .addTo(operationalLayoutGroup);
         });
     }));
     let restrictedFixes = 0;
-    pointData.forEach((record, ident) => {
-        const point = waypointForProcedure(ident);
-        if (!point) return;
+    pointData.forEach(record => {
+        const point = record.point, ident = record.ident;
         const category = [...record.categories][0], restrictions = [...new Set([...record.restrictions.values()].map(item => item.text))];
         if (restrictions.length) restrictedFixes += 1;
         const restrictionLabel = restrictions.length ? `<span class="layout-fix-restriction">${esc(restrictions.slice(0, 2).join(' / '))}${restrictions.length > 2 ? ` +${restrictions.length - 2}` : ''}</span>` : '';
@@ -760,57 +855,95 @@ function renderOperationalLayout() {
 }
 function setupProcedureControls() {
     const tma = document.getElementById('procedure-tma'), airport = document.getElementById('procedure-airport'), type = document.getElementById('procedure-type'), procedure = document.getElementById('procedure-select'), transition = document.getElementById('procedure-transition'), missedOption = document.getElementById('include-missed-approach'), addButton = document.getElementById('add-procedure');
-    tma.replaceChildren(...procedureModules.map(module => new Option(module.manifestName || module.name, module.id)));
-    const refreshTransition = () => {
-        const selected = procedures.find(item => item.id === procedure.value);
-        const options = selected?.transitions || [];
-        transition.replaceChildren(...(options.length ? options.map(item => new Option(item.name, item.id)) : [new Option('Sem trajetória codificada', '')]));
-        transition.disabled = !options.length;
-        missedOption.closest('label').hidden = selected?.type !== 'IAC';
-        addButton.disabled = !selected;
-        addButton.textContent = options.length ? 'Adicionar procedimento' : 'Consultar procedimento';
-        if (selected) showProcedureSummary(selected);
+    let airportEntries = [], procedureEntries = [], selectedProcedure = null, refreshToken = 0;
+    const tmaEntries = (procedureCatalog.tmas || []).filter(item => item.selectable !== false && item.airportCount > 0);
+    tma.replaceChildren(...tmaEntries.map(item => new Option(`${item.name}${item.technicalGroup ? ' · grupo técnico' : ''} (${item.procedureCount} cartas)`, item.id)));
+    const showSelectMessage = (select, message) => { select.replaceChildren(new Option(message, '')); select.disabled = true; };
+    const refreshTransition = async () => {
+        const token = ++refreshToken, entry = procedureEntries.find(item => item.file === procedure.value);
+        selectedProcedure = null;
+        showSelectMessage(transition, entry ? 'Carregando trajetórias…' : 'Sem procedimento selecionado');
+        addButton.disabled = true;
+        if (!entry) return;
+        try {
+            const loaded = await loadProcedureData(entry, tma.value);
+            if (token !== refreshToken) return;
+            selectedProcedure = loaded;
+            const options = loaded.transitions || [];
+            transition.replaceChildren(...(options.length ? options.map(item => new Option(item.name, item.id)) : [new Option('Sem trajetória codificada', '')]));
+            transition.disabled = !options.length;
+            missedOption.closest('label').hidden = loaded.type !== 'IAC';
+            addButton.disabled = false;
+            addButton.textContent = options.length ? 'Adicionar procedimento' : 'Consultar procedimento';
+            showProcedureSummary(loaded);
+        } catch (error) {
+            console.error(error);
+            showSelectMessage(transition, 'Falha ao carregar procedimento');
+        }
     };
-    const refreshProcedures = () => {
-        const options = procedures.filter(item => item.tmaId === tma.value && item.airport === airport.value && item.type === type.value);
-        procedure.replaceChildren(...(options.length ? options.map(item => new Option(item.name, item.id)) : [new Option('Nenhum procedimento publicado', '')]));
-        refreshTransition();
+    const refreshProcedures = async () => {
+        const airportEntry = airportEntries.find(item => item.icao === airport.value);
+        selectedProcedure = null;
+        showSelectMessage(procedure, airportEntry ? 'Carregando catálogo…' : 'Nenhum aeródromo disponível');
+        showSelectMessage(transition, 'Aguardando procedimento');
+        if (!airportEntry) return;
+        try {
+            const index = await loadProcedureIndex(airportEntry);
+            procedureEntries = (index.types?.[type.value] || []).map(item => ({ ...item, airport: airportEntry.icao, type: type.value }));
+            procedure.replaceChildren(...(procedureEntries.length ? procedureEntries.map(item => new Option(item.name, item.file)) : [new Option(`Nenhum ${type.value} publicado`, '')]));
+            procedure.disabled = !procedureEntries.length;
+            await refreshTransition();
+        } catch (error) {
+            console.error(error);
+            showSelectMessage(procedure, 'Falha ao carregar catálogo');
+        }
     };
-    const refreshAirports = () => {
-        const module = procedureModules.find(item => item.id === tma.value);
-        airport.replaceChildren(...(module?.airports || []).map(item => new Option(`${item.icao} — ${item.name}${item.status === 'no-current-procedure-found' ? ' (sem procedimento vigente)' : ''}`, item.icao)));
-        const firstWithProcedures = (module?.airports || []).find(item => Object.values(item.procedureCounts || {}).some(Boolean));
-        if (firstWithProcedures) airport.value = firstWithProcedures.icao;
-        refreshProcedures();
+    const refreshAirports = async () => {
+        const entry = tmaEntries.find(item => item.id === tma.value);
+        airportEntries = [];
+        showSelectMessage(airport, entry ? 'Carregando aeródromos…' : 'Nenhuma TMA disponível');
+        showSelectMessage(procedure, 'Aguardando aeródromo');
+        showSelectMessage(transition, 'Aguardando procedimento');
+        if (!entry) return;
+        try {
+            const index = await loadAirportIndex(entry);
+            airportEntries = index.airports || [];
+            airport.replaceChildren(...airportEntries.map(item => {
+                const count = Object.values(item.procedureCounts || {}).reduce((total, value) => total + Number(value || 0), 0);
+                return new Option(`${item.icao} — ${item.name}${count ? ` (${count})` : ' · sem carta estruturada'}`, item.icao);
+            }));
+            airport.disabled = !airportEntries.length;
+            const firstWithProcedures = airportEntries.find(item => Number(item.procedureCounts?.[type.value] || 0) > 0) || airportEntries.find(item => Object.values(item.procedureCounts || {}).some(Boolean));
+            if (firstWithProcedures) airport.value = firstWithProcedures.icao;
+            await refreshProcedures();
+        } catch (error) {
+            console.error(error);
+            showSelectMessage(airport, 'Falha ao carregar aeródromos');
+        }
     };
-    tma.onchange = refreshAirports;
-    airport.onchange = refreshProcedures;
-    type.onchange = refreshProcedures;
-    procedure.onchange = refreshTransition;
+    tma.onchange = () => void refreshAirports();
+    airport.onchange = () => void refreshProcedures();
+    type.onchange = () => void refreshProcedures();
+    procedure.onchange = () => void refreshTransition();
     addButton.onclick = () => {
-        const selectedProcedure = procedures.find(item => item.id === procedure.value);
         const selectedTransition = selectedProcedure?.transitions.find(item => item.id === transition.value);
         if (!selectedProcedure) return;
         if (!selectedTransition) return showProcedureSummary(selectedProcedure);
         addProcedure(selectedProcedure, selectedTransition, missedOption.checked);
     };
-    refreshAirports();
+    void refreshAirports();
 }
 
-function waypointForProcedure(ident, referencePoint = null) {
+function waypointForProcedure(ident, pointDefinition = null) {
     if (!ident) return null;
+    if (pointDefinition?.coordinate_ref) return procedurePointById.get(pointDefinition.coordinate_ref) || null;
     const normalizedIdent = String(ident).toUpperCase(), candidates = procedurePointCandidates.get(normalizedIdent) || [];
-    if (!candidates.length) return referencePoint && Number.isFinite(referencePoint.latitude) && Number.isFinite(referencePoint.longitude) ? procedurePointFeature(normalizedIdent, referencePoint) : null;
+    if (!candidates.length) return null;
     const bestPriority = Math.min(...candidates.map(candidate => candidate.priority));
     const preferred = candidates.filter(candidate => candidate.priority === bestPriority);
-    if (preferred.length === 1 || !referencePoint || !Number.isFinite(referencePoint.latitude) || !Number.isFinite(referencePoint.longitude)) return preferred[0].feature;
-    const latitudeScale = Math.cos(referencePoint.latitude * Math.PI / 180);
-    return preferred.reduce((nearest, candidate) => {
-        const point = candidate.feature.properties;
-        const distance = (point.latitude - referencePoint.latitude) ** 2 + ((point.longitude - referencePoint.longitude) * latitudeScale) ** 2;
-        return !nearest || distance < nearest.distance ? { feature: candidate.feature, distance } : nearest;
-    }, null).feature;
+    return preferred.length === 1 ? preferred[0].feature : null;
 }
+function procedurePointLabel(procedure, key) { return procedure?.points?.[key]?.ident || key || 'Ponto não publicado'; }
 function altitudeText(value) {
     if (!value || !Number.isFinite(value.valueFt)) return null;
     const altitude = `${Math.abs(value.valueFt)} FT`;
@@ -828,11 +961,14 @@ function segmentRestriction(segment) {
     const altitude = lower?.meaning === 'between-bound' && upper?.meaning === 'between-bound' && Number.isFinite(lower.valueFt) && Number.isFinite(upper.valueFt) ? `${Math.min(Math.abs(lower.valueFt), Math.abs(upper.valueFt))}–${Math.max(Math.abs(lower.valueFt), Math.abs(upper.valueFt))} FT` : [altitudeText(lower), altitudeText(upper)].filter(Boolean).join(' · ');
     return [altitude, speedText(segment)].filter(Boolean).join(' · ') || 'Sem restrição adicional publicada';
 }
-function courseText(course) { return course ? [Number.isFinite(course.magnetic) ? `${course.magnetic}° MAG` : null, Number.isFinite(course.true) ? `${course.true}° TRUE` : null].filter(Boolean).join(' / ') : 'N/A'; }
-function segmentLatLngs(segment, origin, destination) {
-    const start = [origin.properties.latitude, origin.properties.longitude], end = [destination.properties.latitude, destination.properties.longitude];
+function courseText(course) { const values = course ? [Number.isFinite(course.magnetic) ? `${course.magnetic}° MAG` : null, Number.isFinite(course.true) ? `${course.true}° TRUE` : null].filter(Boolean) : []; return values.join(' / ') || 'N/A'; }
+function segmentLatLngs(segment, origin, destination, procedure = null) {
+    const via = (segment.via || []).map(key => waypointForProcedure(key, procedure?.points?.[key])).filter(Boolean).map(point => [point.properties.latitude, point.properties.longitude]);
+    const start = origin ? [origin.properties.latitude, origin.properties.longitude] : null, end = destination ? [destination.properties.latitude, destination.properties.longitude] : null;
+    if (via.length) return [start, ...via, end].filter(Boolean);
+    if (!start || !end) return [];
     if (segment.pathTerminator !== 'RF' || !segment.arcCenterFix) return [start, end];
-    const centerPoint = waypointForProcedure(segment.arcCenterFix);
+    const centerPoint = waypointForProcedure(segment.arcCenterFix, procedure?.points?.[segment.arcCenterFix]);
     if (!centerPoint) return [start, end];
     const center = [centerPoint.properties.latitude, centerPoint.properties.longitude], lonScale = Math.cos(center[0] * Math.PI / 180);
     const angle = point => Math.atan2((point[1] - center[1]) * lonScale, point[0] - center[0]);
@@ -846,8 +982,8 @@ function segmentLatLngs(segment, origin, destination) {
     return points;
 }
 function showProcedureSummary(procedure) {
-    const module = procedureModules.find(item => item.id === procedure.tmaId), relatedConnections = (module?.connections || []).filter(item => item.fromProcedure === procedure.id || item.toProcedure === procedure.id), source = procedure.source || {}, status = procedure.status === 'structured' ? 'Estruturado pela tabela oficial' : 'Carta textual — nenhuma geometria foi inferida', textBlock = procedure.publishedText ? `<details><summary>Texto publicado extraído</summary><pre class="procedure-text">${esc(procedure.publishedText)}</pre></details>` : '';
-    document.getElementById('details-content').innerHTML = `<div class="panel-header fix-header"><h3>${esc(procedure.name)}</h3><p class="subtitle">${esc(procedure.type)} — ${esc(procedure.airport)}</p></div><div class="panel-body"><div class="info-row"><span class="info-label">Pistas:</span><span class="info-val">${esc(procedure.runways.join(', ') || 'Não informadas')}</span></div><div class="info-row"><span class="info-label">Modalidade:</span><span class="info-val">${esc(procedure.modes.join(', ') || 'Não informada')}</span></div><div class="info-row"><span class="info-label">Situação:</span><span class="info-val">${esc(status)}</span></div><div class="info-row"><span class="info-label">Transições:</span><span class="info-val">${procedure.transitions.length}</span></div><div class="info-row"><span class="info-label">Conexões STAR → IAC:</span><span class="info-val">${relatedConnections.length}</span></div><div class="source-tag"><strong>Fonte oficial:</strong> AISWEB/DECEA · ${esc(source.chartCode || 'carta OMNI')} · ${esc(source.amendment)} · efetiva em ${esc(source.effectiveDate)}</div>${textBlock}</div>`;
+    const source = procedure.source || {}, status = procedure.status === 'structured' || procedure.status === 'structured-aixm' ? 'Estruturado por dados publicados' : procedure.status === 'legacy-preserved' ? 'Registro legado preservado' : 'Estruturado com ressalvas', warningBlock = procedure.warnings?.length ? `<div class="source-tag warning-tag"><strong>Avisos:</strong><ul class="restriction-list">${procedure.warnings.map(item => `<li>${esc(item)}</li>`).join('')}</ul></div>` : '';
+    document.getElementById('details-content').innerHTML = `<div class="panel-header fix-header"><h3>${esc(procedure.name)}</h3><p class="subtitle">${esc(procedure.type)} — ${esc(procedure.airport)}</p></div><div class="panel-body"><div class="info-row"><span class="info-label">Pistas:</span><span class="info-val">${esc(procedure.runways.join(', ') || 'Não informadas')}</span></div><div class="info-row"><span class="info-label">Modalidade:</span><span class="info-val">${esc(procedure.modes.join(', ') || 'Não informada')}</span></div><div class="info-row"><span class="info-label">Situação:</span><span class="info-val">${esc(status)}</span></div><div class="info-row"><span class="info-label">Transições:</span><span class="info-val">${procedure.transitions.length}</span></div><div class="info-row"><span class="info-label">Aproximações perdidas:</span><span class="info-val">${procedure.missedApproach.length}</span></div><div class="source-tag"><strong>Fonte:</strong> ${esc(source.authority || 'não informada')} · ${esc(source.chartCode || 'carta/AIXM')} · ${esc(source.amendment || 'emenda não informada')} · ${esc(source.effectiveDate || 'data não informada')}<br><strong>Coordenadas:</strong> resolvidas exclusivamente por data/waypoints.json.</div>${warningBlock}</div>`;
 }
 function addProcedure(procedure, transition, includeMissedApproach = true) {
     const key = `${procedure.id}:${transition.id}`;
@@ -856,18 +992,17 @@ function addProcedure(procedure, transition, includeMissedApproach = true) {
     const group = L.featureGroup();
     const unresolved = new Set();
     transition.segments.forEach(segment => {
-        const origin = segment.origin ? waypointForProcedure(segment.origin, segment.originPoint) : null, destination = segment.destination ? waypointForProcedure(segment.destination, segment.destinationPoint) : null;
-        const hasPublishedGeometry = segment.geometry?.length > 1;
-        if (segment.origin && !origin) unresolved.add(segment.origin);
-        if (segment.destination && !destination) unresolved.add(segment.destination);
-        if (!hasPublishedGeometry && (!origin || !destination)) return;
-        const geometry = hasPublishedGeometry ? segment.geometry : segmentLatLngs(segment, origin, destination);
+        const origin = segment.origin ? waypointForProcedure(segment.origin, procedure.points?.[segment.origin]) : null, destination = segment.destination ? waypointForProcedure(segment.destination, procedure.points?.[segment.destination]) : null;
+        if (segment.origin && !origin) unresolved.add(procedurePointLabel(procedure, segment.origin));
+        if (segment.destination && !destination) unresolved.add(procedurePointLabel(procedure, segment.destination));
+        const geometry = segmentLatLngs(segment, origin, destination, procedure);
+        if (geometry.length < 2) return;
         L.polyline(geometry, { color, weight: 4, opacity: .9 }).bindTooltip(`${segment.pathTerminator || 'LEG'} · ${courseText(segment.course)} · ${segment.distanceNm ?? 'N/A'} NM`).on('click', () => showSegmentDetails(segment, procedure, transition)).addTo(group);
     });
-    transition.sequence.forEach(ident => {
-        const destinationSegment = transition.segments.find(segment => segment.destination === ident), point = waypointForProcedure(ident, destinationSegment?.destinationPoint);
+    transition.sequence.forEach(key => {
+        const point = waypointForProcedure(key, procedure.points?.[key]), ident = procedurePointLabel(procedure, key);
         if (!point) return unresolved.add(ident);
-        const destinationSegments = transition.segments.filter(segment => segment.destination === ident), restriction = destinationSegments.map(segmentRestriction).find(value => value !== 'Sem restrição adicional publicada') || 'Sem restrição adicional publicada';
+        const destinationSegments = transition.segments.filter(segment => segment.destination === key), restriction = destinationSegments.map(segmentRestriction).find(value => value !== 'Sem restrição adicional publicada') || procedure.points?.[key]?.published_label || 'Sem restrição adicional publicada';
         L.marker([point.properties.latitude, point.properties.longitude], { icon: icon(ident, true), zIndexOffset: 1200 }).bindTooltip(`${ident} — ${restriction}`, { permanent: true, direction: 'top', offset: [0, -10] }).on('click', () => showProcedurePoint(point, procedure, transition, restriction)).addTo(group);
     });
     if (includeMissedApproach && procedure.type === 'IAC') procedure.missedApproach.forEach(route => addMissedRoute(group, route, procedure));
@@ -875,11 +1010,11 @@ function addProcedure(procedure, transition, includeMissedApproach = true) {
 }
 function addMissedRoute(group, route, procedure) {
     route.segments.forEach(segment => {
-        const origin = segment.origin ? waypointForProcedure(segment.origin, segment.originPoint) : null, destination = segment.destination ? waypointForProcedure(segment.destination, segment.destinationPoint) : null;
-        if (!origin || !destination) return;
-        L.polyline(segmentLatLngs(segment, origin, destination), { color: '#ff5252', weight: 3, opacity: .95, dashArray: '8, 7' }).bindTooltip(`Aproximação perdida · ${segment.pathTerminator || 'LEG'} · ${courseText(segment.course)}`).on('click', () => showSegmentDetails(segment, procedure, route)).addTo(group);
+        const origin = segment.origin ? waypointForProcedure(segment.origin, procedure.points?.[segment.origin]) : null, destination = segment.destination ? waypointForProcedure(segment.destination, procedure.points?.[segment.destination]) : null, geometry = segmentLatLngs(segment, origin, destination, procedure);
+        if (geometry.length < 2) return;
+        L.polyline(geometry, { color: '#ff5252', weight: 3, opacity: .95, dashArray: '8, 7' }).bindTooltip(`Aproximação perdida · ${segment.pathTerminator || 'LEG'} · ${courseText(segment.course)}`).on('click', () => showSegmentDetails(segment, procedure, route)).addTo(group);
     });
-    route.sequence.forEach(ident => { const point = waypointForProcedure(ident); if (point) L.circleMarker([point.properties.latitude, point.properties.longitude], { radius: 5, color: '#ff5252', fillColor: '#ff5252', fillOpacity: .9 }).bindTooltip(`APCH perdida · ${ident}`).addTo(group); });
+    route.sequence.forEach(key => { const point = waypointForProcedure(key, procedure.points?.[key]); if (point) L.circleMarker([point.properties.latitude, point.properties.longitude], { radius: 5, color: '#ff5252', fillColor: '#ff5252', fillOpacity: .9 }).bindTooltip(`APCH perdida · ${procedurePointLabel(procedure, key)}`).addTo(group); });
 }
 function showProcedurePoint(feature, procedure, transition, restriction) {
     showDetails(feature, 'waypoint');
@@ -892,7 +1027,7 @@ function showOperationalFixDetails(feature, ident, record) {
     const restrictionList = entries.length ? `<ul class="restriction-list">${entries.map(item => `<li><strong>${esc(item.text)}</strong><br>${esc(operationalCategory(item.procedure))} · ${esc(item.procedure.airport)} · ${esc(item.procedure.name)} · ${esc(item.transition.name)}</li>`).join('')}</ul>` : '<p>Sem restrição adicional publicada nas cartas ativas deste layout.</p>';
     panel.insertAdjacentHTML('afterbegin', `<div class="source-tag"><strong>FIX operacional ${esc(ident)}</strong><br>Restrições reunidas somente das cartas e pistas atualmente selecionadas.${restrictionList}</div>`);
 }
-function showSegmentDetails(segment, procedure, transition) { const arc = segment.arcCenterFix ? `<div class="info-row"><span class="info-label">Centro/arco RF:</span><span class="info-val">${esc(segment.arcCenterFix)} · ${esc(segment.arcRadiusNm ?? 'N/A')} NM</span></div>` : ''; document.getElementById('details-content').innerHTML = `<div class="panel-header fix-header"><h3>${esc(segment.origin || 'Ponto não publicado')} → ${esc(segment.destination || 'Ponto não publicado')}</h3><p class="subtitle">${esc(procedure.name)} — ${esc(transition.name)}</p></div><div class="panel-body"><div class="info-row"><span class="info-label">Perna:</span><span class="info-val">${esc(segment.pathTerminator || 'N/A')}</span></div><div class="info-row"><span class="info-label">Curso:</span><span class="info-val">${esc(courseText(segment.course))}</span></div><div class="info-row"><span class="info-label">Distância:</span><span class="info-val">${esc(segment.distanceNm ?? 'N/A')} NM</span></div>${arc}<div class="info-row"><span class="info-label">Restrição:</span><span class="info-val">${esc(segmentRestriction(segment))}</span></div><div class="info-row"><span class="info-label">Papel do FIX:</span><span class="info-val">${esc(segment.fixRole || 'N/A')}</span></div><div class="info-row"><span class="info-label">Navegação:</span><span class="info-val">${esc(segment.navigationSpecification || 'N/A')}</span></div><div class="source-tag"><strong>Fonte:</strong> tabela de codificação ${esc(procedure.source.chartCode)}, página ${esc(segment.sourcePage)}</div></div>`; }
+function showSegmentDetails(segment, procedure, transition) { const arc = segment.arcCenterFix ? `<div class="info-row"><span class="info-label">Centro/arco RF:</span><span class="info-val">${esc(procedurePointLabel(procedure, segment.arcCenterFix))} · ${esc(segment.arcRadiusNm ?? 'N/A')} NM</span></div>` : ''; document.getElementById('details-content').innerHTML = `<div class="panel-header fix-header"><h3>${esc(procedurePointLabel(procedure, segment.origin))} → ${esc(procedurePointLabel(procedure, segment.destination))}</h3><p class="subtitle">${esc(procedure.name)} — ${esc(transition.name)}</p></div><div class="panel-body"><div class="info-row"><span class="info-label">Perna:</span><span class="info-val">${esc(segment.pathTerminator || 'N/A')}</span></div><div class="info-row"><span class="info-label">Curso:</span><span class="info-val">${esc(courseText(segment.course))}</span></div><div class="info-row"><span class="info-label">Distância:</span><span class="info-val">${esc(segment.distanceNm ?? 'N/A')} NM</span></div>${arc}<div class="info-row"><span class="info-label">Restrição:</span><span class="info-val">${esc(segmentRestriction(segment))}</span></div><div class="info-row"><span class="info-label">Papel do FIX:</span><span class="info-val">${esc(segment.fixRole || 'N/A')}</span></div><div class="info-row"><span class="info-label">Navegação:</span><span class="info-val">${esc(segment.navigationSpecification || 'N/A')}</span></div><div class="source-tag"><strong>Fonte:</strong> ${esc(procedure.source.chartCode || 'AIXM/carta')} · página ${esc(segment.sourcePage || 'não informada')}</div></div>`; }
 function focusProcedure(key) { const item = activeProcedures.get(key); if (item && item.group.getBounds().isValid()) map.fitBounds(item.group.getBounds(), { padding: [45, 45], maxZoom: 10 }); }
 function removeProcedure(key) { const item = activeProcedures.get(key); if (item) proceduresGroup.removeLayer(item.group); activeProcedures.delete(key); renderActiveProcedures(); }
 function renderActiveProcedures() { const target = document.getElementById('active-procedures'); target.replaceChildren(); if (!activeProcedures.size) { target.innerHTML = '<span class="empty-selection">Nenhum procedimento ativo.</span>'; return; } activeProcedures.forEach((item, key) => { const row = document.createElement('div'); row.className = 'selected-point-row'; row.innerHTML = `<span><strong>${esc(item.procedure.type)} — ${esc(item.procedure.name)}</strong><br><span class="mono-small">${esc(item.transition.name)} · ${esc(item.procedure.source.chartCode || 'OMNI')} · ${esc(item.procedure.source.effectiveDate)}${item.includeMissedApproach && item.procedure.type === 'IAC' ? ' · APCH perdida' : ''}</span></span><button type="button">Remover</button>`; row.querySelector('span').onclick = () => focusProcedure(key); row.querySelector('button').onclick = () => removeProcedure(key); target.appendChild(row); }); }

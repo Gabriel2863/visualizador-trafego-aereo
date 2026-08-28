@@ -1,0 +1,191 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-d617245c-7404-4d12-8dc7-592fff367e97",
+    "airport": "SBPJ",
+    "name": "OMNI 14",
+    "type": "SID",
+    "runway": "14",
+    "runways": [
+      "14"
+    ],
+    "modes": [],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2024-10-03T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2024-10-03T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "AX9B2F0A": {
+      "ident": "AX9B2F0A",
+      "coordinate_ref": "procedure-point:9b2f0a24-f27b-472f-8f01-0870db091ff1",
+      "role": null,
+      "altitude": {
+        "at": 0,
+        "min": 1176,
+        "max": 0
+      }
+    },
+    "AX814C4F": {
+      "ident": "AX814C4F",
+      "coordinate_ref": "procedure-point:814c4f68-15f1-475f-9a8c-e0cc597920b3",
+      "role": null,
+      "altitude": {
+        "at": 0,
+        "min": 3076,
+        "max": 0
+      }
+    },
+    "AX160656": {
+      "ident": "AX160656",
+      "coordinate_ref": "procedure-point:16065636-c946-4101-bdb0-53f7839d6f25",
+      "role": null,
+      "altitude": {
+        "at": 0,
+        "min": 15000,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-omni-9b2f0a24-f27b-472f-8f01-0870db091ff1",
+      "from": null,
+      "to": "AX9B2F0A",
+      "via": [],
+      "path_terminator": "VM",
+      "course": 123.314108250747,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 123.314108250747,
+      "distance_nm": 1.27653131749464,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 1176,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "1175.64 FT",
+        "valueFt": 1176,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 2.86240522611175,
+      "fix_role": null,
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-omni-814c4f68-15f1-475f-9a8c-e0cc597920b3",
+      "from": "AX9B2F0A",
+      "to": "AX814C4F",
+      "via": [],
+      "path_terminator": "VM",
+      "course": 123.308554970388,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 123.308554970388,
+      "distance_nm": 6.25399568034557,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 3076,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "3075.64 FT",
+        "valueFt": 3076,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 2.86240522611175,
+      "fix_role": null,
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-omni-16065636-c946-4101-bdb0-53f7839d6f25",
+      "from": "AX814C4F",
+      "to": "AX160656",
+      "via": [],
+      "path_terminator": "VM",
+      "course": 123.295020076484,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 123.295020076484,
+      "distance_nm": 59.4696380653184,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 15000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "150 FL",
+        "valueFt": 15000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": null,
+      "navigation_specification": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-omni",
+      "name": "OMNI",
+      "kind": "RWY",
+      "sequence": [
+        "AX9B2F0A",
+        "AX814C4F",
+        "AX160656"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-omni-9b2f0a24-f27b-472f-8f01-0870db091ff1",
+        "aixm-national-omni-814c4f68-15f1-475f-9a8c-e0cc597920b3",
+        "aixm-national-omni-16065636-c946-4101-bdb0-53f7839d6f25"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

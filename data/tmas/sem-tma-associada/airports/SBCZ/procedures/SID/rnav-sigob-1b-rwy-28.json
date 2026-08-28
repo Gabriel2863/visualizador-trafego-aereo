@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-986729c2-0a91-4e83-acc6-bf42e2b67b61",
+    "airport": "SBCZ",
+    "name": "RNAV SIGOB 1B RWY 28",
+    "type": "SID",
+    "runway": "28",
+    "runways": [
+      "28"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-07-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-07-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "CZ017": {
+      "ident": "CZ017",
+      "coordinate_ref": "waypoint:131.0",
+      "role": "TP",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "SIGOB": {
+      "ident": "SIGOB",
+      "coordinate_ref": "waypoint:7240.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-CB08E61": {
+      "ident": "GEO-CB08E61",
+      "coordinate_ref": "procedure-point:23851f0762",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-sigob-873d0440-7e71-43f1-b5d2-da113a638334",
+      "from": null,
+      "to": "CZ017",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 272.989497605152,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 272.989497605152,
+      "distance_nm": 2.99910325419569,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "1250.59 FT",
+        "valueFt": 1251,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "TP",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-sigob-2b0e6eca-c302-4f5f-9883-22283d35ba8c",
+      "from": "CZ017",
+      "to": "SIGOB",
+      "via": [
+        "GEO-CB08E61"
+      ],
+      "path_terminator": "TF",
+      "course": 210.024312612675,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 210.024312612675,
+      "distance_nm": 61.6456020080406,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "13596.7 FT",
+        "valueFt": 13597,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-sigob",
+      "name": "SIGOB",
+      "kind": "RWY",
+      "sequence": [
+        "CZ017",
+        "SIGOB"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-sigob-873d0440-7e71-43f1-b5d2-da113a638334",
+        "aixm-national-sigob-2b0e6eca-c302-4f5f-9883-22283d35ba8c"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

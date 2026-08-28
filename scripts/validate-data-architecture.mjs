@@ -1,0 +1,102 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+
+const ROOT = path.resolve(process.cwd());
+const read = relativePath => JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), 'utf8'));
+const exists = relativePath => fs.existsSync(path.join(ROOT, relativePath));
+
+const catalog = read('data/tmas/catalog.json');
+const waypoints = read('data/waypoints.json');
+const waypointIds = new Set((waypoints.features || []).map(feature => feature.id));
+const procedureNames = new Set();
+const procedureFiles = new Set();
+let airportCount = 0;
+let procedureCount = 0;
+let pointCount = 0;
+let legCount = 0;
+
+assert.equal(catalog.coordinateSource, 'data/waypoints.json');
+assert.equal(catalog.tmas.filter(item => !item.technicalGroup).length, 40, 'O catálogo deve preservar as 40 famílias TMA da base AIXM.');
+assert.equal(catalog.tmas.filter(item => item.technicalGroup).length, 1, 'Aeródromos sem associação devem ficar em um único agrupamento técnico.');
+assert.equal(waypoints.baseRecordCount, 7938, 'Os 7.938 registros originais de waypoints devem ser preservados.');
+assert.equal(waypoints.recordCount, waypoints.features.length);
+
+for (const catalogEntry of catalog.tmas) {
+  assert.ok(exists(catalogEntry.file), `TMA ausente: ${catalogEntry.file}`);
+  const tma = read(catalogEntry.file);
+  assert.deepEqual(Object.keys(tma).includes('airports'), true);
+  assert.ok(exists(tma.airportsIndex), `Índice de aeródromos ausente: ${tma.airportsIndex}`);
+  const airportIndex = read(tma.airportsIndex);
+  assert.deepEqual(airportIndex.airports.map(item => item.icao).sort(), [...tma.airports].sort(), `Lista de aeródromos divergente em ${tma.name}`);
+  assert.equal(airportIndex.airports.length, catalogEntry.airportCount);
+  airportCount += airportIndex.airports.length;
+
+  let tmaProcedureCount = 0;
+  for (const airportEntry of airportIndex.airports) {
+    assert.ok(exists(airportEntry.file), `Aeródromo ausente: ${airportEntry.file}`);
+    assert.ok(exists(airportEntry.proceduresIndex), `Índice IFR ausente: ${airportEntry.proceduresIndex}`);
+    const airport = read(airportEntry.file);
+    const index = read(airportEntry.proceduresIndex);
+    assert.equal(airport.icao, airportEntry.icao);
+    assert.equal(airport.tma, tma.id);
+    assert.equal(index.airport, airportEntry.icao);
+
+    for (const type of ['SID', 'STAR', 'IAC']) {
+      assert.ok(Array.isArray(index.types[type]), `Tipo ${type} ausente em ${airportEntry.icao}`);
+      assert.equal(index.types[type].length, airportEntry.procedureCounts[type]);
+      for (const item of index.types[type]) {
+        assert.ok(exists(item.file), `Procedimento ausente: ${item.file}`);
+        assert.ok(!procedureFiles.has(item.file), `Arquivo de procedimento duplicado no catálogo: ${item.file}`);
+        procedureFiles.add(item.file);
+        const raw = fs.readFileSync(path.join(ROOT, item.file), 'utf8');
+        assert.ok(!/"(?:latitude|longitude|geometry)"\s*:/.test(raw), `Coordenada duplicada no procedimento: ${item.file}`);
+        const procedure = JSON.parse(raw);
+        assert.equal(procedure.procedure.airport, airport.icao);
+        assert.equal(procedure.procedure.type, type);
+        assert.ok(Array.isArray(procedure.legs));
+        assert.ok(Array.isArray(procedure.transitions));
+        assert.ok(Array.isArray(procedure.missed_approach));
+        assert.ok(Array.isArray(procedure.warnings));
+        const pointKeys = new Set(Object.keys(procedure.points || {}));
+        for (const [key, point] of Object.entries(procedure.points || {})) {
+          pointCount += 1;
+          assert.ok(point.coordinate_ref, `Ponto sem coordinate_ref: ${item.file}#${key}`);
+          assert.ok(waypointIds.has(point.coordinate_ref), `coordinate_ref inexistente: ${item.file}#${key}`);
+        }
+        for (const leg of [...procedure.legs, ...procedure.missed_approach.flatMap(route => route.legs || [])]) {
+          legCount += 1;
+          for (const key of [leg.from, leg.to, ...(leg.via || []), leg.arc_center].filter(Boolean)) {
+            assert.ok(pointKeys.has(key), `Perna referencia ponto inexistente: ${item.file}#${leg.id}:${key}`);
+          }
+        }
+        procedureNames.add(`${airport.icao}|${type}|${procedure.procedure.name}`);
+        procedureCount += 1;
+        tmaProcedureCount += 1;
+      }
+    }
+  }
+  assert.equal(tmaProcedureCount, catalogEntry.procedureCount, `Total IFR divergente em ${tma.name}`);
+}
+
+for (const required of [
+  'SBCT|STAR|STAR RNAV DALIG 1A RWY 15',
+  'SBCT|STAR|STAR RNAV RAXIT 1A RWY 15',
+  'SBCT|STAR|STAR RNAV UMGUL 1A RWY 15',
+  'SBCT|IAC|IAC VOR Z RWY 15',
+]) assert.ok(procedureNames.has(required), `Procedimento legado obrigatório ausente: ${required}`);
+
+for (const legacyFile of [
+  'all_tmas_coordinates.json',
+  'all_tmas_boundaries.json',
+  'curitiba_tma_waypoints.json',
+  'data/procedures.json',
+  'data/tmas/brazil-procedures-aixm.json',
+  'data/tmas/tma-sp.json',
+]) assert.ok(exists(legacyFile), `Arquivo de compatibilidade removido: ${legacyFile}`);
+
+for (const forbidden of ['live_traffic.js', 'live_traffic_config.js', 'worker/src/index.js']) {
+  assert.ok(!exists(forbidden), `Tráfego ao vivo não deve fazer parte desta entrega: ${forbidden}`);
+}
+
+console.log(`OK: ${catalog.tmas.length} grupos, ${airportCount} aeródromos hierárquicos, ${procedureCount} procedimentos, ${pointCount} referências de ponto e ${legCount} pernas sem coordenadas duplicadas.`);

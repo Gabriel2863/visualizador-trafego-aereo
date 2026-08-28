@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-bf8cd5b7-f790-4515-a917-0bfe7c0ab248",
+    "airport": "SBMO",
+    "name": "RNAV ENLUS 2A RWY30",
+    "type": "SID",
+    "runway": "30",
+    "runways": [
+      "30"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-08-10T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-08-10T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "AX59CB38": {
+      "ident": "AX59CB38",
+      "coordinate_ref": "procedure-point:59cb385b-9df7-4cf2-bedc-63332916dc26",
+      "role": null,
+      "altitude": {
+        "at": 0,
+        "min": 900,
+        "max": 0
+      }
+    },
+    "AXADFF38": {
+      "ident": "AXADFF38",
+      "coordinate_ref": "procedure-point:adff38ce-ebeb-4c53-8662-72faaa369c75",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-rwy-59cb385b-9df7-4cf2-bedc-63332916dc26",
+      "from": null,
+      "to": "AX59CB38",
+      "via": [],
+      "path_terminator": "VA",
+      "course": 280.701219288131,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 280.701219288131,
+      "distance_nm": 2.47265008951234,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 900,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "900 FT",
+        "valueFt": 900,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": null,
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-rwy-adff38ce-ebeb-4c53-8662-72faaa369c75",
+      "from": "AX59CB38",
+      "to": "AXADFF38",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 39.3051021055872,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "8782.96 FT",
+        "valueFt": 8783,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-rwy",
+      "name": "RWY",
+      "kind": "RWY",
+      "sequence": [
+        "AX59CB38",
+        "AXADFF38"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-rwy-59cb385b-9df7-4cf2-bedc-63332916dc26",
+        "aixm-national-rwy-adff38ce-ebeb-4c53-8662-72faaa369c75"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

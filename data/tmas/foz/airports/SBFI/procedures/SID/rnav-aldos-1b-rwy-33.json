@@ -1,0 +1,205 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-853ef109-cdac-4e5b-914e-ae45f937300d",
+    "airport": "SBFI",
+    "name": "RNAV ALDOS 1B RWY 33",
+    "type": "SID",
+    "runway": "33",
+    "runways": [
+      "33"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-07-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-07-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "FI001": {
+      "ident": "FI001",
+      "coordinate_ref": "waypoint:5391.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "FI006": {
+      "ident": "FI006",
+      "coordinate_ref": "waypoint:1445.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-D8EE7A2": {
+      "ident": "GEO-D8EE7A2",
+      "coordinate_ref": "procedure-point:11e14eb187",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "ALDOS": {
+      "ident": "ALDOS",
+      "coordinate_ref": "waypoint:6370.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-aldos-6a9e08b2-6620-44b4-b8ee-871173958711",
+      "from": null,
+      "to": "FI001",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 310.595989176103,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 310.595989176103,
+      "distance_nm": 4.56427822124193,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "1663.2 FT",
+        "valueFt": 1663,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 210,
+      "speed_interpretation": "BELOW_UPPER",
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-aldos-e2a71778-8e8c-48e2-81b5-7ca42f0f458e",
+      "from": "FI001",
+      "to": "FI006",
+      "via": [
+        "GEO-D8EE7A2"
+      ],
+      "path_terminator": "TF",
+      "course": 209.642733674009,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 209.642733674009,
+      "distance_nm": 20.0598053260929,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "5689.18 FT",
+        "valueFt": 5689,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 210,
+      "speed_interpretation": "BELOW_UPPER",
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-aldos-330ae30d-5d60-4c9b-a5c1-d82c8a71bde0",
+      "from": "FI006",
+      "to": "ALDOS",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 175.113996152943,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 175.113996152943,
+      "distance_nm": 26.0457026443472,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "10913.7 FT",
+        "valueFt": 10914,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 210,
+      "speed_interpretation": "BELOW_UPPER",
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-aldos",
+      "name": "ALDOS",
+      "kind": "RWY",
+      "sequence": [
+        "FI001",
+        "FI006",
+        "ALDOS"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-aldos-6a9e08b2-6620-44b4-b8ee-871173958711",
+        "aixm-national-aldos-e2a71778-8e8c-48e2-81b5-7ca42f0f458e",
+        "aixm-national-aldos-330ae30d-5d60-4c9b-a5c1-d82c8a71bde0"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

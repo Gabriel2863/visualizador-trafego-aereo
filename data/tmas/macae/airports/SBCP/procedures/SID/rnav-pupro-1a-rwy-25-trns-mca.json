@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-a16c6e29-8971-438a-8d75-82612154d9dc",
+    "airport": "SBCP",
+    "name": "RNAV PUPRO 1A RWY 25 - TRNS MCA",
+    "type": "SID",
+    "runway": "25",
+    "runways": [
+      "25"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2023-07-13T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2023-07-13T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "PUPRO": {
+      "ident": "PUPRO",
+      "coordinate_ref": "waypoint:6021.0",
+      "role": "TP",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "MCA": {
+      "ident": "MCA",
+      "coordinate_ref": "procedure-point:7aecc173-a4b0-4885-ab7e-61e0595fe6e7",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "GEO-A89336C": {
+      "ident": "GEO-A89336C",
+      "coordinate_ref": "procedure-point:91d1a23b40",
+      "role": "GEOMETRY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-pupro-a03ac8e1-92eb-4491-95d4-16c4a2dbae99",
+      "from": null,
+      "to": "PUPRO",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 226.713415226817,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 226.713415226817,
+      "distance_nm": 2.99194716111221,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "673.084 FT",
+        "valueFt": 673,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "TP",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-pupro-a906eebb-fc5b-418e-8d65-1127a35c259b",
+      "from": "PUPRO",
+      "to": "MCA",
+      "via": [
+        "GEO-A89336C"
+      ],
+      "path_terminator": "TF",
+      "course": 212.923830939919,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 212.923830939919,
+      "distance_nm": 43.2900852499836,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "9355.34 FT",
+        "valueFt": 9355,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 1.89007482589896,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-pupro",
+      "name": "PUPRO",
+      "kind": "RWY",
+      "sequence": [
+        "PUPRO",
+        "MCA"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-pupro-a03ac8e1-92eb-4491-95d4-16c4a2dbae99",
+        "aixm-national-pupro-a906eebb-fc5b-418e-8d65-1127a35c259b"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

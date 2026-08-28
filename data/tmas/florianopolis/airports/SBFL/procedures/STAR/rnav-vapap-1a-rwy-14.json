@@ -1,0 +1,239 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AIXM-dcabafba-d86d-4beb-be97-141120287b0a",
+    "airport": "SBFL",
+    "name": "RNAV VAPAP 1A RWY 14",
+    "type": "STAR",
+    "runway": "14",
+    "runways": [
+      "14"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aixm",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "chart_code": "AIXM",
+      "amendment": "2608A1",
+      "effective_date": "2024-10-03T00:00:00",
+      "document": null,
+      "page": null,
+      "origin_dataset": "aixm-national"
+    },
+    "source_history": [
+      {
+        "authority": "AISWEB/DECEA",
+        "chart_code": "AIXM",
+        "amendment": "2608A1",
+        "effective_date": "2024-10-03T00:00:00",
+        "document": null,
+        "page": null,
+        "origin_dataset": "aixm-national"
+      }
+    ]
+  },
+  "points": {
+    "VAPAP": {
+      "ident": "VAPAP",
+      "coordinate_ref": "waypoint:6377.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 16000,
+        "max": 0
+      }
+    },
+    "FL934": {
+      "ident": "FL934",
+      "coordinate_ref": "waypoint:9566.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 0,
+        "max": 16000
+      }
+    },
+    "FL936": {
+      "ident": "FL936",
+      "coordinate_ref": "waypoint:9567.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 0,
+        "min": 5400,
+        "max": 0
+      }
+    },
+    "MUKAL": {
+      "ident": "MUKAL",
+      "coordinate_ref": "waypoint:8136.0",
+      "role": "IAF",
+      "altitude": {
+        "at": 0,
+        "min": 5100,
+        "max": 0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "aixm-national-vapap-b757b548-79d1-46a9-a1f8-9971575e5a0b",
+      "from": null,
+      "to": "VAPAP",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 16000,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "16000 FT",
+        "valueFt": 16000,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-vapap-834e8e65-5786-4864-bcb7-3e7c95a6417b",
+      "from": "VAPAP",
+      "to": "FL934",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 92.3821011955126,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 92.3821011955126,
+      "distance_nm": 26.8205844492609,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": 16000
+      },
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "16000 FT",
+        "valueFt": 16000,
+        "meaning": "at-or-below"
+      },
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": 0,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-vapap-3decc92e-e684-41e9-abe7-9de38efe0b34",
+      "from": "FL934",
+      "to": "FL936",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 92.4861239551038,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 92.4861239551038,
+      "distance_nm": 18.5367376987117,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 5400,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "5400 FT",
+        "valueFt": 5400,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -5.37366752731241,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    },
+    {
+      "id": "aixm-national-vapap-ee51a0dc-dc60-4556-8dd0-eb78b0c42890",
+      "from": "FL936",
+      "to": "MUKAL",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 92.1222567640122,
+      "course_reference": "TRUE",
+      "course_magnetic": null,
+      "course_true": 92.1222567640122,
+      "distance_nm": 23.8069145071435,
+      "turn": null,
+      "fly_over": null,
+      "altitude": {
+        "at": null,
+        "min": 5100,
+        "max": null
+      },
+      "lower_limit": {
+        "raw": "5100 FT",
+        "valueFt": 5100,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "speed_limit_kt": 0,
+      "speed_interpretation": null,
+      "vertical_angle": -0.118796871563678,
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV_1",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "source_page": "AIXM",
+      "source_dataset": "aixm-national"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aixm-national-vapap",
+      "name": "VAPAP",
+      "kind": "EN_ROUTE",
+      "sequence": [
+        "VAPAP",
+        "FL934",
+        "FL936",
+        "MUKAL"
+      ],
+      "source_dataset": "aixm-national",
+      "leg_ids": [
+        "aixm-national-vapap-b757b548-79d1-46a9-a1f8-9971575e5a0b",
+        "aixm-national-vapap-834e8e65-5786-4864-bcb7-3e7c95a6417b",
+        "aixm-national-vapap-3decc92e-e684-41e9-abe7-9de38efe0b34",
+        "aixm-national-vapap-ee51a0dc-dc60-4556-8dd0-eb78b0c42890"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}
