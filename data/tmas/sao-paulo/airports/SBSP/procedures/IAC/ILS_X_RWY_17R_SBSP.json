@@ -1,0 +1,115 @@
+{
+  "procedure": {
+    "airport": "SBSP",
+    "name": "ILS X RWY 17R",
+    "type": "IAC",
+    "runway": "17R",
+    "source": "sbsp_ils-x-rwy-17r_iac_20260806.pdf"
+  },
+  "points": {
+    "LUVDI": {
+      "role": "IAF",
+      "altitude": {
+        "at": 5500,
+        "min": null,
+        "max": null
+      }
+    },
+    "KOMGU": {
+      "role": "IAF/MAHF",
+      "altitude": {
+        "at": 5500,
+        "min": null,
+        "max": null
+      }
+    },
+    "GERSU": {
+      "role": "IF",
+      "altitude": {
+        "at": 4700,
+        "min": null,
+        "max": null
+      }
+    },
+    "URUTA": {
+      "role": "FAF",
+      "altitude": {
+        "at": 4020,
+        "min": null,
+        "max": null
+      }
+    },
+    "RW17R": {
+      "role": "RWY",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "ISP": {
+      "role": "ILS/DME",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "from": "LUVDI",
+      "to": "GERSU",
+      "course": 128,
+      "course_reference": "MAG",
+      "distance_nm": 4.0
+    },
+    {
+      "from": "KOMGU",
+      "to": "GERSU",
+      "course": 79,
+      "course_reference": "MAG",
+      "distance_nm": 6.0
+    },
+    {
+      "from": "GERSU",
+      "to": "URUTA",
+      "course": 169,
+      "course_reference": "MAG",
+      "distance_nm": 3.3
+    },
+    {
+      "from": "URUTA",
+      "to": "RW17R",
+      "course": 169,
+      "course_reference": "MAG",
+      "distance_nm": 4.5
+    }
+  ],
+  "missed_approach": [
+    {
+      "from": "RW17R",
+      "course": 169,
+      "course_reference": "MAG",
+      "climb_to": 5500,
+      "maintain_heading_until_passing": 3400,
+      "then": "RIGHT direct KOMGU"
+    },
+    {
+      "from": "KOMGU",
+      "to": "KOMGU",
+      "hold": {
+        "altitude": 5500,
+        "inbound_course": 349,
+        "outbound_course": 169,
+        "turn_direction": "RIGHT"
+      }
+    }
+  ],
+  "warnings": [
+    "A carta publica DA/OCH 2789'/200' para CAT I.",
+    "A carta publica ILS/DME ISP 109.30 MHz e curso final 169° MAG.",
+    "A carta exige GNSS; RNP 1 ou RNAV 1.",
+    "A nota publica RVR ALSF 550 m para aproximação utilizando FD, AP ou HUD até a DA."
+  ]
+}
