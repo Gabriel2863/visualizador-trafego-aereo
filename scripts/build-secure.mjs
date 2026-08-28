@@ -69,6 +69,7 @@ for (const file of [
   'data/areas-ensaio.json',
   'data/tmas/manifest.json',
   'data/tmas/catalog.json',
+  'data/tmas/procedures-index.json',
   'data/studies/manifest.json'
 ]) copyRuntimeFile(file);
 

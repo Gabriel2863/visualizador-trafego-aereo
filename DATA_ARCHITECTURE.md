@@ -111,7 +111,9 @@ Cada aeródromo possui `procedures/index.json` com três listas:
 }
 ```
 
-As entradas informam nome, arquivo, pistas, modalidades, quantidade de transições, aproximações perdidas e avisos. O navegador só baixa o procedimento escolhido. O mapa operacional baixa apenas as cartas compatíveis com a TMA, pistas e filtros ativos.
+As entradas informam nome, arquivo, pistas, modalidades, quantidade de transições, aproximações perdidas e avisos. O campo `name` é sempre o nome físico do arquivo, removendo somente a extensão `.json` e preservando sua capitalização. Portanto, `MINHA_CARTA.json` aparece como `MINHA_CARTA` no seletor, independentemente de `procedure.name` dentro do arquivo. O navegador só baixa o procedimento escolhido. O mapa operacional baixa apenas as cartas compatíveis com a TMA, pistas e filtros ativos.
+
+O gerador também produz `data/tmas/procedures-index.json`, uma lista nacional automática de `{ tma, airport, type, name, file }`. Ela serve para conferência e build; a interface não precisa carregá-la para descobrir uma carta escolhida.
 
 ## Schemas de procedimento aceitos
 
@@ -279,10 +281,10 @@ Por isso, `scripts/discover-procedure-indexes.mjs` varre os diretórios durante
 o desenvolvimento/build e atualiza os índices leves automaticamente. O build
 executa essa descoberta antes de copiar os dados para `dist/`.
 
-Para adicionar uma carta, basta salvar o JSON no diretório correspondente:
+Para adicionar uma carta, basta salvar qualquer arquivo `.json` no diretório correspondente:
 
 ```text
-data/tmas/curitiba/airports/SBBI/procedures/IAC/rnp_y_rwy_36.json
+data/tmas/curitiba/airports/SBBI/procedures/IAC/MINHA_CARTA.json
 ```
 
 Depois execute:
@@ -294,8 +296,10 @@ npm run build
 ```
 
 Não é necessário cadastrar o arquivo no JavaScript nem editar manualmente o
-`procedures/index.json`. Em um servidor de desenvolvimento que serve `data/`
-diretamente, execute ao menos `npm run discover:data` antes de abrir a página.
+`procedures/index.json`. O nome mostrado no filtro virá exatamente de
+`MINHA_CARTA.json`, sem consultar `procedure.name`. Em um servidor de
+desenvolvimento que serve `data/` diretamente, execute ao menos
+`npm run discover:data` antes de abrir a página.
 
 ## Como adicionar SID, STAR ou IAC
 
@@ -305,7 +309,9 @@ diretamente, execute ao menos `npm run discover:data` antes de abrir a página.
 4. Em `points`, use `coordinate_ref` se estiver no schema atual, ou somente o
    identificador se estiver no schema simplificado; nunca copie
    latitude/longitude.
-5. Coloque o arquivo na pasta `SID`, `STAR` ou `IAC` correta.
+5. Escolha o nome que deseja ver no filtro e coloque o arquivo na pasta `SID`,
+   `STAR` ou `IAC` correta. Por exemplo, `DALIG_1A.json` será mostrado como
+   `DALIG_1A`.
 6. Execute `npm run discover:data`, `npm test` e `npm run build`.
 
 Não é necessário alterar `map_interface.js` para adicionar uma carta compatível com o schema.

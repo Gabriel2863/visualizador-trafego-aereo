@@ -94,6 +94,11 @@ somente o índice da TMA, o aeródromo escolhido, o tipo SID/STAR/IAC e a carta
 solicitada. Cada procedimento ocupa um JSON independente. O mapa operacional
 também baixa apenas as cartas compatíveis com as pistas e filtros ativos.
 
+O nome exibido no seletor vem sempre do arquivo: `DALIG_1A.json` aparece como
+`DALIG_1A`. O conteúdo `procedure.name` continua disponível nos detalhes da
+carta, mas não determina o nome do filtro. Rode `npm run discover:data` após
+adicionar ou renomear qualquer JSON dentro de `data/tmas/.../procedures/`.
+
 As cartas não armazenam latitude, longitude ou geometria. FIXES, cabeceiras e
 vértices de trajetória apontam por `coordinate_ref` ou pelo identificador do
 FIX para `data/waypoints.json`,

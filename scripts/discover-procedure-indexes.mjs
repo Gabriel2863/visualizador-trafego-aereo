@@ -8,8 +8,10 @@ const relative = absolute => path.relative(ROOT, absolute).replaceAll(path.sep, 
 const readJson = relativePath => JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), 'utf8'));
 const writeJsonIfChanged = (relativePath, value) => {
   const absolute = path.join(ROOT, relativePath);
-  const next = `${JSON.stringify(value, null, 2)}\n`;
   const current = fs.existsSync(absolute) ? fs.readFileSync(absolute, 'utf8') : '';
+  const lineEnding = current.includes('\r\n') ? '\r\n' : '\n';
+  const serialized = `${JSON.stringify(value, null, 2)}\n`;
+  const next = lineEnding === '\n' ? serialized : serialized.replace(/\n/g, lineEnding);
   if (current === next) return false;
   fs.writeFileSync(absolute, next, 'utf8');
   return true;
@@ -43,8 +45,8 @@ function procedureEntry(file, type, airport) {
   const raw = JSON.parse(fs.readFileSync(file, 'utf8'));
   const metadata = raw.procedure || {};
   const filename = path.basename(file, path.extname(file));
-  const name = metadata.name || filename;
-  const nameUpper = name.toUpperCase();
+  const name = filename;
+  const nameUpper = filename.toUpperCase();
   const runways = Array.isArray(metadata.runways) ? metadata.runways : metadata.runways ? [metadata.runways] : metadata.runway ? [metadata.runway] : [];
   const modes = Array.isArray(metadata.modes) ? metadata.modes : metadata.modes ? [metadata.modes] : /\bRNP\b/.test(nameUpper) ? ['RNP'] : /\bILS\b|\bLOC\b/.test(nameUpper) ? ['ILS'] : [];
   const relativeFile = relative(file);
@@ -124,8 +126,10 @@ function rebuildAirportIndex(tmaDir, tma, previousIndex) {
 }
 
 const catalogPath = 'data/tmas/catalog.json';
+const globalIndexPath = 'data/tmas/procedures-index.json';
 const catalog = readJson(catalogPath);
 let changed = 0, totalProcedures = 0, totalAirports = 0;
+const globalProcedures = [];
 for (const catalogEntry of catalog.tmas || []) {
   const tma = readJson(catalogEntry.file);
   const tmaDir = path.dirname(path.join(ROOT, catalogEntry.file));
@@ -138,10 +142,18 @@ for (const catalogEntry of catalog.tmas || []) {
   changed += writeJsonIfChanged(catalogEntry.file, nextTma) ? 1 : 0;
   const procedureCount = airports.reduce((sum, airport) => sum + Object.values(airport.procedureCounts).reduce((subtotal, value) => subtotal + value, 0), 0);
   totalProcedures += procedureCount;
+  airports.forEach(airport => {
+    const procedureIndex = readJson(airport.proceduresIndex);
+    PROCEDURE_TYPES.forEach(type => (procedureIndex.types?.[type] || []).forEach(procedure => {
+      globalProcedures.push({ tma: catalogEntry.slug, airport: airport.icao, type, name: procedure.name, file: procedure.file });
+    }));
+  });
   if (catalogEntry.airportCount !== airports.length || catalogEntry.procedureCount !== procedureCount) {
     catalogEntry.airportCount = airports.length;
     catalogEntry.procedureCount = procedureCount;
   }
 }
 changed += writeJsonIfChanged(catalogPath, catalog) ? 1 : 0;
+globalProcedures.sort((first, second) => first.tma.localeCompare(second.tma, 'en') || first.airport.localeCompare(second.airport, 'en') || first.type.localeCompare(second.type, 'en') || first.name.localeCompare(second.name, 'en'));
+changed += writeJsonIfChanged(globalIndexPath, { schemaVersion: 1, generatedBy: 'scripts/discover-procedure-indexes.mjs', procedures: globalProcedures }) ? 1 : 0;
 console.log(`[discover-procedures] ${totalProcedures} procedimentos em ${totalAirports} aeródromos; ${changed} índice(s) atualizado(s).`);

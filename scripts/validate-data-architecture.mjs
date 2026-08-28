@@ -8,9 +8,11 @@ const exists = relativePath => fs.existsSync(path.join(ROOT, relativePath));
 
 const catalog = read('data/tmas/catalog.json');
 const waypoints = read('data/waypoints.json');
+const globalProcedureIndex = read('data/tmas/procedures-index.json');
 const waypointIds = new Set((waypoints.features || []).map(feature => feature.id));
 const procedureNames = new Set();
 const procedureFiles = new Set();
+const expectedGlobalProcedures = [];
 let airportCount = 0;
 let procedureCount = 0;
 let pointCount = 0;
@@ -66,8 +68,10 @@ for (const catalogEntry of catalog.tmas) {
       assert.equal(index.types[type].length, airportEntry.procedureCounts[type]);
       for (const item of index.types[type]) {
         assert.ok(exists(item.file), `Procedimento ausente: ${item.file}`);
+        assert.equal(item.name, path.basename(item.file, path.extname(item.file)), `Nome exibido deve vir do arquivo: ${item.file}`);
         assert.ok(!procedureFiles.has(item.file), `Arquivo de procedimento duplicado no catálogo: ${item.file}`);
         procedureFiles.add(item.file);
+        expectedGlobalProcedures.push({ tma: catalogEntry.slug, airport: airport.icao, type, name: item.name, file: item.file });
         const raw = fs.readFileSync(path.join(ROOT, item.file), 'utf8');
         const procedure = JSON.parse(raw);
         assertNoInlineCoordinates(procedure, item.file);
@@ -100,6 +104,9 @@ for (const catalogEntry of catalog.tmas) {
   }
   assert.equal(tmaProcedureCount, catalogEntry.procedureCount, `Total IFR divergente em ${tma.name}`);
 }
+
+const sortProcedures = entries => [...entries].sort((first, second) => first.tma.localeCompare(second.tma, 'en') || first.airport.localeCompare(second.airport, 'en') || first.type.localeCompare(second.type, 'en') || first.name.localeCompare(second.name, 'en'));
+assert.deepEqual(sortProcedures(globalProcedureIndex.procedures || []), sortProcedures(expectedGlobalProcedures), 'Índice global de procedimentos divergente');
 
 for (const required of [
   'SBCT|STAR|STAR RNAV DALIG 1A RWY 15',
