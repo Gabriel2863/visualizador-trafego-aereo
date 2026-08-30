@@ -2,13 +2,17 @@
 
 Site web interativo para estudo e visualização de dados aeronáuticos.
 
+## Escopo em execução
+
+A interface está configurada para operar exclusivamente na **TMA São Paulo**. Ela carrega apenas os setores, aeródromos, áreas de ensaio e procedimentos dessa terminal; o catálogo e os arquivos nacionais permanecem no repositório como acervo de dados, sem serem carregados pelo mapa. Para ampliar o escopo no futuro, altere a configuração `OPERATIONAL_SCOPE` em `map_interface.js`.
+
 ## Estrutura
 
 - `index.html` — página principal
 - `map_interface.js` — lógica do mapa e da interface
 - `styles.css` — estilos
 - `data/waypoints.json` — 7.938 waypoints originais e referências globais de geometria IFR
-- `data/tmas/catalog.json` — catálogo leve das 40 TMAs e seus índices sob demanda
+- `data/tmas/catalog.json` — catálogo nacional preservado; a interface atual seleciona somente São Paulo
 - `data/tmas/<tma>/` — aeródromos e procedimentos SID/STAR/IAC em arquivos individuais
 - `data/tmas/manifest.json` — fontes nacionais e módulos de contexto operacional
 - `data/tmas/tma-sp.json` — fonte monolítica preservada para reconstruir os procedimentos de São Paulo

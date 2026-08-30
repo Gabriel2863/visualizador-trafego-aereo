@@ -13,6 +13,12 @@ As regras centrais são:
 - pernas principais e aproximação perdida permanecem separadas;
 - arquivos antigos são preservados como fontes de migração e compatibilidade.
 
+## Escopo atual da interface
+
+O acervo de dados permanece nacional, mas a execução do visualizador está limitada à **TMA São Paulo** por `OPERATIONAL_SCOPE`, em `map_interface.js`. Dessa forma, o navegador não busca as bases AIXM nacionais de TMA e aeródromos durante a inicialização, nem expõe outras terminais, fixos ou cartas na interface. A base global de `waypoints.json` continua disponível internamente para resolver os FIX usados pelas cartas de São Paulo.
+
+Essa limitação é reversível e não remove os dados de outras regiões. Para reabrir a cobertura nacional no futuro, a configuração deve ser revisada junto com a estratégia de carregamento sob demanda, sem apagar a hierarquia existente.
+
 ## Estrutura
 
 ```text
