@@ -1,0 +1,178 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBSV-STAR-SV02H",
+    "airport": "SBSV",
+    "name": "RNAV AKPAS 1B RWY 28",
+    "type": "STAR",
+    "runway": "28",
+    "runways": [
+      "28"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "SV02H",
+      "amendment": "2608A1",
+      "effectiveDate": "2026-08-06",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "AKPAS": {
+      "ident": "AKPAS",
+      "coordinate_ref": "waypoint:8913.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "XOLUT": {
+      "ident": "XOLUT",
+      "coordinate_ref": "waypoint:9388.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "TOGPA": {
+      "ident": "TOGPA",
+      "coordinate_ref": "waypoint:6533.0",
+      "role": "IAF",
+      "altitude": {
+        "at": null,
+        "min": 4000.0,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-akpas-1-10",
+      "from": null,
+      "to": "AKPAS",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "Altitude (FT)",
+        "valueFt": null,
+        "meaning": "published"
+      },
+      "upper_limit": {
+        "raw": "Altitude (FT)",
+        "valueFt": null,
+        "meaning": "published"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-akpas-1-20",
+      "from": "AKPAS",
+      "to": "XOLUT",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 242.96,
+      "course_reference": "MAG",
+      "course_magnetic": 242.96,
+      "course_true": 220.04,
+      "distance_nm": 46.33,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-3-akpas-1-30",
+      "from": "XOLUT",
+      "to": "TOGPA",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 242.25,
+      "course_reference": "MAG",
+      "course_magnetic": 242.25,
+      "course_true": 219.16,
+      "distance_nm": 19.62,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+4000",
+        "valueFt": 4000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 4000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    }
+  ],
+  "transitions": [
+    {
+      "id": "akpas",
+      "name": "Transicao AKPAS",
+      "kind": "arrival",
+      "sequence": [
+        "AKPAS",
+        "XOLUT",
+        "TOGPA"
+      ],
+      "leg_ids": [
+        "transition-1-1-akpas-1-10",
+        "transition-1-2-akpas-1-20",
+        "transition-1-3-akpas-1-30"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

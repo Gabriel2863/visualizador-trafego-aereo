@@ -1,0 +1,587 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBGR-IAC-GR05Z",
+    "airport": "SBGR",
+    "name": "ILS R RWY 10R",
+    "type": "IAC",
+    "runway": "10R",
+    "runways": [
+      "10R"
+    ],
+    "modes": [
+      "ILS"
+    ],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "GR05Z",
+      "amendment": "2504A1",
+      "effectiveDate": "2025-04-17",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "GR283": {
+      "ident": "GR283",
+      "coordinate_ref": "waypoint:7687.0",
+      "role": "IAF",
+      "altitude": {
+        "at": null,
+        "min": 7000.0,
+        "max": null
+      }
+    },
+    "GR009": {
+      "ident": "GR009",
+      "coordinate_ref": "waypoint:10820.0",
+      "role": "IF",
+      "altitude": {
+        "at": null,
+        "min": 5500.0,
+        "max": null
+      }
+    },
+    "GR008": {
+      "ident": "GR008",
+      "coordinate_ref": "waypoint:10821.0",
+      "role": "SDF",
+      "altitude": {
+        "at": null,
+        "min": 4800.0,
+        "max": null
+      }
+    },
+    "GR007": {
+      "ident": "GR007",
+      "coordinate_ref": "waypoint:10817.0",
+      "role": "FACF",
+      "altitude": {
+        "at": null,
+        "min": 4000.0,
+        "max": 4100.0
+      }
+    },
+    "GR006": {
+      "ident": "GR006",
+      "coordinate_ref": "waypoint:10818.0",
+      "role": "FAF",
+      "altitude": {
+        "at": null,
+        "min": 3620.0,
+        "max": null
+      }
+    },
+    "RW10R": {
+      "ident": "RW10R",
+      "coordinate_ref": "procedure-point:47b4dfcc38",
+      "role": "LTP",
+      "altitude": {
+        "at": 2501.0,
+        "min": null,
+        "max": null
+      }
+    },
+    "ISIMU": {
+      "ident": "ISIMU",
+      "coordinate_ref": "waypoint:8040.0",
+      "role": "MAHF",
+      "altitude": {
+        "at": null,
+        "min": 6000.0,
+        "max": null
+      }
+    },
+    "GR010": {
+      "ident": "GR010",
+      "coordinate_ref": "waypoint:10819.0",
+      "role": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-apch-1-10",
+      "from": null,
+      "to": "GR283",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 5.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+7000",
+        "valueFt": 7000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 7000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "IAF",
+      "navigation_specification": "A-RNP or RNP APCH",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-apch-1-20",
+      "from": "GR283",
+      "to": "GR009",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 219.98,
+      "course_reference": "MAG",
+      "course_magnetic": 219.98,
+      "course_true": 197.97,
+      "distance_nm": 9.11,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+5500",
+        "valueFt": 5500.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 5500.0,
+        "max": null
+      },
+      "speed_limit_kt": 180.0,
+      "speed_interpretation": "-",
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "IF",
+      "navigation_specification": "A-RNP or RNP APCH",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-3-apch-1-30",
+      "from": "GR009",
+      "to": "GR008",
+      "via": [],
+      "path_terminator": "RF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 2.8,
+      "turn": "L",
+      "arc_center": "GR010",
+      "arc_radius_nm": 2.6,
+      "lower_limit": {
+        "raw": "+4800",
+        "valueFt": 4800.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 4800.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "SDF",
+      "navigation_specification": "A-RNP or RNP APCH",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-4-apch-1-40",
+      "from": "GR008",
+      "to": "GR007",
+      "via": [],
+      "path_terminator": "RF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 2.8,
+      "turn": "L",
+      "arc_center": "GR010",
+      "arc_radius_nm": 2.6,
+      "lower_limit": {
+        "raw": "B4000",
+        "valueFt": 4000.0,
+        "meaning": "between-bound"
+      },
+      "upper_limit": {
+        "raw": "B4100",
+        "valueFt": 4100.0,
+        "meaning": "between-bound"
+      },
+      "altitude": {
+        "at": null,
+        "min": 4000.0,
+        "max": 4100.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "FACF",
+      "navigation_specification": "A-RNP or RNP APCH",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-5-final-1-10",
+      "from": null,
+      "to": "GR007",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "B4000",
+        "valueFt": 4000.0,
+        "meaning": "between-bound"
+      },
+      "upper_limit": {
+        "raw": "B4100",
+        "valueFt": 4100.0,
+        "meaning": "between-bound"
+      },
+      "altitude": {
+        "at": null,
+        "min": 4000.0,
+        "max": 4100.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "FACF",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-6-final-1-20",
+      "from": "GR007",
+      "to": "GR006",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 95.34,
+      "course_reference": "MAG",
+      "course_magnetic": 95.34,
+      "course_true": 73.73,
+      "distance_nm": 1.98,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "R3620",
+        "valueFt": 3620.0,
+        "meaning": "recommended"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 3620.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "FAF",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-7-final-1-30",
+      "from": "GR006",
+      "to": "RW10R",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 95.34,
+      "course_reference": "MAG",
+      "course_magnetic": 95.34,
+      "course_true": 73.63,
+      "distance_nm": 3.5,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "@2501",
+        "valueFt": 2501.0,
+        "meaning": "at"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": 2501.0,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": -3.0,
+      "fly_over": "Y",
+      "fix_role": "LTP",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "missed-1-1-ma-1-10",
+      "from": null,
+      "to": null,
+      "via": [],
+      "path_terminator": "VA",
+      "course": 95.35,
+      "course_reference": "MAG",
+      "course_magnetic": 95.35,
+      "course_true": 73.69,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+3300",
+        "valueFt": 3300.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 3300.0,
+        "max": null
+      },
+      "speed_limit_kt": 230.0,
+      "speed_interpretation": "-",
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "A-RNP or RNP APCH",
+      "source_page": 1
+    },
+    {
+      "id": "missed-1-2-ma-1-20",
+      "from": null,
+      "to": "ISIMU",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": "R",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+6000",
+        "valueFt": 6000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 6000.0,
+        "max": null
+      },
+      "speed_limit_kt": 230.0,
+      "speed_interpretation": "-",
+      "vertical_angle": null,
+      "fly_over": "Y",
+      "fix_role": "MAHF",
+      "navigation_specification": "A-RNP or RNP APCH",
+      "source_page": 1
+    },
+    {
+      "id": "missed-1-3-ma-1-30",
+      "from": "ISIMU",
+      "to": "ISIMU",
+      "via": [],
+      "path_terminator": "HM",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 1.0,
+      "turn": "R",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+6000",
+        "valueFt": 6000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 6000.0,
+        "max": null
+      },
+      "speed_limit_kt": 230.0,
+      "speed_interpretation": "-",
+      "vertical_angle": null,
+      "fly_over": "Y",
+      "fix_role": "MAHF",
+      "navigation_specification": "A-RNP or RNP APCH",
+      "source_page": 1
+    }
+  ],
+  "transitions": [
+    {
+      "id": "gr283",
+      "name": "Entrada GR283",
+      "kind": "approach",
+      "sequence": [
+        "GR283",
+        "GR009",
+        "GR008",
+        "GR007",
+        "GR006",
+        "RW10R"
+      ],
+      "leg_ids": [
+        "transition-1-1-apch-1-10",
+        "transition-1-2-apch-1-20",
+        "transition-1-3-apch-1-30",
+        "transition-1-4-apch-1-40",
+        "transition-1-5-final-1-10",
+        "transition-1-6-final-1-20",
+        "transition-1-7-final-1-30"
+      ]
+    }
+  ],
+  "missed_approach": [
+    {
+      "id": "missed-1",
+      "name": "Aproximacao perdida",
+      "kind": "MISSED",
+      "sequence": [
+        "ISIMU"
+      ],
+      "legs": [
+        {
+          "id": "missed-1-1-ma-1-10",
+          "from": null,
+          "to": null,
+          "via": [],
+          "path_terminator": "VA",
+          "course": 95.35,
+          "course_reference": "MAG",
+          "course_magnetic": 95.35,
+          "course_true": 73.69,
+          "distance_nm": null,
+          "turn": null,
+          "arc_center": null,
+          "arc_radius_nm": null,
+          "lower_limit": {
+            "raw": "+3300",
+            "valueFt": 3300.0,
+            "meaning": "at-or-above"
+          },
+          "upper_limit": null,
+          "altitude": {
+            "at": null,
+            "min": 3300.0,
+            "max": null
+          },
+          "speed_limit_kt": 230.0,
+          "speed_interpretation": "-",
+          "vertical_angle": null,
+          "fly_over": null,
+          "fix_role": "OTHER",
+          "navigation_specification": "A-RNP or RNP APCH",
+          "source_page": 1
+        },
+        {
+          "id": "missed-1-2-ma-1-20",
+          "from": null,
+          "to": "ISIMU",
+          "via": [],
+          "path_terminator": "DF",
+          "course": null,
+          "course_reference": null,
+          "course_magnetic": null,
+          "course_true": null,
+          "distance_nm": null,
+          "turn": "R",
+          "arc_center": null,
+          "arc_radius_nm": null,
+          "lower_limit": {
+            "raw": "+6000",
+            "valueFt": 6000.0,
+            "meaning": "at-or-above"
+          },
+          "upper_limit": null,
+          "altitude": {
+            "at": null,
+            "min": 6000.0,
+            "max": null
+          },
+          "speed_limit_kt": 230.0,
+          "speed_interpretation": "-",
+          "vertical_angle": null,
+          "fly_over": "Y",
+          "fix_role": "MAHF",
+          "navigation_specification": "A-RNP or RNP APCH",
+          "source_page": 1
+        },
+        {
+          "id": "missed-1-3-ma-1-30",
+          "from": "ISIMU",
+          "to": "ISIMU",
+          "via": [],
+          "path_terminator": "HM",
+          "course": null,
+          "course_reference": null,
+          "course_magnetic": null,
+          "course_true": null,
+          "distance_nm": 1.0,
+          "turn": "R",
+          "arc_center": null,
+          "arc_radius_nm": null,
+          "lower_limit": {
+            "raw": "+6000",
+            "valueFt": 6000.0,
+            "meaning": "at-or-above"
+          },
+          "upper_limit": null,
+          "altitude": {
+            "at": null,
+            "min": 6000.0,
+            "max": null
+          },
+          "speed_limit_kt": 230.0,
+          "speed_interpretation": "-",
+          "vertical_angle": null,
+          "fly_over": "Y",
+          "fix_role": "MAHF",
+          "navigation_specification": "A-RNP or RNP APCH",
+          "source_page": 1
+        }
+      ]
+    }
+  ],
+  "warnings": [
+    "*Fictitious point: Only for coding purposes.",
+    "FICTITIOUS THRESHOLD"
+  ]
+}

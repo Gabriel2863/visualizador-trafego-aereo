@@ -1,0 +1,582 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBSG-STAR-SG00Q",
+    "airport": "SBSG",
+    "name": "RNAV SAFUC 1B - SAFUC 1C - TOSAD 1B RWY 12",
+    "type": "STAR",
+    "runway": "12",
+    "runways": [
+      "12"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "SG00Q",
+      "amendment": "2407A1",
+      "effectiveDate": "2024-07-11",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "SAFUC": {
+      "ident": "SAFUC",
+      "coordinate_ref": "waypoint:7516.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "GEDOR": {
+      "ident": "GEDOR",
+      "coordinate_ref": "waypoint:3167.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -9000.0
+      }
+    },
+    "NEBUG": {
+      "ident": "NEBUG",
+      "coordinate_ref": "waypoint:3280.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 6000.0,
+        "max": null
+      }
+    },
+    "SG123": {
+      "ident": "SG123",
+      "coordinate_ref": "waypoint:10039.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 4000.0,
+        "max": null
+      }
+    },
+    "IVSIK": {
+      "ident": "IVSIK",
+      "coordinate_ref": "waypoint:4398.0",
+      "role": "IAF",
+      "altitude": {
+        "at": null,
+        "min": 4000.0,
+        "max": null
+      }
+    },
+    "TOSAD": {
+      "ident": "TOSAD",
+      "coordinate_ref": "waypoint:9171.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "TOGUN": {
+      "ident": "TOGUN",
+      "coordinate_ref": "waypoint:9165.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "SG004": {
+      "ident": "SG004",
+      "coordinate_ref": "waypoint:10025.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 7000.0,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-safuc-1-10",
+      "from": null,
+      "to": "SAFUC",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-safuc-1-20",
+      "from": "SAFUC",
+      "to": "GEDOR",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 8.5,
+      "course_reference": "MAG",
+      "course_magnetic": 8.5,
+      "course_true": 347.54,
+      "distance_nm": 37.62,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-9000",
+        "valueFt": -9000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -9000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-3-safuc-1-30",
+      "from": "GEDOR",
+      "to": "NEBUG",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 345.94,
+      "course_reference": "MAG",
+      "course_magnetic": 345.94,
+      "course_true": 325.17,
+      "distance_nm": 23.34,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+6000",
+        "valueFt": 6000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 6000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-4-safuc-1-40",
+      "from": "NEBUG",
+      "to": "SG123",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 345.9,
+      "course_reference": "MAG",
+      "course_magnetic": 345.9,
+      "course_true": 325.2,
+      "distance_nm": 6.54,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+4000",
+        "valueFt": 4000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 4000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-5-safuc-1-50",
+      "from": "SG123",
+      "to": "IVSIK",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 345.49,
+      "course_reference": "MAG",
+      "course_magnetic": 345.49,
+      "course_true": 324.81,
+      "distance_nm": 3.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+4000",
+        "valueFt": 4000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 4000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-1-safuc-2-10",
+      "from": null,
+      "to": "SAFUC",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-2-safuc-2-20",
+      "from": "SAFUC",
+      "to": "GEDOR",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 8.5,
+      "course_reference": "MAG",
+      "course_magnetic": 8.5,
+      "course_true": 347.54,
+      "distance_nm": 37.62,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-9000",
+        "valueFt": -9000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -9000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-3-safuc-2-30",
+      "from": "GEDOR",
+      "to": "NEBUG",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 345.94,
+      "course_reference": "MAG",
+      "course_magnetic": 345.94,
+      "course_true": 325.17,
+      "distance_nm": 23.34,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+6000",
+        "valueFt": 6000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 6000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-4-safuc-2-40",
+      "from": "NEBUG",
+      "to": "SG123",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 345.9,
+      "course_reference": "MAG",
+      "course_magnetic": 345.9,
+      "course_true": 325.2,
+      "distance_nm": 6.54,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+4000",
+        "valueFt": 4000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 4000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-1-tosad-1-10",
+      "from": null,
+      "to": "TOSAD",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 2
+    },
+    {
+      "id": "transition-3-2-tosad-1-20",
+      "from": "TOSAD",
+      "to": "TOGUN",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 83.52,
+      "course_reference": "MAG",
+      "course_magnetic": 83.52,
+      "course_true": 62.14,
+      "distance_nm": 46.14,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 2
+    },
+    {
+      "id": "transition-3-3-tosad-1-30",
+      "from": "TOGUN",
+      "to": "SG004",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 74.21,
+      "course_reference": "MAG",
+      "course_magnetic": 74.21,
+      "course_true": 53.06,
+      "distance_nm": 65.89,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+7000",
+        "valueFt": 7000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 7000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 2
+    },
+    {
+      "id": "transition-3-4-tosad-1-40",
+      "from": "SG004",
+      "to": "IVSIK",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 71.73,
+      "course_reference": "MAG",
+      "course_magnetic": 71.73,
+      "course_true": 50.99,
+      "distance_nm": 10.7,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+4000",
+        "valueFt": 4000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 4000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 2
+    }
+  ],
+  "transitions": [
+    {
+      "id": "safuc",
+      "name": "Transicao SAFUC",
+      "kind": "arrival",
+      "sequence": [
+        "SAFUC",
+        "GEDOR",
+        "NEBUG",
+        "SG123",
+        "IVSIK"
+      ],
+      "leg_ids": [
+        "transition-1-1-safuc-1-10",
+        "transition-1-2-safuc-1-20",
+        "transition-1-3-safuc-1-30",
+        "transition-1-4-safuc-1-40",
+        "transition-1-5-safuc-1-50"
+      ]
+    },
+    {
+      "id": "safuc-safuc-2",
+      "name": "Transicao SAFUC",
+      "kind": "arrival",
+      "sequence": [
+        "SAFUC",
+        "GEDOR",
+        "NEBUG",
+        "SG123"
+      ],
+      "leg_ids": [
+        "transition-2-1-safuc-2-10",
+        "transition-2-2-safuc-2-20",
+        "transition-2-3-safuc-2-30",
+        "transition-2-4-safuc-2-40"
+      ]
+    },
+    {
+      "id": "tosad",
+      "name": "Transicao TOSAD",
+      "kind": "arrival",
+      "sequence": [
+        "TOSAD",
+        "TOGUN",
+        "SG004",
+        "IVSIK"
+      ],
+      "leg_ids": [
+        "transition-3-1-tosad-1-10",
+        "transition-3-2-tosad-1-20",
+        "transition-3-3-tosad-1-30",
+        "transition-3-4-tosad-1-40"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": [
+    "FICTITIOUS THRESHOLD"
+  ]
+}

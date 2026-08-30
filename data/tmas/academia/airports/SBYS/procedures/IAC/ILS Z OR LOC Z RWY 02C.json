@@ -1,0 +1,401 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBYS-IAC-YS00G",
+    "airport": "SBYS",
+    "name": "ILS Z OR LOC Z RWY 02C",
+    "type": "IAC",
+    "runway": "02C",
+    "runways": [
+      "02C"
+    ],
+    "modes": [
+      "ILS",
+      "LOC"
+    ],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "YS00G",
+      "amendment": "2607A1",
+      "effectiveDate": "2026-07-09",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "EDLUR": {
+      "ident": "EDLUR",
+      "coordinate_ref": "waypoint:3921.0",
+      "role": "IAF",
+      "altitude": {
+        "at": null,
+        "min": 5000.0,
+        "max": null
+      }
+    },
+    "RW02C": {
+      "ident": "RW02C",
+      "coordinate_ref": "waypoint:aisweb-52e687b6296d7a",
+      "role": "LTP",
+      "altitude": {
+        "at": 2018.0,
+        "min": null,
+        "max": null
+      }
+    },
+    "GEGUR": {
+      "ident": "GEGUR",
+      "coordinate_ref": "waypoint:1240.0",
+      "role": "MAHF",
+      "altitude": {
+        "at": null,
+        "min": 5000.0,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-apch-1-10",
+      "from": null,
+      "to": "EDLUR",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+5000",
+        "valueFt": 5000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 5000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "IAF",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-apch-1-20",
+      "from": "EDLUR",
+      "to": "EDLUR",
+      "via": [],
+      "path_terminator": "HF",
+      "course": 21.69,
+      "course_reference": "MAG",
+      "course_magnetic": 21.69,
+      "course_true": 359.8,
+      "distance_nm": null,
+      "turn": "R",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+4200",
+        "valueFt": 4200.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 4200.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-3-apch-1-30",
+      "from": "EDLUR",
+      "to": "EDLUR",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 21.69,
+      "course_reference": "MAG",
+      "course_magnetic": 21.69,
+      "course_true": 359.8,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "R3610",
+        "valueFt": 3610.0,
+        "meaning": "recommended"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 3610.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "FAF",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-1-final-1-10",
+      "from": null,
+      "to": "EDLUR",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "R3610",
+        "valueFt": 3610.0,
+        "meaning": "recommended"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 3610.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "FAF",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-2-final-1-20",
+      "from": "EDLUR",
+      "to": "RW02C",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 21.68,
+      "course_reference": "MAG",
+      "course_magnetic": 21.68,
+      "course_true": 359.79,
+      "distance_nm": 5.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "@2018",
+        "valueFt": 2018.0,
+        "meaning": "at"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": 2018.0,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": -3.0,
+      "fly_over": null,
+      "fix_role": "LTP",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "missed-1-1-ma-1-10",
+      "from": null,
+      "to": "GEGUR",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 21.68,
+      "course_reference": "MAG",
+      "course_magnetic": 21.68,
+      "course_true": 359.79,
+      "distance_nm": 15.56,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+5000",
+        "valueFt": 5000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 5000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "MAHF",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "missed-1-2-ma-1-20",
+      "from": "GEGUR",
+      "to": "GEGUR",
+      "via": [],
+      "path_terminator": "HM",
+      "course": 201.68,
+      "course_reference": "MAG",
+      "course_magnetic": 201.68,
+      "course_true": 179.79,
+      "distance_nm": 1.0,
+      "turn": "R",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+5000",
+        "valueFt": 5000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 5000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "MAHF",
+      "navigation_specification": null,
+      "source_page": 1
+    }
+  ],
+  "transitions": [
+    {
+      "id": "edlur",
+      "name": "Sequencia final publicada",
+      "kind": "approach",
+      "sequence": [
+        "EDLUR"
+      ],
+      "leg_ids": [
+        "transition-1-1-apch-1-10",
+        "transition-1-2-apch-1-20",
+        "transition-1-3-apch-1-30"
+      ]
+    },
+    {
+      "id": "edlur-final-1",
+      "name": "Sequencia final publicada",
+      "kind": "approach",
+      "sequence": [
+        "EDLUR",
+        "RW02C"
+      ],
+      "leg_ids": [
+        "transition-2-1-final-1-10",
+        "transition-2-2-final-1-20"
+      ]
+    }
+  ],
+  "missed_approach": [
+    {
+      "id": "missed-1",
+      "name": "Aproximacao perdida",
+      "kind": "MISSED",
+      "sequence": [
+        "GEGUR"
+      ],
+      "legs": [
+        {
+          "id": "missed-1-1-ma-1-10",
+          "from": null,
+          "to": "GEGUR",
+          "via": [],
+          "path_terminator": "CF",
+          "course": 21.68,
+          "course_reference": "MAG",
+          "course_magnetic": 21.68,
+          "course_true": 359.79,
+          "distance_nm": 15.56,
+          "turn": null,
+          "arc_center": null,
+          "arc_radius_nm": null,
+          "lower_limit": {
+            "raw": "+5000",
+            "valueFt": 5000.0,
+            "meaning": "at-or-above"
+          },
+          "upper_limit": null,
+          "altitude": {
+            "at": null,
+            "min": 5000.0,
+            "max": null
+          },
+          "speed_limit_kt": null,
+          "speed_interpretation": null,
+          "vertical_angle": null,
+          "fly_over": null,
+          "fix_role": "MAHF",
+          "navigation_specification": null,
+          "source_page": 1
+        },
+        {
+          "id": "missed-1-2-ma-1-20",
+          "from": "GEGUR",
+          "to": "GEGUR",
+          "via": [],
+          "path_terminator": "HM",
+          "course": 201.68,
+          "course_reference": "MAG",
+          "course_magnetic": 201.68,
+          "course_true": 179.79,
+          "distance_nm": 1.0,
+          "turn": "R",
+          "arc_center": null,
+          "arc_radius_nm": null,
+          "lower_limit": {
+            "raw": "+5000",
+            "valueFt": 5000.0,
+            "meaning": "at-or-above"
+          },
+          "upper_limit": null,
+          "altitude": {
+            "at": null,
+            "min": 5000.0,
+            "max": null
+          },
+          "speed_limit_kt": null,
+          "speed_interpretation": null,
+          "vertical_angle": null,
+          "fly_over": null,
+          "fix_role": "MAHF",
+          "navigation_specification": null,
+          "source_page": 1
+        }
+      ]
+    }
+  ],
+  "warnings": [
+    "FICTITIOUS THRESHOLD"
+  ]
+}

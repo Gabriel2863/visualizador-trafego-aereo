@@ -1,0 +1,379 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBKG-IAC-KG00E",
+    "airport": "SBKG",
+    "name": "NDB RWY 15",
+    "type": "IAC",
+    "runway": "15",
+    "runways": [
+      "15"
+    ],
+    "modes": [
+      "NDB"
+    ],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "KG00E",
+      "amendment": "2306A1",
+      "effectiveDate": "2023-06-15",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "CPG": {
+      "ident": "CPG",
+      "coordinate_ref": "procedure-point:30047ed0-869e-4527-9a98-8569aeab5a51",
+      "role": "IAF",
+      "altitude": {
+        "at": null,
+        "min": 4000.0,
+        "max": null
+      }
+    },
+    "CPG01": {
+      "ident": "CPG01",
+      "coordinate_ref": "waypoint:8722.0",
+      "role": "FTP",
+      "altitude": {
+        "at": 1661.0,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-final-1-10",
+      "from": null,
+      "to": "CPG",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+4000",
+        "valueFt": 4000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 4000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "IAF",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-final-1-20",
+      "from": "CPG",
+      "to": "CPG",
+      "via": [],
+      "path_terminator": "FC",
+      "course": 331.75,
+      "course_reference": "MAG",
+      "course_magnetic": 331.75,
+      "course_true": 310.4,
+      "distance_nm": 2.5,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+3500",
+        "valueFt": 3500.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 3500.0,
+        "max": null
+      },
+      "speed_limit_kt": 210.0,
+      "speed_interpretation": "-",
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "IAF",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-3-final-1-30",
+      "from": "CPG",
+      "to": "CPG01",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 132.94,
+      "course_reference": "MAG",
+      "course_magnetic": 132.94,
+      "course_true": 111.59,
+      "distance_nm": null,
+      "turn": "L",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "@1661",
+        "valueFt": 1661.0,
+        "meaning": "at"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": 1661.0,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "FTP",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "missed-1-1-ma-1-10",
+      "from": null,
+      "to": null,
+      "via": [],
+      "path_terminator": "VA",
+      "course": 132.94,
+      "course_reference": "MAG",
+      "course_magnetic": 132.94,
+      "course_true": 111.6,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+3000",
+        "valueFt": 3000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 3000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "missed-1-2-ma-1-20",
+      "from": null,
+      "to": "CPG",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": "L",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+4000",
+        "valueFt": 4000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 4000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "MAHF",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "missed-1-3-ma-1-30",
+      "from": "CPG",
+      "to": "CPG",
+      "via": [],
+      "path_terminator": "HM",
+      "course": 332.26,
+      "course_reference": "MAG",
+      "course_magnetic": 332.26,
+      "course_true": 310.4,
+      "distance_nm": 1.0,
+      "turn": "R",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+4000",
+        "valueFt": 4000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 4000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "MAHF",
+      "navigation_specification": null,
+      "source_page": 1
+    }
+  ],
+  "transitions": [
+    {
+      "id": "cpg",
+      "name": "Sequencia final publicada",
+      "kind": "approach",
+      "sequence": [
+        "CPG",
+        "CPG01"
+      ],
+      "leg_ids": [
+        "transition-1-1-final-1-10",
+        "transition-1-2-final-1-20",
+        "transition-1-3-final-1-30"
+      ]
+    }
+  ],
+  "missed_approach": [
+    {
+      "id": "missed-1",
+      "name": "Aproximacao perdida",
+      "kind": "MISSED",
+      "sequence": [
+        "CPG"
+      ],
+      "legs": [
+        {
+          "id": "missed-1-1-ma-1-10",
+          "from": null,
+          "to": null,
+          "via": [],
+          "path_terminator": "VA",
+          "course": 132.94,
+          "course_reference": "MAG",
+          "course_magnetic": 132.94,
+          "course_true": 111.6,
+          "distance_nm": null,
+          "turn": null,
+          "arc_center": null,
+          "arc_radius_nm": null,
+          "lower_limit": {
+            "raw": "+3000",
+            "valueFt": 3000.0,
+            "meaning": "at-or-above"
+          },
+          "upper_limit": null,
+          "altitude": {
+            "at": null,
+            "min": 3000.0,
+            "max": null
+          },
+          "speed_limit_kt": null,
+          "speed_interpretation": null,
+          "vertical_angle": null,
+          "fly_over": null,
+          "fix_role": "OTHER",
+          "navigation_specification": null,
+          "source_page": 1
+        },
+        {
+          "id": "missed-1-2-ma-1-20",
+          "from": null,
+          "to": "CPG",
+          "via": [],
+          "path_terminator": "DF",
+          "course": null,
+          "course_reference": null,
+          "course_magnetic": null,
+          "course_true": null,
+          "distance_nm": null,
+          "turn": "L",
+          "arc_center": null,
+          "arc_radius_nm": null,
+          "lower_limit": {
+            "raw": "+4000",
+            "valueFt": 4000.0,
+            "meaning": "at-or-above"
+          },
+          "upper_limit": null,
+          "altitude": {
+            "at": null,
+            "min": 4000.0,
+            "max": null
+          },
+          "speed_limit_kt": null,
+          "speed_interpretation": null,
+          "vertical_angle": null,
+          "fly_over": null,
+          "fix_role": "MAHF",
+          "navigation_specification": null,
+          "source_page": 1
+        },
+        {
+          "id": "missed-1-3-ma-1-30",
+          "from": "CPG",
+          "to": "CPG",
+          "via": [],
+          "path_terminator": "HM",
+          "course": 332.26,
+          "course_reference": "MAG",
+          "course_magnetic": 332.26,
+          "course_true": 310.4,
+          "distance_nm": 1.0,
+          "turn": "R",
+          "arc_center": null,
+          "arc_radius_nm": null,
+          "lower_limit": {
+            "raw": "+4000",
+            "valueFt": 4000.0,
+            "meaning": "at-or-above"
+          },
+          "upper_limit": null,
+          "altitude": {
+            "at": null,
+            "min": 4000.0,
+            "max": null
+          },
+          "speed_limit_kt": null,
+          "speed_interpretation": null,
+          "vertical_angle": null,
+          "fly_over": null,
+          "fix_role": "MAHF",
+          "navigation_specification": null,
+          "source_page": 1
+        }
+      ]
+    }
+  ],
+  "warnings": [
+    "*Fictitious point for coding purposes only.",
+    "FICTITIOUS THRESHOLD"
+  ]
+}

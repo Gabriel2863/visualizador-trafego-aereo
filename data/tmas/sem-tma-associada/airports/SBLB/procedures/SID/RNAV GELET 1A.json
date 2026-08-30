@@ -1,0 +1,457 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBLB-SID-LB00D",
+    "airport": "SBLB",
+    "name": "RNAV GELET 1A",
+    "type": "SID",
+    "runway": null,
+    "runways": [],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "LB00D",
+      "amendment": "2410A1",
+      "effectiveDate": "2024-10-03",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "GELET": {
+      "ident": "GELET",
+      "coordinate_ref": "waypoint:5738.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 600.0,
+        "max": null
+      }
+    },
+    "LB001": {
+      "ident": "LB001",
+      "coordinate_ref": "waypoint:6626.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "LB002": {
+      "ident": "LB002",
+      "coordinate_ref": "waypoint:3785.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "RELUL": {
+      "ident": "RELUL",
+      "coordinate_ref": "waypoint:354.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "LB003": {
+      "ident": "LB003",
+      "coordinate_ref": "waypoint:8358.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "ETELU": {
+      "ident": "ETELU",
+      "coordinate_ref": "waypoint:3729.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-rwy-1-10",
+      "from": null,
+      "to": "GELET",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+600",
+        "valueFt": 600.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 600.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "Y",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-rwy-1-20",
+      "from": "GELET",
+      "to": "LB001",
+      "via": [],
+      "path_terminator": null,
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 1.83,
+      "turn": "206.48° Mag 182.56° True",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-3-rwy-1-30",
+      "from": "LB001",
+      "to": "LB002",
+      "via": [],
+      "path_terminator": null,
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 1.4,
+      "turn": "288.18° Mag 264.27° True",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-4-relul-1-10",
+      "from": null,
+      "to": "LB002",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-5-relul-1-20",
+      "from": "LB002",
+      "to": "RELUL",
+      "via": [],
+      "path_terminator": null,
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 2.58,
+      "turn": "198.19° Mag 174.28° True",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": 3000.0,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-1-rwy-1-10",
+      "from": null,
+      "to": "GELET",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+600",
+        "valueFt": 600.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 600.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "Y",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-2-rwy-1-20",
+      "from": "GELET",
+      "to": "LB001",
+      "via": [],
+      "path_terminator": null,
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 1.83,
+      "turn": "206.48° Mag 182.56° True",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-3-rwy-1-30",
+      "from": "LB001",
+      "to": "LB002",
+      "via": [],
+      "path_terminator": null,
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 1.4,
+      "turn": "288.18° Mag 264.27° True",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-4-etelu-1-10",
+      "from": null,
+      "to": "LB002",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-5-etelu-1-20",
+      "from": "LB002",
+      "to": "LB003",
+      "via": [],
+      "path_terminator": null,
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 6.0,
+      "turn": "288.19° Mag 264.28° True",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-6-etelu-1-30",
+      "from": "LB003",
+      "to": "ETELU",
+      "via": [],
+      "path_terminator": null,
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 2.58,
+      "turn": "198.24° Mag 174.34° True",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": 3000.0,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    }
+  ],
+  "transitions": [
+    {
+      "id": "rwy-relul",
+      "name": "RWY - RELUL",
+      "kind": "departure",
+      "sequence": [
+        "GELET",
+        "LB001",
+        "LB002",
+        "RELUL"
+      ],
+      "leg_ids": [
+        "transition-1-1-rwy-1-10",
+        "transition-1-2-rwy-1-20",
+        "transition-1-3-rwy-1-30",
+        "transition-1-4-relul-1-10",
+        "transition-1-5-relul-1-20"
+      ]
+    },
+    {
+      "id": "rwy-etelu",
+      "name": "RWY - ETELU",
+      "kind": "departure",
+      "sequence": [
+        "GELET",
+        "LB001",
+        "LB002",
+        "LB003",
+        "ETELU"
+      ],
+      "leg_ids": [
+        "transition-2-1-rwy-1-10",
+        "transition-2-2-rwy-1-20",
+        "transition-2-3-rwy-1-30",
+        "transition-2-4-etelu-1-10",
+        "transition-2-5-etelu-1-20",
+        "transition-2-6-etelu-1-30"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

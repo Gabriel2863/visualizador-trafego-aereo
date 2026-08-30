@@ -1,0 +1,393 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBRC-SID-RC00B",
+    "airport": "SBRC",
+    "name": "RNAV PAMAN 1A",
+    "type": "SID",
+    "runway": null,
+    "runways": [],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "RC00B",
+      "amendment": "2411A1",
+      "effectiveDate": "2024-10-31",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "PAMAN": {
+      "ident": "PAMAN",
+      "coordinate_ref": "waypoint:259.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 600.0,
+        "max": null
+      }
+    },
+    "RC017": {
+      "ident": "RC017",
+      "coordinate_ref": "waypoint:1981.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "KONSA": {
+      "ident": "KONSA",
+      "coordinate_ref": "waypoint:2724.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 3000.0,
+        "max": null
+      }
+    },
+    "RC018": {
+      "ident": "RC018",
+      "coordinate_ref": "waypoint:5078.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "GESLA": {
+      "ident": "GESLA",
+      "coordinate_ref": "waypoint:6387.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 3000.0,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-rwy-1-10",
+      "from": null,
+      "to": "PAMAN",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+600",
+        "valueFt": 600.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 600.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-rwy-1-20",
+      "from": "PAMAN",
+      "to": "RC017",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 285.66,
+      "course_reference": "MAG",
+      "course_magnetic": 285.66,
+      "course_true": null,
+      "distance_nm": 7.2,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-3-konsa-1-10",
+      "from": null,
+      "to": "RC017",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-4-konsa-1-20",
+      "from": "RC017",
+      "to": "KONSA",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 6.24,
+      "course_reference": "MAG",
+      "course_magnetic": 6.24,
+      "course_true": null,
+      "distance_nm": 6.52,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+3000",
+        "valueFt": 3000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 3000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-1-rwy-1-10",
+      "from": null,
+      "to": "PAMAN",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+600",
+        "valueFt": 600.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 600.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-2-rwy-1-20",
+      "from": "PAMAN",
+      "to": "RC017",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 285.66,
+      "course_reference": "MAG",
+      "course_magnetic": 285.66,
+      "course_true": null,
+      "distance_nm": 7.2,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-3-gesla-1-10",
+      "from": null,
+      "to": "RC017",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-4-gesla-1-20",
+      "from": "RC017",
+      "to": "RC018",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 285.68,
+      "course_reference": "MAG",
+      "course_magnetic": 285.68,
+      "course_true": null,
+      "distance_nm": 6.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-5-gesla-1-30",
+      "from": "RC018",
+      "to": "GESLA",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 6.22,
+      "course_reference": "MAG",
+      "course_magnetic": 6.22,
+      "course_true": 261.77,
+      "distance_nm": 5.54,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+3000",
+        "valueFt": 3000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 3000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    }
+  ],
+  "transitions": [
+    {
+      "id": "rwy-konsa",
+      "name": "RWY - KONSA",
+      "kind": "departure",
+      "sequence": [
+        "PAMAN",
+        "RC017",
+        "KONSA"
+      ],
+      "leg_ids": [
+        "transition-1-1-rwy-1-10",
+        "transition-1-2-rwy-1-20",
+        "transition-1-3-konsa-1-10",
+        "transition-1-4-konsa-1-20"
+      ]
+    },
+    {
+      "id": "rwy-gesla",
+      "name": "RWY - GESLA",
+      "kind": "departure",
+      "sequence": [
+        "PAMAN",
+        "RC017",
+        "RC018",
+        "GESLA"
+      ],
+      "leg_ids": [
+        "transition-2-1-rwy-1-10",
+        "transition-2-2-rwy-1-20",
+        "transition-2-3-gesla-1-10",
+        "transition-2-4-gesla-1-20",
+        "transition-2-5-gesla-1-30"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

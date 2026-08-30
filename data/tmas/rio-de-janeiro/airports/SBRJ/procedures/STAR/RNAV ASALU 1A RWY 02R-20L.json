@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBRJ-STAR-RJ02T",
+    "airport": "SBRJ",
+    "name": "RNAV ASALU 1A RWY 02R/20L",
+    "type": "STAR",
+    "runway": "02R",
+    "runways": [
+      "02R",
+      "20L"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "RJ02T",
+      "amendment": "2112A1",
+      "effectiveDate": "2021-12-02",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "KEVUN": {
+      "ident": "KEVUN",
+      "coordinate_ref": "waypoint:531.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-rwy-1-10",
+      "from": null,
+      "to": null,
+      "via": [],
+      "path_terminator": null,
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "IF",
+        "valueFt": null,
+        "meaning": "published"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": 7000.0,
+      "fly_over": "N",
+      "fix_role": null,
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-rwy-1-20",
+      "from": null,
+      "to": null,
+      "via": [],
+      "path_terminator": null,
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "TF",
+        "valueFt": null,
+        "meaning": "published"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": 87.44,
+      "speed_interpretation": null,
+      "vertical_angle": 6000.0,
+      "fly_over": "N",
+      "fix_role": null,
+      "navigation_specification": null,
+      "source_page": 1
+    }
+  ],
+  "transitions": [
+    {
+      "id": "rwy-1",
+      "name": "Entrada RWY-1",
+      "kind": "arrival",
+      "sequence": [],
+      "leg_ids": [
+        "transition-1-1-rwy-1-10",
+        "transition-1-2-rwy-1-20"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

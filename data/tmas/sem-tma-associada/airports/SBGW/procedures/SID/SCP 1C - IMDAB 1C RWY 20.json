@@ -1,0 +1,329 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBGW-SID-GW00C",
+    "airport": "SBGW",
+    "name": "SCP 1C - IMDAB 1C RWY 20",
+    "type": "SID",
+    "runway": "20",
+    "runways": [
+      "20"
+    ],
+    "modes": [],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "GW00C",
+      "amendment": "2605A1",
+      "effectiveDate": "2026-05-14",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "GGT": {
+      "ident": "GGT",
+      "coordinate_ref": "waypoint:aisweb-daf7ec5a24666a",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "BUTNO": {
+      "ident": "BUTNO",
+      "coordinate_ref": "waypoint:11256.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -6000.0
+      }
+    },
+    "SCP": {
+      "ident": "SCP",
+      "coordinate_ref": "procedure-point:28bd0fb69d",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "CREPI": {
+      "ident": "CREPI",
+      "coordinate_ref": "waypoint:11257.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "IMDAB": {
+      "ident": "IMDAB",
+      "coordinate_ref": "waypoint:3887.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-scp-1-10",
+      "from": null,
+      "to": null,
+      "via": [],
+      "path_terminator": "VA",
+      "course": 186.0,
+      "course_reference": "MAG",
+      "course_magnetic": 186.0,
+      "course_true": 163.54,
+      "distance_nm": 0.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+3500",
+        "valueFt": 3500.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 3500.0,
+        "max": null
+      },
+      "speed_limit_kt": 190.0,
+      "speed_interpretation": "-",
+      "vertical_angle": 4.74,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-scp-1-20",
+      "from": null,
+      "to": "GGT",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": "L",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": 190.0,
+      "speed_interpretation": "-",
+      "vertical_angle": 4.74,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-3-scp-1-30",
+      "from": "GGT",
+      "to": "BUTNO",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 255.33,
+      "course_reference": "MAG",
+      "course_magnetic": 255.33,
+      "course_true": 233.14,
+      "distance_nm": 10.0,
+      "turn": "L",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-6000",
+        "valueFt": -6000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -6000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-4-scp-1-40",
+      "from": "BUTNO",
+      "to": "SCP",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 255.29,
+      "course_reference": "MAG",
+      "course_magnetic": 255.29,
+      "course_true": 233.1,
+      "distance_nm": 34.52,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-1-imdab-1-10",
+      "from": null,
+      "to": null,
+      "via": [],
+      "path_terminator": "VA",
+      "course": 186.0,
+      "course_reference": "MAG",
+      "course_magnetic": 186.0,
+      "course_true": 163.54,
+      "distance_nm": 0.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+3500",
+        "valueFt": 3500.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 3500.0,
+        "max": null
+      },
+      "speed_limit_kt": 190.0,
+      "speed_interpretation": "-",
+      "vertical_angle": 4.74,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-2-imdab-1-20",
+      "from": null,
+      "to": "CREPI",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 149.22,
+      "course_reference": "MAG",
+      "course_magnetic": 149.22,
+      "course_true": 126.76,
+      "distance_nm": null,
+      "turn": "L",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": 190.0,
+      "speed_interpretation": "-",
+      "vertical_angle": 4.74,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-3-imdab-1-30",
+      "from": "CREPI",
+      "to": "IMDAB",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 149.13,
+      "course_reference": "MAG",
+      "course_magnetic": 149.13,
+      "course_true": 126.67,
+      "distance_nm": 30.84,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "source_page": 1
+    }
+  ],
+  "transitions": [
+    {
+      "id": "scp",
+      "name": "SCP",
+      "kind": "departure",
+      "sequence": [
+        "GGT",
+        "BUTNO",
+        "SCP"
+      ],
+      "leg_ids": [
+        "transition-1-1-scp-1-10",
+        "transition-1-2-scp-1-20",
+        "transition-1-3-scp-1-30",
+        "transition-1-4-scp-1-40"
+      ]
+    },
+    {
+      "id": "imdab",
+      "name": "IMDAB",
+      "kind": "departure",
+      "sequence": [
+        "CREPI",
+        "IMDAB"
+      ],
+      "leg_ids": [
+        "transition-2-1-imdab-1-10",
+        "transition-2-2-imdab-1-20",
+        "transition-2-3-imdab-1-30"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": [
+    "FICTITIOUS THRESHOLD"
+  ]
+}

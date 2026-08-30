@@ -1,0 +1,496 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBGR-STAR-GR04G",
+    "airport": "SBGR",
+    "name": "RNAV EDMUS 2A RWY 10R/10L",
+    "type": "STAR",
+    "runway": "10R",
+    "runways": [
+      "10R",
+      "10L"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "GR04G",
+      "amendment": "2508A1",
+      "effectiveDate": "2025-08-07",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "EDMUS": {
+      "ident": "EDMUS",
+      "coordinate_ref": "waypoint:4322.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -26000.0
+      }
+    },
+    "NIBVO": {
+      "ident": "NIBVO",
+      "coordinate_ref": "waypoint:7734.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "POLYP": {
+      "ident": "POLYP",
+      "coordinate_ref": "waypoint:5673.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -15000.0
+      }
+    },
+    "GR284": {
+      "ident": "GR284",
+      "coordinate_ref": "waypoint:1546.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 11000.0,
+        "max": null
+      }
+    },
+    "GR286": {
+      "ident": "GR286",
+      "coordinate_ref": "waypoint:7032.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 11000.0,
+        "min": null,
+        "max": null
+      }
+    },
+    "GR283": {
+      "ident": "GR283",
+      "coordinate_ref": "waypoint:7687.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 10000.0,
+        "min": null,
+        "max": null
+      }
+    },
+    "GR287": {
+      "ident": "GR287",
+      "coordinate_ref": "waypoint:2764.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -9000.0
+      }
+    },
+    "GR288": {
+      "ident": "GR288",
+      "coordinate_ref": "waypoint:5812.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 7000.0,
+        "max": 8000.0
+      }
+    },
+    "GR289": {
+      "ident": "GR289",
+      "coordinate_ref": "waypoint:6968.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -7000.0
+      }
+    },
+    "LOMEN": {
+      "ident": "LOMEN",
+      "coordinate_ref": "waypoint:7533.0",
+      "role": "IAF",
+      "altitude": {
+        "at": null,
+        "min": 6000.0,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-edmus-1-10",
+      "from": null,
+      "to": "EDMUS",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 4.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-26000",
+        "valueFt": -26000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -26000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-edmus-1-20",
+      "from": "EDMUS",
+      "to": "NIBVO",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 278.93,
+      "course_reference": "MAG",
+      "course_magnetic": 278.93,
+      "course_true": 256.49,
+      "distance_nm": 9.67,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-3-edmus-1-30",
+      "from": "NIBVO",
+      "to": "POLYP",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 275.38,
+      "course_reference": "MAG",
+      "course_magnetic": 275.38,
+      "course_true": 253.01,
+      "distance_nm": 20.22,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-15000",
+        "valueFt": -15000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -15000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-4-edmus-1-40",
+      "from": "POLYP",
+      "to": "GR284",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 275.16,
+      "course_reference": "MAG",
+      "course_magnetic": 275.16,
+      "course_true": 252.92,
+      "distance_nm": 23.01,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+11000",
+        "valueFt": 11000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 11000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-5-edmus-1-50",
+      "from": "GR284",
+      "to": "GR286",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 324.88,
+      "course_reference": "MAG",
+      "course_magnetic": 324.88,
+      "course_true": 302.8,
+      "distance_nm": 10.65,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "@11000",
+        "valueFt": 11000.0,
+        "meaning": "at"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": 11000.0,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-6-edmus-1-60",
+      "from": "GR286",
+      "to": "GR283",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 325.25,
+      "course_reference": "MAG",
+      "course_magnetic": 325.25,
+      "course_true": 303.21,
+      "distance_nm": 8.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "@10000",
+        "valueFt": 10000.0,
+        "meaning": "at"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": 10000.0,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-7-edmus-1-70",
+      "from": "GR283",
+      "to": "GR287",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 310.11,
+      "course_reference": "MAG",
+      "course_magnetic": 310.11,
+      "course_true": 288.1,
+      "distance_nm": 5.91,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-9000",
+        "valueFt": -9000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -9000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-8-edmus-1-80",
+      "from": "GR287",
+      "to": "GR288",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 280.33,
+      "course_reference": "MAG",
+      "course_magnetic": 280.33,
+      "course_true": 258.35,
+      "distance_nm": 5.98,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "B7000",
+        "valueFt": 7000.0,
+        "meaning": "between-bound"
+      },
+      "upper_limit": {
+        "raw": "B8000",
+        "valueFt": 8000.0,
+        "meaning": "between-bound"
+      },
+      "altitude": {
+        "at": null,
+        "min": 7000.0,
+        "max": 8000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-9-edmus-1-90",
+      "from": "GR288",
+      "to": "GR289",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 250.1,
+      "course_reference": "MAG",
+      "course_magnetic": 250.1,
+      "course_true": 228.16,
+      "distance_nm": 6.1,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-7000",
+        "valueFt": -7000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -7000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-10-edmus-1-100",
+      "from": "GR289",
+      "to": "LOMEN",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 145.25,
+      "course_reference": "MAG",
+      "course_magnetic": 145.25,
+      "course_true": 123.36,
+      "distance_nm": 11.6,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+6000",
+        "valueFt": 6000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 6000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    }
+  ],
+  "transitions": [
+    {
+      "id": "edmus",
+      "name": "Transicao EDMUS",
+      "kind": "arrival",
+      "sequence": [
+        "EDMUS",
+        "NIBVO",
+        "POLYP",
+        "GR284",
+        "GR286",
+        "GR283",
+        "GR287",
+        "GR288",
+        "GR289",
+        "LOMEN"
+      ],
+      "leg_ids": [
+        "transition-1-1-edmus-1-10",
+        "transition-1-2-edmus-1-20",
+        "transition-1-3-edmus-1-30",
+        "transition-1-4-edmus-1-40",
+        "transition-1-5-edmus-1-50",
+        "transition-1-6-edmus-1-60",
+        "transition-1-7-edmus-1-70",
+        "transition-1-8-edmus-1-80",
+        "transition-1-9-edmus-1-90",
+        "transition-1-10-edmus-1-100"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": [
+    "FICTITIOUS THRESHOLD"
+  ]
+}

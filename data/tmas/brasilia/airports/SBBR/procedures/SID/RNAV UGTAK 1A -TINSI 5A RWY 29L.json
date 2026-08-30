@@ -1,0 +1,624 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBBR-SID-BR00P",
+    "airport": "SBBR",
+    "name": "RNAV UGTAK 1A -TINSI 5A RWY 29L",
+    "type": "SID",
+    "runway": "29L",
+    "runways": [
+      "29L"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "BR00P",
+      "amendment": "2503A1",
+      "effectiveDate": "2025-03-20",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "UTPAS": {
+      "ident": "UTPAS",
+      "coordinate_ref": "waypoint:1836.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -9000.0
+      }
+    },
+    "TINSI": {
+      "ident": "TINSI",
+      "coordinate_ref": "waypoint:4053.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "EPDEP": {
+      "ident": "EPDEP",
+      "coordinate_ref": "waypoint:5365.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "ILKUS": {
+      "ident": "ILKUS",
+      "coordinate_ref": "waypoint:8942.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "PULUV": {
+      "ident": "PULUV",
+      "coordinate_ref": "waypoint:9001.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "BR102": {
+      "ident": "BR102",
+      "coordinate_ref": "waypoint:9635.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 13000.0,
+        "max": null
+      }
+    },
+    "SIMUV": {
+      "ident": "SIMUV",
+      "coordinate_ref": "waypoint:5022.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "UGTAK": {
+      "ident": "UGTAK",
+      "coordinate_ref": "waypoint:2451.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-rwy-1-10",
+      "from": null,
+      "to": null,
+      "via": [],
+      "path_terminator": "CA",
+      "course": 288.23,
+      "course_reference": "MAG",
+      "course_magnetic": 288.23,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+7000",
+        "valueFt": 7000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 7000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-rwy-1-20",
+      "from": null,
+      "to": "UTPAS",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": "R",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-9000",
+        "valueFt": -9000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -9000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-3-rwy-1-30",
+      "from": "UTPAS",
+      "to": "TINSI",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 20.46,
+      "course_reference": "MAG",
+      "course_magnetic": 20.46,
+      "course_true": 358.45,
+      "distance_nm": 5.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "Y",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-4-epdep-1-10",
+      "from": null,
+      "to": "TINSI",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-5-epdep-1-20",
+      "from": "TINSI",
+      "to": "EPDEP",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 72.03,
+      "course_reference": "MAG",
+      "course_magnetic": 72.03,
+      "course_true": 50.02,
+      "distance_nm": 75.03,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-1-rwy-1-10",
+      "from": null,
+      "to": null,
+      "via": [],
+      "path_terminator": "CA",
+      "course": 288.23,
+      "course_reference": "MAG",
+      "course_magnetic": 288.23,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+7000",
+        "valueFt": 7000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 7000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-2-rwy-1-20",
+      "from": null,
+      "to": "UTPAS",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": "R",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-9000",
+        "valueFt": -9000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -9000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-3-rwy-1-30",
+      "from": "UTPAS",
+      "to": "TINSI",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 20.46,
+      "course_reference": "MAG",
+      "course_magnetic": 20.46,
+      "course_true": 358.45,
+      "distance_nm": 5.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "Y",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-4-ilkus-1-10",
+      "from": null,
+      "to": "TINSI",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-5-ilkus-1-20",
+      "from": "TINSI",
+      "to": "ILKUS",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 5.43,
+      "course_reference": "MAG",
+      "course_magnetic": 5.43,
+      "course_true": 343.42,
+      "distance_nm": 41.51,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-1-rwy-1-10",
+      "from": null,
+      "to": null,
+      "via": [],
+      "path_terminator": "CA",
+      "course": 288.23,
+      "course_reference": "MAG",
+      "course_magnetic": 288.23,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+7000",
+        "valueFt": 7000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 7000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-2-rwy-1-20",
+      "from": null,
+      "to": "UTPAS",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": "R",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-9000",
+        "valueFt": -9000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -9000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-3-rwy-1-30",
+      "from": "UTPAS",
+      "to": "TINSI",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 20.46,
+      "course_reference": "MAG",
+      "course_magnetic": 20.46,
+      "course_true": 358.45,
+      "distance_nm": 5.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "Y",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-4-puluv-1-10",
+      "from": null,
+      "to": "TINSI",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-5-puluv-1-20",
+      "from": "TINSI",
+      "to": "PULUV",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 41.32,
+      "course_reference": "MAG",
+      "course_magnetic": 41.32,
+      "course_true": 19.31,
+      "distance_nm": 59.4,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    }
+  ],
+  "transitions": [
+    {
+      "id": "rwy-epdep",
+      "name": "RWY - EPDEP",
+      "kind": "departure",
+      "sequence": [
+        "UTPAS",
+        "TINSI",
+        "EPDEP"
+      ],
+      "leg_ids": [
+        "transition-1-1-rwy-1-10",
+        "transition-1-2-rwy-1-20",
+        "transition-1-3-rwy-1-30",
+        "transition-1-4-epdep-1-10",
+        "transition-1-5-epdep-1-20"
+      ]
+    },
+    {
+      "id": "rwy-ilkus",
+      "name": "RWY - ILKUS",
+      "kind": "departure",
+      "sequence": [
+        "UTPAS",
+        "TINSI",
+        "ILKUS"
+      ],
+      "leg_ids": [
+        "transition-2-1-rwy-1-10",
+        "transition-2-2-rwy-1-20",
+        "transition-2-3-rwy-1-30",
+        "transition-2-4-ilkus-1-10",
+        "transition-2-5-ilkus-1-20"
+      ]
+    },
+    {
+      "id": "rwy-puluv",
+      "name": "RWY - PULUV",
+      "kind": "departure",
+      "sequence": [
+        "UTPAS",
+        "TINSI",
+        "PULUV"
+      ],
+      "leg_ids": [
+        "transition-3-1-rwy-1-10",
+        "transition-3-2-rwy-1-20",
+        "transition-3-3-rwy-1-30",
+        "transition-3-4-puluv-1-10",
+        "transition-3-5-puluv-1-20"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

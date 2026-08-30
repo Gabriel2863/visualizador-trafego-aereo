@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBRJ-SID-RJ02U",
+    "airport": "SBRJ",
+    "name": "RNAV EVKOX 2C RWY 20L",
+    "type": "SID",
+    "runway": "20L",
+    "runways": [
+      "20L"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "RJ02U",
+      "amendment": "2508A1",
+      "effectiveDate": "2025-08-07",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {},
+  "legs": [
+    {
+      "id": "transition-1-1-rwy-1-10",
+      "from": null,
+      "to": null,
+      "via": [],
+      "path_terminator": "Rec Navaid",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": "LOKOD",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "IF",
+        "valueFt": null,
+        "meaning": "published"
+      },
+      "upper_limit": {
+        "raw": "Path and",
+        "valueFt": null,
+        "meaning": "published"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "Transition",
+      "fix_role": null,
+      "navigation_specification": "Speed",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-rwy-1-20",
+      "from": null,
+      "to": null,
+      "via": [],
+      "path_terminator": null,
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": "EVSOB",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "TF",
+        "valueFt": null,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": null,
+      "navigation_specification": "220",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-3-rwy-1-30",
+      "from": null,
+      "to": null,
+      "via": [],
+      "path_terminator": null,
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": "EVKOX",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "TF",
+        "valueFt": null,
+        "meaning": "published"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "B8000",
+      "navigation_specification": null,
+      "source_page": 1
+    }
+  ],
+  "transitions": [
+    {
+      "id": "rwy",
+      "name": "RWY",
+      "kind": "departure",
+      "sequence": [],
+      "leg_ids": [
+        "transition-1-1-rwy-1-10",
+        "transition-1-2-rwy-1-20",
+        "transition-1-3-rwy-1-30"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

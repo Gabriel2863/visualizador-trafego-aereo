@@ -1,0 +1,503 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBSJ-IAC-SJ00O",
+    "airport": "SBSJ",
+    "name": "VOR Z RWY 16",
+    "type": "IAC",
+    "runway": "16",
+    "runways": [
+      "16"
+    ],
+    "modes": [
+      "VOR"
+    ],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "SJ00O",
+      "amendment": "2509A1",
+      "effectiveDate": "2025-09-04",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "LONES": {
+      "ident": "LONES",
+      "coordinate_ref": "waypoint:2229.0",
+      "role": "IAF",
+      "altitude": {
+        "at": null,
+        "min": 7000.0,
+        "max": null
+      }
+    },
+    "SCP14": {
+      "ident": "SCP14",
+      "coordinate_ref": "waypoint:8642.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 5400.0,
+        "max": null
+      }
+    },
+    "ATOMI": {
+      "ident": "ATOMI",
+      "coordinate_ref": "waypoint:5572.0",
+      "role": "IF",
+      "altitude": {
+        "at": null,
+        "min": 5400.0,
+        "max": null
+      }
+    },
+    "BOLEM": {
+      "ident": "BOLEM",
+      "coordinate_ref": "waypoint:1018.0",
+      "role": "FAF",
+      "altitude": {
+        "at": null,
+        "min": 3670.0,
+        "max": null
+      }
+    },
+    "SJ061": {
+      "ident": "SJ061",
+      "coordinate_ref": "waypoint:2373.0",
+      "role": "SDF",
+      "altitude": {
+        "at": null,
+        "min": 3260.0,
+        "max": null
+      }
+    },
+    "SJ062": {
+      "ident": "SJ062",
+      "coordinate_ref": "waypoint:7769.0",
+      "role": "FTP",
+      "altitude": {
+        "at": 2082.0,
+        "min": null,
+        "max": null
+      }
+    },
+    "DAGOV": {
+      "ident": "DAGOV",
+      "coordinate_ref": "waypoint:296.0",
+      "role": "MAHF",
+      "altitude": {
+        "at": null,
+        "min": 6000.0,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-apch-1-10",
+      "from": null,
+      "to": "LONES",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+7000",
+        "valueFt": 7000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 7000.0,
+        "max": null
+      },
+      "speed_limit_kt": 220.0,
+      "speed_interpretation": "-",
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "IAF",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-apch-1-20",
+      "from": "LONES",
+      "to": "SCP14",
+      "via": [],
+      "path_terminator": "AF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": "L",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+5400",
+        "valueFt": 5400.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 5400.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-3-apch-1-30",
+      "from": "SCP14",
+      "to": "ATOMI",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 160.27,
+      "course_reference": "MAG",
+      "course_magnetic": 160.27,
+      "course_true": 138.17,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+5400",
+        "valueFt": 5400.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 5400.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "IF",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-4-final-1-10",
+      "from": null,
+      "to": "ATOMI",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+5400",
+        "valueFt": 5400.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 5400.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "IF",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-5-final-1-20",
+      "from": "ATOMI",
+      "to": "BOLEM",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 160.27,
+      "course_reference": "MAG",
+      "course_magnetic": 160.27,
+      "course_true": 138.17,
+      "distance_nm": 5.36,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "R3670",
+        "valueFt": 3670.0,
+        "meaning": "recommended"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 3670.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "FAF",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-6-final-1-30",
+      "from": "BOLEM",
+      "to": "SJ061",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 160.27,
+      "course_reference": "MAG",
+      "course_magnetic": 160.27,
+      "course_true": 138.17,
+      "distance_nm": 1.3,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "R3260",
+        "valueFt": 3260.0,
+        "meaning": "recommended"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 3260.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": -3.0,
+      "fly_over": null,
+      "fix_role": "SDF",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-7-final-1-40",
+      "from": "SJ061",
+      "to": "SJ062",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 160.27,
+      "course_reference": "MAG",
+      "course_magnetic": 160.27,
+      "course_true": 138.17,
+      "distance_nm": 3.68,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "@2082",
+        "valueFt": 2082.0,
+        "meaning": "at"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": 2082.0,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": -3.0,
+      "fly_over": null,
+      "fix_role": "FTP",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "missed-1-1-ma-1-10",
+      "from": null,
+      "to": "DAGOV",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 156.69,
+      "course_reference": "MAG",
+      "course_magnetic": 156.69,
+      "course_true": 134.58,
+      "distance_nm": 18.45,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+6000",
+        "valueFt": 6000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 6000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": 2.29,
+      "fly_over": null,
+      "fix_role": "MAHF",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "missed-1-2-ma-1-20",
+      "from": "DAGOV",
+      "to": "DAGOV",
+      "via": [],
+      "path_terminator": "HM",
+      "course": 156.69,
+      "course_reference": "MAG",
+      "course_magnetic": 156.69,
+      "course_true": 134.58,
+      "distance_nm": 1.0,
+      "turn": "L",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+6000",
+        "valueFt": 6000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 6000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "MAHF",
+      "navigation_specification": null,
+      "source_page": 1
+    }
+  ],
+  "transitions": [
+    {
+      "id": "lones",
+      "name": "Entrada LONES",
+      "kind": "approach",
+      "sequence": [
+        "LONES",
+        "SCP14",
+        "ATOMI",
+        "BOLEM",
+        "SJ061",
+        "SJ062"
+      ],
+      "leg_ids": [
+        "transition-1-1-apch-1-10",
+        "transition-1-2-apch-1-20",
+        "transition-1-3-apch-1-30",
+        "transition-1-4-final-1-10",
+        "transition-1-5-final-1-20",
+        "transition-1-6-final-1-30",
+        "transition-1-7-final-1-40"
+      ]
+    }
+  ],
+  "missed_approach": [
+    {
+      "id": "missed-1",
+      "name": "Aproximacao perdida",
+      "kind": "MISSED",
+      "sequence": [
+        "DAGOV"
+      ],
+      "legs": [
+        {
+          "id": "missed-1-1-ma-1-10",
+          "from": null,
+          "to": "DAGOV",
+          "via": [],
+          "path_terminator": "CF",
+          "course": 156.69,
+          "course_reference": "MAG",
+          "course_magnetic": 156.69,
+          "course_true": 134.58,
+          "distance_nm": 18.45,
+          "turn": null,
+          "arc_center": null,
+          "arc_radius_nm": null,
+          "lower_limit": {
+            "raw": "+6000",
+            "valueFt": 6000.0,
+            "meaning": "at-or-above"
+          },
+          "upper_limit": null,
+          "altitude": {
+            "at": null,
+            "min": 6000.0,
+            "max": null
+          },
+          "speed_limit_kt": null,
+          "speed_interpretation": null,
+          "vertical_angle": 2.29,
+          "fly_over": null,
+          "fix_role": "MAHF",
+          "navigation_specification": null,
+          "source_page": 1
+        },
+        {
+          "id": "missed-1-2-ma-1-20",
+          "from": "DAGOV",
+          "to": "DAGOV",
+          "via": [],
+          "path_terminator": "HM",
+          "course": 156.69,
+          "course_reference": "MAG",
+          "course_magnetic": 156.69,
+          "course_true": 134.58,
+          "distance_nm": 1.0,
+          "turn": "L",
+          "arc_center": null,
+          "arc_radius_nm": null,
+          "lower_limit": {
+            "raw": "+6000",
+            "valueFt": 6000.0,
+            "meaning": "at-or-above"
+          },
+          "upper_limit": null,
+          "altitude": {
+            "at": null,
+            "min": 6000.0,
+            "max": null
+          },
+          "speed_limit_kt": null,
+          "speed_interpretation": null,
+          "vertical_angle": null,
+          "fly_over": null,
+          "fix_role": "MAHF",
+          "navigation_specification": null,
+          "source_page": 1
+        }
+      ]
+    }
+  ],
+  "warnings": [
+    "*Fictitious point: Only for coding purposes.",
+    "FICTITIOUS THRESHOLD"
+  ]
+}

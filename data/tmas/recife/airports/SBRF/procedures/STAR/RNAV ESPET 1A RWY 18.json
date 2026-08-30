@@ -1,0 +1,262 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBRF-STAR-RF01P",
+    "airport": "SBRF",
+    "name": "RNAV ESPET 1A RWY 18",
+    "type": "STAR",
+    "runway": "18",
+    "runways": [
+      "18"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "RF01P",
+      "amendment": "2507A1",
+      "effectiveDate": "2025-07-10",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "ESPET": {
+      "ident": "ESPET",
+      "coordinate_ref": "waypoint:10376.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "RF062": {
+      "ident": "RF062",
+      "coordinate_ref": "waypoint:10344.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -8000.0
+      }
+    },
+    "RF063": {
+      "ident": "RF063",
+      "coordinate_ref": "waypoint:10345.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "RF064": {
+      "ident": "RF064",
+      "coordinate_ref": "waypoint:10346.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 4000.0,
+        "max": null
+      }
+    },
+    "ANDOX": {
+      "ident": "ANDOX",
+      "coordinate_ref": "waypoint:1598.0",
+      "role": "IAF",
+      "altitude": {
+        "at": null,
+        "min": 3000.0,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-espet-1-10",
+      "from": null,
+      "to": "ESPET",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 1.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-espet-1-20",
+      "from": "ESPET",
+      "to": "RF062",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 160.76,
+      "course_reference": "MAG",
+      "course_magnetic": 160.76,
+      "course_true": 139.46,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-8000",
+        "valueFt": -8000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -8000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": "30.81",
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-3-espet-1-30",
+      "from": "RF062",
+      "to": "RF063",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 160.71,
+      "course_reference": "MAG",
+      "course_magnetic": 160.71,
+      "course_true": 139.34,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": "20.71",
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-4-espet-1-40",
+      "from": "RF063",
+      "to": "RF064",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 100.48,
+      "course_reference": "MAG",
+      "course_magnetic": 100.48,
+      "course_true": 79.05,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+4000",
+        "valueFt": 4000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 4000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": "9.84",
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-5-espet-1-50",
+      "from": "RF064",
+      "to": "ANDOX",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 100.39,
+      "course_reference": "MAG",
+      "course_magnetic": 100.39,
+      "course_true": 79.0,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+3000",
+        "valueFt": 3000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 3000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": "9.49",
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    }
+  ],
+  "transitions": [
+    {
+      "id": "espet",
+      "name": "Transicao ESPET",
+      "kind": "arrival",
+      "sequence": [
+        "ESPET",
+        "RF062",
+        "RF063",
+        "RF064",
+        "ANDOX"
+      ],
+      "leg_ids": [
+        "transition-1-1-espet-1-10",
+        "transition-1-2-espet-1-20",
+        "transition-1-3-espet-1-30",
+        "transition-1-4-espet-1-40",
+        "transition-1-5-espet-1-50"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": [
+    "FICTITIOUS THRESHOLD"
+  ]
+}

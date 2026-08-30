@@ -1,0 +1,171 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBBR-IAC-BR04E",
+    "airport": "SBBR",
+    "name": "ILS W OR LOC W RWY 29L",
+    "type": "IAC",
+    "runway": "29L",
+    "runways": [
+      "29L"
+    ],
+    "modes": [
+      "ILS",
+      "LOC"
+    ],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "BR04E",
+      "amendment": "2504A1",
+      "effectiveDate": "2025-04-17",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "TOGIG": {
+      "ident": "TOGIG",
+      "coordinate_ref": "waypoint:5194.0",
+      "role": "IAF",
+      "altitude": {
+        "at": null,
+        "min": 6500.0,
+        "max": null
+      }
+    },
+    "ARVER": {
+      "ident": "ARVER",
+      "coordinate_ref": "waypoint:10318.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 6500.0,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-apch-1-10",
+      "from": null,
+      "to": "TOGIG",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+6500",
+        "valueFt": 6500.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 6500.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "IAF",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-final-1-10",
+      "from": null,
+      "to": "TOGIG",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+6500",
+        "valueFt": 6500.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 6500.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "IF",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-3-final-1-20",
+      "from": "TOGIG",
+      "to": "ARVER",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 288.23,
+      "course_reference": "MAG",
+      "course_magnetic": 288.23,
+      "course_true": null,
+      "distance_nm": 2.92,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+6500",
+        "valueFt": 6500.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 6500.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "source_page": 1
+    }
+  ],
+  "transitions": [
+    {
+      "id": "togig",
+      "name": "Entrada TOGIG",
+      "kind": "approach",
+      "sequence": [
+        "TOGIG",
+        "ARVER"
+      ],
+      "leg_ids": [
+        "transition-1-1-apch-1-10",
+        "transition-1-2-final-1-10",
+        "transition-1-3-final-1-20"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": [
+    "* Fictitious point: Only for coding purpose.",
+    "FICTITIOUS THRESHOLD"
+  ]
+}

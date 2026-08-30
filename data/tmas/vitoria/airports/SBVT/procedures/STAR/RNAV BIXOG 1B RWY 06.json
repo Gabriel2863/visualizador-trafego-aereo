@@ -1,0 +1,597 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBVT-STAR-VT01S",
+    "airport": "SBVT",
+    "name": "RNAV BIXOG 1B RWY 06",
+    "type": "STAR",
+    "runway": "06",
+    "runways": [
+      "06"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "VT01S",
+      "amendment": "2310A1",
+      "effectiveDate": "2023-10-05",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "SATBU": {
+      "ident": "SATBU",
+      "coordinate_ref": "waypoint:6191.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "BIXOG": {
+      "ident": "BIXOG",
+      "coordinate_ref": "waypoint:1622.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 8000.0,
+        "max": null
+      }
+    },
+    "DAGEL": {
+      "ident": "DAGEL",
+      "coordinate_ref": "waypoint:7587.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "UTPIT": {
+      "ident": "UTPIT",
+      "coordinate_ref": "waypoint:9719.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "VT041": {
+      "ident": "VT041",
+      "coordinate_ref": "waypoint:1282.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 8000.0,
+        "max": null
+      }
+    },
+    "VT032": {
+      "ident": "VT032",
+      "coordinate_ref": "waypoint:2929.0",
+      "role": "IAF",
+      "altitude": {
+        "at": null,
+        "min": 4500.0,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-rwy-1-10",
+      "from": null,
+      "to": "BIXOG",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+8000",
+        "valueFt": 8000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 8000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-rwy-1-20",
+      "from": "BIXOG",
+      "to": "VT041",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 235.72,
+      "course_reference": "MAG",
+      "course_magnetic": 235.72,
+      "course_true": 211.85,
+      "distance_nm": 9.31,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+8000",
+        "valueFt": 8000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 8000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-3-rwy-1-30",
+      "from": "VT041",
+      "to": "VT032",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 235.74,
+      "course_reference": "MAG",
+      "course_magnetic": 235.74,
+      "course_true": 211.88,
+      "distance_nm": 11.65,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+4500",
+        "valueFt": 4500.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 4500.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-1-satbu-1-10",
+      "from": null,
+      "to": "SATBU",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 1.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-2-satbu-1-20",
+      "from": "SATBU",
+      "to": "BIXOG",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 154.62,
+      "course_reference": "MAG",
+      "course_magnetic": 154.62,
+      "course_true": 130.85,
+      "distance_nm": 43.95,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+8000",
+        "valueFt": 8000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 8000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-3-rwy-1-10",
+      "from": null,
+      "to": "BIXOG",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+8000",
+        "valueFt": 8000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 8000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-4-rwy-1-20",
+      "from": "BIXOG",
+      "to": "VT041",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 235.72,
+      "course_reference": "MAG",
+      "course_magnetic": 235.72,
+      "course_true": 211.85,
+      "distance_nm": 9.31,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+8000",
+        "valueFt": 8000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 8000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-5-rwy-1-30",
+      "from": "VT041",
+      "to": "VT032",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 235.74,
+      "course_reference": "MAG",
+      "course_magnetic": 235.74,
+      "course_true": 211.88,
+      "distance_nm": 11.65,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+4500",
+        "valueFt": 4500.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 4500.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-1-dagel-1-10",
+      "from": null,
+      "to": "DAGEL",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-2-dagel-1-20",
+      "from": "DAGEL",
+      "to": "UTPIT",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 211.99,
+      "course_reference": "MAG",
+      "course_magnetic": 211.99,
+      "course_true": 188.15,
+      "distance_nm": 64.22,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-3-dagel-1-30",
+      "from": "UTPIT",
+      "to": "BIXOG",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 212.07,
+      "course_reference": "MAG",
+      "course_magnetic": 212.07,
+      "course_true": 188.19,
+      "distance_nm": 59.53,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+8000",
+        "valueFt": 8000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 8000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-4-rwy-1-10",
+      "from": null,
+      "to": "BIXOG",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+8000",
+        "valueFt": 8000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 8000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-5-rwy-1-20",
+      "from": "BIXOG",
+      "to": "VT041",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 235.72,
+      "course_reference": "MAG",
+      "course_magnetic": 235.72,
+      "course_true": 211.85,
+      "distance_nm": 9.31,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+8000",
+        "valueFt": 8000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 8000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-6-rwy-1-30",
+      "from": "VT041",
+      "to": "VT032",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 235.74,
+      "course_reference": "MAG",
+      "course_magnetic": 235.74,
+      "course_true": 211.88,
+      "distance_nm": 11.65,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+4500",
+        "valueFt": 4500.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 4500.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    }
+  ],
+  "transitions": [
+    {
+      "id": "bixog",
+      "name": "Entrada BIXOG",
+      "kind": "arrival",
+      "sequence": [
+        "BIXOG",
+        "VT041",
+        "VT032"
+      ],
+      "leg_ids": [
+        "transition-1-1-rwy-1-10",
+        "transition-1-2-rwy-1-20",
+        "transition-1-3-rwy-1-30"
+      ]
+    },
+    {
+      "id": "satbu",
+      "name": "Transicao SATBU",
+      "kind": "arrival",
+      "sequence": [
+        "SATBU",
+        "BIXOG",
+        "VT041",
+        "VT032"
+      ],
+      "leg_ids": [
+        "transition-2-1-satbu-1-10",
+        "transition-2-2-satbu-1-20",
+        "transition-2-3-rwy-1-10",
+        "transition-2-4-rwy-1-20",
+        "transition-2-5-rwy-1-30"
+      ]
+    },
+    {
+      "id": "dagel",
+      "name": "Transicao DAGEL",
+      "kind": "arrival",
+      "sequence": [
+        "DAGEL",
+        "UTPIT",
+        "BIXOG",
+        "VT041",
+        "VT032"
+      ],
+      "leg_ids": [
+        "transition-3-1-dagel-1-10",
+        "transition-3-2-dagel-1-20",
+        "transition-3-3-dagel-1-30",
+        "transition-3-4-rwy-1-10",
+        "transition-3-5-rwy-1-20",
+        "transition-3-6-rwy-1-30"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

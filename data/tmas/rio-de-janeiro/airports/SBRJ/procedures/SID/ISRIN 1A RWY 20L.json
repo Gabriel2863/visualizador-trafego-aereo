@@ -1,0 +1,301 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBRJ-SID-RJ01B",
+    "airport": "SBRJ",
+    "name": "ISRIN 1A RWY 20L",
+    "type": "SID",
+    "runway": "20L",
+    "runways": [
+      "20L"
+    ],
+    "modes": [],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "RJ01B",
+      "amendment": "2502A1",
+      "effectiveDate": "2025-02-20",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "LOKOD": {
+      "ident": "LOKOD",
+      "coordinate_ref": "waypoint:5508.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "LOKUL": {
+      "ident": "LOKUL",
+      "coordinate_ref": "waypoint:446.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "OPNIL": {
+      "ident": "OPNIL",
+      "coordinate_ref": "waypoint:8737.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 7000.0,
+        "max": null
+      }
+    },
+    "NIPKO": {
+      "ident": "NIPKO",
+      "coordinate_ref": "waypoint:8738.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 8000.0,
+        "max": null
+      }
+    },
+    "PCX": {
+      "ident": "PCX",
+      "coordinate_ref": "waypoint:aisweb-d2512fd6470336",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "ISRIN": {
+      "ident": "ISRIN",
+      "coordinate_ref": "waypoint:3633.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -18000.0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-isrin-1-10",
+      "from": null,
+      "to": "LOKOD",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 1.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-isrin-1-20",
+      "from": "LOKOD",
+      "to": "LOKUL",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 162.01,
+      "course_reference": "MAG",
+      "course_magnetic": 162.01,
+      "course_true": 139.01,
+      "distance_nm": 6.46,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": 2.46,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-3-isrin-1-30",
+      "from": "LOKUL",
+      "to": "OPNIL",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 99.4,
+      "course_reference": "MAG",
+      "course_magnetic": 99.4,
+      "course_true": 76.08,
+      "distance_nm": 10.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+7000",
+        "valueFt": 7000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 7000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": 2.46,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-4-isrin-1-40",
+      "from": "OPNIL",
+      "to": "NIPKO",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 28.11,
+      "course_reference": "MAG",
+      "course_magnetic": 28.11,
+      "course_true": 4.99,
+      "distance_nm": 8.35,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+8000",
+        "valueFt": 8000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 8000.0,
+        "max": null
+      },
+      "speed_limit_kt": 240.0,
+      "speed_interpretation": "-",
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-5-isrin-1-50",
+      "from": "NIPKO",
+      "to": "PCX",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 28.11,
+      "course_reference": "MAG",
+      "course_magnetic": 28.11,
+      "course_true": 4.99,
+      "distance_nm": 8.23,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-6-isrin-1-60",
+      "from": "PCX",
+      "to": "ISRIN",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 14.35,
+      "course_reference": "MAG",
+      "course_magnetic": 14.35,
+      "course_true": 351.22,
+      "distance_nm": 33.67,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-18000",
+        "valueFt": -18000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -18000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "source_page": 1
+    }
+  ],
+  "transitions": [
+    {
+      "id": "isrin",
+      "name": "ISRIN",
+      "kind": "departure",
+      "sequence": [
+        "LOKOD",
+        "LOKUL",
+        "OPNIL",
+        "NIPKO",
+        "PCX",
+        "ISRIN"
+      ],
+      "leg_ids": [
+        "transition-1-1-isrin-1-10",
+        "transition-1-2-isrin-1-20",
+        "transition-1-3-isrin-1-30",
+        "transition-1-4-isrin-1-40",
+        "transition-1-5-isrin-1-50",
+        "transition-1-6-isrin-1-60"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": [
+    "FICTITIOUS THRESHOLD"
+  ]
+}

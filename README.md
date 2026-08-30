@@ -23,6 +23,9 @@ Site web interativo para estudo e visualização de dados aeronáuticos.
 - `data/studies/manifest.json` — categorias carregadas pelo painel flutuante de estudos
 - `data/studies/*.json` — resumos organizados por assunto, sem incluir os documentos brutos
 - `scripts/import-waypoints.py` — conversor do Excel de waypoints para JSON
+- `scripts/catalog-aisweb-ifr.py` — cataloga SID, STAR e IAC atuais consultando a AISWEB por aeródromo/tipo
+- `scripts/download-aisweb-coding-tables.py` — baixa, com retomada, as tabelas de codificação para `tmp/`
+- `scripts/import-aisweb-coding-tables.py` — transforma o catálogo e as tabelas em cartas modulares, sem coordenadas dentro dos procedimentos
 - `scripts/migrate-data-architecture.mjs` — gera a hierarquia modular a partir das fontes existentes
 - `scripts/validate-data-architecture.mjs` — valida catálogos, referências e schemas
 - `scripts/build-secure.mjs` — gera o artefato protegido publicado no GitHub Pages
@@ -195,3 +198,27 @@ aeronáutica vigente.
 Para acrescentar conteúdo a uma categoria existente, basta incluir outro objeto
 no array `topics` do respectivo arquivo. Use `tags` para melhorar a pesquisa e
 `sourceRefs` para registrar a origem do resumo.
+
+## Carga nacional de cartas AISWEB
+
+As SID, STAR e IAC são catalogadas diretamente na página pública de cartas da
+AISWEB. O processo separa a fonte bruta do dado publicado: PDFs de cartas e
+tabelas de codificação ficam em `tmp/` (ignorado pelo Git), enquanto o projeto
+guarda somente os JSONs estruturados, as referências à AISWEB e a auditoria em
+`data/tmas/aisweb-chart-import-audit.json`.
+
+Com o pacote ostensivo vigente já baixado localmente, o fluxo é:
+
+```bash
+python scripts/catalog-aisweb-ifr.py --package tmp/aisweb/cartas.zip --output tmp/aisweb/catalogo.json
+python scripts/download-aisweb-coding-tables.py --catalog tmp/aisweb/catalogo.json --output-dir tmp/aisweb/tabelas
+python scripts/import-aisweb-coding-tables.py --catalog tmp/aisweb/catalogo.json --tables tmp/aisweb/tabelas
+npm run discover:data
+npm test
+```
+
+Cartas com tabela de codificação preservam transições, pernas, rumos, limites,
+velocidades, curvas e aproximações perdidas. Se a AISWEB não fornecer tabela
+para uma carta, ela ainda aparece no seletor com aviso de `catalog-only`, mas
+nenhuma geometria é estimada. Todo FIX novo publicado é incluído apenas em
+`data/waypoints.json`, a fonte global de coordenadas.

@@ -1,0 +1,262 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBTV-STAR-TV00D",
+    "airport": "SBTV",
+    "name": "RNAV OSUNO 1B RWY 15",
+    "type": "STAR",
+    "runway": "15",
+    "runways": [
+      "15"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "TV00D",
+      "amendment": "2608A1",
+      "effectiveDate": "2026-08-06",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "OSUNO": {
+      "ident": "OSUNO",
+      "coordinate_ref": "waypoint:8735.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "NINGA": {
+      "ident": "NINGA",
+      "coordinate_ref": "waypoint:9200.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -15000.0
+      }
+    },
+    "TV007": {
+      "ident": "TV007",
+      "coordinate_ref": "waypoint:9704.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -13000.0
+      }
+    },
+    "IVPEG": {
+      "ident": "IVPEG",
+      "coordinate_ref": "waypoint:9058.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "TV006": {
+      "ident": "TV006",
+      "coordinate_ref": "waypoint:8618.0",
+      "role": "IAF",
+      "altitude": {
+        "at": null,
+        "min": 4000.0,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-osuno-1-10",
+      "from": null,
+      "to": "OSUNO",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-osuno-1-20",
+      "from": "OSUNO",
+      "to": "NINGA",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 51.12,
+      "course_reference": "MAG",
+      "course_magnetic": 51.12,
+      "course_true": 27.49,
+      "distance_nm": 27.49,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-15000",
+        "valueFt": -15000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -15000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-3-osuno-1-30",
+      "from": "NINGA",
+      "to": "TV007",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 54.8,
+      "course_reference": "MAG",
+      "course_magnetic": 54.8,
+      "course_true": 31.2,
+      "distance_nm": 8.2,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-13000",
+        "valueFt": -13000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -13000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-4-osuno-1-40",
+      "from": "TV007",
+      "to": "IVPEG",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 54.73,
+      "course_reference": "MAG",
+      "course_magnetic": 54.73,
+      "course_true": 31.13,
+      "distance_nm": 11.74,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-5-osuno-1-50",
+      "from": "IVPEG",
+      "to": "TV006",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 77.95,
+      "course_reference": "MAG",
+      "course_magnetic": 77.95,
+      "course_true": 54.36,
+      "distance_nm": 16.61,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+4000",
+        "valueFt": 4000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 4000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    }
+  ],
+  "transitions": [
+    {
+      "id": "osuno",
+      "name": "Transicao OSUNO",
+      "kind": "arrival",
+      "sequence": [
+        "OSUNO",
+        "NINGA",
+        "TV007",
+        "IVPEG",
+        "TV006"
+      ],
+      "leg_ids": [
+        "transition-1-1-osuno-1-10",
+        "transition-1-2-osuno-1-20",
+        "transition-1-3-osuno-1-30",
+        "transition-1-4-osuno-1-40",
+        "transition-1-5-osuno-1-50"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": [
+    "FICTITIOUS THRESHOLD"
+  ]
+}

@@ -1,0 +1,413 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBJE-SID-JE00D",
+    "airport": "SBJE",
+    "name": "RNAV BOKAM 1B - ISUPI 1B - SUBVI 1B RWY 26",
+    "type": "SID",
+    "runway": "26",
+    "runways": [
+      "26"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "JE00D",
+      "amendment": "2306A1",
+      "effectiveDate": "2023-06-15",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "BOKAM": {
+      "ident": "BOKAM",
+      "coordinate_ref": "waypoint:6618.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "ESDAB": {
+      "ident": "ESDAB",
+      "coordinate_ref": "waypoint:4093.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "ISUPI": {
+      "ident": "ISUPI",
+      "coordinate_ref": "waypoint:2318.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "SUBVI": {
+      "ident": "SUBVI",
+      "coordinate_ref": "waypoint:aisweb-1465bce11cef12",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-bokam-1-10",
+      "from": null,
+      "to": null,
+      "via": [],
+      "path_terminator": "CA",
+      "course": 264.2,
+      "course_reference": "MAG",
+      "course_magnetic": 264.2,
+      "course_true": 243.58,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+1000",
+        "valueFt": 1000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": {
+        "raw": "ft",
+        "valueFt": null,
+        "meaning": "published"
+      },
+      "altitude": {
+        "at": null,
+        "min": 1000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-bokam-1-20",
+      "from": null,
+      "to": "BOKAM",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": "L",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-1-esdab-1-10",
+      "from": null,
+      "to": null,
+      "via": [],
+      "path_terminator": "CA",
+      "course": 264.2,
+      "course_reference": "MAG",
+      "course_magnetic": 264.2,
+      "course_true": 243.58,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+1000",
+        "valueFt": 1000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 1000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-2-esdab-1-20",
+      "from": null,
+      "to": "BOKAM",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": "L",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-3-esdab-1-30",
+      "from": "BOKAM",
+      "to": "ESDAB",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 192.16,
+      "course_reference": "MAG",
+      "course_magnetic": 192.16,
+      "course_true": 171.33,
+      "distance_nm": 17.91,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-1-isupi-1-10",
+      "from": null,
+      "to": null,
+      "via": [],
+      "path_terminator": "CA",
+      "course": 264.2,
+      "course_reference": "MAG",
+      "course_magnetic": 264.2,
+      "course_true": 243.58,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+1000",
+        "valueFt": 1000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": {
+        "raw": "ft",
+        "valueFt": null,
+        "meaning": "published"
+      },
+      "altitude": {
+        "at": null,
+        "min": 1000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-2-isupi-1-20",
+      "from": null,
+      "to": "ISUPI",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": "L",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-4-1-subvi-1-10",
+      "from": null,
+      "to": null,
+      "via": [],
+      "path_terminator": "CA",
+      "course": 264.2,
+      "course_reference": "MAG",
+      "course_magnetic": 264.2,
+      "course_true": 243.58,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+1000",
+        "valueFt": 1000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": {
+        "raw": "ft",
+        "valueFt": null,
+        "meaning": "published"
+      },
+      "altitude": {
+        "at": null,
+        "min": 1000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-4-2-subvi-1-20",
+      "from": null,
+      "to": "SUBVI",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": "R",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    }
+  ],
+  "transitions": [
+    {
+      "id": "bokam",
+      "name": "BOKAM",
+      "kind": "departure",
+      "sequence": [
+        "BOKAM"
+      ],
+      "leg_ids": [
+        "transition-1-1-bokam-1-10",
+        "transition-1-2-bokam-1-20"
+      ]
+    },
+    {
+      "id": "esdab",
+      "name": "ESDAB",
+      "kind": "departure",
+      "sequence": [
+        "BOKAM",
+        "ESDAB"
+      ],
+      "leg_ids": [
+        "transition-2-1-esdab-1-10",
+        "transition-2-2-esdab-1-20",
+        "transition-2-3-esdab-1-30"
+      ]
+    },
+    {
+      "id": "isupi",
+      "name": "ISUPI",
+      "kind": "departure",
+      "sequence": [
+        "ISUPI"
+      ],
+      "leg_ids": [
+        "transition-3-1-isupi-1-10",
+        "transition-3-2-isupi-1-20"
+      ]
+    },
+    {
+      "id": "subvi",
+      "name": "SUBVI",
+      "kind": "departure",
+      "sequence": [
+        "SUBVI"
+      ],
+      "leg_ids": [
+        "transition-4-1-subvi-1-10",
+        "transition-4-2-subvi-1-20"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

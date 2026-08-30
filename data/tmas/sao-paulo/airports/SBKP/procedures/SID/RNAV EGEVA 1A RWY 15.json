@@ -1,0 +1,206 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBKP-SID-KP04D",
+    "airport": "SBKP",
+    "name": "RNAV EGEVA 1A RWY 15",
+    "type": "SID",
+    "runway": "15",
+    "runways": [
+      "15"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "KP04D",
+      "amendment": "2508A1",
+      "effectiveDate": "2025-08-07",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "OSUDO": {
+      "ident": "OSUDO",
+      "coordinate_ref": "waypoint:6836.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "KP263": {
+      "ident": "KP263",
+      "coordinate_ref": "waypoint:10887.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -9000.0
+      }
+    },
+    "EGEVA": {
+      "ident": "EGEVA",
+      "coordinate_ref": "waypoint:1220.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-egeva-1-10",
+      "from": null,
+      "to": null,
+      "via": [],
+      "path_terminator": "CA",
+      "course": 149.57,
+      "course_reference": "MAG",
+      "course_magnetic": 149.57,
+      "course_true": 127.72,
+      "distance_nm": 4.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+3000",
+        "valueFt": 3000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 3000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV1orRNP1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-egeva-1-20",
+      "from": null,
+      "to": "OSUDO",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": "R",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV1orRNP1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-3-egeva-1-30",
+      "from": "OSUDO",
+      "to": "KP263",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 290.21,
+      "course_reference": "MAG",
+      "course_magnetic": 290.21,
+      "course_true": 268.37,
+      "distance_nm": 33.48,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-9000",
+        "valueFt": -9000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -9000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV1orRNP1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-4-egeva-1-40",
+      "from": "KP263",
+      "to": "EGEVA",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 290.18,
+      "course_reference": "MAG",
+      "course_magnetic": 290.18,
+      "course_true": 268.58,
+      "distance_nm": 45.3,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV1orRNP1",
+      "source_page": 1
+    }
+  ],
+  "transitions": [
+    {
+      "id": "egeva",
+      "name": "EGEVA",
+      "kind": "departure",
+      "sequence": [
+        "OSUDO",
+        "KP263",
+        "EGEVA"
+      ],
+      "leg_ids": [
+        "transition-1-1-egeva-1-10",
+        "transition-1-2-egeva-1-20",
+        "transition-1-3-egeva-1-30",
+        "transition-1-4-egeva-1-40"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": [
+    "FICTITIOUSTHRESHOLD"
+  ]
+}

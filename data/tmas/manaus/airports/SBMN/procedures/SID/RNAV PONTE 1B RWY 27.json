@@ -1,0 +1,432 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBMN-SID-MN02B",
+    "airport": "SBMN",
+    "name": "RNAV PONTE 1B RWY 27",
+    "type": "SID",
+    "runway": "27",
+    "runways": [
+      "27"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "MN02B",
+      "amendment": "2508A1",
+      "effectiveDate": "2025-08-07",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "JAUNA": {
+      "ident": "JAUNA",
+      "coordinate_ref": "waypoint:11021.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -4000.0
+      }
+    },
+    "PONTE": {
+      "ident": "PONTE",
+      "coordinate_ref": "waypoint:11031.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 6500.0,
+        "max": null
+      }
+    },
+    "GIKVI": {
+      "ident": "GIKVI",
+      "coordinate_ref": "waypoint:8360.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "ETAXA": {
+      "ident": "ETAXA",
+      "coordinate_ref": "waypoint:11020.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-rwy-1-10",
+      "from": null,
+      "to": null,
+      "via": [],
+      "path_terminator": "CA",
+      "course": 272.86,
+      "course_reference": "MAG",
+      "course_magnetic": 272.86,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+700",
+        "valueFt": 700.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 700.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": 2.12,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-rwy-1-20",
+      "from": null,
+      "to": "JAUNA",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": "L",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-4000",
+        "valueFt": -4000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -4000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-3-rwy-1-30",
+      "from": "JAUNA",
+      "to": "PONTE",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 179.58,
+      "course_reference": "MAG",
+      "course_magnetic": 179.58,
+      "course_true": null,
+      "distance_nm": 9.28,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+6500",
+        "valueFt": 6500.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 6500.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-4-gikvi-1-10",
+      "from": null,
+      "to": "PONTE",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+6500",
+        "valueFt": 6500.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 6500.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-5-gikvi-1-20",
+      "from": "PONTE",
+      "to": "GIKVI",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 157.03,
+      "course_reference": "MAG",
+      "course_magnetic": 157.03,
+      "course_true": null,
+      "distance_nm": 90.53,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-1-rwy-1-10",
+      "from": null,
+      "to": null,
+      "via": [],
+      "path_terminator": "CA",
+      "course": 272.86,
+      "course_reference": "MAG",
+      "course_magnetic": 272.86,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+700",
+        "valueFt": 700.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 700.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": 2.12,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-2-rwy-1-20",
+      "from": null,
+      "to": "JAUNA",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": "L",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-4000",
+        "valueFt": -4000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -4000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-3-rwy-1-30",
+      "from": "JAUNA",
+      "to": "PONTE",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 179.58,
+      "course_reference": "MAG",
+      "course_magnetic": 179.58,
+      "course_true": null,
+      "distance_nm": 9.28,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+6500",
+        "valueFt": 6500.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 6500.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-4-etaxa-1-10",
+      "from": null,
+      "to": "PONTE",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+6500",
+        "valueFt": 6500.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 6500.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-5-etaxa-1-20",
+      "from": "PONTE",
+      "to": "ETAXA",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 170.33,
+      "course_reference": "MAG",
+      "course_magnetic": 170.33,
+      "course_true": null,
+      "distance_nm": 52.38,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    }
+  ],
+  "transitions": [
+    {
+      "id": "rwy-gikvi",
+      "name": "RWY - GIKVI",
+      "kind": "departure",
+      "sequence": [
+        "JAUNA",
+        "PONTE",
+        "GIKVI"
+      ],
+      "leg_ids": [
+        "transition-1-1-rwy-1-10",
+        "transition-1-2-rwy-1-20",
+        "transition-1-3-rwy-1-30",
+        "transition-1-4-gikvi-1-10",
+        "transition-1-5-gikvi-1-20"
+      ]
+    },
+    {
+      "id": "rwy-etaxa",
+      "name": "RWY - ETAXA",
+      "kind": "departure",
+      "sequence": [
+        "JAUNA",
+        "PONTE",
+        "ETAXA"
+      ],
+      "leg_ids": [
+        "transition-2-1-rwy-1-10",
+        "transition-2-2-rwy-1-20",
+        "transition-2-3-rwy-1-30",
+        "transition-2-4-etaxa-1-10",
+        "transition-2-5-etaxa-1-20"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": [
+    "FICTITIOUS THRESHOLD"
+  ]
+}

@@ -1,0 +1,354 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBSJ-STAR-SJ00S",
+    "airport": "SBSJ",
+    "name": "RNAV DAGOV 1A - SOTPI 2A RWY 34",
+    "type": "STAR",
+    "runway": "34",
+    "runways": [
+      "34"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "SJ00S",
+      "amendment": "2608A1",
+      "effectiveDate": "2026-08-06",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "ANISE": {
+      "ident": "ANISE",
+      "coordinate_ref": "waypoint:6304.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "DAGOV": {
+      "ident": "DAGOV",
+      "coordinate_ref": "waypoint:296.0",
+      "role": "IAF",
+      "altitude": {
+        "at": null,
+        "min": 7000.0,
+        "max": null
+      }
+    },
+    "PORNA": {
+      "ident": "PORNA",
+      "coordinate_ref": "waypoint:5132.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "KEVUN": {
+      "ident": "KEVUN",
+      "coordinate_ref": "waypoint:531.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "SJ019": {
+      "ident": "SJ019",
+      "coordinate_ref": "waypoint:6793.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 11000.0,
+        "max": null
+      }
+    },
+    "VUNOX": {
+      "ident": "VUNOX",
+      "coordinate_ref": "waypoint:2894.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -17000.0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-anise-1-10",
+      "from": null,
+      "to": "ANISE",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-anise-1-50",
+      "from": "ANISE",
+      "to": "DAGOV",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 40.19,
+      "course_reference": "MAG",
+      "course_magnetic": 40.19,
+      "course_true": 18.07,
+      "distance_nm": 13.7,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+7000",
+        "valueFt": 7000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 7000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-1-porna-1-10",
+      "from": null,
+      "to": "PORNA",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-2-porna-1-20",
+      "from": "PORNA",
+      "to": "KEVUN",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 299.32,
+      "course_reference": "MAG",
+      "course_magnetic": 299.32,
+      "course_true": null,
+      "distance_nm": 38.47,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-3-porna-1-30",
+      "from": "KEVUN",
+      "to": "SJ019",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 295.39,
+      "course_reference": "MAG",
+      "course_magnetic": 295.39,
+      "course_true": 276.69,
+      "distance_nm": 22.07,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+11000",
+        "valueFt": 11000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 11000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-4-porna-1-40",
+      "from": "SJ019",
+      "to": "DAGOV",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 293.61,
+      "course_reference": "MAG",
+      "course_magnetic": 293.61,
+      "course_true": 272.94,
+      "distance_nm": 15.68,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+7000",
+        "valueFt": 7000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 7000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-1-vunox-1-10",
+      "from": null,
+      "to": "VUNOX",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-17000",
+        "valueFt": -17000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -17000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    }
+  ],
+  "transitions": [
+    {
+      "id": "anise",
+      "name": "Transicao ANISE",
+      "kind": "arrival",
+      "sequence": [
+        "ANISE",
+        "DAGOV"
+      ],
+      "leg_ids": [
+        "transition-1-1-anise-1-10",
+        "transition-1-2-anise-1-50"
+      ]
+    },
+    {
+      "id": "porna",
+      "name": "Transicao PORNA",
+      "kind": "arrival",
+      "sequence": [
+        "PORNA",
+        "KEVUN",
+        "SJ019",
+        "DAGOV"
+      ],
+      "leg_ids": [
+        "transition-2-1-porna-1-10",
+        "transition-2-2-porna-1-20",
+        "transition-2-3-porna-1-30",
+        "transition-2-4-porna-1-40"
+      ]
+    },
+    {
+      "id": "vunox",
+      "name": "Transicao VUNOX",
+      "kind": "arrival",
+      "sequence": [
+        "VUNOX"
+      ],
+      "leg_ids": [
+        "transition-3-1-vunox-1-10"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

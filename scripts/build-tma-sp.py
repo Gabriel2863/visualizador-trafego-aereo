@@ -44,6 +44,22 @@ ROW_FIELDS = (
     "navigationSpecification",
 )
 
+# A tabela de codificação da AISWEB é publicada com 16 campos semânticos, mas
+# muitos PDFs incluem duas colunas vazias de espaçamento (após Speed Limit e
+# Role Of The Fix).  O pdfplumber as preserva, resultando em 18 células.  Não
+# as descartamos pelo tamanho da linha: removemos somente essas colunas vazias
+# conhecidas para manter as pernas, os rumos e as restrições publicados.
+CODING_TABLE_VISUAL_COLUMNS = (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 17)
+
+
+def canonical_table_row(values: list[Any]) -> list[Any] | None:
+    """Converte uma linha visual de uma tabela AISWEB nos 16 campos lógicos."""
+    if len(values) == len(ROW_FIELDS):
+        return values
+    if len(values) >= max(CODING_TABLE_VISUAL_COLUMNS) + 1:
+        return [values[index] for index in CODING_TABLE_VISUAL_COLUMNS]
+    return None
+
 
 def text(value: Any) -> str | None:
     if value is None:
@@ -276,9 +292,19 @@ def extract_coding_table(path: Path) -> tuple[list[dict[str, Any]], dict[str, di
                     if not raw_row:
                         continue
                     values = list(raw_row)
-                    if len(values) == len(ROW_FIELDS):
+                    logical_values = canonical_table_row(values)
+                    if logical_values is not None:
+                        values = logical_values
                         header_text = " ".join(str(value or "") for value in values).upper()
-                        if "FIX IDENT" in header_text or "FLY OVER" in header_text or ("TRANSITION" in header_text and "NAVIGATION" in header_text):
+                        if (
+                            "FIX IDENT" in header_text
+                            or "FLY OVER" in header_text
+                            or ("TRANSITION" in header_text and "NAVIGATION" in header_text)
+                            # Algumas tabelas dividem o cabeçalho em duas linhas;
+                            # a segunda começa em "Identifier" e antes era mesclada
+                            # indevidamente à primeira perna publicada.
+                            or ("IDENTIFIER" in header_text and "TERMINATOR" in header_text and "ALTITUDE" in header_text)
+                        ):
                             continue
                         first_raw = re.sub(r"\s+", " ", str(values[0] or "")).strip()
                         first = text(values[0])

@@ -1,0 +1,386 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBKP-SID-KP03K",
+    "airport": "SBKP",
+    "name": "RNAV KONVI 2C RWY 15",
+    "type": "SID",
+    "runway": "15",
+    "runways": [
+      "15"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "KP03K",
+      "amendment": "2508A1",
+      "effectiveDate": "2025-08-07",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "KP241": {
+      "ident": "KP241",
+      "coordinate_ref": "waypoint:10732.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "EGBEN": {
+      "ident": "EGBEN",
+      "coordinate_ref": "waypoint:10733.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 6000.0,
+        "max": 8000.0
+      }
+    },
+    "KP242": {
+      "ident": "KP242",
+      "coordinate_ref": "waypoint:10734.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "KP243": {
+      "ident": "KP243",
+      "coordinate_ref": "waypoint:10735.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "URRAO": {
+      "ident": "URRAO",
+      "coordinate_ref": "waypoint:10800.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "KP249": {
+      "ident": "KP249",
+      "coordinate_ref": "waypoint:10751.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 9000.0,
+        "max": 10000.0
+      }
+    },
+    "KONVI": {
+      "ident": "KONVI",
+      "coordinate_ref": "waypoint:2263.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -13000.0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-konvi-1-10",
+      "from": null,
+      "to": null,
+      "via": [],
+      "path_terminator": "CA",
+      "course": 149.57,
+      "course_reference": "MAG",
+      "course_magnetic": 149.57,
+      "course_true": 127.72,
+      "distance_nm": 3.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+2600",
+        "valueFt": 2600.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 2600.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": 2.12,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-konvi-1-20",
+      "from": null,
+      "to": "KP241",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": "L",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-3-konvi-1-30",
+      "from": "KP241",
+      "to": "EGBEN",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 59.04,
+      "course_reference": "MAG",
+      "course_magnetic": 59.04,
+      "course_true": 37.15,
+      "distance_nm": 7.62,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "B6000",
+        "valueFt": 6000.0,
+        "meaning": "between-bound"
+      },
+      "upper_limit": {
+        "raw": "B8000",
+        "valueFt": 8000.0,
+        "meaning": "between-bound"
+      },
+      "altitude": {
+        "at": null,
+        "min": 6000.0,
+        "max": 8000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-4-konvi-1-40",
+      "from": "EGBEN",
+      "to": "KP242",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 62.64,
+      "course_reference": "MAG",
+      "course_magnetic": 62.64,
+      "course_true": 40.7,
+      "distance_nm": 10.22,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-5-konvi-1-50",
+      "from": "KP242",
+      "to": "KP243",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 67.44,
+      "course_reference": "MAG",
+      "course_magnetic": 67.44,
+      "course_true": 45.44,
+      "distance_nm": 3.02,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-6-konvi-1-60",
+      "from": "KP243",
+      "to": "URRAO",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 67.45,
+      "course_reference": "MAG",
+      "course_magnetic": 67.45,
+      "course_true": 45.42,
+      "distance_nm": 4.98,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-7-konvi-1-70",
+      "from": "URRAO",
+      "to": "KP249",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 67.45,
+      "course_reference": "MAG",
+      "course_magnetic": 67.45,
+      "course_true": 45.42,
+      "distance_nm": 3.02,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "B9000",
+        "valueFt": 9000.0,
+        "meaning": "between-bound"
+      },
+      "upper_limit": {
+        "raw": "B10000",
+        "valueFt": 10000.0,
+        "meaning": "between-bound"
+      },
+      "altitude": {
+        "at": null,
+        "min": 9000.0,
+        "max": 10000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-8-konvi-1-80",
+      "from": "KP249",
+      "to": "KONVI",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 117.1,
+      "course_reference": "MAG",
+      "course_magnetic": 117.1,
+      "course_true": 95.02,
+      "distance_nm": 27.75,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-13000",
+        "valueFt": -13000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -13000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    }
+  ],
+  "transitions": [
+    {
+      "id": "konvi",
+      "name": "KONVI",
+      "kind": "departure",
+      "sequence": [
+        "KP241",
+        "EGBEN",
+        "KP242",
+        "KP243",
+        "URRAO",
+        "KP249",
+        "KONVI"
+      ],
+      "leg_ids": [
+        "transition-1-1-konvi-1-10",
+        "transition-1-2-konvi-1-20",
+        "transition-1-3-konvi-1-30",
+        "transition-1-4-konvi-1-40",
+        "transition-1-5-konvi-1-50",
+        "transition-1-6-konvi-1-60",
+        "transition-1-7-konvi-1-70",
+        "transition-1-8-konvi-1-80"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": [
+    "FICTITIOUS THRESHOLD"
+  ]
+}

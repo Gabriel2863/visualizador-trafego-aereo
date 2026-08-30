@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBSC-SID-SC00Z",
+    "airport": "SBSC",
+    "name": "RNAV UGSUK 1A RWY 23",
+    "type": "SID",
+    "runway": "23",
+    "runways": [
+      "23"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "SC00Z",
+      "amendment": "2607A1",
+      "effectiveDate": "2026-07-09",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "UGSUK": {
+      "ident": "UGSUK",
+      "coordinate_ref": "waypoint:aisweb-21b6e45d4f4e28",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-rwy-1-10",
+      "from": null,
+      "to": null,
+      "via": [],
+      "path_terminator": "Rec Navaid",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": "UGSUK",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "CF",
+        "valueFt": null,
+        "meaning": "published"
+      },
+      "upper_limit": {
+        "raw": "Path and",
+        "valueFt": null,
+        "meaning": "published"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "Transition",
+      "fix_role": null,
+      "navigation_specification": "Speed",
+      "source_page": 1
+    }
+  ],
+  "transitions": [
+    {
+      "id": "rwy",
+      "name": "RWY",
+      "kind": "departure",
+      "sequence": [],
+      "leg_ids": [
+        "transition-1-1-rwy-1-10"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

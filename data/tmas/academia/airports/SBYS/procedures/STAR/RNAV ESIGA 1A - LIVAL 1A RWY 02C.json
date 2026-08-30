@@ -1,0 +1,701 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBYS-STAR-YS01J",
+    "airport": "SBYS",
+    "name": "RNAV ESIGA 1A - LIVAL 1A RWY 02C",
+    "type": "STAR",
+    "runway": "02C",
+    "runways": [
+      "02C"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "YS01J",
+      "amendment": "2607A1",
+      "effectiveDate": "2026-07-09",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "IBGAR": {
+      "ident": "IBGAR",
+      "coordinate_ref": "waypoint:3444.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 15000.0,
+        "max": null
+      }
+    },
+    "MUKNU": {
+      "ident": "MUKNU",
+      "coordinate_ref": "waypoint:4124.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "LIVAL": {
+      "ident": "LIVAL",
+      "coordinate_ref": "waypoint:8007.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 7000.0,
+        "max": 19000.0
+      }
+    },
+    "YS012": {
+      "ident": "YS012",
+      "coordinate_ref": "waypoint:7936.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "YS003": {
+      "ident": "YS003",
+      "coordinate_ref": "waypoint:4314.0",
+      "role": "IAF",
+      "altitude": {
+        "at": null,
+        "min": 6000.0,
+        "max": null
+      }
+    },
+    "KOTRA": {
+      "ident": "KOTRA",
+      "coordinate_ref": "waypoint:5429.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 15000.0,
+        "max": null
+      }
+    },
+    "DOGLI": {
+      "ident": "DOGLI",
+      "coordinate_ref": "waypoint:5341.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 10000.0,
+        "max": null
+      }
+    },
+    "ESIGA": {
+      "ident": "ESIGA",
+      "coordinate_ref": "waypoint:6998.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 6000.0,
+        "max": 9000.0
+      }
+    },
+    "YS006": {
+      "ident": "YS006",
+      "coordinate_ref": "waypoint:4440.0",
+      "role": "IAF",
+      "altitude": {
+        "at": null,
+        "min": 6000.0,
+        "max": null
+      }
+    },
+    "MOTLO": {
+      "ident": "MOTLO",
+      "coordinate_ref": "waypoint:5855.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 10000.0,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-ibgar-1-10",
+      "from": null,
+      "to": "IBGAR",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 1.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+15000",
+        "valueFt": 15000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 15000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-ibgar-1-20",
+      "from": "IBGAR",
+      "to": "MUKNU",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 182.91,
+      "course_reference": "MAG",
+      "course_magnetic": 182.91,
+      "course_true": 161.26,
+      "distance_nm": 36.67,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-3-ibgar-1-30",
+      "from": "MUKNU",
+      "to": "LIVAL",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 205.67,
+      "course_reference": "MAG",
+      "course_magnetic": 205.67,
+      "course_true": 184.01,
+      "distance_nm": 19.98,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "B7000",
+        "valueFt": 7000.0,
+        "meaning": "between-bound"
+      },
+      "upper_limit": {
+        "raw": "B19000",
+        "valueFt": 19000.0,
+        "meaning": "between-bound"
+      },
+      "altitude": {
+        "at": null,
+        "min": 7000.0,
+        "max": 19000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-4-ibgar-1-40",
+      "from": "LIVAL",
+      "to": "YS012",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 221.69,
+      "course_reference": "MAG",
+      "course_magnetic": 221.69,
+      "course_true": 200.09,
+      "distance_nm": 20.48,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": 180.0,
+      "speed_interpretation": "-",
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-5-ibgar-1-50",
+      "from": "YS012",
+      "to": "YS003",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 201.35,
+      "course_reference": "MAG",
+      "course_magnetic": 201.35,
+      "course_true": 179.85,
+      "distance_nm": 21.14,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+6000",
+        "valueFt": 6000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 6000.0,
+        "max": null
+      },
+      "speed_limit_kt": 180.0,
+      "speed_interpretation": "-",
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-1-kotra-1-10",
+      "from": null,
+      "to": "KOTRA",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+15000",
+        "valueFt": 15000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 15000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-2-kotra-1-20",
+      "from": "KOTRA",
+      "to": "LIVAL",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 254.82,
+      "course_reference": "MAG",
+      "course_magnetic": 254.82,
+      "course_true": 233.03,
+      "distance_nm": 25.28,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "B7000",
+        "valueFt": 7000.0,
+        "meaning": "between-bound"
+      },
+      "upper_limit": {
+        "raw": "B19000",
+        "valueFt": 19000.0,
+        "meaning": "between-bound"
+      },
+      "altitude": {
+        "at": null,
+        "min": 7000.0,
+        "max": 19000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-3-kotra-1-30",
+      "from": "LIVAL",
+      "to": "YS012",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 221.69,
+      "course_reference": "MAG",
+      "course_magnetic": 221.69,
+      "course_true": 200.09,
+      "distance_nm": 20.48,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": 180.0,
+      "speed_interpretation": "-",
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-4-kotra-1-40",
+      "from": "YS012",
+      "to": "YS003",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 201.35,
+      "course_reference": "MAG",
+      "course_magnetic": 201.35,
+      "course_true": 179.85,
+      "distance_nm": 21.14,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+6000",
+        "valueFt": 6000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 6000.0,
+        "max": null
+      },
+      "speed_limit_kt": 180.0,
+      "speed_interpretation": "-",
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-1-dogli-1-10",
+      "from": null,
+      "to": "DOGLI",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 1.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+10000",
+        "valueFt": 10000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 10000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 2
+    },
+    {
+      "id": "transition-3-2-dogli-1-20",
+      "from": "DOGLI",
+      "to": "ESIGA",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 86.82,
+      "course_reference": "MAG",
+      "course_magnetic": 86.82,
+      "course_true": 65.74,
+      "distance_nm": 70.84,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "B6000",
+        "valueFt": 6000.0,
+        "meaning": "between-bound"
+      },
+      "upper_limit": {
+        "raw": "B9000",
+        "valueFt": 9000.0,
+        "meaning": "between-bound"
+      },
+      "altitude": {
+        "at": null,
+        "min": 6000.0,
+        "max": 9000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 2
+    },
+    {
+      "id": "transition-3-3-dogli-1-30",
+      "from": "ESIGA",
+      "to": "YS006",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 359.08,
+      "course_reference": "MAG",
+      "course_magnetic": 359.08,
+      "course_true": 337.59,
+      "distance_nm": 8.78,
+      "turn": "L",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+6000",
+        "valueFt": 6000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 6000.0,
+        "max": null
+      },
+      "speed_limit_kt": 180.0,
+      "speed_interpretation": "-",
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 2
+    },
+    {
+      "id": "transition-4-1-motlo-1-10",
+      "from": null,
+      "to": "MOTLO",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+10000",
+        "valueFt": 10000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 10000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 2
+    },
+    {
+      "id": "transition-4-2-motlo-1-20",
+      "from": "MOTLO",
+      "to": "ESIGA",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 293.67,
+      "course_reference": "MAG",
+      "course_magnetic": 293.67,
+      "course_true": 272.0,
+      "distance_nm": 24.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "B6000",
+        "valueFt": 6000.0,
+        "meaning": "between-bound"
+      },
+      "upper_limit": {
+        "raw": "B9000",
+        "valueFt": 9000.0,
+        "meaning": "between-bound"
+      },
+      "altitude": {
+        "at": null,
+        "min": 6000.0,
+        "max": 9000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 2
+    },
+    {
+      "id": "transition-4-3-motlo-1-30",
+      "from": "ESIGA",
+      "to": "YS006",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 359.08,
+      "course_reference": "MAG",
+      "course_magnetic": 359.08,
+      "course_true": 337.59,
+      "distance_nm": 8.78,
+      "turn": "R",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+6000",
+        "valueFt": 6000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 6000.0,
+        "max": null
+      },
+      "speed_limit_kt": 180.0,
+      "speed_interpretation": "-",
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 2
+    }
+  ],
+  "transitions": [
+    {
+      "id": "ibgar",
+      "name": "Transicao IBGAR",
+      "kind": "arrival",
+      "sequence": [
+        "IBGAR",
+        "MUKNU",
+        "LIVAL",
+        "YS012",
+        "YS003"
+      ],
+      "leg_ids": [
+        "transition-1-1-ibgar-1-10",
+        "transition-1-2-ibgar-1-20",
+        "transition-1-3-ibgar-1-30",
+        "transition-1-4-ibgar-1-40",
+        "transition-1-5-ibgar-1-50"
+      ]
+    },
+    {
+      "id": "kotra",
+      "name": "Transicao KOTRA",
+      "kind": "arrival",
+      "sequence": [
+        "KOTRA",
+        "LIVAL",
+        "YS012",
+        "YS003"
+      ],
+      "leg_ids": [
+        "transition-2-1-kotra-1-10",
+        "transition-2-2-kotra-1-20",
+        "transition-2-3-kotra-1-30",
+        "transition-2-4-kotra-1-40"
+      ]
+    },
+    {
+      "id": "dogli",
+      "name": "Transicao DOGLI",
+      "kind": "arrival",
+      "sequence": [
+        "DOGLI",
+        "ESIGA",
+        "YS006"
+      ],
+      "leg_ids": [
+        "transition-3-1-dogli-1-10",
+        "transition-3-2-dogli-1-20",
+        "transition-3-3-dogli-1-30"
+      ]
+    },
+    {
+      "id": "motlo",
+      "name": "Transicao MOTLO",
+      "kind": "arrival",
+      "sequence": [
+        "MOTLO",
+        "ESIGA",
+        "YS006"
+      ],
+      "leg_ids": [
+        "transition-4-1-motlo-1-10",
+        "transition-4-2-motlo-1-20",
+        "transition-4-3-motlo-1-30"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": [
+    "FICTITIOUS THRESHOLD"
+  ]
+}

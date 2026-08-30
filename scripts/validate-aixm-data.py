@@ -91,7 +91,10 @@ def main() -> None:
 
     base_waypoints = [
         feature for feature in waypoints["features"]
-        if feature.get("properties", {}).get("generated_by") != "data-architecture-v1"
+        # A base original tem 7.938 registros. Extensões publicadas pela
+        # migração arquitetural ou pelas tabelas AISWEB não fazem parte dessa
+        # invariante, embora continuem válidas como coordenadas globais.
+        if not feature.get("properties", {}).get("generated_by")
     ]
     waypoint_idents = Counter(str(feature["properties"]["ident"]).upper() for feature in base_waypoints)
     assert sum(waypoint_idents.values()) == waypoints.get("baseRecordCount", 7938) == 7938 and len(waypoint_idents) == 7932

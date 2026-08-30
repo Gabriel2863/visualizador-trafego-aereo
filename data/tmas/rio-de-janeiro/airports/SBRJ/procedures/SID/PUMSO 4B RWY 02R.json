@@ -1,0 +1,576 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBRJ-SID-RJ00Q",
+    "airport": "SBRJ",
+    "name": "PUMSO 4B RWY 02R",
+    "type": "SID",
+    "runway": "02R",
+    "runways": [
+      "02R"
+    ],
+    "modes": [],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "RJ00Q",
+      "amendment": "2502A1",
+      "effectiveDate": "2025-02-20",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "MALDU": {
+      "ident": "MALDU",
+      "coordinate_ref": "waypoint:810.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "UBMIG": {
+      "ident": "UBMIG",
+      "coordinate_ref": "waypoint:4215.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -5000.0
+      }
+    },
+    "PUMSO": {
+      "ident": "PUMSO",
+      "coordinate_ref": "waypoint:1198.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "ADA": {
+      "ident": "ADA",
+      "coordinate_ref": "procedure-point:b882b392-5ad9-4c54-aa92-e73152f5135c",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "BUSVO": {
+      "ident": "BUSVO",
+      "coordinate_ref": "waypoint:7456.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 8000.0,
+        "max": null
+      }
+    },
+    "PCX": {
+      "ident": "PCX",
+      "coordinate_ref": "waypoint:aisweb-d2512fd6470336",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "ISRIN": {
+      "ident": "ISRIN",
+      "coordinate_ref": "waypoint:3633.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -18000.0
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-rwy-1-10",
+      "from": null,
+      "to": null,
+      "via": [],
+      "path_terminator": "VA",
+      "course": 19.56,
+      "course_reference": "MAG",
+      "course_magnetic": 19.56,
+      "course_true": 356.57,
+      "distance_nm": 0.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+500",
+        "valueFt": 500.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 500.0,
+        "max": null
+      },
+      "speed_limit_kt": 210.0,
+      "speed_interpretation": "-",
+      "vertical_angle": 2.46,
+      "fly_over": null,
+      "fix_role": "20 FEB 25",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-rwy-1-20",
+      "from": null,
+      "to": "MALDU",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 108.44,
+      "course_reference": "MAG",
+      "course_magnetic": 108.44,
+      "course_true": 85.82,
+      "distance_nm": null,
+      "turn": "R",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": 210.0,
+      "speed_interpretation": "-",
+      "vertical_angle": 2.46,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-3-rwy-1-30",
+      "from": "MALDU",
+      "to": "UBMIG",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 108.42,
+      "course_reference": "MAG",
+      "course_magnetic": 108.42,
+      "course_true": 85.8,
+      "distance_nm": 7.8,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-5000",
+        "valueFt": -5000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -5000.0
+      },
+      "speed_limit_kt": 210.0,
+      "speed_interpretation": "-",
+      "vertical_angle": 2.46,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-4-rwy-1-40",
+      "from": "UBMIG",
+      "to": "PUMSO",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 108.41,
+      "course_reference": "MAG",
+      "course_magnetic": 108.41,
+      "course_true": 85.79,
+      "distance_nm": 4.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": 210.0,
+      "speed_interpretation": "-",
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-5-ada-1-10",
+      "from": null,
+      "to": "PUMSO",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-6-ada-1-20",
+      "from": "PUMSO",
+      "to": "ADA",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 108.41,
+      "course_reference": "MAG",
+      "course_magnetic": 108.41,
+      "course_true": 85.79,
+      "distance_nm": 41.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-1-rwy-1-10",
+      "from": null,
+      "to": null,
+      "via": [],
+      "path_terminator": "VA",
+      "course": 19.56,
+      "course_reference": "MAG",
+      "course_magnetic": 19.56,
+      "course_true": 356.57,
+      "distance_nm": 0.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+500",
+        "valueFt": 500.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 500.0,
+        "max": null
+      },
+      "speed_limit_kt": 210.0,
+      "speed_interpretation": "-",
+      "vertical_angle": 2.46,
+      "fly_over": null,
+      "fix_role": "20 FEB 25",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-2-rwy-1-20",
+      "from": null,
+      "to": "MALDU",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 108.44,
+      "course_reference": "MAG",
+      "course_magnetic": 108.44,
+      "course_true": 85.82,
+      "distance_nm": null,
+      "turn": "R",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": 210.0,
+      "speed_interpretation": "-",
+      "vertical_angle": 2.46,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-3-rwy-1-30",
+      "from": "MALDU",
+      "to": "UBMIG",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 108.42,
+      "course_reference": "MAG",
+      "course_magnetic": 108.42,
+      "course_true": 85.8,
+      "distance_nm": 7.8,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-5000",
+        "valueFt": -5000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -5000.0
+      },
+      "speed_limit_kt": 210.0,
+      "speed_interpretation": "-",
+      "vertical_angle": 2.46,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-4-rwy-1-40",
+      "from": "UBMIG",
+      "to": "PUMSO",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 108.41,
+      "course_reference": "MAG",
+      "course_magnetic": 108.41,
+      "course_true": 85.79,
+      "distance_nm": 4.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": 210.0,
+      "speed_interpretation": "-",
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-5-isrin-1-10",
+      "from": null,
+      "to": "PUMSO",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-6-isrin-1-20",
+      "from": "PUMSO",
+      "to": "BUSVO",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 14.92,
+      "course_reference": "MAG",
+      "course_magnetic": 14.92,
+      "course_true": 351.92,
+      "distance_nm": 5.3,
+      "turn": "L",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+8000",
+        "valueFt": 8000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 8000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-7-isrin-1-30",
+      "from": "BUSVO",
+      "to": "PCX",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 14.91,
+      "course_reference": "MAG",
+      "course_magnetic": 14.91,
+      "course_true": 351.91,
+      "distance_nm": 4.04,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-8-isrin-1-40",
+      "from": "PCX",
+      "to": "ISRIN",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 14.33,
+      "course_reference": "MAG",
+      "course_magnetic": 14.33,
+      "course_true": 351.33,
+      "distance_nm": 33.67,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-18000",
+        "valueFt": -18000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -18000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "source_page": 1
+    }
+  ],
+  "transitions": [
+    {
+      "id": "rwy-ada",
+      "name": "RWY - ADA",
+      "kind": "departure",
+      "sequence": [
+        "MALDU",
+        "UBMIG",
+        "PUMSO",
+        "ADA"
+      ],
+      "leg_ids": [
+        "transition-1-1-rwy-1-10",
+        "transition-1-2-rwy-1-20",
+        "transition-1-3-rwy-1-30",
+        "transition-1-4-rwy-1-40",
+        "transition-1-5-ada-1-10",
+        "transition-1-6-ada-1-20"
+      ]
+    },
+    {
+      "id": "rwy-isrin",
+      "name": "RWY - ISRIN",
+      "kind": "departure",
+      "sequence": [
+        "MALDU",
+        "UBMIG",
+        "PUMSO",
+        "BUSVO",
+        "PCX",
+        "ISRIN"
+      ],
+      "leg_ids": [
+        "transition-2-1-rwy-1-10",
+        "transition-2-2-rwy-1-20",
+        "transition-2-3-rwy-1-30",
+        "transition-2-4-rwy-1-40",
+        "transition-2-5-isrin-1-10",
+        "transition-2-6-isrin-1-20",
+        "transition-2-7-isrin-1-30",
+        "transition-2-8-isrin-1-40"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": [
+    "FICTITIOUS THRESHOLD"
+  ]
+}

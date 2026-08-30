@@ -1,0 +1,210 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBKP-SID-KP04E",
+    "airport": "SBKP",
+    "name": "RNAV OBLUG 2A RWY 33",
+    "type": "SID",
+    "runway": "33",
+    "runways": [
+      "33"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "KP04E",
+      "amendment": "2601A1",
+      "effectiveDate": "2026-01-22",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "KP266": {
+      "ident": "KP266",
+      "coordinate_ref": "waypoint:10900.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -11000.0
+      }
+    },
+    "KP268": {
+      "ident": "KP268",
+      "coordinate_ref": "waypoint:10901.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -20000.0
+      }
+    },
+    "OBLUG": {
+      "ident": "OBLUG",
+      "coordinate_ref": "waypoint:7997.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-oblug-1-10",
+      "from": null,
+      "to": null,
+      "via": [],
+      "path_terminator": "CA",
+      "course": 329.58,
+      "course_reference": "MAG",
+      "course_magnetic": 329.58,
+      "course_true": 307.73,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+3000",
+        "valueFt": 3000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 3000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-oblug-1-20",
+      "from": null,
+      "to": "KP266",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": "L",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-11000",
+        "valueFt": -11000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -11000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-3-oblug-1-30",
+      "from": "KP266",
+      "to": "KP268",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 308.49,
+      "course_reference": "MAG",
+      "course_magnetic": 308.49,
+      "course_true": 286.76,
+      "distance_nm": 30.68,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-20000",
+        "valueFt": -20000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -20000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-4-oblug-1-40",
+      "from": "KP268",
+      "to": "OBLUG",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 308.49,
+      "course_reference": "MAG",
+      "course_magnetic": 308.49,
+      "course_true": 286.94,
+      "distance_nm": 24.76,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    }
+  ],
+  "transitions": [
+    {
+      "id": "oblug",
+      "name": "OBLUG",
+      "kind": "departure",
+      "sequence": [
+        "KP266",
+        "KP268",
+        "OBLUG"
+      ],
+      "leg_ids": [
+        "transition-1-1-oblug-1-10",
+        "transition-1-2-oblug-1-20",
+        "transition-1-3-oblug-1-30",
+        "transition-1-4-oblug-1-40"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": [
+    "FICTITIOUS THRESHOLD"
+  ]
+}

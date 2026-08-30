@@ -1,0 +1,188 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBFL-STAR-FL02A",
+    "airport": "SBFL",
+    "name": "RNAV EDREX 1B - EGDED 1B - PUBIS 1B RWY 32",
+    "type": "STAR",
+    "runway": "32",
+    "runways": [
+      "32"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "FL02A",
+      "amendment": "2511A1",
+      "effectiveDate": "2025-10-30",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "EDREX": {
+      "ident": "EDREX",
+      "coordinate_ref": "waypoint:4217.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 19000.0,
+        "max": null
+      }
+    },
+    "EGDED": {
+      "ident": "EGDED",
+      "coordinate_ref": "waypoint:2279.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "PUBIS": {
+      "ident": "PUBIS",
+      "coordinate_ref": "waypoint:1975.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-edrex-1-10",
+      "from": null,
+      "to": "EDREX",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+19000",
+        "valueFt": 19000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 19000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-1-egded-1-10",
+      "from": null,
+      "to": "EGDED",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-1-pubis-1-10",
+      "from": null,
+      "to": "PUBIS",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 2
+    }
+  ],
+  "transitions": [
+    {
+      "id": "edrex",
+      "name": "Transicao EDREX",
+      "kind": "arrival",
+      "sequence": [
+        "EDREX"
+      ],
+      "leg_ids": [
+        "transition-1-1-edrex-1-10"
+      ]
+    },
+    {
+      "id": "egded",
+      "name": "Transicao EGDED",
+      "kind": "arrival",
+      "sequence": [
+        "EGDED"
+      ],
+      "leg_ids": [
+        "transition-2-1-egded-1-10"
+      ]
+    },
+    {
+      "id": "pubis",
+      "name": "Transicao PUBIS",
+      "kind": "arrival",
+      "sequence": [
+        "PUBIS"
+      ],
+      "leg_ids": [
+        "transition-3-1-pubis-1-10"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

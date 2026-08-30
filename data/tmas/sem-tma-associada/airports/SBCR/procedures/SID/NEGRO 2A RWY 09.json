@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBCR-SID-CR00B",
+    "airport": "SBCR",
+    "name": "NEGRO 2A RWY 09",
+    "type": "SID",
+    "runway": "09",
+    "runways": [
+      "09"
+    ],
+    "modes": [],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "CR00B",
+      "amendment": "2110A1",
+      "effectiveDate": "2021-10-07",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "NEGRO": {
+      "ident": "NEGRO",
+      "coordinate_ref": "waypoint:1927.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 12000.0,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-negro-1-10",
+      "from": null,
+      "to": null,
+      "via": [],
+      "path_terminator": "VA",
+      "course": 90.49,
+      "course_reference": "MAG",
+      "course_magnetic": 90.49,
+      "course_true": 74.33,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+1500",
+        "valueFt": 1500.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 1500.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": 1.95,
+      "fly_over": null,
+      "fix_role": "07 OCT 21",
+      "navigation_specification": null,
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-negro-1-20",
+      "from": null,
+      "to": "NEGRO",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 133.79,
+      "course_reference": "MAG",
+      "course_magnetic": 133.79,
+      "course_true": 117.63,
+      "distance_nm": null,
+      "turn": "R",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+12000",
+        "valueFt": 12000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 12000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": 1.95,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": null,
+      "source_page": 1
+    }
+  ],
+  "transitions": [
+    {
+      "id": "negro",
+      "name": "NEGRO",
+      "kind": "departure",
+      "sequence": [
+        "NEGRO"
+      ],
+      "leg_ids": [
+        "transition-1-1-negro-1-10",
+        "transition-1-2-negro-1-20"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": [
+    "FICTITIOUS THRESHOLD"
+  ]
+}

@@ -301,6 +301,34 @@ Não é necessário cadastrar o arquivo no JavaScript nem editar manualmente o
 desenvolvimento que serve `data/` diretamente, execute ao menos
 `npm run discover:data` antes de abrir a página.
 
+## Importação nacional AISWEB
+
+Para a carga nacional, a AISWEB é consultada em duas camadas:
+
+1. `scripts/catalog-aisweb-ifr.py` consulta a página pública de cartas por
+   aeródromo e por tipo, gerando um catálogo temporário com título, código de
+   carta, emenda, data de efetivação e referência da tabela de codificação;
+2. `scripts/download-aisweb-coding-tables.py` baixa somente as tabelas
+   disponíveis para `tmp/`, com retomada e validação de PDF;
+3. `scripts/import-aisweb-coding-tables.py` lê essas tabelas e cria um JSON
+   por carta em `data/tmas/<tma>/airports/<icao>/procedures/<tipo>/`.
+
+As tabelas e as cartas brutas não entram no repositório. A importação grava a
+auditoria leve em `data/tmas/aisweb-chart-import-audit.json`, incluindo a
+situação de cada registro e o caminho do JSON gerado.
+
+Uma tabela AISWEB pode informar coordenadas de cabeceiras, navaids ou FIXES
+que ainda não estejam na base global. Nesse caso, o importador acrescenta uma
+feature rastreável em `data/waypoints.json` com
+`generated_by: "aisweb-coding-tables-v1"`, a referência da fonte e, quando
+necessário, `hidden_on_map: true`. O JSON da carta recebe somente
+`ident` e `coordinate_ref`; nunca latitude, longitude ou geometria.
+
+Se não houver tabela de codificação ou se ela não puder ser lida, o arquivo
+continua sendo criado para que a carta seja descoberta pelo seletor. Ele recebe
+o status `catalog-only` e um aviso. Não há rota desenhada, coordenada estimada
+ou ligação criada por proximidade.
+
 ## Como adicionar SID, STAR ou IAC
 
 1. Confirme que todos os FIXES existem em `data/waypoints.json`.

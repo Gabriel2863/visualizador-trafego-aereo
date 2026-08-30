@@ -1,0 +1,312 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBIL-STAR-IL00N",
+    "airport": "SBIL",
+    "name": "RNAV DALOX 1A - TOLOG 1A RWY 11",
+    "type": "STAR",
+    "runway": "11",
+    "runways": [
+      "11"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "IL00N",
+      "amendment": "2605A1",
+      "effectiveDate": "2026-05-14",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "DALOX": {
+      "ident": "DALOX",
+      "coordinate_ref": "waypoint:9162.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "IL022": {
+      "ident": "IL022",
+      "coordinate_ref": "waypoint:8882.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 4500.0,
+        "max": null
+      }
+    },
+    "IL018": {
+      "ident": "IL018",
+      "coordinate_ref": "waypoint:8879.0",
+      "role": "IAF",
+      "altitude": {
+        "at": null,
+        "min": 4000.0,
+        "max": null
+      }
+    },
+    "TOLOG": {
+      "ident": "TOLOG",
+      "coordinate_ref": "waypoint:aisweb-85e6bc7855adba",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "IL021": {
+      "ident": "IL021",
+      "coordinate_ref": "waypoint:8881.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "IL017": {
+      "ident": "IL017",
+      "coordinate_ref": "waypoint:8878.0",
+      "role": "IAF",
+      "altitude": {
+        "at": null,
+        "min": 4000.0,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-dalox-1-10",
+      "from": null,
+      "to": "DALOX",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-dalox-1-20",
+      "from": "DALOX",
+      "to": "IL022",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 69.59,
+      "course_reference": "MAG",
+      "course_magnetic": 69.59,
+      "course_true": null,
+      "distance_nm": 50.39,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+4500",
+        "valueFt": 4500.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 4500.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-3-dalox-1-30",
+      "from": "IL022",
+      "to": "IL018",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 76.28,
+      "course_reference": "MAG",
+      "course_magnetic": 76.28,
+      "course_true": 46.18,
+      "distance_nm": 17.67,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+4000",
+        "valueFt": 4000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 4000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-1-tolog-1-10",
+      "from": null,
+      "to": "TOLOG",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-2-tolog-1-20",
+      "from": "TOLOG",
+      "to": "IL021",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 230.74,
+      "course_reference": "MAG",
+      "course_magnetic": 230.74,
+      "course_true": null,
+      "distance_nm": 43.82,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-3-tolog-1-30",
+      "from": "IL021",
+      "to": "IL017",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 230.96,
+      "course_reference": "MAG",
+      "course_magnetic": 230.96,
+      "course_true": 207.59,
+      "distance_nm": 17.43,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+4000",
+        "valueFt": 4000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 4000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    }
+  ],
+  "transitions": [
+    {
+      "id": "dalox",
+      "name": "Transicao DALOX",
+      "kind": "arrival",
+      "sequence": [
+        "DALOX",
+        "IL022",
+        "IL018"
+      ],
+      "leg_ids": [
+        "transition-1-1-dalox-1-10",
+        "transition-1-2-dalox-1-20",
+        "transition-1-3-dalox-1-30"
+      ]
+    },
+    {
+      "id": "tolog",
+      "name": "Transicao TOLOG",
+      "kind": "arrival",
+      "sequence": [
+        "TOLOG",
+        "IL021",
+        "IL017"
+      ],
+      "leg_ids": [
+        "transition-2-1-tolog-1-10",
+        "transition-2-2-tolog-1-20",
+        "transition-2-3-tolog-1-30"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": [
+    "FICTITIOUS THRESHOLD"
+  ]
+}

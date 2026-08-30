@@ -1,0 +1,771 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBBR-SID-BR00W",
+    "airport": "SBBR",
+    "name": "RNAV GAXON 2A RWY 29L",
+    "type": "SID",
+    "runway": "29L",
+    "runways": [
+      "29L"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "BR00W",
+      "amendment": "2511A1",
+      "effectiveDate": "2025-10-30",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "GAXON": {
+      "ident": "GAXON",
+      "coordinate_ref": "waypoint:4619.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -10000.0
+      }
+    },
+    "BR052": {
+      "ident": "BR052",
+      "coordinate_ref": "waypoint:5905.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 11000.0,
+        "max": null
+      }
+    },
+    "NEDES": {
+      "ident": "NEDES",
+      "coordinate_ref": "waypoint:2745.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "BR106": {
+      "ident": "BR106",
+      "coordinate_ref": "waypoint:9638.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 24000.0,
+        "max": null
+      }
+    },
+    "SAVPU": {
+      "ident": "SAVPU",
+      "coordinate_ref": "waypoint:9038.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "GEPMO": {
+      "ident": "GEPMO",
+      "coordinate_ref": "waypoint:8922.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "GEBEP": {
+      "ident": "GEBEP",
+      "coordinate_ref": "waypoint:2670.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "ENRUR": {
+      "ident": "ENRUR",
+      "coordinate_ref": "waypoint:9366.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-rwy-1-10",
+      "from": null,
+      "to": null,
+      "via": [],
+      "path_terminator": "CA",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": "+4200",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": 1.0,
+      "fly_over": null,
+      "fix_role": "or",
+      "navigation_specification": "RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-rwy-1-20",
+      "from": null,
+      "to": "GAXON",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": "L",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-10000",
+        "valueFt": -10000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -10000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-3-savpu-1-10",
+      "from": null,
+      "to": "GAXON",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-10000",
+        "valueFt": -10000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -10000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-4-savpu-1-20",
+      "from": "GAXON",
+      "to": "BR052",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 108.38,
+      "course_reference": "MAG",
+      "course_magnetic": 108.38,
+      "course_true": 86.24,
+      "distance_nm": 17.43,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+11000",
+        "valueFt": 11000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 11000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-5-savpu-1-30",
+      "from": "BR052",
+      "to": "NEDES",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 108.36,
+      "course_reference": "MAG",
+      "course_magnetic": 108.36,
+      "course_true": 86.13,
+      "distance_nm": 7.99,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-6-savpu-1-40",
+      "from": "NEDES",
+      "to": "BR106",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 135.19,
+      "course_reference": "MAG",
+      "course_magnetic": 135.19,
+      "course_true": 112.92,
+      "distance_nm": 25.35,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+24000",
+        "valueFt": 24000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 24000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-7-savpu-1-50",
+      "from": "BR106",
+      "to": "SAVPU",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 138.79,
+      "course_reference": "MAG",
+      "course_magnetic": 138.79,
+      "course_true": 116.4,
+      "distance_nm": 33.45,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-1-rwy-1-10",
+      "from": null,
+      "to": null,
+      "via": [],
+      "path_terminator": "CA",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": "+4200",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": 1.0,
+      "fly_over": null,
+      "fix_role": "or",
+      "navigation_specification": "RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-2-rwy-1-20",
+      "from": null,
+      "to": "GAXON",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": "L",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-10000",
+        "valueFt": -10000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -10000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-3-gepmo-1-10",
+      "from": null,
+      "to": "GAXON",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-10000",
+        "valueFt": -10000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -10000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-4-gepmo-1-20",
+      "from": "GAXON",
+      "to": "GEPMO",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 155.98,
+      "course_reference": "MAG",
+      "course_magnetic": 155.98,
+      "course_true": 133.84,
+      "distance_nm": 66.83,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-1-rwy-1-10",
+      "from": null,
+      "to": null,
+      "via": [],
+      "path_terminator": "CA",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": "+4200",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": 1.0,
+      "fly_over": null,
+      "fix_role": "or",
+      "navigation_specification": "RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-2-rwy-1-20",
+      "from": null,
+      "to": "GAXON",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": "L",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-10000",
+        "valueFt": -10000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -10000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-3-gebep-1-10",
+      "from": null,
+      "to": "GAXON",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-10000",
+        "valueFt": -10000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -10000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-4-gebep-1-20",
+      "from": "GAXON",
+      "to": "GEBEP",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 181.57,
+      "course_reference": "MAG",
+      "course_magnetic": 181.57,
+      "course_true": 159.43,
+      "distance_nm": 90.16,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-4-1-rwy-1-10",
+      "from": null,
+      "to": null,
+      "via": [],
+      "path_terminator": "CA",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": "+4200",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": 1.0,
+      "fly_over": null,
+      "fix_role": "or",
+      "navigation_specification": "RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-4-2-rwy-1-20",
+      "from": null,
+      "to": "GAXON",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": "L",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-10000",
+        "valueFt": -10000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -10000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-4-3-enrur-1-10",
+      "from": null,
+      "to": "GAXON",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-10000",
+        "valueFt": -10000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -10000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-4-4-enrur-1-20",
+      "from": "GAXON",
+      "to": "ENRUR",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 174.0,
+      "course_reference": "MAG",
+      "course_magnetic": 174.0,
+      "course_true": 151.86,
+      "distance_nm": 97.09,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP1 or RNAV 1",
+      "source_page": 1
+    }
+  ],
+  "transitions": [
+    {
+      "id": "rwy-savpu",
+      "name": "RWY - SAVPU",
+      "kind": "departure",
+      "sequence": [
+        "GAXON",
+        "BR052",
+        "NEDES",
+        "BR106",
+        "SAVPU"
+      ],
+      "leg_ids": [
+        "transition-1-1-rwy-1-10",
+        "transition-1-2-rwy-1-20",
+        "transition-1-3-savpu-1-10",
+        "transition-1-4-savpu-1-20",
+        "transition-1-5-savpu-1-30",
+        "transition-1-6-savpu-1-40",
+        "transition-1-7-savpu-1-50"
+      ]
+    },
+    {
+      "id": "rwy-gepmo",
+      "name": "RWY - GEPMO",
+      "kind": "departure",
+      "sequence": [
+        "GAXON",
+        "GEPMO"
+      ],
+      "leg_ids": [
+        "transition-2-1-rwy-1-10",
+        "transition-2-2-rwy-1-20",
+        "transition-2-3-gepmo-1-10",
+        "transition-2-4-gepmo-1-20"
+      ]
+    },
+    {
+      "id": "rwy-gebep",
+      "name": "RWY - GEBEP",
+      "kind": "departure",
+      "sequence": [
+        "GAXON",
+        "GEBEP"
+      ],
+      "leg_ids": [
+        "transition-3-1-rwy-1-10",
+        "transition-3-2-rwy-1-20",
+        "transition-3-3-gebep-1-10",
+        "transition-3-4-gebep-1-20"
+      ]
+    },
+    {
+      "id": "rwy-enrur",
+      "name": "RWY - ENRUR",
+      "kind": "departure",
+      "sequence": [
+        "GAXON",
+        "ENRUR"
+      ],
+      "leg_ids": [
+        "transition-4-1-rwy-1-10",
+        "transition-4-2-rwy-1-20",
+        "transition-4-3-enrur-1-10",
+        "transition-4-4-enrur-1-20"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

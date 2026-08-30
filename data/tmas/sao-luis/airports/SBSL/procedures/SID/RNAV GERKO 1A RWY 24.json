@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBSL-SID-SL00D",
+    "airport": "SBSL",
+    "name": "RNAV GERKO 1A RWY 24",
+    "type": "SID",
+    "runway": "24",
+    "runways": [
+      "24"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "SL00D",
+      "amendment": "2607A1",
+      "effectiveDate": "2026-07-09",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "GERKO": {
+      "ident": "GERKO",
+      "coordinate_ref": "waypoint:3703.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "ESLEB": {
+      "ident": "ESLEB",
+      "coordinate_ref": "waypoint:6485.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "KOKPU": {
+      "ident": "KOKPU",
+      "coordinate_ref": "waypoint:3685.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-rwy-1-10",
+      "from": null,
+      "to": null,
+      "via": [],
+      "path_terminator": "Rec Navaid",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": "GERKO",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "CF",
+        "valueFt": null,
+        "meaning": "published"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": 239.65,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "Transition",
+      "fix_role": "Lower Limit Altitude (FT)",
+      "navigation_specification": "Speed Limit",
+      "source_page": 1
+    }
+  ],
+  "transitions": [
+    {
+      "id": "rwy",
+      "name": "RWY",
+      "kind": "departure",
+      "sequence": [],
+      "leg_ids": [
+        "transition-1-1-rwy-1-10"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

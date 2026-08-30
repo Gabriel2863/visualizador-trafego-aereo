@@ -1,0 +1,357 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBPS-STAR-PS00L",
+    "airport": "SBPS",
+    "name": "RNAV OSUNO 1A - RAIRA 2A RWY 10",
+    "type": "STAR",
+    "runway": "10",
+    "runways": [
+      "10"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "PS00L",
+      "amendment": "2608A1",
+      "effectiveDate": "2026-08-06",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "RAIRA": {
+      "ident": "RAIRA",
+      "coordinate_ref": "waypoint:2446.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "PS064": {
+      "ident": "PS064",
+      "coordinate_ref": "waypoint:10048.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -6000.0
+      }
+    },
+    "PS022": {
+      "ident": "PS022",
+      "coordinate_ref": "waypoint:1049.0",
+      "role": "IAF",
+      "altitude": {
+        "at": null,
+        "min": 3000.0,
+        "max": null
+      }
+    },
+    "OSUNO": {
+      "ident": "OSUNO",
+      "coordinate_ref": "waypoint:8735.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "NINGA": {
+      "ident": "NINGA",
+      "coordinate_ref": "waypoint:9200.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -15000.0
+      }
+    },
+    "IVPEG": {
+      "ident": "IVPEG",
+      "coordinate_ref": "waypoint:9058.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "PS024": {
+      "ident": "PS024",
+      "coordinate_ref": "waypoint:7183.0",
+      "role": "IAF",
+      "altitude": {
+        "at": null,
+        "min": 4000.0,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-raira-1-10",
+      "from": null,
+      "to": "RAIRA",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-raira-1-20",
+      "from": "RAIRA",
+      "to": "PS064",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 218.61,
+      "course_reference": "MAG",
+      "course_magnetic": 218.61,
+      "course_true": 195.15,
+      "distance_nm": 35.62,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-6000",
+        "valueFt": -6000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -6000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-3-raira-1-30",
+      "from": "PS064",
+      "to": "PS022",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 218.74,
+      "course_reference": "MAG",
+      "course_magnetic": 218.74,
+      "course_true": 195.21,
+      "distance_nm": 12.3,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+3000",
+        "valueFt": 3000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 3000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-1-osuno-1-10",
+      "from": null,
+      "to": "OSUNO",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-2-osuno-1-20",
+      "from": "OSUNO",
+      "to": "NINGA",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 51.11,
+      "course_reference": "MAG",
+      "course_magnetic": 51.11,
+      "course_true": 27.49,
+      "distance_nm": 27.49,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-15000",
+        "valueFt": -15000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -15000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-3-osuno-1-30",
+      "from": "NINGA",
+      "to": "IVPEG",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 54.78,
+      "course_reference": "MAG",
+      "course_magnetic": 54.78,
+      "course_true": 31.17,
+      "distance_nm": 19.94,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-4-osuno-1-40",
+      "from": "IVPEG",
+      "to": "PS024",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 60.93,
+      "course_reference": "MAG",
+      "course_magnetic": 60.93,
+      "course_true": 37.34,
+      "distance_nm": 17.05,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+4000",
+        "valueFt": 4000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 4000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    }
+  ],
+  "transitions": [
+    {
+      "id": "raira",
+      "name": "Transicao RAIRA",
+      "kind": "arrival",
+      "sequence": [
+        "RAIRA",
+        "PS064",
+        "PS022"
+      ],
+      "leg_ids": [
+        "transition-1-1-raira-1-10",
+        "transition-1-2-raira-1-20",
+        "transition-1-3-raira-1-30"
+      ]
+    },
+    {
+      "id": "osuno",
+      "name": "Transicao OSUNO",
+      "kind": "arrival",
+      "sequence": [
+        "OSUNO",
+        "NINGA",
+        "IVPEG",
+        "PS024"
+      ],
+      "leg_ids": [
+        "transition-2-1-osuno-1-10",
+        "transition-2-2-osuno-1-20",
+        "transition-2-3-osuno-1-30",
+        "transition-2-4-osuno-1-40"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": [
+    "FICTITIOUS THRESHOLD"
+  ]
+}

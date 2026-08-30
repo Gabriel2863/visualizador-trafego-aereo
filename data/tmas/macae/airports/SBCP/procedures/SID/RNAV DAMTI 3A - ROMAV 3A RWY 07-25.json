@@ -1,0 +1,753 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBCP-SID-CP00L",
+    "airport": "SBCP",
+    "name": "RNAV DAMTI 3A - ROMAV 3A RWY 07/25",
+    "type": "SID",
+    "runway": "07",
+    "runways": [
+      "07",
+      "25"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "CP00L",
+      "amendment": "2407A1",
+      "effectiveDate": "2024-07-11",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "DAMTI": {
+      "ident": "DAMTI",
+      "coordinate_ref": "waypoint:7993.0",
+      "role": "IDF",
+      "altitude": {
+        "at": null,
+        "min": 600.0,
+        "max": null
+      }
+    },
+    "CP030": {
+      "ident": "CP030",
+      "coordinate_ref": "waypoint:4464.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "MAKIT": {
+      "ident": "MAKIT",
+      "coordinate_ref": "waypoint:234.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "CP031": {
+      "ident": "CP031",
+      "coordinate_ref": "waypoint:1439.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "RONIP": {
+      "ident": "RONIP",
+      "coordinate_ref": "waypoint:1848.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "CP013": {
+      "ident": "CP013",
+      "coordinate_ref": "waypoint:7578.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "EVLAS": {
+      "ident": "EVLAS",
+      "coordinate_ref": "waypoint:10293.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "ROMAV": {
+      "ident": "ROMAV",
+      "coordinate_ref": "waypoint:1594.0",
+      "role": "IDF",
+      "altitude": {
+        "at": null,
+        "min": 600.0,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-makit-1-10",
+      "from": null,
+      "to": "DAMTI",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+600",
+        "valueFt": 600.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 600.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "IDF",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-makit-1-20",
+      "from": "DAMTI",
+      "to": "CP030",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-3-makit-1-30",
+      "from": "CP030",
+      "to": "MAKIT",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 144.84,
+      "course_reference": "MAG",
+      "course_magnetic": 144.84,
+      "course_true": 121.17,
+      "distance_nm": 46.07,
+      "turn": "R",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-1-ronip-1-10",
+      "from": null,
+      "to": "DAMTI",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+600",
+        "valueFt": 600.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 600.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "IDF",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-2-ronip-1-20",
+      "from": "DAMTI",
+      "to": "CP031",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-3-ronip-1-30",
+      "from": "CP031",
+      "to": "RONIP",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 169.91,
+      "course_reference": "MAG",
+      "course_magnetic": 169.91,
+      "course_true": 146.25,
+      "distance_nm": 21.0,
+      "turn": "R",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-1-evlas-1-10",
+      "from": null,
+      "to": "DAMTI",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+600",
+        "valueFt": 600.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 600.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "IDF",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-2-evlas-1-20",
+      "from": "DAMTI",
+      "to": "CP013",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-3-evlas-1-30",
+      "from": "CP013",
+      "to": "EVLAS",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 110.1,
+      "course_reference": "MAG",
+      "course_magnetic": 110.1,
+      "course_true": 86.42,
+      "distance_nm": 39.66,
+      "turn": "R",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-4-1-ronip-2-10",
+      "from": null,
+      "to": "ROMAV",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+600",
+        "valueFt": 600.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 600.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "IDF",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-4-2-ronip-2-20",
+      "from": "ROMAV",
+      "to": "CP031",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-4-3-ronip-2-30",
+      "from": "CP031",
+      "to": "RONIP",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 169.91,
+      "course_reference": "MAG",
+      "course_magnetic": 169.91,
+      "course_true": 146.25,
+      "distance_nm": 21.0,
+      "turn": "L",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-5-1-evlas-2-10",
+      "from": null,
+      "to": "ROMAV",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+600",
+        "valueFt": 600.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 600.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "IDF",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-5-2-evlas-2-20",
+      "from": "ROMAV",
+      "to": "CP013",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-5-3-evlas-2-30",
+      "from": "CP013",
+      "to": "EVLAS",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 110.1,
+      "course_reference": "MAG",
+      "course_magnetic": 110.1,
+      "course_true": 86.42,
+      "distance_nm": 39.66,
+      "turn": "L",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-6-1-makit-2-10",
+      "from": null,
+      "to": "ROMAV",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+600",
+        "valueFt": 600.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 600.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "IDF",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 2
+    },
+    {
+      "id": "transition-6-2-makit-2-20",
+      "from": "ROMAV",
+      "to": "CP030",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 2
+    },
+    {
+      "id": "transition-6-3-makit-2-30",
+      "from": "CP030",
+      "to": "MAKIT",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 144.84,
+      "course_reference": "MAG",
+      "course_magnetic": 144.84,
+      "course_true": 121.17,
+      "distance_nm": 46.07,
+      "turn": "L",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 2
+    }
+  ],
+  "transitions": [
+    {
+      "id": "makit",
+      "name": "MAKIT",
+      "kind": "departure",
+      "sequence": [
+        "DAMTI",
+        "CP030",
+        "MAKIT"
+      ],
+      "leg_ids": [
+        "transition-1-1-makit-1-10",
+        "transition-1-2-makit-1-20",
+        "transition-1-3-makit-1-30"
+      ]
+    },
+    {
+      "id": "ronip",
+      "name": "RONIP",
+      "kind": "departure",
+      "sequence": [
+        "DAMTI",
+        "CP031",
+        "RONIP"
+      ],
+      "leg_ids": [
+        "transition-2-1-ronip-1-10",
+        "transition-2-2-ronip-1-20",
+        "transition-2-3-ronip-1-30"
+      ]
+    },
+    {
+      "id": "evlas",
+      "name": "EVLAS",
+      "kind": "departure",
+      "sequence": [
+        "DAMTI",
+        "CP013",
+        "EVLAS"
+      ],
+      "leg_ids": [
+        "transition-3-1-evlas-1-10",
+        "transition-3-2-evlas-1-20",
+        "transition-3-3-evlas-1-30"
+      ]
+    },
+    {
+      "id": "ronip-ronip-2",
+      "name": "RONIP",
+      "kind": "departure",
+      "sequence": [
+        "ROMAV",
+        "CP031",
+        "RONIP"
+      ],
+      "leg_ids": [
+        "transition-4-1-ronip-2-10",
+        "transition-4-2-ronip-2-20",
+        "transition-4-3-ronip-2-30"
+      ]
+    },
+    {
+      "id": "evlas-evlas-2",
+      "name": "EVLAS",
+      "kind": "departure",
+      "sequence": [
+        "ROMAV",
+        "CP013",
+        "EVLAS"
+      ],
+      "leg_ids": [
+        "transition-5-1-evlas-2-10",
+        "transition-5-2-evlas-2-20",
+        "transition-5-3-evlas-2-30"
+      ]
+    },
+    {
+      "id": "makit-makit-2",
+      "name": "MAKIT",
+      "kind": "departure",
+      "sequence": [
+        "ROMAV",
+        "CP030",
+        "MAKIT"
+      ],
+      "leg_ids": [
+        "transition-6-1-makit-2-10",
+        "transition-6-2-makit-2-20",
+        "transition-6-3-makit-2-30"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": [
+    "FICTITIOUS THRESHOLD"
+  ]
+}

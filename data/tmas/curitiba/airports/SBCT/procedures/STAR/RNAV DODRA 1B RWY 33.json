@@ -1,0 +1,987 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBCT-STAR-CT03N",
+    "airport": "SBCT",
+    "name": "RNAV DODRA 1B RWY 33",
+    "type": "STAR",
+    "runway": "33",
+    "runways": [
+      "33"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "CT03N",
+      "amendment": "2606A1",
+      "effectiveDate": "2026-06-11",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "UMGUL": {
+      "ident": "UMGUL",
+      "coordinate_ref": "waypoint:2114.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "CT136": {
+      "ident": "CT136",
+      "coordinate_ref": "waypoint:9497.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "CT138": {
+      "ident": "CT138",
+      "coordinate_ref": "waypoint:9499.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "DODRA": {
+      "ident": "DODRA",
+      "coordinate_ref": "waypoint:3803.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 13000.0,
+        "max": null
+      }
+    },
+    "GEGOB": {
+      "ident": "GEGOB",
+      "coordinate_ref": "waypoint:7016.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "CT168": {
+      "ident": "CT168",
+      "coordinate_ref": "waypoint:9519.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "PAPIP": {
+      "ident": "PAPIP",
+      "coordinate_ref": "waypoint:2370.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "CT167": {
+      "ident": "CT167",
+      "coordinate_ref": "waypoint:9518.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "CT166": {
+      "ident": "CT166",
+      "coordinate_ref": "waypoint:9517.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 15000.0,
+        "max": null
+      }
+    },
+    "CT164": {
+      "ident": "CT164",
+      "coordinate_ref": "waypoint:9516.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 9000.0,
+        "max": null
+      }
+    },
+    "ALGUD": {
+      "ident": "ALGUD",
+      "coordinate_ref": "waypoint:1051.0",
+      "role": "IAF",
+      "altitude": {
+        "at": null,
+        "min": 7000.0,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-rwy-1-10",
+      "from": null,
+      "to": "DODRA",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+13000",
+        "valueFt": 13000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 13000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-rwy-1-20",
+      "from": "DODRA",
+      "to": "CT164",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 154.82,
+      "course_reference": "MAG",
+      "course_magnetic": 154.82,
+      "course_true": 134.64,
+      "distance_nm": 13.24,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+9000",
+        "valueFt": 9000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 9000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-3-rwy-1-30",
+      "from": "CT164",
+      "to": "ALGUD",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 154.78,
+      "course_reference": "MAG",
+      "course_magnetic": 154.78,
+      "course_true": 134.56,
+      "distance_nm": 7.99,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+7000",
+        "valueFt": 7000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 7000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "IAF",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-1-umgul-1-10",
+      "from": null,
+      "to": "UMGUL",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 3.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-2-umgul-1-20",
+      "from": "UMGUL",
+      "to": "CT136",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 195.87,
+      "course_reference": "MAG",
+      "course_magnetic": 195.87,
+      "course_true": 175.32,
+      "distance_nm": 64.73,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-3-umgul-1-30",
+      "from": "CT136",
+      "to": "CT138",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 195.61,
+      "course_reference": "MAG",
+      "course_magnetic": 195.61,
+      "course_true": 175.28,
+      "distance_nm": 22.95,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-4-umgul-1-40",
+      "from": "CT138",
+      "to": "DODRA",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 197.77,
+      "course_reference": "MAG",
+      "course_magnetic": 197.77,
+      "course_true": 177.53,
+      "distance_nm": 16.26,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+13000",
+        "valueFt": 13000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 13000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-5-rwy-1-10",
+      "from": null,
+      "to": "DODRA",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+13000",
+        "valueFt": 13000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 13000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-6-rwy-1-20",
+      "from": "DODRA",
+      "to": "CT164",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 154.82,
+      "course_reference": "MAG",
+      "course_magnetic": 154.82,
+      "course_true": 134.64,
+      "distance_nm": 13.24,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+9000",
+        "valueFt": 9000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 9000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-7-rwy-1-30",
+      "from": "CT164",
+      "to": "ALGUD",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 154.78,
+      "course_reference": "MAG",
+      "course_magnetic": 154.78,
+      "course_true": 134.56,
+      "distance_nm": 7.99,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+7000",
+        "valueFt": 7000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 7000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "IAF",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-1-gegob-1-10",
+      "from": null,
+      "to": "GEGOB",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-2-gegob-1-20",
+      "from": "GEGOB",
+      "to": "CT168",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 159.31,
+      "course_reference": "MAG",
+      "course_magnetic": 159.31,
+      "course_true": 139.28,
+      "distance_nm": 65.41,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-3-gegob-1-30",
+      "from": "CT168",
+      "to": "CT138",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 159.13,
+      "course_reference": "MAG",
+      "course_magnetic": 159.13,
+      "course_true": 138.93,
+      "distance_nm": 16.5,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-4-gegob-1-40",
+      "from": "CT138",
+      "to": "DODRA",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 197.77,
+      "course_reference": "MAG",
+      "course_magnetic": 197.77,
+      "course_true": 177.53,
+      "distance_nm": 16.26,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+13000",
+        "valueFt": 13000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 13000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-5-rwy-1-10",
+      "from": null,
+      "to": "DODRA",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+13000",
+        "valueFt": 13000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 13000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-6-rwy-1-20",
+      "from": "DODRA",
+      "to": "CT164",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 154.82,
+      "course_reference": "MAG",
+      "course_magnetic": 154.82,
+      "course_true": 134.64,
+      "distance_nm": 13.24,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+9000",
+        "valueFt": 9000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 9000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-7-rwy-1-30",
+      "from": "CT164",
+      "to": "ALGUD",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 154.78,
+      "course_reference": "MAG",
+      "course_magnetic": 154.78,
+      "course_true": 134.56,
+      "distance_nm": 7.99,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+7000",
+        "valueFt": 7000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 7000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "IAF",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-4-1-papip-1-10",
+      "from": null,
+      "to": "PAPIP",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-4-2-papip-1-20",
+      "from": "PAPIP",
+      "to": "CT167",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 146.76,
+      "course_reference": "MAG",
+      "course_magnetic": 146.76,
+      "course_true": 126.99,
+      "distance_nm": 60.84,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-4-3-papip-1-30",
+      "from": "CT167",
+      "to": "CT166",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 146.65,
+      "course_reference": "MAG",
+      "course_magnetic": 146.65,
+      "course_true": 126.59,
+      "distance_nm": 15.42,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+15000",
+        "valueFt": 15000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 15000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-4-4-papip-1-40",
+      "from": "CT166",
+      "to": "DODRA",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 146.61,
+      "course_reference": "MAG",
+      "course_magnetic": 146.61,
+      "course_true": 126.48,
+      "distance_nm": 11.77,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+13000",
+        "valueFt": 13000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 13000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-4-5-rwy-1-10",
+      "from": null,
+      "to": "DODRA",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+13000",
+        "valueFt": 13000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 13000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-4-6-rwy-1-20",
+      "from": "DODRA",
+      "to": "CT164",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 154.82,
+      "course_reference": "MAG",
+      "course_magnetic": 154.82,
+      "course_true": 134.64,
+      "distance_nm": 13.24,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+9000",
+        "valueFt": 9000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 9000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-4-7-rwy-1-30",
+      "from": "CT164",
+      "to": "ALGUD",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 154.78,
+      "course_reference": "MAG",
+      "course_magnetic": 154.78,
+      "course_true": 134.56,
+      "distance_nm": 7.99,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+7000",
+        "valueFt": 7000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 7000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "IAF",
+      "navigation_specification": "RNP 1 or RNAV 1",
+      "source_page": 1
+    }
+  ],
+  "transitions": [
+    {
+      "id": "dodra",
+      "name": "Entrada DODRA",
+      "kind": "arrival",
+      "sequence": [
+        "DODRA",
+        "CT164",
+        "ALGUD"
+      ],
+      "leg_ids": [
+        "transition-1-1-rwy-1-10",
+        "transition-1-2-rwy-1-20",
+        "transition-1-3-rwy-1-30"
+      ]
+    },
+    {
+      "id": "umgul",
+      "name": "Transicao UMGUL",
+      "kind": "arrival",
+      "sequence": [
+        "UMGUL",
+        "CT136",
+        "CT138",
+        "DODRA",
+        "CT164",
+        "ALGUD"
+      ],
+      "leg_ids": [
+        "transition-2-1-umgul-1-10",
+        "transition-2-2-umgul-1-20",
+        "transition-2-3-umgul-1-30",
+        "transition-2-4-umgul-1-40",
+        "transition-2-5-rwy-1-10",
+        "transition-2-6-rwy-1-20",
+        "transition-2-7-rwy-1-30"
+      ]
+    },
+    {
+      "id": "gegob",
+      "name": "Transicao GEGOB",
+      "kind": "arrival",
+      "sequence": [
+        "GEGOB",
+        "CT168",
+        "CT138",
+        "DODRA",
+        "CT164",
+        "ALGUD"
+      ],
+      "leg_ids": [
+        "transition-3-1-gegob-1-10",
+        "transition-3-2-gegob-1-20",
+        "transition-3-3-gegob-1-30",
+        "transition-3-4-gegob-1-40",
+        "transition-3-5-rwy-1-10",
+        "transition-3-6-rwy-1-20",
+        "transition-3-7-rwy-1-30"
+      ]
+    },
+    {
+      "id": "papip",
+      "name": "Transicao PAPIP",
+      "kind": "arrival",
+      "sequence": [
+        "PAPIP",
+        "CT167",
+        "CT166",
+        "DODRA",
+        "CT164",
+        "ALGUD"
+      ],
+      "leg_ids": [
+        "transition-4-1-papip-1-10",
+        "transition-4-2-papip-1-20",
+        "transition-4-3-papip-1-30",
+        "transition-4-4-papip-1-40",
+        "transition-4-5-rwy-1-10",
+        "transition-4-6-rwy-1-20",
+        "transition-4-7-rwy-1-30"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": [
+    "FICTITIOUS THRESHOLD"
+  ]
+}

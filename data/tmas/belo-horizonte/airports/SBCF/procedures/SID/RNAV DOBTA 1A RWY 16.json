@@ -1,0 +1,962 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBCF-SID-CF01U",
+    "airport": "SBCF",
+    "name": "RNAV DOBTA 1A RWY 16",
+    "type": "SID",
+    "runway": "16",
+    "runways": [
+      "16"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "CF01U",
+      "amendment": "2509A1",
+      "effectiveDate": "2025-09-04",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "KUMEV": {
+      "ident": "KUMEV",
+      "coordinate_ref": "waypoint:5669.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "DEVAD": {
+      "ident": "DEVAD",
+      "coordinate_ref": "waypoint:7160.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 7000.0,
+        "max": null
+      }
+    },
+    "CF052": {
+      "ident": "CF052",
+      "coordinate_ref": "waypoint:9463.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 12000.0,
+        "max": null
+      }
+    },
+    "CF071": {
+      "ident": "CF071",
+      "coordinate_ref": "waypoint:3838.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "DOBTA": {
+      "ident": "DOBTA",
+      "coordinate_ref": "waypoint:10145.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 16000.0,
+        "max": null
+      }
+    },
+    "MOTMA": {
+      "ident": "MOTMA",
+      "coordinate_ref": "waypoint:3688.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "ANDEM": {
+      "ident": "ANDEM",
+      "coordinate_ref": "waypoint:8954.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "KOVED": {
+      "ident": "KOVED",
+      "coordinate_ref": "waypoint:78.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "DEUCA": {
+      "ident": "DEUCA",
+      "coordinate_ref": "waypoint:5870.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "NEKEG": {
+      "ident": "NEKEG",
+      "coordinate_ref": "waypoint:10555.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "MIMIP": {
+      "ident": "MIMIP",
+      "coordinate_ref": "waypoint:9120.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-rwy-1-10",
+      "from": null,
+      "to": "KUMEV",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 161.88,
+      "course_reference": "MAG",
+      "course_magnetic": 161.88,
+      "course_true": 138.77,
+      "distance_nm": 4.51,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-rwy-1-20",
+      "from": "KUMEV",
+      "to": "DEVAD",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 259.34,
+      "course_reference": "MAG",
+      "course_magnetic": 259.34,
+      "course_true": 236.22,
+      "distance_nm": 4.94,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+7000",
+        "valueFt": 7000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 7000.0,
+        "max": null
+      },
+      "speed_limit_kt": 210.0,
+      "speed_interpretation": "-",
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-3-rwy-1-30",
+      "from": "DEVAD",
+      "to": "CF052",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 290.74,
+      "course_reference": "MAG",
+      "course_magnetic": 290.74,
+      "course_true": 267.64,
+      "distance_nm": 13.04,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+12000",
+        "valueFt": 12000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 12000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-4-rwy-1-40",
+      "from": "CF052",
+      "to": "CF071",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 290.96,
+      "course_reference": "MAG",
+      "course_magnetic": 290.96,
+      "course_true": 267.92,
+      "distance_nm": 4.99,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-5-rwy-1-50",
+      "from": "CF071",
+      "to": "DOBTA",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 290.61,
+      "course_reference": "MAG",
+      "course_magnetic": 290.61,
+      "course_true": 267.6,
+      "distance_nm": 8.05,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+16000",
+        "valueFt": 16000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 16000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-6-andem-1-10",
+      "from": null,
+      "to": "DOBTA",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+16000",
+        "valueFt": 16000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 16000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-7-andem-1-20",
+      "from": "DOBTA",
+      "to": "MOTMA",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 271.96,
+      "course_reference": "MAG",
+      "course_magnetic": 271.96,
+      "course_true": 248.99,
+      "distance_nm": 14.53,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-8-andem-1-30",
+      "from": "MOTMA",
+      "to": "ANDEM",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 271.99,
+      "course_reference": "MAG",
+      "course_magnetic": 271.99,
+      "course_true": 249.08,
+      "distance_nm": 42.98,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-1-rwy-1-10",
+      "from": null,
+      "to": "KUMEV",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 161.88,
+      "course_reference": "MAG",
+      "course_magnetic": 161.88,
+      "course_true": 138.77,
+      "distance_nm": 4.51,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-2-rwy-1-20",
+      "from": "KUMEV",
+      "to": "DEVAD",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 259.34,
+      "course_reference": "MAG",
+      "course_magnetic": 259.34,
+      "course_true": 236.22,
+      "distance_nm": 4.94,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+7000",
+        "valueFt": 7000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 7000.0,
+        "max": null
+      },
+      "speed_limit_kt": 210.0,
+      "speed_interpretation": "-",
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-3-rwy-1-30",
+      "from": "DEVAD",
+      "to": "CF052",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 290.74,
+      "course_reference": "MAG",
+      "course_magnetic": 290.74,
+      "course_true": 267.64,
+      "distance_nm": 13.04,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+12000",
+        "valueFt": 12000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 12000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-4-rwy-1-40",
+      "from": "CF052",
+      "to": "CF071",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 290.96,
+      "course_reference": "MAG",
+      "course_magnetic": 290.96,
+      "course_true": 267.92,
+      "distance_nm": 4.99,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-5-rwy-1-50",
+      "from": "CF071",
+      "to": "DOBTA",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 290.61,
+      "course_reference": "MAG",
+      "course_magnetic": 290.61,
+      "course_true": 267.6,
+      "distance_nm": 8.05,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+16000",
+        "valueFt": 16000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 16000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-6-deuca-1-10",
+      "from": null,
+      "to": "DOBTA",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+16000",
+        "valueFt": 16000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 16000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-7-deuca-1-20",
+      "from": "DOBTA",
+      "to": "KOVED",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 229.78,
+      "course_reference": "MAG",
+      "course_magnetic": 229.78,
+      "course_true": 206.8,
+      "distance_nm": 21.86,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-8-deuca-1-30",
+      "from": "KOVED",
+      "to": "DEUCA",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 224.12,
+      "course_reference": "MAG",
+      "course_magnetic": 224.12,
+      "course_true": 201.21,
+      "distance_nm": 25.21,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-1-rwy-1-10",
+      "from": null,
+      "to": "KUMEV",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 161.88,
+      "course_reference": "MAG",
+      "course_magnetic": 161.88,
+      "course_true": 138.77,
+      "distance_nm": 4.51,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-2-rwy-1-20",
+      "from": "KUMEV",
+      "to": "DEVAD",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 259.34,
+      "course_reference": "MAG",
+      "course_magnetic": 259.34,
+      "course_true": 236.22,
+      "distance_nm": 4.94,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+7000",
+        "valueFt": 7000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 7000.0,
+        "max": null
+      },
+      "speed_limit_kt": 210.0,
+      "speed_interpretation": "-",
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-3-rwy-1-30",
+      "from": "DEVAD",
+      "to": "CF052",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 290.74,
+      "course_reference": "MAG",
+      "course_magnetic": 290.74,
+      "course_true": 267.64,
+      "distance_nm": 13.04,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+12000",
+        "valueFt": 12000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 12000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-4-rwy-1-40",
+      "from": "CF052",
+      "to": "CF071",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 290.96,
+      "course_reference": "MAG",
+      "course_magnetic": 290.96,
+      "course_true": 267.92,
+      "distance_nm": 4.99,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-5-rwy-1-50",
+      "from": "CF071",
+      "to": "DOBTA",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 290.61,
+      "course_reference": "MAG",
+      "course_magnetic": 290.61,
+      "course_true": 267.6,
+      "distance_nm": 8.05,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+16000",
+        "valueFt": 16000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 16000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-6-mimip-1-10",
+      "from": null,
+      "to": "DOBTA",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+16000",
+        "valueFt": 16000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 16000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-7-mimip-1-20",
+      "from": "DOBTA",
+      "to": "NEKEG",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 322.49,
+      "course_reference": "MAG",
+      "course_magnetic": 322.49,
+      "course_true": 299.51,
+      "distance_nm": 21.79,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-8-mimip-1-30",
+      "from": "NEKEG",
+      "to": "MIMIP",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 321.79,
+      "course_reference": "MAG",
+      "course_magnetic": 321.79,
+      "course_true": 298.89,
+      "distance_nm": 7.3,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    }
+  ],
+  "transitions": [
+    {
+      "id": "rwy-andem",
+      "name": "RWY - ANDEM",
+      "kind": "departure",
+      "sequence": [
+        "KUMEV",
+        "DEVAD",
+        "CF052",
+        "CF071",
+        "DOBTA",
+        "MOTMA",
+        "ANDEM"
+      ],
+      "leg_ids": [
+        "transition-1-1-rwy-1-10",
+        "transition-1-2-rwy-1-20",
+        "transition-1-3-rwy-1-30",
+        "transition-1-4-rwy-1-40",
+        "transition-1-5-rwy-1-50",
+        "transition-1-6-andem-1-10",
+        "transition-1-7-andem-1-20",
+        "transition-1-8-andem-1-30"
+      ]
+    },
+    {
+      "id": "rwy-deuca",
+      "name": "RWY - DEUCA",
+      "kind": "departure",
+      "sequence": [
+        "KUMEV",
+        "DEVAD",
+        "CF052",
+        "CF071",
+        "DOBTA",
+        "KOVED",
+        "DEUCA"
+      ],
+      "leg_ids": [
+        "transition-2-1-rwy-1-10",
+        "transition-2-2-rwy-1-20",
+        "transition-2-3-rwy-1-30",
+        "transition-2-4-rwy-1-40",
+        "transition-2-5-rwy-1-50",
+        "transition-2-6-deuca-1-10",
+        "transition-2-7-deuca-1-20",
+        "transition-2-8-deuca-1-30"
+      ]
+    },
+    {
+      "id": "rwy-mimip",
+      "name": "RWY - MIMIP",
+      "kind": "departure",
+      "sequence": [
+        "KUMEV",
+        "DEVAD",
+        "CF052",
+        "CF071",
+        "DOBTA",
+        "NEKEG",
+        "MIMIP"
+      ],
+      "leg_ids": [
+        "transition-3-1-rwy-1-10",
+        "transition-3-2-rwy-1-20",
+        "transition-3-3-rwy-1-30",
+        "transition-3-4-rwy-1-40",
+        "transition-3-5-rwy-1-50",
+        "transition-3-6-mimip-1-10",
+        "transition-3-7-mimip-1-20",
+        "transition-3-8-mimip-1-30"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": [
+    "FICTITIOUS THRESHOLD"
+  ]
+}

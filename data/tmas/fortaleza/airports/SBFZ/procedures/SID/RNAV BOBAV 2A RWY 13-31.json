@@ -1,0 +1,278 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBFZ-SID-FZ00R",
+    "airport": "SBFZ",
+    "name": "RNAV BOBAV 2A RWY 13/31",
+    "type": "SID",
+    "runway": "13",
+    "runways": [
+      "13",
+      "31"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "FZ00R",
+      "amendment": "2603A1",
+      "effectiveDate": "2026-03-19",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "KUGUS": {
+      "ident": "KUGUS",
+      "coordinate_ref": "waypoint:1474.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "BOBAV": {
+      "ident": "BOBAV",
+      "coordinate_ref": "waypoint:2285.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "UMBAR": {
+      "ident": "UMBAR",
+      "coordinate_ref": "waypoint:1238.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 8000.0,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-bobav-1-10",
+      "from": null,
+      "to": "KUGUS",
+      "via": [],
+      "path_terminator": "CF",
+      "course": 125.5,
+      "course_reference": "MAG",
+      "course_magnetic": 125.5,
+      "course_true": 104.92,
+      "distance_nm": 13.26,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-bobav-1-20",
+      "from": "KUGUS",
+      "to": "BOBAV",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 153.64,
+      "course_reference": "MAG",
+      "course_magnetic": 153.64,
+      "course_true": 132.6,
+      "distance_nm": 26.08,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-1-bobav-2-10",
+      "from": null,
+      "to": null,
+      "via": [],
+      "path_terminator": "CA",
+      "course": 305.97,
+      "course_reference": "MAG",
+      "course_magnetic": 305.97,
+      "course_true": 284.92,
+      "distance_nm": 0.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+1000",
+        "valueFt": 1000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 1000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-2-bobav-2-20",
+      "from": null,
+      "to": "UMBAR",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": "R",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+8000",
+        "valueFt": 8000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 8000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-3-bobav-2-30",
+      "from": "UMBAR",
+      "to": "KUGUS",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 174.48,
+      "course_reference": "MAG",
+      "course_magnetic": 174.48,
+      "course_true": 153.46,
+      "distance_nm": 6.63,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-4-bobav-2-40",
+      "from": "KUGUS",
+      "to": "BOBAV",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 153.64,
+      "course_reference": "MAG",
+      "course_magnetic": 153.64,
+      "course_true": 132.6,
+      "distance_nm": 26.08,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    }
+  ],
+  "transitions": [
+    {
+      "id": "bobav",
+      "name": "BOBAV",
+      "kind": "departure",
+      "sequence": [
+        "KUGUS",
+        "BOBAV"
+      ],
+      "leg_ids": [
+        "transition-1-1-bobav-1-10",
+        "transition-1-2-bobav-1-20"
+      ]
+    },
+    {
+      "id": "bobav-bobav-2",
+      "name": "BOBAV",
+      "kind": "departure",
+      "sequence": [
+        "UMBAR",
+        "KUGUS",
+        "BOBAV"
+      ],
+      "leg_ids": [
+        "transition-2-1-bobav-2-10",
+        "transition-2-2-bobav-2-20",
+        "transition-2-3-bobav-2-30",
+        "transition-2-4-bobav-2-40"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": [
+    "FICTITIOUS THRESHOLD"
+  ]
+}

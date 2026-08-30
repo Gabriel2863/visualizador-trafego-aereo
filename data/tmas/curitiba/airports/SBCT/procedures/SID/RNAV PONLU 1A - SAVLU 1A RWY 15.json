@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBCT-SID-CT03G",
+    "airport": "SBCT",
+    "name": "RNAV PONLU 1A - SAVLU 1A RWY 15",
+    "type": "SID",
+    "runway": "15",
+    "runways": [
+      "15"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "CT03G",
+      "amendment": "2402A1",
+      "effectiveDate": "2024-02-22",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "PONLU": {
+      "ident": "PONLU",
+      "coordinate_ref": "waypoint:515.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "SAVLU": {
+      "ident": "SAVLU",
+      "coordinate_ref": "waypoint:7216.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-ponlu-1-10",
+      "from": null,
+      "to": null,
+      "via": [],
+      "path_terminator": "VA",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": "+4000",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": 1.0,
+      "fly_over": null,
+      "fix_role": "or",
+      "navigation_specification": "RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-ponlu-1-20",
+      "from": null,
+      "to": "PONLU",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": "R",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP1 or RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-1-savlu-1-10",
+      "from": null,
+      "to": null,
+      "via": [],
+      "path_terminator": "VA",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": "+4000",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": 1.0,
+      "fly_over": null,
+      "fix_role": "or",
+      "navigation_specification": "RNAV 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-2-savlu-1-20",
+      "from": null,
+      "to": "SAVLU",
+      "via": [],
+      "path_terminator": "DF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": "R",
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNP1 or RNAV 1",
+      "source_page": 1
+    }
+  ],
+  "transitions": [
+    {
+      "id": "ponlu",
+      "name": "PONLU",
+      "kind": "departure",
+      "sequence": [
+        "PONLU"
+      ],
+      "leg_ids": [
+        "transition-1-1-ponlu-1-10",
+        "transition-1-2-ponlu-1-20"
+      ]
+    },
+    {
+      "id": "savlu",
+      "name": "SAVLU",
+      "kind": "departure",
+      "sequence": [
+        "SAVLU"
+      ],
+      "leg_ids": [
+        "transition-2-1-savlu-1-10",
+        "transition-2-2-savlu-1-20"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

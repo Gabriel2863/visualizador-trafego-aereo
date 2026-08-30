@@ -1,0 +1,939 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBRJ-STAR-RJ02Q",
+    "airport": "SBRJ",
+    "name": "RNAV ROPAS 1A RWY 02R/20L",
+    "type": "STAR",
+    "runway": "02R",
+    "runways": [
+      "02R",
+      "20L"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "RJ02Q",
+      "amendment": "2112A1",
+      "effectiveDate": "2021-12-02",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "KOLBI": {
+      "ident": "KOLBI",
+      "coordinate_ref": "waypoint:2054.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "ROPAS": {
+      "ident": "ROPAS",
+      "coordinate_ref": "waypoint:3805.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -28000.0
+      }
+    },
+    "ILTIT": {
+      "ident": "ILTIT",
+      "coordinate_ref": "waypoint:2093.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "KABUK": {
+      "ident": "KABUK",
+      "coordinate_ref": "waypoint:7970.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -22000.0
+      }
+    },
+    "AKNUB": {
+      "ident": "AKNUB",
+      "coordinate_ref": "waypoint:5861.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "RJ021": {
+      "ident": "RJ021",
+      "coordinate_ref": "waypoint:5789.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 12000.0,
+        "max": null
+      }
+    },
+    "RJ308": {
+      "ident": "RJ308",
+      "coordinate_ref": "waypoint:2687.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 8000.0,
+        "min": null,
+        "max": null
+      }
+    },
+    "ASALU": {
+      "ident": "ASALU",
+      "coordinate_ref": "waypoint:25.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": 7000.0,
+        "min": null,
+        "max": null
+      }
+    },
+    "GELUT": {
+      "ident": "GELUT",
+      "coordinate_ref": "waypoint:5294.0",
+      "role": "IAF",
+      "altitude": {
+        "at": 6000.0,
+        "min": null,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-rwy-1-10",
+      "from": null,
+      "to": "KABUK",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-22000",
+        "valueFt": -22000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -22000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-rwy-1-20",
+      "from": "KABUK",
+      "to": "RJ021",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 26.04,
+      "course_reference": "MAG",
+      "course_magnetic": 26.04,
+      "course_true": 3.37,
+      "distance_nm": 24.43,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+12000",
+        "valueFt": 12000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 12000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-3-rwy-1-30",
+      "from": "RJ021",
+      "to": "RJ308",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 87.89,
+      "course_reference": "MAG",
+      "course_magnetic": 87.89,
+      "course_true": 65.1,
+      "distance_nm": 18.01,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "@8000",
+        "valueFt": 8000.0,
+        "meaning": "at"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": 8000.0,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-4-rwy-1-40",
+      "from": "RJ308",
+      "to": "ASALU",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 87.52,
+      "course_reference": "MAG",
+      "course_magnetic": 87.52,
+      "course_true": 64.7,
+      "distance_nm": 4.53,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "@7000",
+        "valueFt": 7000.0,
+        "meaning": "at"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": 7000.0,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-5-rwy-1-50",
+      "from": "ASALU",
+      "to": "GELUT",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 87.44,
+      "course_reference": "MAG",
+      "course_magnetic": 87.44,
+      "course_true": 64.57,
+      "distance_nm": 7.12,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "@6000",
+        "valueFt": 6000.0,
+        "meaning": "at"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": 6000.0,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-1-kolbi-1-10",
+      "from": null,
+      "to": "KOLBI",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 2.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-2-kolbi-1-20",
+      "from": "KOLBI",
+      "to": "ROPAS",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 86.05,
+      "course_reference": "MAG",
+      "course_magnetic": 86.05,
+      "course_true": 63.58,
+      "distance_nm": 28.48,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-28000",
+        "valueFt": -28000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -28000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-3-kolbi-1-30",
+      "from": "ROPAS",
+      "to": "ILTIT",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 86.74,
+      "course_reference": "MAG",
+      "course_magnetic": 86.74,
+      "course_true": 64.18,
+      "distance_nm": 12.47,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-4-kolbi-1-40",
+      "from": "ILTIT",
+      "to": "KABUK",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 25.97,
+      "course_reference": "MAG",
+      "course_magnetic": 25.97,
+      "course_true": 3.36,
+      "distance_nm": 14.5,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-22000",
+        "valueFt": -22000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -22000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-5-rwy-1-10",
+      "from": null,
+      "to": "KABUK",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-22000",
+        "valueFt": -22000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -22000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-6-rwy-1-20",
+      "from": "KABUK",
+      "to": "RJ021",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 26.04,
+      "course_reference": "MAG",
+      "course_magnetic": 26.04,
+      "course_true": 3.37,
+      "distance_nm": 24.43,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+12000",
+        "valueFt": 12000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 12000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-7-rwy-1-30",
+      "from": "RJ021",
+      "to": "RJ308",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 87.89,
+      "course_reference": "MAG",
+      "course_magnetic": 87.89,
+      "course_true": 65.1,
+      "distance_nm": 18.01,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "@8000",
+        "valueFt": 8000.0,
+        "meaning": "at"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": 8000.0,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-8-rwy-1-40",
+      "from": "RJ308",
+      "to": "ASALU",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 87.52,
+      "course_reference": "MAG",
+      "course_magnetic": 87.52,
+      "course_true": 64.7,
+      "distance_nm": 4.53,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "@7000",
+        "valueFt": 7000.0,
+        "meaning": "at"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": 7000.0,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-2-9-rwy-1-50",
+      "from": "ASALU",
+      "to": "GELUT",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 87.44,
+      "course_reference": "MAG",
+      "course_magnetic": 87.44,
+      "course_true": 64.57,
+      "distance_nm": 7.12,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "@6000",
+        "valueFt": 6000.0,
+        "meaning": "at"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": 6000.0,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-1-aknub-1-10",
+      "from": null,
+      "to": "AKNUB",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-2-aknub-1-20",
+      "from": "AKNUB",
+      "to": "ROPAS",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 49.51,
+      "course_reference": "MAG",
+      "course_magnetic": 49.51,
+      "course_true": 27.04,
+      "distance_nm": 39.98,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-28000",
+        "valueFt": -28000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -28000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-3-aknub-1-30",
+      "from": "ROPAS",
+      "to": "ILTIT",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 86.74,
+      "course_reference": "MAG",
+      "course_magnetic": 86.74,
+      "course_true": 64.18,
+      "distance_nm": 12.47,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-4-aknub-1-40",
+      "from": "ILTIT",
+      "to": "KABUK",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 25.97,
+      "course_reference": "MAG",
+      "course_magnetic": 25.97,
+      "course_true": 3.36,
+      "distance_nm": 14.5,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-22000",
+        "valueFt": -22000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -22000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-5-rwy-1-10",
+      "from": null,
+      "to": "KABUK",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": {
+        "raw": "-22000",
+        "valueFt": -22000.0,
+        "meaning": "at-or-below"
+      },
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": -22000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-6-rwy-1-20",
+      "from": "KABUK",
+      "to": "RJ021",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 26.04,
+      "course_reference": "MAG",
+      "course_magnetic": 26.04,
+      "course_true": 3.37,
+      "distance_nm": 24.43,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+12000",
+        "valueFt": 12000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 12000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-7-rwy-1-30",
+      "from": "RJ021",
+      "to": "RJ308",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 87.89,
+      "course_reference": "MAG",
+      "course_magnetic": 87.89,
+      "course_true": 65.1,
+      "distance_nm": 18.01,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "@8000",
+        "valueFt": 8000.0,
+        "meaning": "at"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": 8000.0,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-8-rwy-1-40",
+      "from": "RJ308",
+      "to": "ASALU",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 87.52,
+      "course_reference": "MAG",
+      "course_magnetic": 87.52,
+      "course_true": 64.7,
+      "distance_nm": 4.53,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "@7000",
+        "valueFt": 7000.0,
+        "meaning": "at"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": 7000.0,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-3-9-rwy-1-50",
+      "from": "ASALU",
+      "to": "GELUT",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 87.44,
+      "course_reference": "MAG",
+      "course_magnetic": 87.44,
+      "course_true": 64.57,
+      "distance_nm": 7.12,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "@6000",
+        "valueFt": 6000.0,
+        "meaning": "at"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": 6000.0,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    }
+  ],
+  "transitions": [
+    {
+      "id": "kabuk",
+      "name": "Entrada KABUK",
+      "kind": "arrival",
+      "sequence": [
+        "KABUK",
+        "RJ021",
+        "RJ308",
+        "ASALU",
+        "GELUT"
+      ],
+      "leg_ids": [
+        "transition-1-1-rwy-1-10",
+        "transition-1-2-rwy-1-20",
+        "transition-1-3-rwy-1-30",
+        "transition-1-4-rwy-1-40",
+        "transition-1-5-rwy-1-50"
+      ]
+    },
+    {
+      "id": "kolbi",
+      "name": "Transicao KOLBI",
+      "kind": "arrival",
+      "sequence": [
+        "KOLBI",
+        "ROPAS",
+        "ILTIT",
+        "KABUK",
+        "RJ021",
+        "RJ308",
+        "ASALU",
+        "GELUT"
+      ],
+      "leg_ids": [
+        "transition-2-1-kolbi-1-10",
+        "transition-2-2-kolbi-1-20",
+        "transition-2-3-kolbi-1-30",
+        "transition-2-4-kolbi-1-40",
+        "transition-2-5-rwy-1-10",
+        "transition-2-6-rwy-1-20",
+        "transition-2-7-rwy-1-30",
+        "transition-2-8-rwy-1-40",
+        "transition-2-9-rwy-1-50"
+      ]
+    },
+    {
+      "id": "aknub",
+      "name": "Transicao AKNUB",
+      "kind": "arrival",
+      "sequence": [
+        "AKNUB",
+        "ROPAS",
+        "ILTIT",
+        "KABUK",
+        "RJ021",
+        "RJ308",
+        "ASALU",
+        "GELUT"
+      ],
+      "leg_ids": [
+        "transition-3-1-aknub-1-10",
+        "transition-3-2-aknub-1-20",
+        "transition-3-3-aknub-1-30",
+        "transition-3-4-aknub-1-40",
+        "transition-3-5-rwy-1-10",
+        "transition-3-6-rwy-1-20",
+        "transition-3-7-rwy-1-30",
+        "transition-3-8-rwy-1-40",
+        "transition-3-9-rwy-1-50"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}

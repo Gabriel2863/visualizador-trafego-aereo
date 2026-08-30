@@ -1,0 +1,311 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBCX-STAR-CX00J",
+    "airport": "SBCX",
+    "name": "RNAV VUKMO 1C RWY 15",
+    "type": "STAR",
+    "runway": "15",
+    "runways": [
+      "15"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "CX00J",
+      "amendment": "2604A0",
+      "effectiveDate": "2026-04-16",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "VUKMO": {
+      "ident": "VUKMO",
+      "coordinate_ref": "waypoint:8385.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "CX017": {
+      "ident": "CX017",
+      "coordinate_ref": "waypoint:4772.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 15000.0,
+        "max": null
+      }
+    },
+    "VAGAL": {
+      "ident": "VAGAL",
+      "coordinate_ref": "waypoint:5938.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 12000.0,
+        "max": 14000.0
+      }
+    },
+    "CX011": {
+      "ident": "CX011",
+      "coordinate_ref": "waypoint:6758.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "CX018": {
+      "ident": "CX018",
+      "coordinate_ref": "waypoint:6266.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 10000.0,
+        "max": null
+      }
+    },
+    "CX001": {
+      "ident": "CX001",
+      "coordinate_ref": "waypoint:1078.0",
+      "role": "IAF",
+      "altitude": {
+        "at": null,
+        "min": 6000.0,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-vukmo-1-10",
+      "from": null,
+      "to": "VUKMO",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": 0.0,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-vukmo-1-20",
+      "from": "VUKMO",
+      "to": "CX017",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 232.6,
+      "course_reference": "MAG",
+      "course_magnetic": 232.6,
+      "course_true": 213.88,
+      "distance_nm": 23.08,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+15000",
+        "valueFt": 15000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 15000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-3-vukmo-1-30",
+      "from": "CX017",
+      "to": "VAGAL",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 232.14,
+      "course_reference": "MAG",
+      "course_magnetic": 232.14,
+      "course_true": 213.67,
+      "distance_nm": 6.85,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "B12000",
+        "valueFt": 12000.0,
+        "meaning": "between-bound"
+      },
+      "upper_limit": {
+        "raw": "B14000",
+        "valueFt": 14000.0,
+        "meaning": "between-bound"
+      },
+      "altitude": {
+        "at": null,
+        "min": 12000.0,
+        "max": 14000.0
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-4-vukmo-1-40",
+      "from": "VAGAL",
+      "to": "CX011",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 252.5,
+      "course_reference": "MAG",
+      "course_magnetic": 252.5,
+      "course_true": 234.12,
+      "distance_nm": 16.05,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": null,
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-5-vukmo-1-50",
+      "from": "CX011",
+      "to": "CX018",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 333.99,
+      "course_reference": "MAG",
+      "course_magnetic": 333.99,
+      "course_true": 315.81,
+      "distance_nm": 12.88,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+10000",
+        "valueFt": 10000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 10000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-6-vukmo-1-60",
+      "from": "CX018",
+      "to": "CX001",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 333.85,
+      "course_reference": "MAG",
+      "course_magnetic": 333.85,
+      "course_true": 315.69,
+      "distance_nm": 12.14,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+6000",
+        "valueFt": 6000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 6000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    }
+  ],
+  "transitions": [
+    {
+      "id": "vukmo",
+      "name": "Transicao VUKMO",
+      "kind": "arrival",
+      "sequence": [
+        "VUKMO",
+        "CX017",
+        "VAGAL",
+        "CX011",
+        "CX018",
+        "CX001"
+      ],
+      "leg_ids": [
+        "transition-1-1-vukmo-1-10",
+        "transition-1-2-vukmo-1-20",
+        "transition-1-3-vukmo-1-30",
+        "transition-1-4-vukmo-1-40",
+        "transition-1-5-vukmo-1-50",
+        "transition-1-6-vukmo-1-60"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": [
+    "FICTITIOUS THRESHOLD"
+  ]
+}

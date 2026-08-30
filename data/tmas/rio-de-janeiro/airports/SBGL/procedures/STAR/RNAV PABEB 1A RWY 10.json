@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 1,
+  "procedure": {
+    "id": "AISWEB-SBGL-STAR-GL04W",
+    "airport": "SBGL",
+    "name": "RNAV PABEB 1A RWY 10",
+    "type": "STAR",
+    "runway": "10",
+    "runways": [
+      "10"
+    ],
+    "modes": [
+      "RNAV"
+    ],
+    "status": "structured-aisweb-coding-table",
+    "source": {
+      "authority": "AISWEB/DECEA",
+      "catalog": "https://aisweb.decea.mil.br/?i=cartas",
+      "chartCode": "GL04W",
+      "amendment": "2507A1",
+      "effectiveDate": "2025-07-10",
+      "use": "Ostensivo",
+      "codingTable": true
+    }
+  },
+  "points": {
+    "VUREP": {
+      "ident": "VUREP",
+      "coordinate_ref": "waypoint:6664.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "KOLBI": {
+      "ident": "KOLBI",
+      "coordinate_ref": "waypoint:2054.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "AKNUB": {
+      "ident": "AKNUB",
+      "coordinate_ref": "waypoint:5861.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "PABEB": {
+      "ident": "PABEB",
+      "coordinate_ref": "waypoint:4243.0",
+      "role": "OTHER",
+      "altitude": {
+        "at": null,
+        "min": 12000.0,
+        "max": null
+      }
+    },
+    "BITOX": {
+      "ident": "BITOX",
+      "coordinate_ref": "waypoint:6878.0",
+      "role": "IAF",
+      "altitude": {
+        "at": null,
+        "min": 6400.0,
+        "max": null
+      }
+    }
+  },
+  "legs": [
+    {
+      "id": "transition-1-1-rwy-1-10",
+      "from": null,
+      "to": "PABEB",
+      "via": [],
+      "path_terminator": "IF",
+      "course": null,
+      "course_reference": null,
+      "course_magnetic": null,
+      "course_true": null,
+      "distance_nm": null,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+12000",
+        "valueFt": 12000.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 12000.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": null,
+      "fix_role": "OTHER",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    },
+    {
+      "id": "transition-1-2-rwy-1-40",
+      "from": "PABEB",
+      "to": "BITOX",
+      "via": [],
+      "path_terminator": "TF",
+      "course": 97.81,
+      "course_reference": "MAG",
+      "course_magnetic": 97.81,
+      "course_true": 74.79,
+      "distance_nm": 5.97,
+      "turn": null,
+      "arc_center": null,
+      "arc_radius_nm": null,
+      "lower_limit": {
+        "raw": "+6400",
+        "valueFt": 6400.0,
+        "meaning": "at-or-above"
+      },
+      "upper_limit": null,
+      "altitude": {
+        "at": null,
+        "min": 6400.0,
+        "max": null
+      },
+      "speed_limit_kt": null,
+      "speed_interpretation": null,
+      "vertical_angle": null,
+      "fly_over": "N",
+      "fix_role": "IAF",
+      "navigation_specification": "RNAV 1 or RNP 1",
+      "source_page": 1
+    }
+  ],
+  "transitions": [
+    {
+      "id": "pabeb",
+      "name": "Entrada PABEB",
+      "kind": "arrival",
+      "sequence": [
+        "PABEB",
+        "BITOX"
+      ],
+      "leg_ids": [
+        "transition-1-1-rwy-1-10",
+        "transition-1-2-rwy-1-40"
+      ]
+    }
+  ],
+  "missed_approach": [],
+  "warnings": []
+}
