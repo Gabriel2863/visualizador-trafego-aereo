@@ -199,13 +199,37 @@
                 <h2 id="operational-analysis-title">Análise operacional</h2>
                 <p id="operational-analysis-subtitle">Simule cenários antes de comparar rotas.</p>
             </div>
-            <button id="operational-analysis-close" class="operational-analysis-close" type="button" aria-label="Fechar análise operacional">×</button>
+            <div class="operational-analysis-header-actions">
+                <div class="analysis-mode-switch" role="group" aria-label="Modo de visualização da análise">
+                    <button id="analysis-mode-simple" class="analysis-mode-button" type="button" aria-pressed="true">Modo simples</button>
+                    <button id="analysis-mode-advanced" class="analysis-mode-button" type="button" aria-pressed="false">Detalhes técnicos</button>
+                </div>
+                <button id="operational-analysis-close" class="operational-analysis-close" type="button" aria-label="Fechar análise operacional">×</button>
+            </div>
         </header>
 
         <div class="operational-analysis-body">
             <p id="operational-analysis-notice" class="operational-analysis-notice" role="note"></p>
 
-            <section class="operational-analysis-section">
+            <section id="analysis-simple-view" class="analysis-simple-view" aria-live="polite">
+                <div class="analysis-simple-heading">
+                    <div>
+                        <span>VISÃO RÁPIDA</span>
+                        <h3>O que importa neste cenário</h3>
+                    </div>
+                    <button id="analysis-simple-adjust" class="analysis-reset" type="button">Ajustar cenário</button>
+                </div>
+                <div id="analysis-simple-status" class="analysis-simple-status"></div>
+                <div id="analysis-simple-kpis" class="analysis-simple-kpis"></div>
+                <div id="analysis-simple-conclusion" class="analysis-simple-conclusion"></div>
+                <details class="analysis-simple-reasons">
+                    <summary>Por que chegamos a isso?</summary>
+                    <div id="analysis-simple-reasons-content"></div>
+                </details>
+                <p class="analysis-simple-hint">Use “Ajustar cenário” para escolher uma rota publicada, alterar premissas ou consultar os dados completos.</p>
+            </section>
+
+            <section class="operational-analysis-section analysis-technical">
                 <div class="operational-analysis-section-heading">
                     <div>
                         <span>01</span>
@@ -232,7 +256,7 @@
                 </div>
             </section>
 
-            <section class="operational-analysis-section">
+            <section class="operational-analysis-section analysis-technical">
                 <div class="operational-analysis-section-heading"><div><span>02</span><h3>Variáveis avaliadas</h3></div><p>Valores manuais para teste</p></div>
                 <div class="operational-analysis-grid">
                     <label>Distância de rota <small>NM</small><input id="analysis-route-distance" type="number" min="1" max="5000" step="1" inputmode="decimal" /></label>
@@ -253,7 +277,7 @@
                 </div>
             </section>
 
-            <section class="operational-analysis-section analysis-history-section">
+            <section class="operational-analysis-section analysis-history-section analysis-technical">
                 <div class="operational-analysis-section-heading"><div><span>03</span><h3>Histórico e validação</h3></div><p>Importação local, sem tráfego em tempo real</p></div>
                 <div class="analysis-history-controls">
                     <label class="analysis-file-label">Arquivo CSV de histórico<input id="analysis-history-file" type="file" accept=".csv,text/csv" /></label>
@@ -264,7 +288,7 @@
                 <div id="analysis-history-validation" class="analysis-history-validation"></div>
             </section>
 
-            <section class="operational-analysis-section">
+            <section class="operational-analysis-section analysis-technical">
                 <div class="operational-analysis-section-heading"><div><span>04</span><h3>Critério de comparação</h3></div><p>Defina a prioridade do cenário</p></div>
                 <div class="analysis-weight-grid">
                     <label>Tempo <input id="analysis-weight-time" type="range" min="0" max="100" step="5" /><output for="analysis-weight-time"></output></label>
@@ -275,7 +299,7 @@
                 </div>
             </section>
 
-            <section class="operational-analysis-section operational-analysis-results" aria-live="polite">
+            <section class="operational-analysis-section operational-analysis-results analysis-technical" aria-live="polite">
                 <div class="operational-analysis-section-heading"><div><span>05</span><h3>Comparação explicável</h3></div><button id="operational-analysis-reset" class="analysis-reset" type="button">Restaurar cenário</button></div>
                 <div id="operational-analysis-confidence" class="analysis-confidence"></div>
                 <div id="operational-analysis-safety-gates" class="analysis-safety-gates"></div>
@@ -284,7 +308,7 @@
                 <div id="operational-analysis-routes" class="analysis-route-list"></div>
             </section>
 
-            <section class="operational-analysis-section analysis-scenarios-section">
+            <section class="operational-analysis-section analysis-scenarios-section analysis-technical">
                 <div class="operational-analysis-section-heading"><div><span>06</span><h3>Cenários salvos</h3></div><button id="analysis-save-scenario" class="analysis-reset" type="button">Salvar cenário</button></div>
                 <p class="analysis-scenario-note">Os cenários ficam somente neste navegador. Eles preservam premissas e resultados para comparação, mas não são registros operacionais.</p>
                 <div id="analysis-saved-scenarios" class="analysis-saved-scenarios"></div>
@@ -295,7 +319,7 @@
                 <div id="analysis-scenario-comparison" class="analysis-scenario-comparison"></div>
             </section>
 
-            <section class="operational-analysis-section analysis-data-roadmap">
+            <section class="operational-analysis-section analysis-data-roadmap analysis-technical">
                 <div class="operational-analysis-section-heading"><div><span>07</span><h3>Dados para evoluir o modelo</h3></div></div>
                 <div id="operational-analysis-data-sources" class="analysis-data-source-list"></div>
             </section>

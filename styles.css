@@ -2613,3 +2613,164 @@ kbd {
     .analysis-confidence > div { margin-bottom: 6px; }
     .analysis-saved-scenarios article { align-items: flex-start; flex-direction: column; }
 }
+
+/* Visão resumida: mantém o laboratório acessível sem expor todos os controles de uma vez. */
+.operational-analysis-header-actions {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.analysis-mode-switch {
+    display: inline-flex;
+    overflow: hidden;
+    border: 1px solid rgba(178, 124, 255, .3);
+    border-radius: 6px;
+    background: rgba(8, 7, 15, .24);
+}
+
+.analysis-mode-button {
+    min-height: 34px;
+    padding: 0 9px;
+    border: 0;
+    border-right: 1px solid rgba(178, 124, 255, .18);
+    background: transparent;
+    color: #9f98ad;
+    font: 700 9px/1 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: .25px;
+    cursor: pointer;
+}
+
+.analysis-mode-button:last-child { border-right: 0; }
+
+.analysis-mode-button[aria-pressed="true"] {
+    background: rgba(178, 124, 255, .2);
+    color: #f1e9ff;
+    box-shadow: 0 0 0 1px rgba(203, 163, 255, .1) inset;
+}
+
+.analysis-mode-button:hover { color: #fff; }
+
+.analysis-simple-view {
+    display: none;
+    padding: 1px 0 20px;
+}
+
+.operational-analysis-drawer.is-simple-mode .analysis-simple-view { display: block; }
+.operational-analysis-drawer.is-simple-mode .analysis-technical { display: none; }
+
+.analysis-simple-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.analysis-simple-heading > div > span {
+    color: #d2b4ff;
+    font: 700 9px/1.2 monospace;
+    letter-spacing: 1px;
+}
+
+.analysis-simple-heading h3 {
+    margin: 4px 0 0;
+    color: #f2edf8;
+    font-size: 16px;
+    line-height: 1.2;
+}
+
+.analysis-simple-status {
+    display: grid;
+    gap: 4px;
+    margin-bottom: 10px;
+    padding: 13px 14px;
+    border: 1px solid rgba(110, 218, 155, .28);
+    border-left: 3px solid #6eda9b;
+    border-radius: 7px;
+    background: rgba(110, 218, 155, .06);
+}
+
+.analysis-simple-status.is-review {
+    border-color: rgba(240, 113, 120, .38);
+    border-left-color: #f07178;
+    background: rgba(240, 113, 120, .07);
+}
+
+.analysis-simple-status > span {
+    color: #a6dcb9;
+    font: 700 9px/1.1 monospace;
+    letter-spacing: .65px;
+    text-transform: uppercase;
+}
+
+.analysis-simple-status.is-review > span { color: #ffadb2; }
+.analysis-simple-status strong { color: #f0faf4; font-size: 15px; }
+.analysis-simple-status p { margin: 0; color: #c0c7c4; font-size: 10.5px; line-height: 1.45; }
+.analysis-simple-status.is-review p { color: #efc1c4; }
+
+.analysis-simple-kpis {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.analysis-simple-kpis article {
+    min-height: 104px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 7px;
+    background: rgba(255, 255, 255, .035);
+}
+
+.analysis-simple-kpis span { color: #a9a4b3; font: 700 8.5px/1.3 monospace; letter-spacing: .35px; text-transform: uppercase; }
+.analysis-simple-kpis strong { color: #f4effa; font-size: 16px; line-height: 1.2; }
+.analysis-simple-kpis small { color: #8f8999; font-size: 9px; line-height: 1.35; }
+
+.analysis-simple-conclusion {
+    margin-top: 10px;
+    padding: 13px 14px;
+    border: 1px solid rgba(178, 124, 255, .35);
+    border-radius: 7px;
+    background: linear-gradient(100deg, rgba(178, 124, 255, .15), rgba(178, 124, 255, .035));
+}
+
+.analysis-simple-conclusion > span { color: #d2b5fc; font: 700 8.5px/1.2 monospace; letter-spacing: .65px; text-transform: uppercase; }
+.analysis-simple-conclusion p { margin: 6px 0 0; color: #dfd8e9; font-size: 11px; line-height: 1.48; }
+
+.analysis-simple-reasons {
+    margin-top: 10px;
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 7px;
+    background: rgba(255, 255, 255, .02);
+}
+
+.analysis-simple-reasons summary {
+    padding: 11px 12px;
+    color: #e0d7ec;
+    font-size: 10.5px;
+    cursor: pointer;
+}
+
+.analysis-simple-reasons > div { padding: 0 12px 11px; }
+.analysis-simple-reasons ul { display: grid; gap: 7px; margin: 0; padding-left: 17px; color: #aba5b4; font-size: 10px; line-height: 1.45; }
+.analysis-simple-reasons li::marker { color: #cfaaff; }
+
+.analysis-simple-hint {
+    margin: 11px 0 0;
+    color: #898392;
+    font-size: 9.5px;
+    line-height: 1.45;
+}
+
+@media (max-width: 520px) {
+    .operational-analysis-header { gap: 10px; }
+    .operational-analysis-header-actions { gap: 6px; }
+    .analysis-mode-button { padding: 0 7px; font-size: 8.5px; }
+    .analysis-simple-kpis { grid-template-columns: 1fr; }
+    .analysis-simple-kpis article { min-height: 0; }
+}

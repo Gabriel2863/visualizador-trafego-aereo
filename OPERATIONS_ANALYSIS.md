@@ -8,6 +8,18 @@ Permitir a comparação didática e explicável de cenários de rota a partir de
 
 O módulo não é uma ferramenta ATS certificada e não gera instruções operacionais. Ele não substitui AIP, NOTAM, meteorologia oficial, avaliação de risco, coordenação ATS nem decisão humana.
 
+## Modo simples e detalhes técnicos
+
+O painel abre no **Modo simples** para apresentar o cenário sem exigir conhecimento de todos os indicadores. Ele mostra somente:
+
+- o estado do cenário: pronto para comparação de estudo ou revisão necessária;
+- o tempo estimado;
+- o impacto estimado para passageiros;
+- a margem de segurança simulada;
+- uma conclusão curta e os motivos em linguagem comum.
+
+O botão **Ajustar cenário** e a opção **Detalhes técnicos** revelam os mesmos controles já existentes: seleção de rota publicada, variáveis, bloqueios, histórico CSV, pesos, resultados completos, cenários salvos e fontes de dados. Nenhuma premissa, cálculo ou regra de segurança é removida; a preferência de visualização fica somente no navegador atual.
+
 ## Dados
 
 O cenário inicial fica em `data/operational-analysis/default-scenario.json`:

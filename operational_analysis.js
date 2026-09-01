@@ -10,6 +10,7 @@
         catalog: 'data/tmas/catalog.json'
     });
     const STORAGE_KEY = 'visualizador-trafego-aereo.operational-analysis.scenarios.v1';
+    const VIEW_MODE_STORAGE_KEY = 'visualizador-trafego-aereo.operational-analysis.view-mode.v1';
     const jsonCache = new Map();
     const number = (value, fallback = 0) => Number.isFinite(Number(value)) ? Number(value) : fallback;
     const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
@@ -26,9 +27,32 @@
         historyRows: [],
         savedScenarios: [],
         currentEvaluation: null,
+        viewMode: 'simple',
         lastFocus: null,
         closeTimer: null
     };
+
+    function savedViewMode() {
+        try { return localStorage.getItem(VIEW_MODE_STORAGE_KEY) === 'advanced' ? 'advanced' : 'simple'; }
+        catch { return 'simple'; }
+    }
+
+    function setAnalysisView(mode, focusView = false) {
+        const viewMode = mode === 'advanced' ? 'advanced' : 'simple';
+        state.viewMode = viewMode;
+        const drawer = el('operational-analysis-drawer');
+        drawer?.classList.toggle('is-simple-mode', viewMode === 'simple');
+        drawer?.classList.toggle('is-advanced-mode', viewMode === 'advanced');
+        ['simple', 'advanced'].forEach(name => {
+            const button = el(`analysis-mode-${name}`);
+            if (!button) return;
+            const active = name === viewMode;
+            button.setAttribute('aria-pressed', String(active));
+        });
+        try { localStorage.setItem(VIEW_MODE_STORAGE_KEY, viewMode); }
+        catch { /* A preferência é opcional e fica somente neste navegador. */ }
+        if (focusView) (viewMode === 'simple' ? el('analysis-simple-adjust') : el('analysis-scenario-name'))?.focus();
+    }
 
     async function fetchJson(file) {
         if (!jsonCache.has(file)) {
@@ -412,6 +436,51 @@
         target.innerHTML = `<div><span>Confiança do resultado</span><strong>${evaluation.confidence.label} · ${format(evaluation.confidence.score)}%</strong></div><p>${escapeHtml(evaluation.confidence.factors.join(' · '))}</p>`;
     }
 
+    function renderSimpleSummary(evaluation) {
+        const status = el('analysis-simple-status');
+        const kpis = el('analysis-simple-kpis');
+        const conclusion = el('analysis-simple-conclusion');
+        const reasonsTarget = el('analysis-simple-reasons-content');
+        if (!status || !kpis || !conclusion || !reasonsTarget) return;
+
+        const blockers = [
+            ...evaluation.gates.filter(gate => gate.level === 'block').map(gate => gate.text),
+            ...evaluation.candidates.flatMap(candidate => candidate.blocks.map(text => `${candidate.label}: ${text}`))
+        ];
+        const candidate = evaluation.recommended || evaluation.candidates.find(item => item.id === 'reference') || evaluation.candidates[0] || null;
+        const readyToCompare = Boolean(evaluation.recommended);
+        const passengerLabel = !candidate ? 'Aguardando revisão' : candidate.passengerScore >= 80 ? 'Baixo impacto' : candidate.passengerScore >= 60 ? 'Impacto moderado' : 'Impacto alto';
+        const requiredSafetyMargin = Math.max(evaluation.values.safetyMinimum, number(evaluation.profile.minimumSafetyMargin, 0));
+        const safetyLabel = !candidate ? 'Aguardando revisão' : candidate.safety >= requiredSafetyMargin ? 'Margem adequada' : 'Revisar margem';
+        const statusText = readyToCompare ? 'Cenário pronto para comparar' : 'Revisão necessária';
+        const statusDetail = readyToCompare
+            ? 'As premissas informadas não ativaram bloqueios. O resultado continua sendo uma comparação de estudo.'
+            : (blockers[0] || 'Ainda não há informação suficiente para comparar as alternativas deste cenário.');
+
+        status.className = `analysis-simple-status${readyToCompare ? '' : ' is-review'}`;
+        status.innerHTML = `<span>${readyToCompare ? 'STATUS DO CENÁRIO' : 'ANTES DE CONTINUAR'}</span><strong>${escapeHtml(statusText)}</strong><p>${escapeHtml(statusDetail)}</p>`;
+        kpis.innerHTML = [
+            ['Tempo estimado', readyToCompare && candidate ? `${format(candidate.blockMin)} min` : 'Em revisão', readyToCompare ? 'Tempo total estimado do cenário' : 'Resolva a pendência antes de usar a estimativa'],
+            ['Passageiros', readyToCompare ? passengerLabel : 'Em revisão', readyToCompare && candidate ? `Impacto estimado: ${format(candidate.passengerScore)} / 100` : 'Avaliação liberada após a revisão'],
+            ['Segurança', readyToCompare ? safetyLabel : 'Em revisão', readyToCompare && candidate ? `Margem: ${format(candidate.safety)} / 100 · mínimo: ${format(requiredSafetyMargin)}` : 'A margem precisa atender às regras informadas']
+        ].map(([label, value, detail]) => `<article><span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong><small>${escapeHtml(detail)}</small></article>`).join('');
+
+        if (readyToCompare && candidate) {
+            conclusion.innerHTML = `<span>Resumo em linguagem simples</span><p>Para este estudo, <strong>${escapeHtml(candidate.label)}</strong> oferece o melhor equilíbrio entre tempo estimado, impacto nos passageiros e margem de segurança.</p>`;
+        } else {
+            conclusion.innerHTML = `<span>Resumo em linguagem simples</span><p>Antes de apontar uma alternativa, é preciso corrigir a pendência indicada acima. O sistema não recomenda uma rota quando uma regra de segurança falha.</p>`;
+        }
+
+        const reasons = [];
+        if (state.context.procedure && selectedLegs().length) reasons.push('A estimativa usa a distância dos segmentos da rota publicada escolhida nos detalhes técnicos.');
+        else reasons.push('A distância foi informada manualmente. Nos detalhes técnicos, é possível escolher uma rota publicada da base IFR.');
+        if (candidate) reasons.push(`O tempo considera a distância, o vento e o atraso em solo informados; a estimativa atual é de ${format(candidate.blockMin)} minutos.`);
+        if (candidate) reasons.push(`O impacto para passageiros foi classificado como ${passengerLabel.toLowerCase()} e a margem simulada está em ${format(candidate.safety)} de 100.`);
+        if (evaluation.history.count) reasons.push(`${evaluation.history.count} registro(s) de histórico local compatível(eis) ajudaram a ajustar a estimativa nesta sessão.`);
+        else reasons.push('Ainda não há histórico local compatível neste cenário; o resultado usa somente as premissas informadas.');
+        reasonsTarget.innerHTML = `<ul>${reasons.map(reason => `<li>${escapeHtml(reason)}</li>`).join('')}</ul>`;
+    }
+
     function renderResults() {
         if (!state.model) return;
         updateWeightOutputs();
@@ -424,6 +493,7 @@
         renderConfidence(evaluation);
         renderSafetyGates(evaluation);
         renderHistoryValidation(evaluation);
+        renderSimpleSummary(evaluation);
         const displayCandidates = [...evaluation.ranked, ...evaluation.candidates.filter(candidate => !candidate.eligible)];
         const bestBlock = evaluation.ranked.length ? Math.min(...evaluation.ranked.map(candidate => candidate.blockMin)) : null;
         const bestSafety = evaluation.ranked.length ? Math.max(...evaluation.ranked.map(candidate => candidate.safety)) : null;
@@ -543,7 +613,11 @@
         fab?.setAttribute('aria-expanded', 'true');
         app?.setAttribute('inert', '');
         document.body.classList.add('operational-analysis-open');
-        requestAnimationFrame(() => { backdrop.classList.add('is-open'); drawer.classList.add('is-open'); el('analysis-scenario-name')?.focus(); });
+        requestAnimationFrame(() => {
+            backdrop.classList.add('is-open');
+            drawer.classList.add('is-open');
+            (state.viewMode === 'simple' ? el('analysis-simple-adjust') : el('analysis-scenario-name'))?.focus();
+        });
     }
 
     function closeDrawer() {
@@ -592,6 +666,10 @@
             el('operational-analysis-subtitle').textContent = model.subtitle || 'Simule cenários antes de comparar rotas.';
             el('operational-analysis-notice').textContent = model.notice || '';
             el('operational-analysis-source-status').textContent = model.sourceStatus || 'MODELO LOCAL';
+            setAnalysisView(savedViewMode());
+            el('analysis-mode-simple').onclick = () => setAnalysisView('simple', true);
+            el('analysis-mode-advanced').onclick = () => setAnalysisView('advanced', true);
+            el('analysis-simple-adjust').onclick = () => setAnalysisView('advanced', true);
             document.querySelectorAll('#operational-analysis-drawer input').forEach(input => input.addEventListener('input', renderResults));
             document.querySelectorAll('#operational-analysis-drawer input[type="checkbox"]').forEach(input => input.addEventListener('change', renderResults));
             el('analysis-aircraft-profile').onchange = () => { const profile = selectedProfile(); el('analysis-cruise-speed').value = profile.cruiseSpeedKt; el('analysis-safety-minimum').value = profile.minimumSafetyMargin; renderResults(); };
