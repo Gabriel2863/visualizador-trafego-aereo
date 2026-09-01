@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "title": "Análise operacional",
+  "subtitle": "Comparação de cenários para estudar eficiência, fluidez e margens de segurança.",
+  "notice": "Os resultados desta aba são estimativas didáticas baseadas nos valores informados. Não representam recomendação operacional nem substituem avaliação humana, publicação aeronáutica, NOTAM, meteorologia oficial ou ferramentas certificadas.",
+  "sourceStatus": "MODELO LOCAL",
+  "defaults": {
+    "scenarioName": "Cenário de planejamento",
+    "origin": "",
+    "destination": "",
+    "routeDistanceNm": 180,
+    "cruiseSpeedKt": 430,
+    "windComponentKt": -15,
+    "groundDelayMin": 10,
+    "sectorLoadPercent": 65,
+    "weatherComplexity": 2,
+    "passengerLoadPercent": 82,
+    "safetyMargin": 4,
+    "weights": {
+      "time": 25,
+      "fuel": 25,
+      "safety": 35,
+      "flow": 15
+    }
+  },
+  "alternatives": [
+    {
+      "id": "reference",
+      "label": "Rota de referência",
+      "description": "Referência para comparar alterações de distância, carga e margens.",
+      "distanceFactor": 1,
+      "delayAdjustmentMin": 0,
+      "sectorLoadAdjustment": 0,
+      "safetyAdjustment": 0
+    },
+    {
+      "id": "shorter",
+      "label": "Alternativa de menor distância",
+      "description": "Cenário hipotético com menor distância; exige validação completa de restrições antes do uso.",
+      "distanceFactor": 0.94,
+      "delayAdjustmentMin": 2,
+      "sectorLoadAdjustment": 6,
+      "safetyAdjustment": -5
+    },
+    {
+      "id": "balanced",
+      "label": "Alternativa de maior margem",
+      "description": "Cenário hipotético que privilegia menor carga estimada e margem operacional.",
+      "distanceFactor": 1.06,
+      "delayAdjustmentMin": -3,
+      "sectorLoadAdjustment": -12,
+      "safetyAdjustment": 8
+    }
+  ],
+  "dataSources": [
+    {
+      "label": "Rotas e procedimentos publicados",
+      "description": "SID, STAR, IAC, fixos e restrições já disponíveis no visualizador.",
+      "status": "Disponível na base"
+    },
+    {
+      "label": "Histórico de trajetórias",
+      "description": "Tempo real por fase, desvios, holdings, tempos de táxi e aderência à rota.",
+      "status": "Integração futura"
+    },
+    {
+      "label": "Performance por aeronave",
+      "description": "Perfis de subida, cruzeiro, descida, consumo e limitações por tipo.",
+      "status": "Integração futura"
+    },
+    {
+      "label": "Meteorologia e capacidade",
+      "description": "Vento, convecção, visibilidade, pista, demanda e carga por setor.",
+      "status": "Integração futura"
+    },
+    {
+      "label": "Demanda de passageiros",
+      "description": "Ocupação estimada e impacto de atrasos, conexões e redistribuição de fluxo.",
+      "status": "Integração futura"
+    }
+  ]
+}

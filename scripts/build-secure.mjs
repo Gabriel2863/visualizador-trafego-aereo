@@ -17,7 +17,7 @@ const fail = message => {
 if (DIST !== path.join(ROOT, 'dist')) fail('Destino de build inválido.');
 execFileSync(process.execPath, [path.join(ROOT, 'scripts', 'discover-procedure-indexes.mjs')], { cwd: ROOT, stdio: 'inherit' });
 
-const required = ['index.html', 'map_interface.js', 'styles.css'];
+const required = ['index.html', 'map_interface.js', 'operational_analysis.js', 'styles.css'];
 for (const file of required) {
   if (!fs.existsSync(path.join(ROOT, file))) fail(`Arquivo obrigatório ausente: ${file}`);
 }
@@ -70,7 +70,8 @@ for (const file of [
   'data/tmas/manifest.json',
   'data/tmas/catalog.json',
   'data/tmas/procedures-index.json',
-  'data/studies/manifest.json'
+  'data/studies/manifest.json',
+  'data/operational-analysis/default-scenario.json'
 ]) copyRuntimeFile(file);
 
 const tmaManifest = loadJson('data/tmas/manifest.json');
@@ -107,39 +108,42 @@ if (cssResult.errors?.length) fail(`Falha ao minificar CSS: ${cssResult.errors.j
 if (!cssResult.styles) fail('Minificador não gerou CSS.');
 fs.writeFileSync(path.join(DIST_ASSETS, 'app.min.css'), cssResult.styles, 'utf8');
 
-const jsSource = fs.readFileSync(path.join(ROOT, 'map_interface.js'), 'utf8');
-const minified = await minify(jsSource, {
-  compress: { passes: 2, drop_console: false },
-  mangle: { toplevel: false },
-  format: { comments: false },
-  sourceMap: false
-});
+async function buildRuntimeScript(sourceFile, outputFile) {
+  const source = fs.readFileSync(path.join(ROOT, sourceFile), 'utf8');
+  const minified = await minify(source, {
+    compress: { passes: 2, drop_console: false },
+    mangle: { toplevel: false },
+    format: { comments: false },
+    sourceMap: false
+  });
+  if (!minified.code) fail(`Terser não gerou saída para ${sourceFile}.`);
+  const obfuscated = JavaScriptObfuscator.obfuscate(minified.code, {
+    compact: true,
+    identifierNamesGenerator: 'hexadecimal',
+    renameGlobals: false,
+    controlFlowFlattening: false,
+    deadCodeInjection: false,
+    debugProtection: false,
+    selfDefending: false,
+    stringArray: true,
+    stringArrayEncoding: ['base64'],
+    stringArrayRotate: true,
+    stringArrayShuffle: true,
+    stringArrayThreshold: 0.75,
+    unicodeEscapeSequence: false,
+    sourceMap: false
+  });
+  fs.writeFileSync(path.join(DIST_ASSETS, outputFile), obfuscated.getObfuscatedCode(), 'utf8');
+}
 
-if (!minified.code) fail('Terser não gerou saída JavaScript.');
-
-const obfuscated = JavaScriptObfuscator.obfuscate(minified.code, {
-  compact: true,
-  identifierNamesGenerator: 'hexadecimal',
-  renameGlobals: false,
-  controlFlowFlattening: false,
-  deadCodeInjection: false,
-  debugProtection: false,
-  selfDefending: false,
-  stringArray: true,
-  stringArrayEncoding: ['base64'],
-  stringArrayRotate: true,
-  stringArrayShuffle: true,
-  stringArrayThreshold: 0.75,
-  unicodeEscapeSequence: false,
-  sourceMap: false
-});
-
-fs.writeFileSync(path.join(DIST_ASSETS, 'app.min.js'), obfuscated.getObfuscatedCode(), 'utf8');
+await buildRuntimeScript('map_interface.js', 'app.min.js');
+await buildRuntimeScript('operational_analysis.js', 'operational-analysis.min.js');
 
 let html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 html = html
   .replace(/href=["']styles\.css["']/g, 'href="assets/app.min.css"')
-  .replace(/src=["']map_interface\.js["']/g, 'src="assets/app.min.js"');
+  .replace(/src=["']map_interface\.js["']/g, 'src="assets/app.min.js"')
+  .replace(/src=["']operational_analysis\.js["']/g, 'src="assets/operational-analysis.min.js"');
 
 if (!/name=["']referrer["']/i.test(html)) {
   html = html.replace(/<head>/i, '<head>\n    <meta name="referrer" content="strict-origin-when-cross-origin">');
@@ -159,7 +163,7 @@ function collectFiles(directory) {
 collectFiles(DIST);
 
 if (publishedFiles.some(file => file.endsWith('.map'))) fail('Source map encontrada no artefato.');
-if (publishedFiles.some(file => ['map_interface.js', 'styles.css', 'package.json'].includes(file) || file.startsWith('scripts/') || file.startsWith('.github/'))) fail('Arquivo-fonte encontrado no artefato.');
+if (publishedFiles.some(file => ['map_interface.js', 'operational_analysis.js', 'styles.css', 'package.json'].includes(file) || file.startsWith('scripts/') || file.startsWith('.github/'))) fail('Arquivo-fonte encontrado no artefato.');
 
 console.log(`[build-secure] Build concluído: ${publishedFiles.length} arquivos em dist/`);
 console.log('[build-secure] Source maps: desativados');

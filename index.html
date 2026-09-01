@@ -151,6 +151,11 @@
         <span>Estudos</span>
     </button>
 
+    <button id="operational-analysis-fab" class="operational-analysis-fab" type="button" aria-haspopup="dialog" aria-controls="operational-analysis-drawer" aria-expanded="false">
+        <span class="operational-analysis-fab-icon" aria-hidden="true">◈</span>
+        <span>Análise</span>
+    </button>
+
     <div id="study-drawer-backdrop" class="study-drawer-backdrop" hidden></div>
     <aside id="study-drawer" class="study-drawer" role="dialog" aria-modal="true" aria-labelledby="study-drawer-title" aria-hidden="true" inert>
         <header class="study-drawer-header">
@@ -186,6 +191,74 @@
         </footer>
     </aside>
 
+    <div id="operational-analysis-backdrop" class="operational-analysis-backdrop" hidden></div>
+    <aside id="operational-analysis-drawer" class="operational-analysis-drawer" role="dialog" aria-modal="true" aria-labelledby="operational-analysis-title" aria-hidden="true" inert>
+        <header class="operational-analysis-header">
+            <div>
+                <span class="operational-analysis-eyebrow">LABORATÓRIO DE CENÁRIOS</span>
+                <h2 id="operational-analysis-title">Análise operacional</h2>
+                <p id="operational-analysis-subtitle">Simule cenários antes de comparar rotas.</p>
+            </div>
+            <button id="operational-analysis-close" class="operational-analysis-close" type="button" aria-label="Fechar análise operacional">×</button>
+        </header>
+
+        <div class="operational-analysis-body">
+            <p id="operational-analysis-notice" class="operational-analysis-notice" role="note"></p>
+
+            <section class="operational-analysis-section">
+                <div class="operational-analysis-section-heading">
+                    <div>
+                        <span>01</span>
+                        <h3>Cenário de planejamento</h3>
+                    </div>
+                    <strong id="operational-analysis-source-status" class="analysis-source-status">MODELO LOCAL</strong>
+                </div>
+                <div class="operational-analysis-grid operational-analysis-grid-wide">
+                    <label>Identificação do cenário<input id="analysis-scenario-name" type="text" maxlength="80" autocomplete="off" /></label>
+                    <label>Origem<input id="analysis-origin" type="text" maxlength="12" placeholder="Ex.: SBGR" autocomplete="off" /></label>
+                    <label>Destino<input id="analysis-destination" type="text" maxlength="12" placeholder="Ex.: SBBR" autocomplete="off" /></label>
+                </div>
+            </section>
+
+            <section class="operational-analysis-section">
+                <div class="operational-analysis-section-heading"><div><span>02</span><h3>Variáveis avaliadas</h3></div><p>Valores manuais para teste</p></div>
+                <div class="operational-analysis-grid">
+                    <label>Distância de rota <small>NM</small><input id="analysis-route-distance" type="number" min="1" max="5000" step="1" inputmode="decimal" /></label>
+                    <label>Velocidade de cruzeiro <small>kt</small><input id="analysis-cruise-speed" type="number" min="90" max="700" step="1" inputmode="decimal" /></label>
+                    <label>Componente de vento <small>kt</small><input id="analysis-wind-component" type="number" min="-150" max="150" step="1" inputmode="decimal" /></label>
+                    <label>Atraso em solo <small>min</small><input id="analysis-ground-delay" type="number" min="0" max="360" step="1" inputmode="decimal" /></label>
+                    <label>Carga do setor <small>%</small><input id="analysis-sector-load" type="number" min="0" max="100" step="1" inputmode="decimal" /></label>
+                    <label>Complexidade meteorológica <small>0–5</small><input id="analysis-weather-complexity" type="number" min="0" max="5" step="1" inputmode="numeric" /></label>
+                    <label>Ocupação estimada <small>%</small><input id="analysis-passenger-load" type="number" min="0" max="100" step="1" inputmode="decimal" /></label>
+                    <label>Margem operacional <small>1–5</small><input id="analysis-safety-margin" type="number" min="1" max="5" step="1" inputmode="numeric" /></label>
+                </div>
+            </section>
+
+            <section class="operational-analysis-section">
+                <div class="operational-analysis-section-heading"><div><span>03</span><h3>Critério de comparação</h3></div><p>Defina a prioridade do cenário</p></div>
+                <div class="analysis-weight-grid">
+                    <label>Tempo <input id="analysis-weight-time" type="range" min="0" max="100" step="5" /><output for="analysis-weight-time"></output></label>
+                    <label>Consumo relativo <input id="analysis-weight-fuel" type="range" min="0" max="100" step="5" /><output for="analysis-weight-fuel"></output></label>
+                    <label>Segurança <input id="analysis-weight-safety" type="range" min="0" max="100" step="5" /><output for="analysis-weight-safety"></output></label>
+                    <label>Fluidez do setor <input id="analysis-weight-flow" type="range" min="0" max="100" step="5" /><output for="analysis-weight-flow"></output></label>
+                </div>
+            </section>
+
+            <section class="operational-analysis-section operational-analysis-results" aria-live="polite">
+                <div class="operational-analysis-section-heading"><div><span>04</span><h3>Comparação explicável</h3></div><button id="operational-analysis-reset" class="analysis-reset" type="button">Restaurar cenário</button></div>
+                <div id="operational-analysis-kpis" class="analysis-kpi-grid"></div>
+                <div id="operational-analysis-recommendation" class="analysis-recommendation"></div>
+                <div id="operational-analysis-routes" class="analysis-route-list"></div>
+            </section>
+
+            <section class="operational-analysis-section analysis-data-roadmap">
+                <div class="operational-analysis-section-heading"><div><span>05</span><h3>Dados para evoluir o modelo</h3></div></div>
+                <div id="operational-analysis-data-sources" class="analysis-data-source-list"></div>
+            </section>
+        </div>
+        <footer class="operational-analysis-footer">Ferramenta de estudo e planejamento. Não substitui decisões ATS, publicações vigentes ou avaliações de segurança.</footer>
+    </aside>
+
     <div id="cafe-easter-egg" class="cafe-easter-egg" role="status" aria-label="Café dos Crias" hidden>
         <img src="assets/cafe-dos-crias.jpg" alt="Emblema Café dos Crias desenvolvimentos" />
     </div>
@@ -193,5 +266,6 @@
     <!-- Bibliotecas e Scripts da Aplicação -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="map_interface.js"></script>
+    <script src="operational_analysis.js"></script>
 </body>
 </html>
