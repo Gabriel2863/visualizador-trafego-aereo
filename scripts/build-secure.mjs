@@ -71,7 +71,8 @@ for (const file of [
   'data/tmas/catalog.json',
   'data/tmas/procedures-index.json',
   'data/studies/manifest.json',
-  'data/operational-analysis/default-scenario.json'
+  'data/operational-analysis/default-scenario.json',
+  'data/operational-analysis/aircraft-profiles.json'
 ]) copyRuntimeFile(file);
 
 const tmaManifest = loadJson('data/tmas/manifest.json');

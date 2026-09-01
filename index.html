@@ -218,6 +218,18 @@
                     <label>Origem<input id="analysis-origin" type="text" maxlength="12" placeholder="Ex.: SBGR" autocomplete="off" /></label>
                     <label>Destino<input id="analysis-destination" type="text" maxlength="12" placeholder="Ex.: SBBR" autocomplete="off" /></label>
                 </div>
+                <div class="analysis-route-context">
+                    <div class="analysis-subheading"><span>Rota publicada opcional</span><p>Carregada sob demanda a partir da base IFR existente.</p></div>
+                    <div class="operational-analysis-grid analysis-route-grid">
+                        <label>TMA<select id="analysis-tma" aria-label="TMA para análise"><option value="">Selecione uma TMA</option></select></label>
+                        <label>Aeródromo<select id="analysis-airport" aria-label="Aeródromo para análise" disabled><option value="">Selecione uma TMA</option></select></label>
+                        <label>Tipo<select id="analysis-procedure-type" aria-label="Tipo de procedimento para análise" disabled><option value="">Selecione um aeródromo</option></select></label>
+                        <label>Procedimento<select id="analysis-procedure" aria-label="Procedimento para análise" disabled><option value="">Selecione um tipo</option></select></label>
+                        <label>Transição<select id="analysis-transition" aria-label="Transição do procedimento" disabled><option value="">Selecione um procedimento</option></select></label>
+                        <label>Perfil de aeronave<select id="analysis-aircraft-profile" aria-label="Perfil de performance"><option value="">Carregando perfis…</option></select></label>
+                    </div>
+                    <div id="analysis-procedure-context" class="analysis-procedure-context" role="status">Nenhuma rota publicada selecionada. A distância permanece manual.</div>
+                </div>
             </section>
 
             <section class="operational-analysis-section">
@@ -231,28 +243,60 @@
                     <label>Complexidade meteorológica <small>0–5</small><input id="analysis-weather-complexity" type="number" min="0" max="5" step="1" inputmode="numeric" /></label>
                     <label>Ocupação estimada <small>%</small><input id="analysis-passenger-load" type="number" min="0" max="100" step="1" inputmode="decimal" /></label>
                     <label>Margem operacional <small>1–5</small><input id="analysis-safety-margin" type="number" min="1" max="5" step="1" inputmode="numeric" /></label>
+                    <label>Limite de carga do setor <small>%</small><input id="analysis-sector-capacity-limit" type="number" min="1" max="100" step="1" inputmode="decimal" /></label>
+                    <label>Margem mínima exigida <small>/100</small><input id="analysis-safety-minimum" type="number" min="1" max="100" step="1" inputmode="decimal" /></label>
+                    <label>Impacto em conexões <small>0–5</small><input id="analysis-connection-risk" type="number" min="0" max="5" step="1" inputmode="numeric" /></label>
+                </div>
+                <div class="analysis-safety-inputs">
+                    <label><input id="analysis-publication-verified" type="checkbox" /> Confirmo que a publicação e a vigência da rota selecionada foram verificadas.</label>
+                    <label><input id="analysis-weather-prohibited" type="checkbox" /> Marcar cenário indisponível por condição meteorológica ou restrição operacional.</label>
                 </div>
             </section>
 
+            <section class="operational-analysis-section analysis-history-section">
+                <div class="operational-analysis-section-heading"><div><span>03</span><h3>Histórico e validação</h3></div><p>Importação local, sem tráfego em tempo real</p></div>
+                <div class="analysis-history-controls">
+                    <label class="analysis-file-label">Arquivo CSV de histórico<input id="analysis-history-file" type="file" accept=".csv,text/csv" /></label>
+                    <button id="analysis-history-template" class="analysis-reset" type="button">Baixar modelo CSV</button>
+                    <button id="analysis-history-clear" class="analysis-reset" type="button" disabled>Limpar histórico</button>
+                </div>
+                <p id="analysis-history-status" class="analysis-history-status">Nenhum histórico carregado. O cenário usa somente as variáveis informadas.</p>
+                <div id="analysis-history-validation" class="analysis-history-validation"></div>
+            </section>
+
             <section class="operational-analysis-section">
-                <div class="operational-analysis-section-heading"><div><span>03</span><h3>Critério de comparação</h3></div><p>Defina a prioridade do cenário</p></div>
+                <div class="operational-analysis-section-heading"><div><span>04</span><h3>Critério de comparação</h3></div><p>Defina a prioridade do cenário</p></div>
                 <div class="analysis-weight-grid">
                     <label>Tempo <input id="analysis-weight-time" type="range" min="0" max="100" step="5" /><output for="analysis-weight-time"></output></label>
                     <label>Consumo relativo <input id="analysis-weight-fuel" type="range" min="0" max="100" step="5" /><output for="analysis-weight-fuel"></output></label>
                     <label>Segurança <input id="analysis-weight-safety" type="range" min="0" max="100" step="5" /><output for="analysis-weight-safety"></output></label>
                     <label>Fluidez do setor <input id="analysis-weight-flow" type="range" min="0" max="100" step="5" /><output for="analysis-weight-flow"></output></label>
+                    <label>Passageiros <input id="analysis-weight-passenger" type="range" min="0" max="100" step="5" /><output for="analysis-weight-passenger"></output></label>
                 </div>
             </section>
 
             <section class="operational-analysis-section operational-analysis-results" aria-live="polite">
-                <div class="operational-analysis-section-heading"><div><span>04</span><h3>Comparação explicável</h3></div><button id="operational-analysis-reset" class="analysis-reset" type="button">Restaurar cenário</button></div>
+                <div class="operational-analysis-section-heading"><div><span>05</span><h3>Comparação explicável</h3></div><button id="operational-analysis-reset" class="analysis-reset" type="button">Restaurar cenário</button></div>
+                <div id="operational-analysis-confidence" class="analysis-confidence"></div>
+                <div id="operational-analysis-safety-gates" class="analysis-safety-gates"></div>
                 <div id="operational-analysis-kpis" class="analysis-kpi-grid"></div>
                 <div id="operational-analysis-recommendation" class="analysis-recommendation"></div>
                 <div id="operational-analysis-routes" class="analysis-route-list"></div>
             </section>
 
+            <section class="operational-analysis-section analysis-scenarios-section">
+                <div class="operational-analysis-section-heading"><div><span>06</span><h3>Cenários salvos</h3></div><button id="analysis-save-scenario" class="analysis-reset" type="button">Salvar cenário</button></div>
+                <p class="analysis-scenario-note">Os cenários ficam somente neste navegador. Eles preservam premissas e resultados para comparação, mas não são registros operacionais.</p>
+                <div id="analysis-saved-scenarios" class="analysis-saved-scenarios"></div>
+                <div class="analysis-compare-controls">
+                    <label>Comparar<select id="analysis-compare-left" aria-label="Primeiro cenário para comparação"></select></label>
+                    <label>com<select id="analysis-compare-right" aria-label="Segundo cenário para comparação"></select></label>
+                </div>
+                <div id="analysis-scenario-comparison" class="analysis-scenario-comparison"></div>
+            </section>
+
             <section class="operational-analysis-section analysis-data-roadmap">
-                <div class="operational-analysis-section-heading"><div><span>05</span><h3>Dados para evoluir o modelo</h3></div></div>
+                <div class="operational-analysis-section-heading"><div><span>07</span><h3>Dados para evoluir o modelo</h3></div></div>
                 <div id="operational-analysis-data-sources" class="analysis-data-source-list"></div>
             </section>
         </div>
